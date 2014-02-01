@@ -154,13 +154,4 @@ public class Transacao {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-//	public Pessoa[] getPessoa() {
-//		return pessoa;
-//	}
-//
-//	public void setPessoa(Pessoa[] pessoa) {
-//		this.pessoa = pessoa;
-//	}
-
 }

@@ -10,8 +10,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.Pessoa;
+import br.ufba.mata62.eleicoestransparentes.persistance.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.Partido;
 import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.persistance.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
 
 public class ParserPrestacaoContasCandidatoDespesa {
@@ -85,16 +87,34 @@ public class ParserPrestacaoContasCandidatoDespesa {
 		trans.setClassificacao(pccd.getTipoDespesa());
 		trans.setDescricao(pccd.getDescricaoDespesa());
 		trans.setCreditado(createFornecedor(pccd));
-		//trans.setDebitado();TODO Objeto Pessoa
+		trans.setDebitado(createCandidato(pccd));
 		trans.setTipo(Transacao.DESPESA);
 		trans.setUF(pccd.getUF());
 		trans.setMunicipio(pccd.getMunicipio());
 		return trans;
 	}
 
-	private static Pessoa createFornecedor(PrestContasCandidatoDespesa pccd) {
+	private static Candidato createCandidato(PrestContasCandidatoDespesa pccd) {
+		Candidato cand = new Candidato();
+		cand.setNumero(pccd.getNumerocandidato());
+		cand.setCargo(pccd.getCargo());
+		cand.setUF(pccd.getUF());
+		cand.setMunicipio(pccd.getMunicipio());
+		Partido partido = new Partido();
+		partido.setSigla(pccd.getSiglaPartido());
+		cand.setPartido(partido);
+		return cand; 
+	}
+
+	private static PessoaJuridica createFornecedor(PrestContasCandidatoDespesa pccd) {
 		PessoaJuridica pj = new PessoaJuridica();
-		return null;
+		pj.setCnpj(pccd.getCPFCNPJFornecedor());
+		pj.setNome(pccd.getNomeFornecedor());
+		SetorEconomico se = new SetorEconomico();
+		se.setNome(pccd.getSetorEconomicoFornecedor());
+		se.setCodSetorEco(pccd.getCodSetorEconomicoFornecedor());
+		pj.setSetorEconomico(se);
+		return pj;
 	}
 
 	private static Date formatDate(String dateStr) {
