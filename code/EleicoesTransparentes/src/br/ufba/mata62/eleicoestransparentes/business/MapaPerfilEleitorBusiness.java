@@ -1,7 +1,7 @@
 package br.ufba.mata62.eleicoestransparentes.business;
 
-import persistance.persistance.Eleicao;
-import persistance.persistance.Pessoa;
+import br.ufba.mata62.eleicoestransparentes.persistance.Eleicao;
+import br.ufba.mata62.eleicoestransparentes.persistance.Pessoa;
 
 public class MapaPerfilEleitorBusiness {
 

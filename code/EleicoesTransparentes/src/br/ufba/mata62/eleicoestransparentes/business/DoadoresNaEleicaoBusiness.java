@@ -1,9 +1,10 @@
 package br.ufba.mata62.eleicoestransparentes.business;
 
 import java.util.ArrayList;
-import persistance.persistance.Partido;
-import persistance.persistance.Eleicao;
-import persistance.persistance.Candidato;
+
+import br.ufba.mata62.eleicoestransparentes.persistance.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.Eleicao;
+import br.ufba.mata62.eleicoestransparentes.persistance.Partido;
 
 public class DoadoresNaEleicaoBusiness {
 

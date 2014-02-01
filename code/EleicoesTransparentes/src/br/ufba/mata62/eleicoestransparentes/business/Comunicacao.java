@@ -2,6 +2,16 @@ package br.ufba.mata62.eleicoestransparentes.business;
 
 import java.util.ArrayList;
 
+import br.ufba.mata62.eleicoestransparentes.persistance.Bem;
+import br.ufba.mata62.eleicoestransparentes.persistance.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.Comite;
+import br.ufba.mata62.eleicoestransparentes.persistance.Eleicao;
+import br.ufba.mata62.eleicoestransparentes.persistance.Partido;
+import br.ufba.mata62.eleicoestransparentes.persistance.Pessoa;
+import br.ufba.mata62.eleicoestransparentes.persistance.PessoaFisica;
+import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
+
 public class Comunicacao {
 
 	public void consultaTransacao(ArrayList filtros) {
@@ -88,15 +98,15 @@ public class Comunicacao {
 		return null;
 	}
 
-	public PessoaFisica atualizaPessoa(String query) {
+	public PessoaFisica atualizaPessoaFisica(String query) {
 		return null;
 	}
 
-	public Candidato atualizaPessoa(String query) {
+	public Candidato atualizaCandidato(String query) {
 		return null;
 	}
 
-	public PessoaJuridica atualizaPessoa(String query) {
+	public PessoaJuridica atualizaPessoaJuridica(String query) {
 		return null;
 	}
 

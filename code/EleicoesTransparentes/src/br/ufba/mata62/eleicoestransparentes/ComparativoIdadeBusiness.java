@@ -1,6 +1,6 @@
-package persistance.UI.business;
+package br.ufba.mata62.eleicoestransparentes;
 
-import persistance.persistance.Eleicao;
+import br.ufba.mata62.eleicoestransparentes.persistance.Eleicao;
 
 public class ComparativoIdadeBusiness {
 

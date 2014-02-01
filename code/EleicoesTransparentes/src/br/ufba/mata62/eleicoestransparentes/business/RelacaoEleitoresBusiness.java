@@ -1,7 +1,8 @@
 package br.ufba.mata62.eleicoestransparentes.business;
 
 import java.util.ArrayList;
-import persistance.persistance.PessoaFisica;
+
+import br.ufba.mata62.eleicoestransparentes.persistance.PessoaFisica;
 
 public class RelacaoEleitoresBusiness {
 
