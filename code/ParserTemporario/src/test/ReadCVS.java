@@ -2,6 +2,8 @@ package test;
 
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
+
 public class ReadCVS {
 
 	public static void main(String[] args) {

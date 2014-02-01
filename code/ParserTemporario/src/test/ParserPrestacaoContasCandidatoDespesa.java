@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import pers.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.persistance.Pessoa;
+import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
 
 public class ParserPrestacaoContasCandidatoDespesa {
 	
@@ -92,7 +94,6 @@ public class ParserPrestacaoContasCandidatoDespesa {
 
 	private static Pessoa createFornecedor(PrestContasCandidatoDespesa pccd) {
 		PessoaJuridica pj = new PessoaJuridica();
-		pj.set
 		return null;
 	}
 

@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
+
 public class ParserPrestacaoContasCandidatoReceita {
 	
 	public static List<PrestContasCandidatoReceita> parsing(String path){
