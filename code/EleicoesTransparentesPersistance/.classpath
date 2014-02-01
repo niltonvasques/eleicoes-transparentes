@@ -5,7 +5,7 @@
 	<classpathentry kind="lib" path="lib/ormlite-jdbc-4.48-sources.jar"/>
 	<classpathentry kind="lib" path="lib/ormlite-jdbc-4.48.jar" sourcepath="lib/ormlite-jdbc-4.48-sources.jar"/>
 	<classpathentry kind="lib" path="lib/ormlite-core-4.48-sources.jar"/>
-	<classpathentry kind="lib" path="lib/ormlite-core-4.48.jar"/>
+	<classpathentry kind="lib" path="lib/ormlite-core-4.48.jar" sourcepath="lib/ormlite-core-4.48-sources.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.28-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

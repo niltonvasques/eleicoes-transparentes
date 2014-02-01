@@ -18,7 +18,7 @@ public class Comite {
 	@DatabaseField
 	private String tipo;
 	
-	@DatabaseField
+	@DatabaseField(foreign = true)
 	private Partido partido;
 
 	public String getUF() {

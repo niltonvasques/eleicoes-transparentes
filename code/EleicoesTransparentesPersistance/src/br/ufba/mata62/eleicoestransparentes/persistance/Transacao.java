@@ -2,43 +2,62 @@ package br.ufba.mata62.eleicoestransparentes.persistance;
 
 import java.util.Date;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+@DatabaseTable(tableName = "Transacao")
 public class Transacao {
 	
 	public static final char RECEITA = 'R';
 	public static final char DESPESA = 'D';
+	
+	@DatabaseField(generatedId = true)
+	private int id;
 
+	@DatabaseField
 	private String tipoDocumento;
 
+	@DatabaseField
 	private String numeroDocumento;
 
+	@DatabaseField
 	private Date data;
 
+	@DatabaseField
 	private float valor;
 
 	/**
 	 * Classificação da transação, referente ao setor da transação.
 	 */
+	@DatabaseField
 	private String classificacao;
 
+	@DatabaseField
 	private String descricao;
 
 	/**
 	 * Pode ser Candidato, Partido ou Comite, apenas
 	 */
+	@DatabaseField(foreign = true)
 	private Pessoa creditado;
 
+	@DatabaseField(foreign = true)
 	private Pessoa debitado;
 
 	/**
 	 * R = RECEITA, D = DESPESA
 	 */
+	@DatabaseField
 	private char tipo;
 
+	@DatabaseField
 	private String UF;
 
+	@DatabaseField
 	private String municipio;
 
-	private Pessoa[] pessoa;
+//	@DatabaseField
+//	private Pessoa[] pessoa;
 
 	public String getTipoDocumento() {
 		return tipoDocumento;
@@ -128,14 +147,20 @@ public class Transacao {
 		this.municipio = municipio;
 	}
 
-	public Pessoa[] getPessoa() {
-		return pessoa;
+	public int getId() {
+		return id;
 	}
 
-	public void setPessoa(Pessoa[] pessoa) {
-		this.pessoa = pessoa;
+	public void setId(int id) {
+		this.id = id;
 	}
-	
-	
+
+//	public Pessoa[] getPessoa() {
+//		return pessoa;
+//	}
+//
+//	public void setPessoa(Pessoa[] pessoa) {
+//		this.pessoa = pessoa;
+//	}
 
 }

@@ -1,16 +1,25 @@
 package br.ufba.mata62.eleicoestransparentes.persistance;
 
-public class Pessoa {
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
+@DatabaseTable(tableName = "Pessoa")
+public class Pessoa {
+	
+	@DatabaseField(generatedId = true)
+	private int id;
+
+	@DatabaseField
 	private String siglaUE;
 
+	@DatabaseField
 	private String nome;
 
+	@DatabaseField(foreign = true)
 	private SetorEconomico setorEconomico;
 
-	private Bem bens;
-
-	private Bem[] bem;
+//TODO: Rever relação entre pessoa e bem
+//	private Bem[] bem;
 
 	public String getSiglaUE() {
 		return siglaUE;
@@ -36,21 +45,16 @@ public class Pessoa {
 		this.setorEconomico = setorEconomico;
 	}
 
-	public Bem getBens() {
-		return bens;
+	public int getId() {
+		return id;
 	}
 
-	public void setBens(Bem bens) {
-		this.bens = bens;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public Bem[] getBem() {
-		return bem;
-	}
-
-	public void setBem(Bem[] bem) {
-		this.bem = bem;
-	}
+	
+	
 	
 	
 
