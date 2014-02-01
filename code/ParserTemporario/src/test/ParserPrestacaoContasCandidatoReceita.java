@@ -10,6 +10,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.persistance.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.Partido;
+import br.ufba.mata62.eleicoestransparentes.persistance.Pessoa;
+import br.ufba.mata62.eleicoestransparentes.persistance.PessoaFisica;
+import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.persistance.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
 
 public class ParserPrestacaoContasCandidatoReceita {
@@ -27,6 +33,7 @@ public class ParserPrestacaoContasCandidatoReceita {
 				while ((line = br.readLine()) != null) {
 					line = line.replace("\"\"", " ");
 					line = line.replace("\"", " ");
+					line = line.replace("#NULO#", " ");
 					String data[] = line.split(cvsSplitBy);
 						pccList.add(populate(data));
 				}
@@ -60,7 +67,7 @@ public class ParserPrestacaoContasCandidatoReceita {
 		pcr.setCPFCandidato(data[9]);
 		pcr.setNumeroReciboEleitoral(data[10]);
 		pcr.setNumeroDocumento(data[11]);
-		pcr.setCPFCNPJDoador(data[12]);
+		pcr.setCPFCNPJDoador(data[12].trim());
 		pcr.setNomeDoador(data[13]);
 		pcr.setNomeReceitaDoador(data[14]);
 		pcr.setSiglaUEDoador(data[15]);
@@ -77,23 +84,65 @@ public class ParserPrestacaoContasCandidatoReceita {
 		return pcr;
 	}
 	
-	public static Transacao populate(PrestContasCandidatoReceita pccd){
+	public static Transacao populate(PrestContasCandidatoReceita pccr){
 		Transacao trans = new Transacao();
-		trans.setNumeroDocumento(pccd.getNumeroDocumento());
-		Date data = formatDate(pccd.getDataHora());
+		trans.setNumeroDocumento(pccr.getNumeroDocumento());
+		Date data = formatDate(pccr.getDataHora());
 		if(data!=null)
 			trans.setData(data);
-		trans.setValor(Float.parseFloat(pccd.getValorReceita().replace(",", ".")));
-		trans.setClassificacao(pccd.getTipoReceita());
-		trans.setDescricao(pccd.getDescricaoReceita());
-		//trans.setCreditado();TODO Objeto Pessoa
-		//trans.setDebitado();TODO Objeto Pessoa
+		trans.setValor(Float.parseFloat(pccr.getValorReceita().replace(",", ".")));
+		trans.setClassificacao(pccr.getTipoReceita());
+		trans.setDescricao(pccr.getDescricaoReceita());
+		trans.setCreditado(createCandidato(pccr));
+		trans.setDebitado(createDoador(pccr));
 		trans.setTipo(Transacao.RECEITA);
-		trans.setUF(pccd.getUF());
-		trans.setMunicipio(pccd.getMunicipio());
+		trans.setUF(pccr.getUF());
+		trans.setMunicipio(pccr.getMunicipio());
 		return trans;
 	}
+	
+	private static Candidato createCandidato(PrestContasCandidatoReceita pccr) {
+		Candidato cand = new Candidato();
+		cand.setNumero(pccr.getNumeroCandidato());
+		cand.setCargo(pccr.getCargo());
+		cand.setUF(pccr.getUF());
+		cand.setMunicipio(pccr.getMunicipio());
+		Partido partido = new Partido();
+		partido.setSigla(pccr.getSiglaPartido());
+		cand.setPartido(partido);
+		return cand; 
+	}
 
+	private static Pessoa createDoador(PrestContasCandidatoReceita pccr) {
+		Pessoa pessoa = null;
+		
+		if(ValidatorCPFCNPJ.isValidCPF(pccr.getCPFCNPJDoador())){
+			pessoa = new PessoaFisica();
+			((PessoaFisica)pessoa).setCpf(pccr.getCPFCNPJDoador());
+			String np = pccr.getNumeroPartidoDoador().trim();
+			if(!np.isEmpty()){
+				Partido filiacao = new Partido();
+				filiacao.setNumero(Integer.parseInt(np));
+				filiacao.setNome(pccr.getNumeroCandidatoDoador());
+				((PessoaFisica)pessoa).setFiliacao(filiacao);
+			}
+		}else{
+			if(ValidatorCPFCNPJ.isValidCNPJ(pccr.getCPFCNPJDoador())){
+				pessoa = new PessoaJuridica();
+				((PessoaJuridica)pessoa).setCnpj(pccr.getCPFCNPJDoador());
+			}
+		}		
+		
+		if(pessoa != null){
+			pessoa.setNome(pccr.getNomeDoador());
+			pessoa.setSiglaUE(pccr.getSiglaUEDoador());
+			SetorEconomico se = new SetorEconomico();
+			se.setCodSetorEco(pccr.getCodSetorEconomicoDoador());
+			se.setNome(pccr.getSetorEconomicoDoador());
+			pessoa.setSetorEconomico(se);
+		}
+		return pessoa;
+	}
 	private static Date formatDate(String dateStr) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyyhh:mm");
 		try {

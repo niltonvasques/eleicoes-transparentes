@@ -135,7 +135,4 @@ public class Transacao {
 	public void setPessoa(Pessoa[] pessoa) {
 		this.pessoa = pessoa;
 	}
-	
-	
-
 }
