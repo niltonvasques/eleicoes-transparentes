@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.persistance.Pessoa;
+import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
+
 public class ParserPrestacaoContasCandidatoDespesa {
 	
 	public static List<PrestContasCandidatoDespesa> parsing(String path){
@@ -78,14 +82,19 @@ public class ParserPrestacaoContasCandidatoDespesa {
 		if(data!=null)
 			trans.setData(data);
 		trans.setValor(Float.parseFloat(pccd.getValorDespesa().replace(",", ".")));
-		//trans.setClassificacao(pccd.getC);TODO Ver o que é isso
+		trans.setClassificacao(pccd.getTipoDespesa());
 		trans.setDescricao(pccd.getDescricaoDespesa());
-		//trans.setCreditado();TODO Objeto Pessoa
+		trans.setCreditado(createFornecedor(pccd));
 		//trans.setDebitado();TODO Objeto Pessoa
 		trans.setTipo(Transacao.DESPESA);
 		trans.setUF(pccd.getUF());
 		trans.setMunicipio(pccd.getMunicipio());
 		return trans;
+	}
+
+	private static Pessoa createFornecedor(PrestContasCandidatoDespesa pccd) {
+		PessoaJuridica pj = new PessoaJuridica();
+		return null;
 	}
 
 	private static Date formatDate(String dateStr) {
