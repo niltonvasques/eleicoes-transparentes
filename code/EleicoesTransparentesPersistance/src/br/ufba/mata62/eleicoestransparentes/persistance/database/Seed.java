@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes;
+package br.ufba.mata62.eleicoestransparentes.persistance.database;
 
 import java.sql.SQLException;
 
@@ -10,11 +10,9 @@ import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+public class Seed {
 
-public class Main {
-	
-	public static void main(String[] args) {
-		
+	public static void createTables(){
 		// This will load the MySQL driver, each DB has its own driver
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -24,7 +22,7 @@ public class Main {
 			// create a connection source to our database
 			ConnectionSource connectionSource = new JdbcConnectionSource(databaseUrl);		
 			
-			Dao<Bem, String> accountDao = DaoManager.createDao(connectionSource, Bem.class);
+//			Dao<Bem, String> accountDao = DaoManager.createDao(connectionSource, Bem.class);
 			
 			// if you need to create the 'Bem' table make this call
 	        TableUtils.createTable(connectionSource, Bem.class);
@@ -36,6 +34,5 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 }

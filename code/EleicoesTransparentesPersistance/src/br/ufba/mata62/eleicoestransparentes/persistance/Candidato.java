@@ -1,10 +1,12 @@
 package br.ufba.mata62.eleicoestransparentes.persistance;
 
+import java.util.List;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "Candidato")
-public class Candidato {
+public class Candidato extends PessoaFisica{
 
 	@DatabaseField(canBeNull = false)
 	private String numero;
@@ -20,6 +22,10 @@ public class Candidato {
 
 	@DatabaseField
 	private Partido partido;
+	
+	//TODO: Rever como irá fazer com a relação entre candidatos e eleição
+//	@DatabaseField
+//	private List<Eleicao> eleicoes;
 
 	public String getNumero() {
 		return numero;
@@ -60,5 +66,7 @@ public class Candidato {
 	public void setPartido(Partido partido) {
 		this.partido = partido;
 	}
+	
+	
 
 }
