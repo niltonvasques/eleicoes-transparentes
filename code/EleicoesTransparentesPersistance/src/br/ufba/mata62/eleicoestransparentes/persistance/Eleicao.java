@@ -9,16 +9,20 @@ public class Eleicao {
 	 */
 	private int tipo;
 
-	public int verificarEleicao() {
-		return 0;
+	public String getAno() {
+		return ano;
 	}
 
-	public void realizarComparativo() {
-
+	public void setAno(String ano) {
+		this.ano = ano;
 	}
 
-	public void realizarComparativoSexo() {
+	public int getTipo() {
+		return tipo;
+	}
 
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
 	}
 
 }

@@ -6,4 +6,21 @@ public class SetorEconomico {
 
 	private String nome;
 
+	public String getCodSetorEco() {
+		return codSetorEco;
+	}
+
+	public void setCodSetorEco(String codSetorEco) {
+		this.codSetorEco = codSetorEco;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	
 }
