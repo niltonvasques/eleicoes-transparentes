@@ -14,20 +14,54 @@ public class PessoaFisica extends Pessoa {
 
 	private char sexo;
 
-	public boolean verificarEleitor() {
-		return false;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public String verificaSexo() {
-		return null;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
-	public void consultarRelacaoEleitoresPorFiliados() {
-
+	public String getNacionalidade() {
+		return nacionalidade;
 	}
 
-	public void consultarDados() {
-
+	public void setNacionalidade(String nacionalidade) {
+		this.nacionalidade = nacionalidade;
 	}
+
+	public String getLocalNascimento() {
+		return localNascimento;
+	}
+
+	public void setLocalNascimento(String localNascimento) {
+		this.localNascimento = localNascimento;
+	}
+
+	public boolean isAlfabetizado() {
+		return alfabetizado;
+	}
+
+	public void setAlfabetizado(boolean alfabetizado) {
+		this.alfabetizado = alfabetizado;
+	}
+
+	public Partido getFiliacao() {
+		return filiacao;
+	}
+
+	public void setFiliacao(Partido filiacao) {
+		this.filiacao = filiacao;
+	}
+
+	public char getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(char sexo) {
+		this.sexo = sexo;
+	}
+
+
 
 }

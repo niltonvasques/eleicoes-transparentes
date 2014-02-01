@@ -6,8 +6,22 @@ public class Partido extends PessoaJuridica {
 
 	private int numero;
 
-	public void realizarComparativo() {
-
+	public String getSigla() {
+		return sigla;
 	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+
 
 }
