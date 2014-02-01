@@ -1,9 +1,10 @@
 package br.ufba.mata62.eleicoestransparentes.business;
 
 import java.util.ArrayList;
-import persistance.persistance.Pessoa;
-import persistance.persistance.Eleicao;
-import persistance.persistance.Partido;
+
+import br.ufba.mata62.eleicoestransparentes.persistance.Eleicao;
+import br.ufba.mata62.eleicoestransparentes.persistance.Partido;
+import br.ufba.mata62.eleicoestransparentes.persistance.Pessoa;
 
 public class RankingDeDoadores {
 

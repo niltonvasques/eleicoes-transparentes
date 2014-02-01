@@ -1,11 +1,13 @@
 package br.ufba.mata62.eleicoestransparentes.business;
 
 import java.util.ArrayList;
-import persistance.persistance.Candidato;
-import persistance.persistance.Eleicao;
-import persistance.persistance.Partido;
 import java.util.Arrays;
-import persistance.persistance.Comite;
+
+import br.ufba.mata62.eleicoestransparentes.persistance.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.Comite;
+import br.ufba.mata62.eleicoestransparentes.persistance.Eleicao;
+import br.ufba.mata62.eleicoestransparentes.persistance.Partido;
+import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
 
 public class TransacaoBusiness {
 

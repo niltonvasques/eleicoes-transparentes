@@ -1,5 +1,8 @@
 package br.ufba.mata62.eleicoestransparentes.business;
 
+import br.ufba.mata62.eleicoestransparentes.persistance.PessoaFisica;
+import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
+
 
 public class InformacoesExtras {
 
