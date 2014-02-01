@@ -5,10 +5,10 @@ import java.util.List;
 public class ReadCVS {
 
 	public static void main(String[] args) {
-		List<PrestContasCandidatoDespesa> l = ParserPrestacaoContasCandidatoDespesa.parsing("DespesasCandidatos.txt");
+		List<PrestContasCandidatoReceita> l = ParserPrestacaoContasCandidatoReceita.parsing("ReceitasCandidatos.txt");
 		Transacao t;
-		for(PrestContasCandidatoDespesa p:l)
-			t = ParserPrestacaoContasCandidatoDespesa.populate(p);
+//		for(PrestContasCandidatoReceita p:l)
+			t = ParserPrestacaoContasCandidatoReceita.populate(l.get(0));
 		
 		System.out.println("Done");
 	}
