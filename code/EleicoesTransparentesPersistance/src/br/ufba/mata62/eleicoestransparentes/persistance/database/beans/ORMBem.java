@@ -21,6 +21,9 @@ public class ORMBem {
 	@DatabaseField
 	private float valor;
 	
+	@DatabaseField(foreign = true)
+	private ORMCandidato candidato;
+	
 	public ORMBem() {
 	}
 
@@ -47,6 +50,13 @@ public class ORMBem {
 	public void setValor(float valor) {
 		this.valor = valor;
 	}
-	
+
+	public ORMCandidato getCandidato() {
+		return candidato;
+	}
+
+	public void setCandidato(ORMCandidato candidato) {
+		this.candidato = candidato;
+	}
  
  }

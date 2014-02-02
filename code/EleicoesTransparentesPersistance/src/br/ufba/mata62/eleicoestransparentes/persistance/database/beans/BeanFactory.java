@@ -16,6 +16,7 @@ public class BeanFactory {
 		orm.setDescricao(bem.getDescricao());
 		orm.setId(bem.getId());
 		orm.setValor(bem.getValor());
+		orm.setCandidato(createORMCandidato(bem.getCandidato()));
 		
 		return orm;
 	}
@@ -94,6 +95,7 @@ public class BeanFactory {
 		orm.setPartido(createORMPartido(cand.getPartido()));
 		orm.setPessoaFisica(createORMPessoaFisica(cand));
 		orm.setUF(cand.getUF());
+		orm.setSequencialCandidato(cand.getSequencialCandidato());
 //		orm.setId(id)
 		
 		return orm;

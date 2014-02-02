@@ -14,7 +14,6 @@ public class Bem {
 
 	private float valor;
 	
-	@DatabaseField
 	private Candidato candidato;
 	
 	public Bem() {
