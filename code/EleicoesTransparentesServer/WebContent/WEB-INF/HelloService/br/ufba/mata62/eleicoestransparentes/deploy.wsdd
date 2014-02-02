@@ -13,7 +13,9 @@
       <operation xmlns:operNS="http://eleicoestransparentes.mata62.ufba.br" xmlns:retNS="http://eleicoestransparentes.mata62.ufba.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="helloName" qname="operNS:helloName" returnQName="retNS:helloNameReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://eleicoestransparentes.mata62.ufba.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
       </operation>
-      <parameter name="allowedMethods" value="helloName"/>
+      <operation xmlns:operNS="http://eleicoestransparentes.mata62.ufba.br" xmlns:retNS="http://eleicoestransparentes.mata62.ufba.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getSetoresEconomico" qname="operNS:getSetoresEconomico" returnQName="retNS:getSetoresEconomicoReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="getSetoresEconomico helloName"/>
 
   </service>
 </deployment>

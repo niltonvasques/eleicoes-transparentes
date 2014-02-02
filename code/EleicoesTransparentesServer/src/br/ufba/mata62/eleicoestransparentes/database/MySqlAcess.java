@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.ufba.mata62.eleicoestransparentes.Hello;
+
 public class MySqlAcess {
 	private Connection connect = null;
 	private Statement statement = null;
@@ -96,13 +98,15 @@ public class MySqlAcess {
 	  }
 	
 	public static void main(String[] args) {
-		MySqlAcess acess = new MySqlAcess();
 		
-		try {
-			acess.readDataBase();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		System.out.println(new Hello().getSetoresEconomico());
+//		MySqlAcess acess = new MySqlAcess();
+//		
+//		try {
+//			acess.readDataBase();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		
 	}
 

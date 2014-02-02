@@ -18,8 +18,34 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="getSetoresEconomico">
+    <complexType/>
+   </element>
+   <element name="getSetoresEconomicoResponse">
+    <complexType>
+     <sequence>
+      <element name="getSetoresEconomicoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
   </schema>
  </wsdl:types>
+
+   <wsdl:message name="getSetoresEconomicoResponse">
+
+      <wsdl:part element="impl:getSetoresEconomicoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSetoresEconomicoRequest">
+
+      <wsdl:part element="impl:getSetoresEconomico" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
 
    <wsdl:message name="helloNameRequest">
 
@@ -51,6 +77,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="getSetoresEconomico">
+
+         <wsdl:input message="impl:getSetoresEconomicoRequest" name="getSetoresEconomicoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSetoresEconomicoResponse" name="getSetoresEconomicoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="HelloSoapBinding" type="impl:Hello">
@@ -68,6 +106,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="helloNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSetoresEconomico">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSetoresEconomicoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSetoresEconomicoResponse">
 
             <wsdlsoap:body use="literal"/>
 

@@ -1,7 +1,16 @@
 package br.ufba.mata62.eleicoestransparentes;
 
-public class Hello {
+import java.sql.SQLException;
+import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.persistance.SetorEconomico;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
+
+import com.google.gson.Gson;
+
+
+public class Hello {
+	
 	public String helloName(String name){
 		
 		try {
@@ -16,5 +25,21 @@ public class Hello {
 		}
 		
 		return name;
+	}
+	
+	public String getSetoresEconomico(){
+		
+		Gson gson = new Gson();
+		
+		Comunicacao comm = new Comunicacao();
+		
+		try {
+			List<SetorEconomico> setores = comm.consultaSetoresEconomico();
+			comm.close();
+			return gson.toJson(setores);
+		} catch (SQLException e) {
+			comm.close();
+			return gson.toJson(e);
+		}
 	}
 }

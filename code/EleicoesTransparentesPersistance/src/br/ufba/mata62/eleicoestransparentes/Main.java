@@ -20,7 +20,7 @@ public class Main {
 		setor.setNome("TRANSPORTE");
 		
 		try {
-//			comm.insereSetorEconomico(setor);
+			comm.insereSetorEconomico(setor);
 			
 			List<SetorEconomico> setores = comm.consultaSetoresEconomico();
 			

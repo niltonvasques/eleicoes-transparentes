@@ -38,6 +38,14 @@ public class Comunicacao {
 		database = new ORMDatabase();
 	}
 	
+	public void close(){
+		try {
+			database.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public boolean insereBem(Bem bem) throws SQLException{
 		
 		ORMBem orm = BeanFactory.createORMBem(bem);

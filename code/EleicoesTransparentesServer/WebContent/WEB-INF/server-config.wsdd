@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -36,7 +36,8 @@
   <ns2:operation name="helloName" qname="ns1:helloName" returnQName="ns1:helloNameReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
    <ns2:parameter qname="ns1:name" type="xsd:string"/>
   </ns2:operation>
-  <ns1:parameter name="allowedMethods" value="helloName"/>
+  <ns1:operation name="getSetoresEconomico" qname="ns2:getSetoresEconomico" returnQName="ns2:getSetoresEconomicoReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:parameter name="allowedMethods" value="getSetoresEconomico helloName"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="Hello"/>
   <ns1:parameter name="className" value="br.ufba.mata62.eleicoestransparentes.Hello"/>

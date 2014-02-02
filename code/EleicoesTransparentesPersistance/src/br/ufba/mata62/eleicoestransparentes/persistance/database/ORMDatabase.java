@@ -26,9 +26,13 @@ public class ORMDatabase {
 
 	public ConnectionSource getConnection() throws SQLException{
 		
-		connection = new JdbcConnectionSource(LOCAL_DATABASE_URL);		
+		connection = new JdbcConnectionSource(REMOTE_DATABASE_URL);		
 		
 		return connection;
+	}
+	
+	public void close() throws SQLException{
+		connection.close();
 	}
 }
 
