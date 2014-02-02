@@ -11,14 +11,13 @@ import java.util.Date;
 import java.util.List;
 
 import test.dadosBrutos.PrestContasCandidatoReceita;
-
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.Partido;
+import br.ufba.mata62.eleicoestransparentes.persistance.Pessoa;
+import br.ufba.mata62.eleicoestransparentes.persistance.PessoaFisica;
+import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.persistance.SetorEconomico;
+import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
 
 public class ParserPrestacaoContasCandidatoReceita {
 	

@@ -3,7 +3,9 @@ package br.ufba.mata62.eleicoestransparentes.persistance;
 import java.util.Date;
 
 public class Transacao {
-
+	public static final char RECEITA = 'R';
+	public static final char DESPESA = 'D';
+	
 	private String tipoDocumento;
 
 	private String numeroDocumento;
