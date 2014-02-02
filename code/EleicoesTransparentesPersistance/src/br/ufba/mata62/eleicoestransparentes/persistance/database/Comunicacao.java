@@ -183,12 +183,12 @@ public class Comunicacao {
 		return itens;
 	}
 	
-	public boolean inserePessoa(Pessoa pessoa) throws SQLException{
+	public ORMPessoa inserePessoa(Pessoa pessoa) throws SQLException{
 		ORMPessoa orm =  BeanFactory.createORMPessoa(pessoa);
 		
 		Dao<ORMPessoa, String> pessoaDAO = DaoManager.createDao(database.getConnection(), ORMPessoa.class);
 		
-		return pessoaDAO.create(orm) > 0;
+		return pessoaDAO.createIfNotExists(orm);
 	}
 	
 	public List<Pessoa> consultaPessoas() throws SQLException{
@@ -229,8 +229,10 @@ public class Comunicacao {
 	
 	public boolean inserePessoaJuridica(PessoaJuridica pessoa) throws SQLException{
 		ORMPessoaJuridica orm =  BeanFactory.createORMPessoaJuridica(pessoa);
-		
 		Dao<ORMPessoaJuridica, String> pessoaDAO = DaoManager.createDao(database.getConnection(), ORMPessoaJuridica.class);
+
+		if(orm.getPessoa().getId()<=0)
+			orm.setPessoa(inserePessoa(pessoa));
 		
 		return pessoaDAO.create(orm) > 0;
 	}

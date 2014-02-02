@@ -14,7 +14,7 @@ public class ORMPessoaJuridica {
 	@DatabaseField(foreign = true, unique = true)
 	private ORMPessoa pessoa;
 	
-	@DatabaseField
+	@DatabaseField(unique=true)
 	private String cnpj;
 
 	/**
