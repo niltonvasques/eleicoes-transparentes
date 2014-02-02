@@ -1,6 +1,8 @@
 package br.ufba.mata62.eleicoestransparentes.persistance;
 
 public class SetorEconomico {
+	
+	private int id;
 
 	private String codSetorEco;
 
@@ -22,5 +24,14 @@ public class SetorEconomico {
 		this.nome = nome;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	
 	
 }

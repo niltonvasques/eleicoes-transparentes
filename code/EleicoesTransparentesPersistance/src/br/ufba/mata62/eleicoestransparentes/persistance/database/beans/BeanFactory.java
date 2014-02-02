@@ -2,15 +2,18 @@ package br.ufba.mata62.eleicoestransparentes.persistance.database.beans;
 
 import br.ufba.mata62.eleicoestransparentes.persistance.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.Comite;
+import br.ufba.mata62.eleicoestransparentes.persistance.Eleicao;
 import br.ufba.mata62.eleicoestransparentes.persistance.Partido;
 import br.ufba.mata62.eleicoestransparentes.persistance.Pessoa;
 import br.ufba.mata62.eleicoestransparentes.persistance.PessoaFisica;
 import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
 import br.ufba.mata62.eleicoestransparentes.persistance.SetorEconomico;
+import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
 
 public class BeanFactory {
 	
-	public ORMBem createORMBem(Bem bem){
+	public static ORMBem createORMBem(Bem bem){
 		ORMBem orm = new ORMBem();
 		
 		orm.setDescricao(bem.getDescricao());
@@ -21,9 +24,10 @@ public class BeanFactory {
 		return orm;
 	}
 	
-	public ORMSetorEconomico createORMSetorEconomico(SetorEconomico setor){
+	public static ORMSetorEconomico createORMSetorEconomico(SetorEconomico setor){
 		ORMSetorEconomico orm = new ORMSetorEconomico();
 		
+		orm.setId(setor.getId());
 		orm.setCodSetorEco(setor.getCodSetorEco());
 		orm.setNome(setor.getNome());
 		
@@ -31,7 +35,7 @@ public class BeanFactory {
 	}
 	
 	
-	public ORMPessoa createORMPessoa(Pessoa pessoa){
+	public static ORMPessoa createORMPessoa(Pessoa pessoa){
 		ORMPessoa orm = new ORMPessoa();
 		
 //		orm.setId(pessoa.getId());
@@ -43,7 +47,7 @@ public class BeanFactory {
 		return orm;
 	}
 	
-	public ORMPessoaJuridica createORMPessoaJuridica(PessoaJuridica pessoa){
+	public static ORMPessoaJuridica createORMPessoaJuridica(PessoaJuridica pessoa){
 		ORMPessoaJuridica orm = new ORMPessoaJuridica();
 		
 		orm.setCnpj(pessoa.getCnpj());
@@ -59,7 +63,7 @@ public class BeanFactory {
 		return orm;
 	}
 	
-	public ORMPartido createORMPartido(Partido partido){
+	public static ORMPartido createORMPartido(Partido partido){
 		ORMPartido orm = new ORMPartido();
 		
 //		orm.setId(partido.getId());
@@ -71,7 +75,7 @@ public class BeanFactory {
 		
 	}
 	
-	public ORMPessoaFisica createORMPessoaFisica(PessoaFisica pessoa){
+	public static ORMPessoaFisica createORMPessoaFisica(PessoaFisica pessoa){
 		ORMPessoaFisica orm = new ORMPessoaFisica();
 		orm.setAlfabetizado(pessoa.isAlfabetizado());
 		orm.setCpf(pessoa.getCpf());
@@ -86,7 +90,7 @@ public class BeanFactory {
 	}
 	
 	
-	public ORMCandidato createORMCandidato(Candidato cand){
+	public static ORMCandidato createORMCandidato(Candidato cand){
 		ORMCandidato orm = new ORMCandidato();
 		
 		orm.setCargo(cand.getCargo());
@@ -97,6 +101,48 @@ public class BeanFactory {
 		orm.setUF(cand.getUF());
 		orm.setSequencialCandidato(cand.getSequencialCandidato());
 //		orm.setId(id)
+		
+		return orm;
+	}
+	
+	public static ORMComite createORMComite(Comite comite){
+		ORMComite orm = new ORMComite();
+		
+		orm.setId(comite.getId());
+		orm.setMunicipio(comite.getMunicipio());
+		orm.setPartido(createORMPartido(comite.getPartido()));
+		orm.setTipo(comite.getTipo());
+		orm.setUF(comite.getUF());
+		
+		return orm;
+	}
+
+	public static ORMEleicao createORMEleicao(Eleicao eleicao) {
+		ORMEleicao orm = new ORMEleicao();
+		
+		orm.setAno(eleicao.getAno());
+//		orm.setId(eleicao.getId());
+		orm.setTipo(eleicao.getTipo());
+		
+		return orm;
+	}
+
+	public static ORMTransacao createORMTransacao(Transacao transacao) {
+		ORMTransacao orm = new ORMTransacao();
+		
+		orm.setClassificacao(transacao.getClassificacao());
+		//TODO: Rever a adição de objetos da superclasse
+		orm.setCreditado(createORMPessoa(transacao.getCreditado()));
+		orm.setData(transacao.getData());
+		orm.setDebitado(createORMPessoa(transacao.getDebitado()));
+		orm.setDescricao(transacao.getDescricao());
+//		orm.setId(transacao.getId());
+		orm.setMunicipio(transacao.getMunicipio());
+		orm.setNumeroDocumento(transacao.getNumeroDocumento());
+		orm.setTipo(transacao.getTipo());
+		orm.setTipoDocumento(transacao.getTipoDocumento());
+		orm.setUF(transacao.getUF());
+		orm.setValor(transacao.getValor());
 		
 		return orm;
 	}
