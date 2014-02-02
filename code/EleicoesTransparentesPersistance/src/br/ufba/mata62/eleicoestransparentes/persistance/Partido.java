@@ -22,6 +22,4 @@ public class Partido extends PessoaJuridica {
 		this.numero = numero;
 	}
 
-
-
 }

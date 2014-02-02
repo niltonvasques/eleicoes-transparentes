@@ -5,22 +5,16 @@ import java.util.List;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "Candidato")
 public class Candidato extends PessoaFisica{
-
-	@DatabaseField(canBeNull = false)
+	
 	private String numero;
 
-	@DatabaseField
 	private String cargo;
 
-	@DatabaseField
 	private String UF;
 
-	@DatabaseField
 	private String municipio;
 
-	@DatabaseField
 	private Partido partido;
 	
 	//TODO: Rever como irá fazer com a relação entre candidatos e eleição

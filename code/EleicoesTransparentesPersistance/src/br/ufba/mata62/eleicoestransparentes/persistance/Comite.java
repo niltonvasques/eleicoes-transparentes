@@ -3,22 +3,16 @@ package br.ufba.mata62.eleicoestransparentes.persistance;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "Comite")
 public class Comite {
 
-	@DatabaseField(generatedId = true)
 	private int id;
 	
-	@DatabaseField(canBeNull = false)
 	private String UF;
 
-	@DatabaseField
 	private String municipio;
 
-	@DatabaseField
 	private String tipo;
 	
-	@DatabaseField
 	private Partido partido;
 
 	public String getUF() {

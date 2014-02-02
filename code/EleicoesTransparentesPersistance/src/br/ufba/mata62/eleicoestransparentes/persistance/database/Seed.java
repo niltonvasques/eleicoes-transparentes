@@ -2,16 +2,16 @@ package br.ufba.mata62.eleicoestransparentes.persistance.database;
 
 import java.sql.SQLException;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Comite;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Eleicao;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMBem;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMCandidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMComite;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMEleicao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMPartido;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMPessoa;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMPessoaFisica;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMPessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMSetorEconomico;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMTransacao;
 
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
@@ -32,35 +32,35 @@ public class Seed {
 //			Dao<Bem, String> accountDao = DaoManager.createDao(connectionSource, Bem.class);
 			
 			// if you need to create the 'Bem' table make this call
-			TableUtils.dropTable(connectionSource, Bem.class, true);
-	        TableUtils.createTable(connectionSource, Bem.class);
+			TableUtils.dropTable(connectionSource, ORMBem.class, true);
+	        TableUtils.createTable(connectionSource, ORMBem.class);
 	        
-	        TableUtils.dropTable(connectionSource, SetorEconomico.class, true);
-	        TableUtils.createTable(connectionSource, SetorEconomico.class);
+	        TableUtils.dropTable(connectionSource, ORMSetorEconomico.class, true);
+	        TableUtils.createTable(connectionSource, ORMSetorEconomico.class);
 	        
-	        TableUtils.dropTable(connectionSource, Pessoa.class, true);
-	        TableUtils.createTable(connectionSource, Pessoa.class);
+	        TableUtils.dropTable(connectionSource, ORMPessoa.class, true);
+	        TableUtils.createTable(connectionSource, ORMPessoa.class);
 	        
-	        TableUtils.dropTable(connectionSource, PessoaFisica.class, true);
-	        TableUtils.createTable(connectionSource, PessoaFisica.class);
+	        TableUtils.dropTable(connectionSource, ORMPessoaFisica.class, true);
+	        TableUtils.createTable(connectionSource, ORMPessoaFisica.class);
 	        
-	        TableUtils.dropTable(connectionSource, PessoaJuridica.class, true);
-	        TableUtils.createTable(connectionSource, PessoaJuridica.class);
+	        TableUtils.dropTable(connectionSource, ORMPessoaJuridica.class, true);
+	        TableUtils.createTable(connectionSource, ORMPessoaJuridica.class);
 	        
-	        TableUtils.dropTable(connectionSource, Partido.class, true);
-	        TableUtils.createTable(connectionSource, Partido.class);
+	        TableUtils.dropTable(connectionSource, ORMPartido.class, true);
+	        TableUtils.createTable(connectionSource, ORMPartido.class);
 	        
-	        TableUtils.dropTable(connectionSource, Candidato.class, true);
-	        TableUtils.createTable(connectionSource, Candidato.class);
+	        TableUtils.dropTable(connectionSource, ORMCandidato.class, true);
+	        TableUtils.createTable(connectionSource, ORMCandidato.class);
 	        
-	        TableUtils.dropTable(connectionSource, Comite.class, true);
-	        TableUtils.createTable(connectionSource, Comite.class);
+	        TableUtils.dropTable(connectionSource, ORMComite.class, true);
+	        TableUtils.createTable(connectionSource, ORMComite.class);
 	        
-	        TableUtils.dropTable(connectionSource, Eleicao.class, true);
-	        TableUtils.createTable(connectionSource, Eleicao.class);
+	        TableUtils.dropTable(connectionSource, ORMEleicao.class, true);
+	        TableUtils.createTable(connectionSource, ORMEleicao.class);
 	        
-	        TableUtils.dropTable(connectionSource, Transacao.class, true);
-	        TableUtils.createTable(connectionSource, Transacao.class);
+	        TableUtils.dropTable(connectionSource, ORMTransacao.class, true);
+	        TableUtils.createTable(connectionSource, ORMTransacao.class);
 	        
 			
 		} catch (SQLException e) {
