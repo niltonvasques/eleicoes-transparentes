@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import test.dadosBrutos.PrestContasCandidatoReceita;
+
 import br.ufba.mata62.eleicoestransparentes.persistance.Candidato;
 import br.ufba.mata62.eleicoestransparentes.persistance.Partido;
 import br.ufba.mata62.eleicoestransparentes.persistance.Pessoa;
