@@ -14,6 +14,9 @@ public class Bem {
 
 	private float valor;
 	
+	@DatabaseField
+	private Candidato candidato;
+	
 	public Bem() {
 	}
 
@@ -39,6 +42,14 @@ public class Bem {
 
 	public void setValor(float valor) {
 		this.valor = valor;
+	}
+
+	public Candidato getCandidato() {
+		return candidato;
+	}
+
+	public void setCandidato(Candidato candidato) {
+		this.candidato = candidato;
 	}
 	
  

@@ -11,12 +11,11 @@ import java.util.Date;
 import java.util.List;
 
 import test.dadosBrutos.PrestContasCandidatoDespesa;
-
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.Partido;
+import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.persistance.SetorEconomico;
+import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
 
 public class ParserPrestacaoContasCandidatoDespesa {
 	
@@ -102,6 +101,7 @@ public class ParserPrestacaoContasCandidatoDespesa {
 		cand.setCargo(pccd.getCargo());
 		cand.setUF(pccd.getUF());
 		cand.setMunicipio(pccd.getMunicipio());
+		cand.setSequencialCandidato(pccd.getSequencialCandidato());
 		Partido partido = new Partido();
 		partido.setSigla(pccd.getSiglaPartido());
 		cand.setPartido(partido);
