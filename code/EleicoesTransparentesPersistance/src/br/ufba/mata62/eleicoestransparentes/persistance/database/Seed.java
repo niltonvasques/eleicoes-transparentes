@@ -26,6 +26,7 @@ public class Seed {
 			
 			String databaseUrl = "jdbc:mysql://192.241.169.62/eleicao?"+ "user=mata62&password=mata62";
 //			String databaseUrl = "jdbc:mysql://localhost/eleicao?"+ "user=root&password=mata62";
+//			String databaseUrl = "jdbc:mysql://localhost/eleicao?"+ "user=root&password=batman";//Máquina Tiago
 			// create a connection source to our database
 			ConnectionSource connectionSource = new JdbcConnectionSource(databaseUrl);		
 			
