@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="classes"/>
+	<classpathentry kind="src" path="EleicoesTransparentes/gen"/>
+	<classpathentry kind="src" path="EleicoesTransparentes/src"/>
+	<classpathentry kind="src" path="EleicoesTransparentesPersistance/src"/>
+	<classpathentry kind="src" path="EleicoesTransparentesServer/src"/>
+	<classpathentry kind="src" path="ParserTemporario/src"/>
+	<classpathentry kind="lib" path="EleicoesTransparentes/bin/dexedLibs/android-support-v4-6d0c5c08c0cdf479dfb0bb2bf5c28916.jar"/>
+	<classpathentry kind="lib" path="EleicoesTransparentes/libs/android-support-v4.jar"/>
+	<classpathentry kind="lib" path="EleicoesTransparentesPersistance/lib/mysql-connector-java-5.1.28-bin.jar"/>
+	<classpathentry kind="lib" path="EleicoesTransparentesPersistance/lib/ormlite-core-4.48-sources.jar"/>
+	<classpathentry kind="lib" path="EleicoesTransparentesPersistance/lib/ormlite-core-4.48.jar"/>
+	<classpathentry kind="lib" path="EleicoesTransparentesPersistance/lib/ormlite-jdbc-4.48-sources.jar"/>
+	<classpathentry kind="lib" path="EleicoesTransparentesPersistance/lib/ormlite-jdbc-4.48.jar"/>
+	<classpathentry kind="lib" path="EleicoesTransparentesServer/lib/mysql-connector-java-5.1.28-bin.jar"/>
+	<classpathentry kind="lib" path="EleicoesTransparentesServer/WebContent/WEB-INF/lib/axis.jar"/>
+	<classpathentry kind="lib" path="EleicoesTransparentesServer/WebContent/WEB-INF/lib/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="EleicoesTransparentesServer/WebContent/WEB-INF/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="EleicoesTransparentesServer/WebContent/WEB-INF/lib/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="EleicoesTransparentesServer/WebContent/WEB-INF/lib/saaj.jar"/>
+	<classpathentry kind="lib" path="EleicoesTransparentesServer/WebContent/WEB-INF/lib/wsdl4j.jar"/>
+	<classpathentry kind="lib" path="ParserTemporario/libs/caelum-stella-core-2.0.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="ParserTemporario/bin"/>
+</classpath>
