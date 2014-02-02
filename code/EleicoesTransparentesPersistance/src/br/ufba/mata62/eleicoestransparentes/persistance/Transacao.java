@@ -1,5 +1,6 @@
 package br.ufba.mata62.eleicoestransparentes.persistance;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class Transacao {
@@ -134,6 +135,19 @@ public class Transacao {
 	public void setPessoa(Pessoa[] pessoa) {
 		this.pessoa = pessoa;
 	}
+
+	@Override
+	public String toString() {
+		return "Transacao [tipoDocumento=" + tipoDocumento
+				+ ", numeroDocumento=" + numeroDocumento + ", data=" + data
+				+ ", valor=" + valor + ", classificacao=" + classificacao
+				+ ", descricao=" + descricao + ", creditado=" + creditado
+				+ ", debitado=" + debitado + ", tipo=" + tipo + ", UF=" + UF
+				+ ", municipio=" + municipio + ", pessoa="
+				+ Arrays.toString(pessoa) + "]";
+	}
+	
+	
 	
 	
 
