@@ -2,9 +2,9 @@ package br.ufba.mata62.eleicoestransparentes.business;
 
 import java.util.ArrayList;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.Eleicao;
-import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Eleicao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 
 public class DadosCandidato {
 

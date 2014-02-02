@@ -2,15 +2,15 @@ package br.ufba.mata62.eleicoestransparentes.business;
 
 import java.util.ArrayList;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.Comite;
-import br.ufba.mata62.eleicoestransparentes.persistance.Eleicao;
-import br.ufba.mata62.eleicoestransparentes.persistance.Partido;
-import br.ufba.mata62.eleicoestransparentes.persistance.Pessoa;
-import br.ufba.mata62.eleicoestransparentes.persistance.PessoaFisica;
-import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
-import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Comite;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Eleicao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 
 public class Comunicacao {
 

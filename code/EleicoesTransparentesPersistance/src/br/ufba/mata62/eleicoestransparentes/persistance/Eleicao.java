@@ -1,21 +1,12 @@
 package br.ufba.mata62.eleicoestransparentes.persistance;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
-
-@DatabaseTable(tableName = "Eleicao")
 public class Eleicao {
-	
-	@DatabaseField(generatedId = true)
-	private int id;
 
-	@DatabaseField
 	private String ano;
 
 	/**
 	 * Se municipal, estadual ou nacional
 	 */
-	@DatabaseField
 	private int tipo;
 
 	public String getAno() {
@@ -33,15 +24,5 @@ public class Eleicao {
 	public void setTipo(int tipo) {
 		this.tipo = tipo;
 	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	
 
 }

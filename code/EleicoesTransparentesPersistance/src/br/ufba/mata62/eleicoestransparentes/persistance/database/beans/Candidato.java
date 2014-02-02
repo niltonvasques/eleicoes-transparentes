@@ -1,12 +1,16 @@
-package br.ufba.mata62.eleicoestransparentes.persistance;
-
-import java.util.List;
+package br.ufba.mata62.eleicoestransparentes.persistance.database.beans;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "Candidato")
-public class Candidato extends PessoaFisica{
+public class Candidato{
+	
+	@DatabaseField(generatedId = true)
+	private int id;
+	
+	@DatabaseField(foreign = true, unique = true)
+	private PessoaFisica pessoaFisica;
 
 	@DatabaseField(canBeNull = false)
 	private String numero;
@@ -20,7 +24,7 @@ public class Candidato extends PessoaFisica{
 	@DatabaseField
 	private String municipio;
 
-	@DatabaseField
+	@DatabaseField(foreign = true)
 	private Partido partido;
 	
 	//TODO: Rever como irá fazer com a relação entre candidatos e eleição
@@ -66,6 +70,24 @@ public class Candidato extends PessoaFisica{
 	public void setPartido(Partido partido) {
 		this.partido = partido;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public PessoaFisica getPessoaFisica() {
+		return pessoaFisica;
+	}
+
+	public void setPessoaFisica(PessoaFisica idPessoaFisica) {
+		this.pessoaFisica = idPessoaFisica;
+	}
+	
+	
 	
 	
 

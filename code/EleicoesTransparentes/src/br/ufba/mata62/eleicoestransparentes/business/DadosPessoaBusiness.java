@@ -1,7 +1,7 @@
 package br.ufba.mata62.eleicoestransparentes.business;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.PessoaFisica;
-import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
 
 public class DadosPessoaBusiness {
 

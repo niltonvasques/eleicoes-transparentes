@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes.persistance;
+package br.ufba.mata62.eleicoestransparentes.persistance.database.beans;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -18,7 +18,7 @@ public class Comite {
 	@DatabaseField
 	private String tipo;
 	
-	@DatabaseField
+	@DatabaseField(foreign = true)
 	private Partido partido;
 
 	public String getUF() {

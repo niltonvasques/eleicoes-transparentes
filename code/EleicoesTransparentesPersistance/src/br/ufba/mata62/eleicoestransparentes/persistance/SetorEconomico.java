@@ -1,18 +1,9 @@
 package br.ufba.mata62.eleicoestransparentes.persistance;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
-
-@DatabaseTable(tableName = "SetorEconomico")
 public class SetorEconomico {
 
-	@DatabaseField(generatedId = true)
-	private int id;
-	
-	@DatabaseField(unique = true)
 	private String codSetorEco;
 
-	@DatabaseField
 	private String nome;
 
 	public String getCodSetorEco() {
@@ -31,12 +22,5 @@ public class SetorEconomico {
 		this.nome = nome;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 	
 }
