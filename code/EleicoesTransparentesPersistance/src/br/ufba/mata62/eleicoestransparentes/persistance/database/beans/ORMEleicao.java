@@ -9,7 +9,7 @@ public class ORMEleicao {
 	@DatabaseField(generatedId = true)
 	private int id;
 
-	@DatabaseField
+	@DatabaseField(unique = true)
 	private String ano;
 
 	/**
