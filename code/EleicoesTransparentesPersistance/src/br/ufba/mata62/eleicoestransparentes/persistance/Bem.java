@@ -50,6 +50,13 @@ public class Bem {
 	public void setCandidato(Candidato candidato) {
 		this.candidato = candidato;
 	}
+
+	@Override
+	public String toString() {
+		return "Bem [id=" + id + ", descricao=" + descricao + ", valor="
+				+ valor + ", candidato=" + candidato + "]";
+	}
+	
 	
  
  }

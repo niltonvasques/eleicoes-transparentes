@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import test.utils.Path;
 import test.utils.ReadCVS;
+import br.ufba.mata62.eleicoestransparentes.persistance.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.PessoaFisica;
 import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
 import br.ufba.mata62.eleicoestransparentes.persistance.SetorEconomico;
@@ -18,9 +19,15 @@ public class MainBD {
 		
 		Seed.createTables();
 
-		for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
-			run(t);
+//		for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
+//			run(t);
+//		}
+		
+		for (Bem b : ReadCVS.readBens(Path.UFS[0])) {
+			run(b);
 		}
+		
+		
 
 	}
 	
@@ -40,7 +47,17 @@ public class MainBD {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static void run(Bem bem){
+		Comunicacao comm = new Comunicacao();
+		try {
+			comm.insereBem(bem);
+			comm.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
-		
 	}
 }

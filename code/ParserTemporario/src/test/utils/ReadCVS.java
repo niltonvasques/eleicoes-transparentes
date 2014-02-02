@@ -3,6 +3,8 @@ package test.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import test.BemCandidato;
+import test.ParserBemCandidato;
 import test.ParserPrestacaoContasCandidatoDespesa;
 import test.ParserPrestacaoContasCandidatoReceita;
 import test.ParserPrestacaoContasComiteDespesa;
@@ -15,6 +17,7 @@ import test.dadosBrutos.PrestContasComiteDespesa;
 import test.dadosBrutos.PrestContasComiteReceita;
 import test.dadosBrutos.PrestContasPartidoDespesa;
 import test.dadosBrutos.PrestContasPartidoReceita;
+import br.ufba.mata62.eleicoestransparentes.persistance.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
 
 public class ReadCVS {
@@ -130,12 +133,32 @@ public class ReadCVS {
 		return trans;
 	}
 	
+
+	/**
+	 * Lê dos arquivos correspondentes
+	 * 
+	 * @param uf - Unidades Federadas. ver Path.UFS	 
+	 * 
+	 * */
+	public static List<Bem> readBens(String uf) {
+		ArrayList<Bem> bens = new ArrayList<Bem>();
+		//FLD_BEM+FILE_BEM_UF, $UF$/ufs[x]
+		String path = Path.pathRoot +Path.FLD_BEM+Path.SEPARATOR+Path.FLD_BEM+(Path.FILE_BEM_UF.replace("$UF$", uf));
+		List<BemCandidato> bcs = ParserBemCandidato.parsing(path);
+		Bem b = null;
+		for (BemCandidato p : bcs) {
+			b = ParserBemCandidato.populate(p);
+			bens.add(b);
+		}
+		return bens;
+	}
+	
 	public static void main(String[] args) {
 		
 		for (String uf : Path.UFS) {
-			List<Transacao> trans = ReadCVS.readPrestacaoContasPartidoReceita(uf);
-			for (Transacao transacao : trans) {
-				System.out.println(transacao);
+			List<Bem> bens = ReadCVS.readBens(uf);
+			for (Bem bem : bens) {
+				System.out.println(bem);
 			}
 		}
 		System.out.println("Done");
