@@ -27,6 +27,9 @@ public class Candidato{
 	@DatabaseField(foreign = true)
 	private Partido partido;
 	
+	@DatabaseField(unique=true)
+	private String sequencialCandidato;
+	
 	//TODO: Rever como irá fazer com a relação entre candidatos e eleição
 //	@DatabaseField
 //	private List<Eleicao> eleicoes;
@@ -85,6 +88,14 @@ public class Candidato{
 
 	public void setPessoaFisica(PessoaFisica idPessoaFisica) {
 		this.pessoaFisica = idPessoaFisica;
+	}
+
+	public String getSequencialCandidato() {
+		return sequencialCandidato;
+	}
+
+	public void setSequencialCandidato(String sequencialCandidato) {
+		this.sequencialCandidato = sequencialCandidato;
 	}
 	
 	

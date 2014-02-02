@@ -101,6 +101,7 @@ public class ParserPrestacaoContasCandidatoDespesa {
 		cand.setCargo(pccd.getCargo());
 		cand.setUF(pccd.getUF());
 		cand.setMunicipio(pccd.getMunicipio());
+		cand.setSequencialCandidato(pccd.getSequencialCandidato());
 		Partido partido = new Partido();
 		partido.setSigla(pccd.getSiglaPartido());
 		cand.setPartido(partido);

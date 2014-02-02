@@ -1,7 +1,5 @@
 package br.ufba.mata62.eleicoestransparentes.persistance;
 
-import java.util.List;
-
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -22,6 +20,9 @@ public class Candidato extends PessoaFisica{
 
 	@DatabaseField
 	private Partido partido;
+	
+	@DatabaseField(unique=true)
+	private String sequencialCandidato;
 	
 	//TODO: Rever como irá fazer com a relação entre candidatos e eleição
 //	@DatabaseField
@@ -65,6 +66,14 @@ public class Candidato extends PessoaFisica{
 
 	public void setPartido(Partido partido) {
 		this.partido = partido;
+	}
+
+	public String getSequencialCandidato() {
+		return sequencialCandidato;
+	}
+
+	public void setSequencialCandidato(String sequencialCandidato) {
+		this.sequencialCandidato = sequencialCandidato;
 	}
 	
 	
