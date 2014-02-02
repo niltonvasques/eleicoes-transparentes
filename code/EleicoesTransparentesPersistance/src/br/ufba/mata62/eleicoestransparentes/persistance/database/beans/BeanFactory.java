@@ -25,13 +25,15 @@ public class BeanFactory {
 	}
 	
 	public static ORMSetorEconomico createORMSetorEconomico(SetorEconomico setor){
-		ORMSetorEconomico orm = new ORMSetorEconomico();
-		
-		orm.setId(setor.getId());
-		orm.setCodSetorEco(setor.getCodSetorEco());
-		orm.setNome(setor.getNome());
-		
+		ORMSetorEconomico orm = null;
+		if(setor!=null){
+			orm = new ORMSetorEconomico();
+			orm.setId(setor.getId());
+			orm.setCodSetorEco(setor.getCodSetorEco());
+			orm.setNome(setor.getNome());
+		}
 		return orm;
+		
 	}
 	
 	
@@ -64,13 +66,14 @@ public class BeanFactory {
 	}
 	
 	public static ORMPartido createORMPartido(Partido partido){
-		ORMPartido orm = new ORMPartido();
-		
-//		orm.setId(partido.getId());
-		orm.setNumero(partido.getNumero());
-		orm.setPessoaJuridica(createORMPessoaJuridica(partido));
-		orm.setSigla(partido.getSigla());
-		
+		ORMPartido orm = null;
+		if(partido!=null){
+			orm = new ORMPartido();
+			// orm.setId(partido.getId());
+			orm.setNumero(partido.getNumero());
+			orm.setPessoaJuridica(createORMPessoaJuridica(partido));
+			orm.setSigla(partido.getSigla());
+		}
 		return orm;
 		
 	}
