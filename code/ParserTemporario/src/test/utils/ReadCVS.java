@@ -17,6 +17,7 @@ import test.dadosBrutos.PrestContasComiteDespesa;
 import test.dadosBrutos.PrestContasComiteReceita;
 import test.dadosBrutos.PrestContasPartidoDespesa;
 import test.dadosBrutos.PrestContasPartidoReceita;
+import br.ufba.mata62.eleicoestransparentes.EProperties;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 
