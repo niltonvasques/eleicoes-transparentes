@@ -26,7 +26,10 @@
       </operation>
       <operation name="consultaSetoresEconomico" qname="operNS:consultaSetoresEconomico" xmlns:operNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnQName="retNS:consultaSetoresEconomicoReturn" xmlns:retNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
       </operation>
-      <parameter name="allowedMethods" value="consultaSetoresEconomico consultaCandidatos consultaApplicationPath"/>
+      <operation name="createTables" qname="operNS:createTables" xmlns:operNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnQName="retNS:createTablesReturn" xmlns:retNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:chaveSeguranca" xmlns:pns="http://webservice.eleicoestransparentes.mata62.ufba.br" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="consultaSetoresEconomico consultaCandidatos createTables consultaApplicationPath"/>
 
   </service>
 </deployment>

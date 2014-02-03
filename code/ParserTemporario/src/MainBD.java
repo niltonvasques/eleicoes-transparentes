@@ -16,34 +16,32 @@ public class MainBD {
 		
 //		Seed.createTables();
 
+		Comunicacao comm = new Comunicacao();
 //		for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
-//			run(t);
+//			run(t,comm);
 //		}
-//		
+		
 		for (Bem b : ReadCVS.readBens(Path.UFS[0])) {
-			run(b);
+			run(b,comm);
 		}
+		
+		comm.close();
 		
 		
 
 	}
 	
-	public static void run(Transacao t){
+	public static void run(Transacao t,Comunicacao comm){
 		try {
-			Comunicacao comm = new Comunicacao();
 			comm.insereTransacao(t);
-			comm.close();
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static void run(Bem bem){
-		Comunicacao comm = new Comunicacao();
+	public static void run(Bem bem, Comunicacao comm){
 		try {
 			comm.insereBem(bem);
-			comm.close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

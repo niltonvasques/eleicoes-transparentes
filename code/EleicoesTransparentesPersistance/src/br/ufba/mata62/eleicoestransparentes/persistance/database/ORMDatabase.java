@@ -27,7 +27,9 @@ public class ORMDatabase {
 
 	public ConnectionSource getConnection() throws SQLException{
 		
-		connection = new JdbcConnectionSource(databaseUrl);		
+		if(connection == null){
+			connection = new JdbcConnectionSource(databaseUrl);
+		}
 		
 		return connection;
 	}

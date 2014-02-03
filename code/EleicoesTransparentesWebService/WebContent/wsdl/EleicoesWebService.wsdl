@@ -34,12 +34,34 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="createTables">
+    <complexType>
+     <sequence>
+      <element name="chaveSeguranca" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createTablesResponse">
+    <complexType>
+     <sequence>
+      <element name="createTablesReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
   </schema>
  </wsdl:types>
 
    <wsdl:message name="consultaSetoresEconomicoResponse">
 
       <wsdl:part element="impl:consultaSetoresEconomicoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createTablesRequest">
+
+      <wsdl:part element="impl:createTables" name="parameters">
 
       </wsdl:part>
 
@@ -56,6 +78,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="consultaApplicationPathRequest">
 
       <wsdl:part element="impl:consultaApplicationPath" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createTablesResponse">
+
+      <wsdl:part element="impl:createTablesResponse" name="parameters">
 
       </wsdl:part>
 
@@ -123,6 +153,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="createTables">
+
+         <wsdl:input message="impl:createTablesRequest" name="createTablesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createTablesResponse" name="createTablesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="EleicoesWebServiceSoapBinding" type="impl:EleicoesWebService">
@@ -176,6 +218,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="consultaSetoresEconomicoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createTables">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createTablesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createTablesResponse">
 
             <wsdlsoap:body use="literal"/>
 
