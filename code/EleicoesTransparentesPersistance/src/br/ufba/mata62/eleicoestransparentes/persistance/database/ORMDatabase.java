@@ -9,12 +9,11 @@ import com.j256.ormlite.support.ConnectionSource;
 
 public class ORMDatabase {
 	
-	public static final String LOCAL_DATABASE_URL = EProperties.getLocalDatabaseUrl();
-	public static final String REMOTE_DATABASE_URL = EProperties.getRemoteDatabaseUrl();
-	
+	private String databaseUrl;
 	private ConnectionSource connection;
 	
 	public ORMDatabase() {
+		databaseUrl = EProperties.getDatabaseUrl();
 		init();
 	}
 
@@ -28,7 +27,7 @@ public class ORMDatabase {
 
 	public ConnectionSource getConnection() throws SQLException{
 		
-		connection = new JdbcConnectionSource(LOCAL_DATABASE_URL);		
+		connection = new JdbcConnectionSource(databaseUrl);		
 		
 		return connection;
 	}
