@@ -3,7 +3,6 @@ package br.ufba.mata62.eleicoestransparentes.persistance.database;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 import br.ufba.mata62.eleicoestransparentes.persistance.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.Candidato;
@@ -30,7 +29,6 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMTransa
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.misc.TransactionManager;
 
 public class Comunicacao {
 	
@@ -49,19 +47,15 @@ public class Comunicacao {
 	}
 	
 	public boolean insereBem(final Bem bem) throws SQLException{
-		final boolean res = false;
-		TransactionManager.callInTransaction(database.getConnection(),new Callable<Void>() {
-				    public Void call() throws Exception {
-						ORMBem orm = BeanFactory.createORMBem(bem);
-						Dao<ORMBem, String> bemDao = DaoManager.createDao(database.getConnection(), ORMBem.class);
+		ORMBem orm = BeanFactory.createORMBem(bem);
+		Dao<ORMBem, String> bemDao = DaoManager.createDao(database.getConnection(), ORMBem.class);
 
-						ORMCandidato ormCand = getCandidato(bem.getCandidato().getSequencialCandidato());
-						orm.setCandidato(ormCand);
-						bemDao.create(orm);
-						return null;
-						}
-				});
-		return res;
+		ORMCandidato ormCand = getCandidato(bem.getCandidato().getSequencialCandidato());
+		if (ormCand != null) {//Só nos interessa se houver candidato.
+			orm.setCandidato(ormCand);
+			return bemDao.create(orm) > 0;
+		}
+		return false;
 	}
 	
 	public ORMCandidato getCandidato(String sequencialCandidato){
@@ -73,11 +67,6 @@ public class Comunicacao {
 			listORM = candidatoDao.queryForEq("sequencialCandidato",sequencialCandidato);
 			if(!listORM.isEmpty())
 				orm = listORM.get(0);
-			else{
-				orm = new ORMCandidato();
-				orm.setSequencialCandidato(sequencialCandidato);
-				orm = candidatoDao.createIfNotExists(orm);
-			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -122,13 +111,13 @@ public class Comunicacao {
 		return itens;
 	}
 	
-	public boolean insereCandidato(Candidato cand) throws SQLException{
+	public ORMCandidato insereCandidato(Candidato cand) throws SQLException{
 		
 		ORMCandidato orm = BeanFactory.createORMCandidato(cand);
 		
 		Dao<ORMCandidato, String> candidatoDao = DaoManager.createDao(database.getConnection(), ORMCandidato.class);
 		
-		return candidatoDao.create(orm) > 0;
+		return candidatoDao.createIfNotExists(orm);
 	}
 	
 	public List<Candidato> consultaCandidatos() throws SQLException{
