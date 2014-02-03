@@ -18,14 +18,14 @@ public class MainBD {
 	public static void main(String[] args) {
 		
 		Seed.createTables();
-//
-//		for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
-//			run(t);
-//		}
-////		
-		for (Bem b : ReadCVS.readBens(Path.UFS[0])) {
-			run(b);
+
+		for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
+			run(t);
 		}
+		
+//		for (Bem b : ReadCVS.readBens(Path.UFS[0])) {
+//			run(b);
+//		}
 		
 		
 
@@ -38,10 +38,10 @@ public class MainBD {
 		t.getDebitado();
 		SetorEconomico setor = t.getCreditado().getSetorEconomico();
 		try {
-//			comm.insereTransacao(t);
+			comm.insereTransacao(t);
 			comm.inserePessoaJuridica(cred);
 			comm.inserePessoaFisica(deb);
-//			comm.insereSetorEconomico(setor);
+			comm.insereSetorEconomico(setor);
 			comm.close();
 			
 		} catch (SQLException e) {

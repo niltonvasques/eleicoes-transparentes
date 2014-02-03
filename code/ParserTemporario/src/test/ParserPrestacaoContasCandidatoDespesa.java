@@ -105,6 +105,9 @@ public class ParserPrestacaoContasCandidatoDespesa {
 		Partido partido = new Partido();
 		partido.setSigla(pccd.getSiglaPartido());
 		cand.setPartido(partido);
+		cand.setCpf(pccd.getCPFCandidato());
+		cand.setNome(pccd.getNomeCandidato());
+		
 		return cand; 
 	}
 

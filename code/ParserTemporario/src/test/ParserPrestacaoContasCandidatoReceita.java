@@ -112,6 +112,8 @@ public class ParserPrestacaoContasCandidatoReceita {
 		Partido partido = new Partido();
 		partido.setSigla(pccr.getSiglaPartido());
 		cand.setPartido(partido);
+		cand.setCpf(pccr.getCPFCandidato());
+		cand.setNome(pccr.getNomeCandidato());
 		return cand; 
 	}
 
