@@ -46,13 +46,31 @@ public class Comunicacao {
 		}
 	}
 	
-	public boolean insereBem(Bem bem) throws SQLException{
-		
+	public boolean insereBem(final Bem bem) throws SQLException{
 		ORMBem orm = BeanFactory.createORMBem(bem);
-		
 		Dao<ORMBem, String> bemDao = DaoManager.createDao(database.getConnection(), ORMBem.class);
-		
-		return bemDao.create(orm) > 0;
+
+		ORMCandidato ormCand = getCandidato(bem.getCandidato().getSequencialCandidato());
+		if (ormCand != null) {//Só nos interessa se houver candidato.
+			orm.setCandidato(ormCand);
+			return bemDao.create(orm) > 0;
+		}
+		return false;
+	}
+	
+	public ORMCandidato getCandidato(String sequencialCandidato){
+		ORMCandidato orm = null;
+		List<ORMCandidato> listORM;
+		Dao<ORMCandidato, String> candidatoDao;
+		try {
+			candidatoDao = DaoManager.createDao(database.getConnection(), ORMCandidato.class);
+			listORM = candidatoDao.queryForEq("sequencialCandidato",sequencialCandidato);
+			if(!listORM.isEmpty())
+				orm = listORM.get(0);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return orm;
 	}
 	
 	public List<Bem> consultaBens() throws SQLException{
@@ -93,13 +111,13 @@ public class Comunicacao {
 		return itens;
 	}
 	
-	public boolean insereCandidato(Candidato cand) throws SQLException{
+	public ORMCandidato insereCandidato(Candidato cand) throws SQLException{
 		
 		ORMCandidato orm = BeanFactory.createORMCandidato(cand);
 		
 		Dao<ORMCandidato, String> candidatoDao = DaoManager.createDao(database.getConnection(), ORMCandidato.class);
 		
-		return candidatoDao.create(orm) > 0;
+		return candidatoDao.createIfNotExists(orm);
 	}
 	
 	public List<Candidato> consultaCandidatos() throws SQLException{
@@ -183,12 +201,12 @@ public class Comunicacao {
 		return itens;
 	}
 	
-	public boolean inserePessoa(Pessoa pessoa) throws SQLException{
+	public ORMPessoa inserePessoa(Pessoa pessoa) throws SQLException{
 		ORMPessoa orm =  BeanFactory.createORMPessoa(pessoa);
 		
 		Dao<ORMPessoa, String> pessoaDAO = DaoManager.createDao(database.getConnection(), ORMPessoa.class);
 		
-		return pessoaDAO.create(orm) > 0;
+		return pessoaDAO.createIfNotExists(orm);
 	}
 	
 	public List<Pessoa> consultaPessoas() throws SQLException{
@@ -229,8 +247,10 @@ public class Comunicacao {
 	
 	public boolean inserePessoaJuridica(PessoaJuridica pessoa) throws SQLException{
 		ORMPessoaJuridica orm =  BeanFactory.createORMPessoaJuridica(pessoa);
-		
 		Dao<ORMPessoaJuridica, String> pessoaDAO = DaoManager.createDao(database.getConnection(), ORMPessoaJuridica.class);
+
+		if(orm.getPessoa().getId()<=0)
+			orm.setPessoa(inserePessoa(pessoa));
 		
 		if(orm.getPessoa().getId() <= 0){
 			inserePessoa(pessoa);
