@@ -36,10 +36,10 @@ public class Hello {
 		try {
 			List<SetorEconomico> setores = comm.consultaSetoresEconomico();
 			comm.close();
-			return gson.toJson(setores);
+			return "Result: "+gson.toJson(setores);
 		} catch (SQLException e) {
 			comm.close();
-			return gson.toJson(e);
+			return "Result: "+ gson.toJson(e);
 		}
 	}
 }

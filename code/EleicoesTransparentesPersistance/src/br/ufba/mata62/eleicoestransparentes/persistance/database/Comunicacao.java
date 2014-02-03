@@ -232,6 +232,10 @@ public class Comunicacao {
 		
 		Dao<ORMPessoaJuridica, String> pessoaDAO = DaoManager.createDao(database.getConnection(), ORMPessoaJuridica.class);
 		
+		if(orm.getPessoa().getId() <= 0){
+			inserePessoa(pessoa);
+		}
+		
 		return pessoaDAO.create(orm) > 0;
 	}
 	

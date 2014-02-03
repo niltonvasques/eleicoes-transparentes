@@ -7,7 +7,7 @@ import com.j256.ormlite.support.ConnectionSource;
 
 public class ORMDatabase {
 	
-//	public static final String LOCAL_DATABASE_URL = "jdbc:mysql://localhost/eleicao?"+ "user=root&password=mata62";
+	public static final String SERVER_DATABASE_URL = "jdbc:mysql://localhost/eleicao?"+ "user=root&password=mata62";
 	public static final String LOCAL_DATABASE_URL = "jdbc:mysql://localhost/eleicao?"+ "user=root&password=batman";//Máquina Tiago
 	public static final String REMOTE_DATABASE_URL = "jdbc:mysql://192.241.169.62/eleicao?"+ "user=mata62&password=mata62";
 	
@@ -21,13 +21,12 @@ public class ORMDatabase {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 		}catch (ClassNotFoundException e) {
-			// TODO: handle exception
 		}
 	}
 
 	public ConnectionSource getConnection() throws SQLException{
 		
-		connection = new JdbcConnectionSource(REMOTE_DATABASE_URL);		
+		connection = new JdbcConnectionSource(SERVER_DATABASE_URL);		
 		
 		return connection;
 	}
