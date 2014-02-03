@@ -1,5 +1,10 @@
 package br.ufba.mata62.eleicoestransparentes;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
 
 
 public class Hello {
@@ -24,16 +29,15 @@ public class Hello {
 		
 //		Gson gson = new Gson();
 //		
-//		Comunicacao comm = new Comunicacao();
+		Comunicacao comm = new Comunicacao();
 //		
-//		try {
-//			List<SetorEconomico> setores = comm.consultaSetoresEconomico();
+		try {
+			List<Candidato> candidatos = comm.consultaCandidatos();
+			comm.close();
+			return "Result: "+candidatos;
+		} catch (SQLException e) {
 //			comm.close();
-//			return "Result: "+gson.toJson(setores);
-//		} catch (SQLException e) {
-//			comm.close();
-//			return "Result: "+ gson.toJson(e);
-//		}
-		return "TESTANDO GET SETORES ECONOMICOS";
+			return "Result: "+ e;
+		}
 	}
 }
