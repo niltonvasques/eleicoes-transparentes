@@ -3,8 +3,8 @@ package br.ufba.mata62.eleicoestransparentes;
 import java.sql.SQLException;
 import java.util.List;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
 
 
 public class Main {
@@ -12,6 +12,8 @@ public class Main {
 	public static void main(String[] args) {
 		
 //		Seed.createTables();
+		
+		System.out.println(System.getProperty("user.dir"));
 		
 		Comunicacao comm = new Comunicacao();
 		

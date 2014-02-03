@@ -1,36 +1,47 @@
-package br.ufba.mata62.eleicoestransparentes.persistance;
+package br.ufba.mata62.eleicoestransparentes.persistance.database.beans;
 
 import java.util.Date;
 
-public class PessoaJuridica extends Pessoa {
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
+@DatabaseTable(tableName = "PessoaJuridica")
+public class PessoaJuridica extends Pessoa{
+
+	@DatabaseField(unique=true)
 	private String cnpj;
 
 	/**
 	 * Fonte: wikipedia, etc
 	 */
+	@DatabaseField
 	private String resumo;
 
 	/**
 	 * Fonte: wikipedia, etc
 	 */
+	@DatabaseField
 	private String segmento;
 
 	/**
 	 * Fonte: wikipedia, etc
 	 */
+	@DatabaseField
 	private Date fundacao;
 
+	@DatabaseField
 	private String localizacao;
 
 	/**
 	 * Fonte: wikipedia, etc
 	 */
+	@DatabaseField
 	private float faturamento;
 
 	/**
 	 * Fonte: wikipedia, etc
 	 */
+	@DatabaseField
 	private float lucro;
 
 	public String getCnpj() {
@@ -88,4 +99,5 @@ public class PessoaJuridica extends Pessoa {
 	public void setLucro(float lucro) {
 		this.lucro = lucro;
 	}
+
 }

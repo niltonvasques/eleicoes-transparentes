@@ -4,28 +4,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.Comite;
-import br.ufba.mata62.eleicoestransparentes.persistance.Eleicao;
-import br.ufba.mata62.eleicoestransparentes.persistance.Partido;
-import br.ufba.mata62.eleicoestransparentes.persistance.PersistanceFactory;
-import br.ufba.mata62.eleicoestransparentes.persistance.Pessoa;
-import br.ufba.mata62.eleicoestransparentes.persistance.PessoaFisica;
-import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
-import br.ufba.mata62.eleicoestransparentes.persistance.SetorEconomico;
-import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.BeanFactory;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMBem;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMCandidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMComite;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMEleicao;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMPartido;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMPessoa;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMPessoaFisica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMPessoaJuridica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMSetorEconomico;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMTransacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Comite;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Eleicao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -47,23 +34,23 @@ public class Comunicacao {
 	}
 	
 	public boolean insereBem(final Bem bem) throws SQLException{
-		ORMBem orm = BeanFactory.createORMBem(bem);
-		Dao<ORMBem, String> bemDao = DaoManager.createDao(database.getConnection(), ORMBem.class);
+		Dao<Bem, String> bemDao = DaoManager.createDao(database.getConnection(), Bem.class);
 
-		ORMCandidato ormCand = getCandidato(bem.getCandidato().getSequencialCandidato());
+		Candidato ormCand = getCandidato(bem.getCandidato().getSequencialCandidato());
+		
 		if (ormCand != null) {//Só nos interessa se houver candidato.
-			orm.setCandidato(ormCand);
-			return bemDao.create(orm) > 0;
+			bem.setCandidato(ormCand);
+			return bemDao.create(bem) > 0;
 		}
 		return false;
 	}
 	
-	public ORMCandidato getCandidato(String sequencialCandidato){
-		ORMCandidato orm = null;
-		List<ORMCandidato> listORM;
-		Dao<ORMCandidato, String> candidatoDao;
+	public Candidato getCandidato(String sequencialCandidato){
+		Candidato orm = null;
+		List<Candidato> listORM;
+		Dao<Candidato, String> candidatoDao;
 		try {
-			candidatoDao = DaoManager.createDao(database.getConnection(), ORMCandidato.class);
+			candidatoDao = DaoManager.createDao(database.getConnection(), Candidato.class);
 			listORM = candidatoDao.queryForEq("sequencialCandidato",sequencialCandidato);
 			if(!listORM.isEmpty())
 				orm = listORM.get(0);
@@ -77,11 +64,11 @@ public class Comunicacao {
 		
 		List<Bem> bens = new ArrayList<Bem>();
 		
-		Dao<ORMBem, String> dao = DaoManager.createDao(database.getConnection(), ORMBem.class);
+		Dao<Bem, String> dao = DaoManager.createDao(database.getConnection(), Bem.class);
 		
-		List<ORMBem> ormBens = dao.queryForAll();
-		for (ORMBem ormBem : ormBens) {
-			bens.add(PersistanceFactory.createBem(ormBem));
+		List<Bem> ormBens = dao.queryForAll();
+		for (Bem ormBem : ormBens) {
+			bens.add(ormBem);
 		}
 		
 		return bens;
@@ -89,11 +76,9 @@ public class Comunicacao {
 	
 	public boolean insereSetorEconomico(SetorEconomico setor) throws SQLException{
 		
-		ORMSetorEconomico orm = BeanFactory.createORMSetorEconomico(setor);
+		Dao<SetorEconomico, String> setorDao = DaoManager.createDao(database.getConnection(), SetorEconomico.class);
 		
-		Dao<ORMSetorEconomico, String> setorDao = DaoManager.createDao(database.getConnection(), ORMSetorEconomico.class);
-		
-		return setorDao.create(orm) > 0;
+		return setorDao.create(setor) > 0;
 	}
 	
 	
@@ -101,34 +86,32 @@ public class Comunicacao {
 		
 		List<SetorEconomico> itens = new ArrayList<SetorEconomico>();
 		
-		Dao<ORMSetorEconomico, String> dao = DaoManager.createDao(database.getConnection(), ORMSetorEconomico.class);
+		Dao<SetorEconomico, String> dao = DaoManager.createDao(database.getConnection(), SetorEconomico.class);
 		
-		List<ORMSetorEconomico> ormItens = dao.queryForAll();
-		for (ORMSetorEconomico ormBem : ormItens) {
-			itens.add(PersistanceFactory.createSetorEconomico(ormBem));
+		List<SetorEconomico> ormItens = dao.queryForAll();
+		for (SetorEconomico ormBem : ormItens) {
+			itens.add(ormBem);
 		}
 		
 		return itens;
 	}
 	
-	public ORMCandidato insereCandidato(Candidato cand) throws SQLException{
+	public Candidato insereCandidato(Candidato cand) throws SQLException{
 		
-		ORMCandidato orm = BeanFactory.createORMCandidato(cand);
+		Dao<Candidato, String> candidatoDao = DaoManager.createDao(database.getConnection(), Candidato.class);
 		
-		Dao<ORMCandidato, String> candidatoDao = DaoManager.createDao(database.getConnection(), ORMCandidato.class);
-		
-		return candidatoDao.createIfNotExists(orm);
+		return candidatoDao.createIfNotExists(cand);
 	}
 	
 	public List<Candidato> consultaCandidatos() throws SQLException{
 		
 		List<Candidato> itens = new ArrayList<Candidato>();
 		
-		Dao<ORMCandidato, String> dao = DaoManager.createDao(database.getConnection(), ORMCandidato.class);
+		Dao<Candidato, String> dao = DaoManager.createDao(database.getConnection(), Candidato.class);
 		
-		List<ORMCandidato> ormItens = dao.queryForAll();
-		for (ORMCandidato orm : ormItens) {
-			itens.add(PersistanceFactory.createCandidato(orm));
+		List<Candidato> ormItens = dao.queryForAll();
+		for (Candidato orm : ormItens) {
+			itens.add(orm);
 		}
 		
 		return itens;
@@ -136,168 +119,130 @@ public class Comunicacao {
 	
 	public boolean insereComite(Comite cand) throws SQLException{
 		
-		ORMComite orm = BeanFactory.createORMComite(cand);
+		Dao<Comite, String> comiteDAO = DaoManager.createDao(database.getConnection(), Comite.class);
 		
-		Dao<ORMComite, String> comiteDAO = DaoManager.createDao(database.getConnection(), ORMComite.class);
-		
-		return comiteDAO.create(orm) > 0;
+		return comiteDAO.create(cand) > 0;
 	}
 	
 	public List<Comite> consultaComites() throws SQLException{
 		
 		List<Comite> itens = new ArrayList<Comite>();
 		
-		Dao<ORMComite, String> dao = DaoManager.createDao(database.getConnection(), ORMComite.class);
+		Dao<Comite, String> dao = DaoManager.createDao(database.getConnection(), Comite.class);
 		
-		List<ORMComite> ormItens = dao.queryForAll();
-		for (ORMComite orm : ormItens) {
-			itens.add(PersistanceFactory.createComite(orm));
+		List<Comite> ormItens = dao.queryForAll();
+		for (Comite orm : ormItens) {
+			itens.add(orm);
 		}
 		
 		return itens;
 	}
 	
 	public boolean insereEleicao(Eleicao eleicao) throws SQLException{
-		ORMEleicao orm = BeanFactory.createORMEleicao(eleicao);
+		Dao<Eleicao, String> eleicaoDAO = DaoManager.createDao(database.getConnection(), Eleicao.class);
 		
-		Dao<ORMEleicao, String> eleicaoDAO = DaoManager.createDao(database.getConnection(), ORMEleicao.class);
-		
-		return eleicaoDAO.create(orm) > 0;
+		return eleicaoDAO.create(eleicao) > 0;
 	}
 	
 	public List<Eleicao> consultaEleicoes() throws SQLException{
 		
 		List<Eleicao> itens = new ArrayList<Eleicao>();
 		
-		Dao<ORMEleicao, String> dao = DaoManager.createDao(database.getConnection(), ORMEleicao.class);
+		Dao<Eleicao, String> dao = DaoManager.createDao(database.getConnection(), Eleicao.class);
 		
-		List<ORMEleicao> ormItens = dao.queryForAll();
-		for (ORMEleicao orm : ormItens) {
-			itens.add(PersistanceFactory.createEleicao(orm));
+		List<Eleicao> ormItens = dao.queryForAll();
+		for (Eleicao orm : ormItens) {
+			itens.add(orm);
 		}
 		
 		return itens;
 	}
 	
 	public boolean inserePartido(Partido partido) throws SQLException{
-		ORMPartido orm =  BeanFactory.createORMPartido(partido);
+		Dao<Partido, String> partidoDAO = DaoManager.createDao(database.getConnection(), Partido.class);
 		
-		Dao<ORMPartido, String> partidoDAO = DaoManager.createDao(database.getConnection(), ORMPartido.class);
-		
-		return partidoDAO.create(orm) > 0;
+		return partidoDAO.create(partido) > 0;
 	}
 	
 	public List<Partido> consultaPartidos() throws SQLException{
 		
 		List<Partido> itens = new ArrayList<Partido>();
 		
-		Dao<ORMPartido, String> dao = DaoManager.createDao(database.getConnection(), ORMPartido.class);
+		Dao<Partido, String> dao = DaoManager.createDao(database.getConnection(), Partido.class);
 		
-		List<ORMPartido> ormItens = dao.queryForAll();
-		for (ORMPartido orm : ormItens) {
-			itens.add(PersistanceFactory.createPartido(orm));
+		List<Partido> ormItens = dao.queryForAll();
+		for (Partido orm : ormItens) {
+			itens.add(orm);
 		}
 		
 		return itens;
 	}
 	
-	public ORMPessoa inserePessoa(Pessoa pessoa) throws SQLException{
-		ORMPessoa orm =  BeanFactory.createORMPessoa(pessoa);
-		
-		Dao<ORMPessoa, String> pessoaDAO = DaoManager.createDao(database.getConnection(), ORMPessoa.class);
-		
-		return pessoaDAO.createIfNotExists(orm);
-	}
-	
-	public List<Pessoa> consultaPessoas() throws SQLException{
-		
-		List<Pessoa> itens = new ArrayList<Pessoa>();
-		
-		Dao<ORMPessoa, String> dao = DaoManager.createDao(database.getConnection(), ORMPessoa.class);
-		
-		List<ORMPessoa> ormItens = dao.queryForAll();
-		for (ORMPessoa orm : ormItens) {
-			itens.add(PersistanceFactory.createPessoa(orm));
-		}
-		
-		return itens;
-	}
 	
 	public boolean inserePessoaFisica(PessoaFisica pessoa) throws SQLException{
-		ORMPessoaFisica orm =  BeanFactory.createORMPessoaFisica(pessoa);
+		Dao<PessoaFisica, String> pessoaDAO = DaoManager.createDao(database.getConnection(), PessoaFisica.class);
 		
-		Dao<ORMPessoaFisica, String> pessoaDAO = DaoManager.createDao(database.getConnection(), ORMPessoaFisica.class);
-		
-		return pessoaDAO.create(orm) > 0;
+		return pessoaDAO.create(pessoa) > 0;
 	}
 	
 	public List<PessoaFisica> consultaPessoasFisica() throws SQLException{
 		
 		List<PessoaFisica> itens = new ArrayList<PessoaFisica>();
 		
-		Dao<ORMPessoaFisica, String> dao = DaoManager.createDao(database.getConnection(), ORMPessoaFisica.class);
+		Dao<PessoaFisica, String> dao = DaoManager.createDao(database.getConnection(), PessoaFisica.class);
 		
-		List<ORMPessoaFisica> ormItens = dao.queryForAll();
-		for (ORMPessoaFisica orm : ormItens) {
-			itens.add(PersistanceFactory.createPessoaFisica(orm));
+		List<PessoaFisica> ormItens = dao.queryForAll();
+		for (PessoaFisica orm : ormItens) {
+			itens.add(orm);
 		}
 		
 		return itens;
 	}
 	
 	public boolean inserePessoaJuridica(PessoaJuridica pessoa) throws SQLException{
-		ORMPessoaJuridica orm =  BeanFactory.createORMPessoaJuridica(pessoa);
-		Dao<ORMPessoaJuridica, String> pessoaDAO = DaoManager.createDao(database.getConnection(), ORMPessoaJuridica.class);
+		Dao<PessoaJuridica, String> pessoaDAO = DaoManager.createDao(database.getConnection(), PessoaJuridica.class);
 
-		if(orm.getPessoa().getId()<=0)
-			orm.setPessoa(inserePessoa(pessoa));
-		
-		if(orm.getPessoa().getId() <= 0){
-			inserePessoa(pessoa);
-		}
-		
-		return pessoaDAO.create(orm) > 0;
+		return pessoaDAO.create(pessoa) > 0;
 	}
 	
 	public List<PessoaJuridica> consultaPessoasJuridica() throws SQLException{
 		
 		List<PessoaJuridica> itens = new ArrayList<PessoaJuridica>();
 		
-		Dao<ORMPessoaJuridica, String> dao = DaoManager.createDao(database.getConnection(), ORMPessoaJuridica.class);
+		Dao<PessoaJuridica, String> dao = DaoManager.createDao(database.getConnection(), PessoaJuridica.class);
 		
-		List<ORMPessoaJuridica> ormItens = dao.queryForAll();
-		for (ORMPessoaJuridica orm : ormItens) {
-			itens.add(PersistanceFactory.createPessoaJuridica(orm));
+		List<PessoaJuridica> ormItens = dao.queryForAll();
+		for (PessoaJuridica orm : ormItens) {
+			itens.add(orm);
 		}
 		
 		return itens;
 	}
 	
 	public boolean insereTransacao(Transacao transacao) throws SQLException{
-		ORMTransacao orm =  BeanFactory.createORMTransacao(transacao);
 		
-		Dao<ORMTransacao, String> pessoaDAO = DaoManager.createDao(database.getConnection(), ORMTransacao.class);
+		Dao<Transacao, String> pessoaDAO = DaoManager.createDao(database.getConnection(), Transacao.class);
 		
-		return pessoaDAO.create(orm) > 0;
+		return pessoaDAO.create(transacao) > 0;
 	}
 	
 	public List<Transacao> consultaTransacoes() throws SQLException{
 		
 		List<Transacao> itens = new ArrayList<Transacao>();
 		
-		Dao<ORMTransacao, String> dao = DaoManager.createDao(database.getConnection(), ORMTransacao.class);
+		Dao<Transacao, String> dao = DaoManager.createDao(database.getConnection(), Transacao.class);
 		
-		List<ORMTransacao> ormItens = dao.queryForAll();
-		for (ORMTransacao orm : ormItens) {
-			itens.add(PersistanceFactory.createTransacao(orm));
+		List<Transacao> ormItens = dao.queryForAll();
+		for (Transacao orm : ormItens) {
+			itens.add(orm);
 		}
 		
 		return itens;
 	}
 	
-	public List<ORMTransacao> consultaTransacao() throws SQLException{
+	public List<Transacao> consultaTransacao() throws SQLException{
 		
-		Dao<ORMTransacao, String> transacaoDao = DaoManager.createDao(database.getConnection(), ORMTransacao.class);
+		Dao<Transacao, String> transacaoDao = DaoManager.createDao(database.getConnection(), Transacao.class);
 		
 		return transacaoDao.queryForAll();
 	}

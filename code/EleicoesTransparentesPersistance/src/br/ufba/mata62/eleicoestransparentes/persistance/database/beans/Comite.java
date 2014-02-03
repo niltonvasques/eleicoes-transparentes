@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "Comite")
-public class ORMComite {
+public class Comite {
 
 	@DatabaseField(generatedId = true)
 	private int id;
@@ -19,7 +19,7 @@ public class ORMComite {
 	private String tipo;
 	
 	@DatabaseField(foreign = true)
-	private ORMPartido partido;
+	private Partido partido;
 
 	public String getUF() {
 		return UF;
@@ -53,11 +53,11 @@ public class ORMComite {
 		this.id = id;
 	}
 
-	public ORMPartido getPartido() {
+	public Partido getPartido() {
 		return partido;
 	}
 
-	public void setPartido(ORMPartido partido) {
+	public void setPartido(Partido partido) {
 		this.partido = partido;
 	}
 	

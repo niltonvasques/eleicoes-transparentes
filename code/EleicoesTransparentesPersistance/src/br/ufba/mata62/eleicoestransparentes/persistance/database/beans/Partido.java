@@ -4,13 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "Partido")
-public class ORMPartido {
-	
-	@DatabaseField(generatedId = true)
-	private int id;
-
-	@DatabaseField(foreign = true, unique = true)
-	private ORMPessoaJuridica pessoaJuridica;
+public class Partido extends PessoaJuridica{
 	
 	@DatabaseField(unique = true)
 	private String sigla;
@@ -34,22 +28,5 @@ public class ORMPartido {
 		this.numero = numero;
 	}
 
-	public ORMPessoaJuridica getPessoaJuridica() {
-		return pessoaJuridica;
-	}
-
-	public void setPessoaJuridica(ORMPessoaJuridica idPessoaJuridica) {
-		this.pessoaJuridica = idPessoaJuridica;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	
 
 }

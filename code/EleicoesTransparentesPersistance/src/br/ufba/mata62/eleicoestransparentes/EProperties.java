@@ -8,7 +8,7 @@ public class EProperties {
 
 	public static Properties getProp() throws IOException {
 		Properties props = new Properties();
-		FileInputStream file = new FileInputStream("/home/flavio/workspace/eleicoes-transparentes/code/eleicao.properties");
+		FileInputStream file = new FileInputStream(System.getProperty("user.dir")+"/eleicao.properties");
 		props.load(file);
 		file.close();
 		return props;
