@@ -86,7 +86,8 @@ public class ReadCVS {
 	
 	public static List<Transacao> readPrestacaoContasCandidatoDespesa(String uf) {
 		ArrayList<Transacao> trans = new ArrayList<Transacao>();
-		String path = Path.pathRoot + Path.FLD_PRESTACAO +Path.SEPARATOR+ Path.FLD_CANDIDATO+ Path.SEPARATOR+uf+Path.SEPARATOR+Path.FILE_DESPESA_CANDIDATO;
+//		String path = Path.pathRoot + Path.FLD_PRESTACAO +Path.SEPARATOR+ Path.FLD_CANDIDATO+ Path.SEPARATOR+uf+Path.SEPARATOR+Path.FILE_DESPESA_CANDIDATO;
+		String path = EProperties.findAppDirectory()+Path.SEPARATOR+Path.FILE_DESPESA_CANDIDATO;
 		List<PrestContasCandidatoDespesa> contas = ParserPrestacaoContasCandidatoDespesa.parsing(path);
 		Transacao t = null;
 		for (PrestContasCandidatoDespesa p : contas) {
@@ -141,7 +142,8 @@ public class ReadCVS {
 	 * */
 	public static List<Bem> readBens(String uf) {
 		ArrayList<Bem> bens = new ArrayList<Bem>();
-		String path = Path.pathRoot +Path.FLD_BEM+Path.SEPARATOR+Path.FLD_BEM+(Path.FILE_BEM_UF.replace("$UF$", uf));
+//		String path = Path.pathRoot +Path.FLD_BEM+Path.SEPARATOR+Path.FLD_BEM+(Path.FILE_BEM_UF.replace("$UF$", uf));
+		String path = EProperties.findAppDirectory()+Path.SEPARATOR+Path.FLD_BEM+(Path.FILE_BEM_UF.replace("$UF$", uf));
 		List<BemCandidato> bcs = ParserBemCandidato.parsing(path);
 		Bem b = null;
 		for (BemCandidato p : bcs) {
