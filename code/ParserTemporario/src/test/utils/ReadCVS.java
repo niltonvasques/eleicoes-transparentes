@@ -17,8 +17,9 @@ import test.dadosBrutos.PrestContasComiteDespesa;
 import test.dadosBrutos.PrestContasComiteReceita;
 import test.dadosBrutos.PrestContasPartidoDespesa;
 import test.dadosBrutos.PrestContasPartidoReceita;
-import br.ufba.mata62.eleicoestransparentes.persistance.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
+import br.ufba.mata62.eleicoestransparentes.EProperties;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 
 public class ReadCVS {
 
@@ -142,7 +143,8 @@ public class ReadCVS {
 	 * */
 	public static List<Bem> readBens(String uf) {
 		ArrayList<Bem> bens = new ArrayList<Bem>();
-		String path = Path.pathRoot +Path.FLD_BEM+Path.SEPARATOR+Path.FLD_BEM+(Path.FILE_BEM_UF.replace("$UF$", uf));
+//		String path = Path.pathRoot +Path.FLD_BEM+Path.SEPARATOR+Path.FLD_BEM+(Path.FILE_BEM_UF.replace("$UF$", uf));
+		String path = EProperties.findAppDirectory()+Path.SEPARATOR+Path.FLD_BEM+(Path.FILE_BEM_UF.replace("$UF$", uf));
 		List<BemCandidato> bcs = ParserBemCandidato.parsing(path);
 		Bem b = null;
 		for (BemCandidato p : bcs) {

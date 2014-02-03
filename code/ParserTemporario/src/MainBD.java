@@ -4,13 +4,13 @@ import java.sql.SQLException;
 
 import test.utils.Path;
 import test.utils.ReadCVS;
-import br.ufba.mata62.eleicoestransparentes.persistance.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.PessoaFisica;
-import br.ufba.mata62.eleicoestransparentes.persistance.PessoaJuridica;
-import br.ufba.mata62.eleicoestransparentes.persistance.SetorEconomico;
-import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Seed;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 
 
 public class MainBD {

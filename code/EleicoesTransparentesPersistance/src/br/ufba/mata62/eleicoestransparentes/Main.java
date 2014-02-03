@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.Seed;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
 
 
@@ -13,27 +14,30 @@ public class Main {
 		
 //		Seed.createTables();
 		
-		System.out.println(System.getProperty("user.dir"));
 		
-		Comunicacao comm = new Comunicacao();
+		System.out.println(EProperties.findTopLevelDirectory());
 		
-		SetorEconomico setor = new SetorEconomico();
-		setor.setCodSetorEco("00023");
-		setor.setNome("TRANSPORTE");
-		
-		try {
-			comm.insereSetorEconomico(setor);
-			
-			List<SetorEconomico> setores = comm.consultaSetoresEconomico();
-			
-			for (SetorEconomico ormSetorEconomico : setores) {
-				System.out.print("id: "+ormSetorEconomico.getId());
-				System.out.print(" nome: "+ormSetorEconomico.getNome());
-				System.out.println(" codSetorEco: "+ormSetorEconomico.getCodSetorEco());
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//		Comunicacao comm = new Comunicacao();
+//		
+//		SetorEconomico setor = new SetorEconomico();
+//		setor.setCodSetorEco("00023");
+//		setor.setNome("TRANSPORTE");
+//		
+//		try {
+//			comm.insereSetorEconomico(setor);
+//			
+//			List<SetorEconomico> setores = comm.consultaSetoresEconomico();
+//			
+//			for (SetorEconomico ormSetorEconomico : setores) {
+//				System.out.print("id: "+ormSetorEconomico.getId());
+//				System.out.print(" nome: "+ormSetorEconomico.getNome());
+//				System.out.println(" codSetorEco: "+ormSetorEconomico.getCodSetorEco());
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			
+//		}
 		
 		
 		

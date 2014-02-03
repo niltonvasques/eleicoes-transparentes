@@ -7,11 +7,26 @@ import java.util.Properties;
 public class EProperties {
 
 	public static Properties getProp() throws IOException {
+		
 		Properties props = new Properties();
-		FileInputStream file = new FileInputStream(System.getProperty("user.dir")+"/eleicao.properties");
+		FileInputStream file = new FileInputStream(findTopLevelDirectory()+"/eleicao.properties");
 		props.load(file);
 		file.close();
 		return props;
+	}
+
+	public static String findTopLevelDirectory() {
+		String dir = findAppDirectory();
+		int lastBar = dir.lastIndexOf("/");
+		StringBuffer buffer = new StringBuffer(dir);
+		buffer = buffer.replace(lastBar, buffer.length(), "");
+		
+		return buffer.toString();
+	}
+	
+	public static String findAppDirectory(){
+		String dir = System.getProperty("user.dir");
+		return dir;
 	}
 
 	public static String getDatabaseUrl() {
@@ -40,9 +55,5 @@ public class EProperties {
 		}
 		return null;
 	}
-
-	
-	
-	
 	
 }
