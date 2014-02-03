@@ -6,7 +6,7 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "PessoaFisica")
 public class PessoaFisica extends Pessoa{
 
-	@DatabaseField
+	@DatabaseField(unique=true)
 	private String cpf;
 
 	@DatabaseField

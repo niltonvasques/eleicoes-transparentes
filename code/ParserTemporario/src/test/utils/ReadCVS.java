@@ -17,8 +17,8 @@ import test.dadosBrutos.PrestContasComiteDespesa;
 import test.dadosBrutos.PrestContasComiteReceita;
 import test.dadosBrutos.PrestContasPartidoDespesa;
 import test.dadosBrutos.PrestContasPartidoReceita;
-import br.ufba.mata62.eleicoestransparentes.persistance.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.Transacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 
 public class ReadCVS {
 
