@@ -9,6 +9,7 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Comite;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Eleicao;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
@@ -33,16 +34,16 @@ public class Comunicacao {
 		}
 	}
 	
-	public boolean insereBem(final Bem bem) throws SQLException{
+	public Bem insereBem(final Bem bem) throws SQLException{
 		Dao<Bem, String> bemDao = DaoManager.createDao(database.getConnection(), Bem.class);
 
 		Candidato ormCand = getCandidato(bem.getCandidato().getSequencialCandidato());
 		
 		if (ormCand != null) {//Só nos interessa se houver candidato.
 			bem.setCandidato(ormCand);
-			return bemDao.create(bem) > 0;
+			return bemDao.createIfNotExists(bem);
 		}
-		return false;
+		return null;
 	}
 	
 	public Candidato getCandidato(String sequencialCandidato){
@@ -74,11 +75,11 @@ public class Comunicacao {
 		return bens;
 	}
 	
-	public boolean insereSetorEconomico(SetorEconomico setor) throws SQLException{
+	public SetorEconomico insereSetorEconomico(SetorEconomico setor) throws SQLException{
 		
 		Dao<SetorEconomico, String> setorDao = DaoManager.createDao(database.getConnection(), SetorEconomico.class);
 		
-		return setorDao.create(setor) > 0;
+		return setorDao.createIfNotExists(setor);
 	}
 	
 	
@@ -100,6 +101,10 @@ public class Comunicacao {
 		
 		Dao<Candidato, String> candidatoDao = DaoManager.createDao(database.getConnection(), Candidato.class);
 		
+		Candidato c = (Candidato) checkIfExists(candidatoDao, "sequencialCandidato",cand.getSequencialCandidato());
+		
+		if(c != null) return c;
+		
 		return candidatoDao.createIfNotExists(cand);
 	}
 	
@@ -117,11 +122,11 @@ public class Comunicacao {
 		return itens;
 	}
 	
-	public boolean insereComite(Comite cand) throws SQLException{
+	public Comite insereComite(Comite cand) throws SQLException{
 		
 		Dao<Comite, String> comiteDAO = DaoManager.createDao(database.getConnection(), Comite.class);
 		
-		return comiteDAO.create(cand) > 0;
+		return comiteDAO.createIfNotExists(cand);
 	}
 	
 	public List<Comite> consultaComites() throws SQLException{
@@ -138,10 +143,10 @@ public class Comunicacao {
 		return itens;
 	}
 	
-	public boolean insereEleicao(Eleicao eleicao) throws SQLException{
+	public Eleicao insereEleicao(Eleicao eleicao) throws SQLException{
 		Dao<Eleicao, String> eleicaoDAO = DaoManager.createDao(database.getConnection(), Eleicao.class);
 		
-		return eleicaoDAO.create(eleicao) > 0;
+		return eleicaoDAO.createIfNotExists(eleicao);
 	}
 	
 	public List<Eleicao> consultaEleicoes() throws SQLException{
@@ -158,10 +163,10 @@ public class Comunicacao {
 		return itens;
 	}
 	
-	public boolean inserePartido(Partido partido) throws SQLException{
+	public Partido inserePartido(Partido partido) throws SQLException{
 		Dao<Partido, String> partidoDAO = DaoManager.createDao(database.getConnection(), Partido.class);
 		
-		return partidoDAO.create(partido) > 0;
+		return partidoDAO.createIfNotExists(partido);
 	}
 	
 	public List<Partido> consultaPartidos() throws SQLException{
@@ -179,10 +184,14 @@ public class Comunicacao {
 	}
 	
 	
-	public boolean inserePessoaFisica(PessoaFisica pessoa) throws SQLException{
+	public PessoaFisica inserePessoaFisica(PessoaFisica pessoa) throws SQLException{
 		Dao<PessoaFisica, String> pessoaDAO = DaoManager.createDao(database.getConnection(), PessoaFisica.class);
 		
-		return pessoaDAO.create(pessoa) > 0;
+		PessoaFisica c = (PessoaFisica) checkIfExists(pessoaDAO, "cpf",pessoa.getCpf());
+		
+		if(c != null) return c;
+		
+		return pessoaDAO.createIfNotExists(pessoa);
 	}
 	
 	public List<PessoaFisica> consultaPessoasFisica() throws SQLException{
@@ -199,10 +208,10 @@ public class Comunicacao {
 		return itens;
 	}
 	
-	public boolean inserePessoaJuridica(PessoaJuridica pessoa) throws SQLException{
+	public PessoaJuridica inserePessoaJuridica(PessoaJuridica pessoa) throws SQLException{
 		Dao<PessoaJuridica, String> pessoaDAO = DaoManager.createDao(database.getConnection(), PessoaJuridica.class);
 
-		return pessoaDAO.create(pessoa) > 0;
+		return pessoaDAO.createIfNotExists(pessoa);
 	}
 	
 	public List<PessoaJuridica> consultaPessoasJuridica() throws SQLException{
@@ -219,11 +228,25 @@ public class Comunicacao {
 		return itens;
 	}
 	
-	public boolean insereTransacao(Transacao transacao) throws SQLException{
+	public Transacao insereTransacao(Transacao transacao) throws SQLException{
 		
 		Dao<Transacao, String> pessoaDAO = DaoManager.createDao(database.getConnection(), Transacao.class);
 		
-		return pessoaDAO.create(transacao) > 0;
+		if(transacao.getDebitado().getId() <= 0){
+			int id  = 0;
+			Pessoa debitado = transacao.getDebitado();
+			if(debitado instanceof Partido){
+				transacao.setDebitado(inserePartido((Partido)debitado));
+			}else if(debitado instanceof Candidato){
+				transacao.setDebitado(insereCandidato((Candidato)debitado));
+			}else if(debitado instanceof PessoaJuridica){
+				transacao.setDebitado(inserePessoaJuridica((PessoaJuridica)debitado));
+			}else if(debitado instanceof PessoaFisica){
+				transacao.setDebitado(inserePessoaFisica((PessoaFisica)debitado));
+			}
+		}
+		
+		return pessoaDAO.createIfNotExists(transacao);
 	}
 	
 	public List<Transacao> consultaTransacoes() throws SQLException{
@@ -245,6 +268,18 @@ public class Comunicacao {
 		Dao<Transacao, String> transacaoDao = DaoManager.createDao(database.getConnection(), Transacao.class);
 		
 		return transacaoDao.queryForAll();
+	}
+	
+	private Object checkIfExists(Dao dao, String field, String value){
+		try {
+			List listORM = dao.queryForEq(field,value);
+			if(!listORM.isEmpty()){
+				return listORM.get(0);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
