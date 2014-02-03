@@ -12,7 +12,8 @@ public class ORMCandidato{
 	@DatabaseField(foreign = true, unique = true)
 	private ORMPessoaFisica pessoaFisica;
 
-	@DatabaseField(canBeNull = false, unique = true)
+//	@DatabaseField(canBeNull = false, unique = true)TODO Original
+	@DatabaseField(canBeNull = true, unique = false)
 	private String numero;
 
 	@DatabaseField

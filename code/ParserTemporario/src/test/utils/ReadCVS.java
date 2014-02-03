@@ -142,7 +142,6 @@ public class ReadCVS {
 	 * */
 	public static List<Bem> readBens(String uf) {
 		ArrayList<Bem> bens = new ArrayList<Bem>();
-		//FLD_BEM+FILE_BEM_UF, $UF$/ufs[x]
 		String path = Path.pathRoot +Path.FLD_BEM+Path.SEPARATOR+Path.FLD_BEM+(Path.FILE_BEM_UF.replace("$UF$", uf));
 		List<BemCandidato> bcs = ParserBemCandidato.parsing(path);
 		Bem b = null;

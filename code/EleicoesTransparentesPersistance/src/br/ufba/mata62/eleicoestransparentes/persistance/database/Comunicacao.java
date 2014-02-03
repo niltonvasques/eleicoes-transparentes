@@ -3,6 +3,7 @@ package br.ufba.mata62.eleicoestransparentes.persistance.database;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import br.ufba.mata62.eleicoestransparentes.persistance.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.Candidato;
@@ -29,6 +30,7 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.ORMTransa
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.misc.TransactionManager;
 
 public class Comunicacao {
 	
@@ -46,13 +48,40 @@ public class Comunicacao {
 		}
 	}
 	
-	public boolean insereBem(Bem bem) throws SQLException{
-		
-		ORMBem orm = BeanFactory.createORMBem(bem);
-		
-		Dao<ORMBem, String> bemDao = DaoManager.createDao(database.getConnection(), ORMBem.class);
-		
-		return bemDao.create(orm) > 0;
+	public boolean insereBem(final Bem bem) throws SQLException{
+		final boolean res = false;
+		TransactionManager.callInTransaction(database.getConnection(),new Callable<Void>() {
+				    public Void call() throws Exception {
+						ORMBem orm = BeanFactory.createORMBem(bem);
+						Dao<ORMBem, String> bemDao = DaoManager.createDao(database.getConnection(), ORMBem.class);
+
+						ORMCandidato ormCand = getCandidato(bem.getCandidato().getSequencialCandidato());
+						orm.setCandidato(ormCand);
+						bemDao.create(orm);
+						return null;
+						}
+				});
+		return res;
+	}
+	
+	public ORMCandidato getCandidato(String sequencialCandidato){
+		ORMCandidato orm = null;
+		List<ORMCandidato> listORM;
+		Dao<ORMCandidato, String> candidatoDao;
+		try {
+			candidatoDao = DaoManager.createDao(database.getConnection(), ORMCandidato.class);
+			listORM = candidatoDao.queryForEq("sequencialCandidato",sequencialCandidato);
+			if(!listORM.isEmpty())
+				orm = listORM.get(0);
+			else{
+				orm = new ORMCandidato();
+				orm.setSequencialCandidato(sequencialCandidato);
+				orm = candidatoDao.createIfNotExists(orm);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return orm;
 	}
 	
 	public List<Bem> consultaBens() throws SQLException{
