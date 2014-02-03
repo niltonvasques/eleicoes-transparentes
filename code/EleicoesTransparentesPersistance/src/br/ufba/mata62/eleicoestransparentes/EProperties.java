@@ -55,5 +55,14 @@ public class EProperties {
 		}
 		return null;
 	}
+
+	public static String getPathRoot() {
+		try {
+			return getProp().getProperty("path_root");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 }

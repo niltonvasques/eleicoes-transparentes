@@ -6,7 +6,7 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "Candidato")
 public class Candidato extends PessoaFisica{
 	
-	@DatabaseField(canBeNull = false, unique = true)
+	@DatabaseField(canBeNull = false, unique = false)
 	private String numero;
 
 	@DatabaseField

@@ -1,9 +1,11 @@
 package test.utils;
 
+import br.ufba.mata62.eleicoestransparentes.EProperties;
+
 public abstract class Path {
 	
 	
-	public static final String pathRoot="/home/flavio/repositorio/";//TODO mudar para o caminho certo no servidor
+	public static final String pathRoot=EProperties.getPathRoot();//TODO mudar para o caminho certo no servidor
 	public static final char SEPARATOR='/';
 	
 	public static final String FLD_PRESTACAO="prestacao_final_2012";

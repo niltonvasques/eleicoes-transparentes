@@ -91,9 +91,8 @@ public class ReadCVS {
 		String path = EProperties.findAppDirectory()+Path.SEPARATOR+Path.FILE_DESPESA_CANDIDATO;
 		List<PrestContasCandidatoDespesa> contas = ParserPrestacaoContasCandidatoDespesa.parsing(path);
 		Transacao t = null;
-//		for (PrestContasCandidatoDespesa p : contas) {
-		for (int i = 0; i < 10; i++) {
-			t = ParserPrestacaoContasCandidatoDespesa.populate(contas.get(i));
+		for (PrestContasCandidatoDespesa p : contas) {
+			t = ParserPrestacaoContasCandidatoDespesa.populate(p);
 			trans.add(t);
 		}
 		return trans;
