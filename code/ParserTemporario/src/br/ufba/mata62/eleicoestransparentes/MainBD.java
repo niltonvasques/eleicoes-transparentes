@@ -3,7 +3,6 @@ package br.ufba.mata62.eleicoestransparentes;
 
 import java.sql.SQLException;
 
-import br.ufba.mata62.eleicoestransparentes.EProperties;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Seed;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
@@ -18,34 +17,6 @@ public class MainBD {
 	public static void main(String[] args) {
 		
 		Seed.createTables();
-
-<<<<<<< HEAD
-		Comunicacao comm = new Comunicacao();
-//		for (Transacao t : ReadCVS.readPrestacaoContasPartidoDespesa(Path.UFS[0])) {
-//			run(t,comm);
-//		}
-		
-		for(Candidato c : ReadCVS.readCandidatos(Path.UFS[0])){
-			run(c,comm);
-		}
-		
-//		
-=======
-//		Comunicacao comm = new Comunicacao();
-//		for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
-//			run(t,comm);
-//		}
-		
-//		for(Candidato c : ReadCVS.readCandidatos(Path.UFS[0])){
-//			run(c,comm);
-//		}
-		
->>>>>>> 15dde06ef25b89c1688483bc7ea6a3fcdf9fe98c
-//		for (Bem b : ReadCVS.readBens(Path.UFS[0])) {
-//			run(b,comm);
-//		}
-//		
-//		comm.close();
 		
 		try {
 			Comunicacao comm = new Comunicacao();
@@ -54,25 +25,25 @@ public class MainBD {
 				comm.insereCandidato(t);
 			}
 		
-			for (Transacao t : ReadCVS.readPrestacaoContasPartidoReceita(Path.UFS[0])) {
-				comm.insereTransacao(t);
-			}
-			
-			for (Transacao t : ReadCVS.readPrestacaoContasPartidoDespesa(Path.UFS[0])) {
-				comm.insereTransacao(t);
-			}
-			
-			for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
-				comm.insereTransacao(t);
-			}
-			
-			for (Transacao t : ReadCVS.readPrestacaoContasCandidatoReceita(Path.UFS[0])) {
-				comm.insereTransacao(t);
-			}
-			
-			for (Bem b : ReadCVS.readBens(Path.UFS[0])) {
-				comm.insereBem(b);
-			}
+//			for (Transacao t : ReadCVS.readPrestacaoContasPartidoReceita(Path.UFS[0])) {
+//				comm.insereTransacao(t);
+//			}
+//			
+//			for (Transacao t : ReadCVS.readPrestacaoContasPartidoDespesa(Path.UFS[0])) {
+//				comm.insereTransacao(t);
+//			}
+//			
+//			for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
+//				comm.insereTransacao(t);
+//			}
+//			
+//			for (Transacao t : ReadCVS.readPrestacaoContasCandidatoReceita(Path.UFS[0])) {
+//				comm.insereTransacao(t);
+//			}
+//			
+//			for (Bem b : ReadCVS.readBens(Path.UFS[0])) {
+//				comm.insereBem(b);
+//			}
 	//		
 			comm.close();
 		
