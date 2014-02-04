@@ -18,6 +18,7 @@ public class EleicoesSOAP {
 	
 	public static final String METHOD_SETORES				= "consultaSetoresEconomico";
 	public static final String METHOD_CANDIDATOS			= "consultaCandidatos";
+	public static final String METHOD_PARSER				= "parserDadosTSE";
 	
 	private static final String AUTH_KEY 			= "f877fbd3d7c0d0313d3243ff0edcc73d";
 	
@@ -66,6 +67,17 @@ public class EleicoesSOAP {
 		params.add(createParam("chaveSeguranca", AUTH_KEY));
 		
 		String result = soap.executeSoapRequest(EleicoesSOAP.METHOD_CREATE_TABLES, t, params);
+		
+		return result;
+	}
+	
+	public String parserDados(){
+		Type t = new TypeToken<String>(){}.getType();
+		
+		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
+		params.add(createParam("chaveSeguranca", AUTH_KEY));
+		
+		String result = soap.executeSoapRequest(EleicoesSOAP.METHOD_PARSER, t, params);
 		
 		return result;
 	}

@@ -20,13 +20,13 @@ public class MainBD {
 //		Seed.createTables();
 
 		Comunicacao comm = new Comunicacao();
-//		for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
-//			run(t,comm);
-//		}
-		
-		for(Candidato c : ReadCVS.readCandidatos(Path.UFS[0])){
-			run(c,comm);
+		for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
+			run(t,comm);
 		}
+		
+//		for(Candidato c : ReadCVS.readCandidatos(Path.UFS[0])){
+//			run(c,comm);
+//		}
 		
 //		for (Bem b : ReadCVS.readBens(Path.UFS[0])) {
 //			run(b,comm);
