@@ -340,6 +340,25 @@ public class Comunicacao {
 		return valor;
 	}
 	
+	public float consultaTransacaoCandidato(int numero,String UF,String tipoTransacao) throws SQLException {
+		MySqlDatabase db = new MySqlDatabase();
+		
+		String query = "select p.nome, sum(valor), t.tipo from Transacao t inner join Candidato p" +
+			" on p.id = t.debitado_id  where t.tipo = '"+tipoTransacao+"' and p.numero = "+numero+" group by p.id order by sum(valor) desc;";
+		if(tipoTransacao.equals("R")){
+			query = "select p.nome, sum(valor), t.tipo from Transacao t inner join Candidato p" +
+				" on p.id = t.creditado_id  where t.tipo = '"+tipoTransacao+"' and p.numero = "+numero+" group by p.id order by sum(valor) desc;";
+		}
+		ResultSet result = db.query(query);
+		float valor = 0;
+		if(result.next()){
+			System.out.println("Candidato: "+result.getString(1)+" Valor: "+result.getString(2));
+			valor = result.getFloat(2);
+		}
+		db.close();
+		return valor;
+	}
+	
 	public List<Transacao> consultaTransacao() throws SQLException{
 		
 		Dao<Transacao, String> transacaoDao = DaoManager.createDao(database.getConnection(), Transacao.class);

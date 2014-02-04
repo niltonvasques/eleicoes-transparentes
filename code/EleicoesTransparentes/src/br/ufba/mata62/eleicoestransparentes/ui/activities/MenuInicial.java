@@ -32,7 +32,7 @@ public class MenuInicial extends ListActivity {
 		
 		try
 		{
-			Class nossaClasse = Class.forName("br.ufba.mata62.eleicoestransparentes.ui." + classSelected);
+			Class nossaClasse = Class.forName("br.ufba.mata62.eleicoestransparentes.ui.activities." + classSelected+"");
 			Intent classeParaAbrir = new Intent(MenuInicial.this, nossaClasse);
 			startActivity(classeParaAbrir);
 		}

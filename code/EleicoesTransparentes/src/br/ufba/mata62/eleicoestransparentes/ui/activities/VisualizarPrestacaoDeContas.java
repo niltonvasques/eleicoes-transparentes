@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import br.ufba.mata62.eleicoestransparentes.R;
 import br.ufba.mata62.eleicoestransparentes.adapters.MenuAdapter;
+import br.ufba.mata62.eleicoestransparentes.connection.EleicoesSOAP;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Comite;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Eleicao;
@@ -41,11 +42,8 @@ public class VisualizarPrestacaoDeContas extends FragmentActivity implements OnC
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.listagem_generica);
-		loadComponents();
+		setContentView(R.layout.visualizar_prestacao_contas);
 		
-		spinnerList = (Spinner)findViewById(R.id.spinnerListagem);
-
 		//Adicionando Nomes no ArrayList
 		nomes.add("ex1");
 		nomes.add("ex2");
@@ -69,7 +67,9 @@ public class VisualizarPrestacaoDeContas extends FragmentActivity implements OnC
 				//pega nome pela posi��o
 				nome = parent.getItemAtPosition(posicao).toString();
 				//imprime um Toast na tela com o nome que foi selecionado
-				Toast.makeText(VisualizarPrestacaoDeContas.this, "Nome Selecionado: " + nome, Toast.LENGTH_LONG).show();
+				EleicoesSOAP soap = new EleicoesSOAP();
+				float valor = soap.consultaTransacaoPartido(13, "AC", "D");
+				Toast.makeText(VisualizarPrestacaoDeContas.this, "O PT gastou: " + valor, Toast.LENGTH_LONG).show();
 			}
  
 			@Override
