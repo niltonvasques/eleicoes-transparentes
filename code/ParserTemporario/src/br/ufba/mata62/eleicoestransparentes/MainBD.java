@@ -3,7 +3,6 @@ package br.ufba.mata62.eleicoestransparentes;
 
 import java.sql.SQLException;
 
-import br.ufba.mata62.eleicoestransparentes.EProperties;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Seed;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
