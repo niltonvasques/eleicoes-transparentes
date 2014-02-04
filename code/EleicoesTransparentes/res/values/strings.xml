@@ -13,6 +13,11 @@
         <string name="mi_declaracao_bens">Declaração de bens</string>
         <string name="mi_eleitores">Sobre os eleitores</string>
         <string name="mi_prestacao_contas">Prestacao de Contas</string>
+    
+    <string-array name="itens">
+        <item>Partidos</item>
+        <item>Candidatos</item>
+    </string-array>
         
         
 

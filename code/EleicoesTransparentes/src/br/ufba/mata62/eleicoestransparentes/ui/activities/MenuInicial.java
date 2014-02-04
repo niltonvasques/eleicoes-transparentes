@@ -1,5 +1,6 @@
 package br.ufba.mata62.eleicoestransparentes.ui.activities;
 
+import br.ufba.mata62.eleicoestransparentes.connection.EleicoesSOAP;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,9 @@ public class MenuInicial extends ListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		EleicoesSOAP eleicoes = new EleicoesSOAP(false);
+		float x = eleicoes.consultaTransacaoPartido(13, "AC", "D");
+		
 		setListAdapter(new ArrayAdapter<String>(MenuInicial.this,android.R.layout.simple_list_item_1, classes));
 	}
 
