@@ -103,7 +103,7 @@ public class ParserConsultaCandidato {
 			cand.setSequencialCandidato(bc.getSequencialCandidadto());
 			
 			Partido p = new Partido();
-			p.setNumero(Integer.parseInt(bc.getNumeroPartido()));
+			p.setNumero(Integer.parseInt(bc.getNumeroPartido().trim()));
 			p.setSigla(bc.getSiglaPartido());
 			p.setNome(bc.getNomePartido());
 			cand.setPartido(p);
@@ -111,7 +111,7 @@ public class ParserConsultaCandidato {
 			cand.setSiglaUE(bc.getSiglaUE());
 			cand.setUF(bc.getSiglaUf());
 		}catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		return cand;
