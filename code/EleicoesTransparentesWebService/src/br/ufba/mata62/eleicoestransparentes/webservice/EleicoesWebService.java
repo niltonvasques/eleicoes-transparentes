@@ -55,6 +55,10 @@ public class EleicoesWebService {
 					
 					Comunicacao comm = new Comunicacao();
 					
+					for (Candidato t : ReadCVS.readCandidatos(Path.UFS[0])) {
+						comm.insereCandidato(t);
+					}
+				
 					for (Transacao t : ReadCVS.readPrestacaoContasPartidoReceita(Path.UFS[0])) {
 						comm.insereTransacao(t);
 					}
@@ -74,7 +78,7 @@ public class EleicoesWebService {
 					for (Bem b : ReadCVS.readBens(Path.UFS[0])) {
 						comm.insereBem(b);
 					}
-//					
+					
 					comm.close();
 				}catch (Exception e) {
 					e.printStackTrace();
