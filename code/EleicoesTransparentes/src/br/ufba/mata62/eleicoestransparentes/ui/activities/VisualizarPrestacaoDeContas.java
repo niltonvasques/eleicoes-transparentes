@@ -1,8 +1,5 @@
 package br.ufba.mata62.eleicoestransparentes.ui.activities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -12,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import br.ufba.mata62.eleicoestransparentes.R;
 import br.ufba.mata62.eleicoestransparentes.adapters.MenuAdapter;
@@ -22,9 +20,8 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 
 public class VisualizarPrestacaoDeContas extends FragmentActivity implements OnClickListener{
 	
+	ListView listGenerica;
 	Spinner spinnerList;
-	private List<String> nomes = new ArrayList<String>();
-	private String nome;
 	
 	public void visualizaTransacoes(Candidato candidato, Eleicao eleicao) {
 		
@@ -41,35 +38,34 @@ public class VisualizarPrestacaoDeContas extends FragmentActivity implements OnC
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.listagem_generica);
+		setContentView(R.layout.visualizar_prestacao_contas);
 		loadComponents();
 		
+}
+	
+	private void loadComponents() {
+		listGenerica = (ListView) findViewById(R.id.listGenerica);
+		BaseAdapter adapterList = new MenuAdapter(this, listElements);
+		listGenerica.setAdapter(adapterList);
+		
 		spinnerList = (Spinner)findViewById(R.id.spinnerListagem);
-
-		//Adicionando Nomes no ArrayList
-		nomes.add("ex1");
-		nomes.add("ex2");
-		nomes.add("ex3");
-		nomes.add("ex4");
-		nomes.add("ex5");
- 
-		//Identifica o Spinner no layout
-		spinnerList = (Spinner) findViewById(R.id.spinner1);
-		//Cria um ArrayAdapter usando um padr�o de layout da classe R do android, passando o ArrayList nomes
-		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, nomes);
-		ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
-		spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
-		spinnerList.setAdapter(spinnerArrayAdapter);
- 
-		//M�todo do Spinner para capturar o item selecionado
+		ArrayAdapter adapterSpinner = ArrayAdapter.createFromResource(this, R.array.itens, android.R.layout.simple_spinner_item);
+		adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinnerList.setAdapter(adapterSpinner);
 		spinnerList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
  
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-				//pega nome pela posi��o
+				
+				TextView myText= (TextView) v;
+				Toast.makeText(VisualizarPrestacaoDeContas.this, "Nome Selecionado: " + myText.getText(), Toast.LENGTH_LONG).show();
+				
+				/*//pega nome pela posi��o
 				nome = parent.getItemAtPosition(posicao).toString();
 				//imprime um Toast na tela com o nome que foi selecionado
-				Toast.makeText(VisualizarPrestacaoDeContas.this, "Nome Selecionado: " + nome, Toast.LENGTH_LONG).show();
+				EleicoesSOAP soap = new EleicoesSOAP();
+				float valor = soap.consultaTransacaoPartido(13, "AC", "D");
+				Toast.makeText(VisualizarPrestacaoDeContas.this, "O PT gastou: " + valor, Toast.LENGTH_LONG).show();*/
 			}
  
 			@Override
@@ -77,12 +73,6 @@ public class VisualizarPrestacaoDeContas extends FragmentActivity implements OnC
  
 			}
 		});
-}
-	
-	private void loadComponents() {
-		ListView menu = (ListView) findViewById(R.id.menu);
-		BaseAdapter adapter = new MenuAdapter(VisualizarPrestacaoDeContas.this, listElements);
-		menu.setAdapter(adapter);
 	}
 	
 	private int[] listElements = { R.string.mi_prestacao_contas_partido,

@@ -46,8 +46,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-   br.ufba.mata62.eleicoestransparentes.ui.activities.MainActivity <activity
-            android:name=".MainActivity"
+        
+        <activity
+            android:name="br.ufba.mata62.eleicoestransparentes.ui.activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MENU" />

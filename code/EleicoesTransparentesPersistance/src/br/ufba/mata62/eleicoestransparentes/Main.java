@@ -23,6 +23,8 @@ public class Main {
 			
 			comm.consultaTransacaoPartido(13,"AC","R");
 			
+			comm.consultaTransacaoCandidato(13,"AC","R");
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

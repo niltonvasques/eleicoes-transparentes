@@ -57,25 +57,25 @@ public class EleicoesSOAP {
 		return setores;
 	}
 
-	public float consultaTransacaoPartido(int numero,String UF,char tipoTransacao) {
+	public float consultaTransacaoPartido(int numero,String UF,String tipoTransacao) {
 		
 		Type t = new TypeToken<Float>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
 		params.add(createParam("numero", numero,Integer.class));
 		params.add(createParam("UF", UF));
-		params.add(createParam("tipo", tipoTransacao+""));
+		params.add(createParam("tipo", tipoTransacao));
 		float valor = soap.executeSoapRequest(EleicoesSOAP.METHOD_PREST_CONTAS_PARTIDO, t,params);
 		
 		return valor;
 	}
 	
-	public float consultaTransacaoCandidato(int numero,String UF,char tipoTransacao) {
+	public float consultaTransacaoCandidato(int numero,String UF,String tipoTransacao) {
 		
 		Type t = new TypeToken<Float>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
 		params.add(createParam("numero", numero,Integer.class));
 		params.add(createParam("UF", UF));
-		params.add(createParam("tipoTransacao", tipoTransacao,Character.class));
+		params.add(createParam("tipo", tipoTransacao));
 		float valor = soap.executeSoapRequest(EleicoesSOAP.METHOD_PREST_CONTAS_CANDIDATOS, t,params);
 		
 		return valor;
