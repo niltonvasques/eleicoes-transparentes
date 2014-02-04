@@ -57,32 +57,34 @@ public class EleicoesSOAP {
 		return setores;
 	}
 
-	public float consultaTransacaoPartido(String sigla,String UF) {
+	public float consultaTransacaoPartido(int numero,String UF,char tipoTransacao) {
 		
-		Type t = new TypeToken<List<Transacao>>(){}.getType();
+		Type t = new TypeToken<Float>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
-		params.add(createParam("sigla", sigla));
+		params.add(createParam("numero", numero,Integer.class));
 		params.add(createParam("UF", UF));
+		params.add(createParam("tipoTransacao", tipoTransacao,Character.class));
 		float valor = soap.executeSoapRequest(EleicoesSOAP.METHOD_PREST_CONTAS_PARTIDO, t,params);
 		
 		return valor;
 	}
 	
-	public float consultaTransacaoCandidato(String sigla,String UF) {
+	public float consultaTransacaoCandidato(int numero,String UF,char tipoTransacao) {
 		
 		Type t = new TypeToken<Float>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
-		params.add(createParam("sigla", sigla));
+		params.add(createParam("numero", numero,Integer.class));
 		params.add(createParam("UF", UF));
+		params.add(createParam("tipoTransacao", tipoTransacao,Character.class));
 		float valor = soap.executeSoapRequest(EleicoesSOAP.METHOD_PREST_CONTAS_CANDIDATOS, t,params);
 		
 		return valor;
 	}
 	
-	public List<Pessoa> rankingMaioresDoadores(String sigla,String UF) {
+	public List<Pessoa> rankingMaioresDoadores(int numero,String UF) {
 		Type t = new TypeToken<List<Transacao>>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
-		params.add(createParam("sigla", sigla));
+		params.add(createParam("numero", numero,Integer.class));
 		params.add(createParam("UF", UF));
 		List<Pessoa> doadores = soap.executeSoapRequest(EleicoesSOAP.METHOD_RANKING_MAIORES_DOADORES, t,params);
 		return doadores;
@@ -98,10 +100,10 @@ public class EleicoesSOAP {
 		return candidatos;
 	}
 	
-	public List<Candidato> consultaCandidatos(String sigla,String UF) {
+	public List<Candidato> consultaCandidatos(int numero,String UF) {
 		Type t = new TypeToken<List<Candidato>>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
-		params.add(createParam("sigla", sigla));
+		params.add(createParam("numero", numero,Integer.class));
 		params.add(createParam("UF", UF));
 		List<Candidato> candidatos = soap.executeSoapRequest(EleicoesSOAP.METHOD_CANDIDATOS, t,params);
 		
@@ -124,10 +126,10 @@ public class EleicoesSOAP {
 	 * @param tipo F - Física , J - Jurídica
 	 * @return Valor 
 	 */
-	public float consultaDoacoes(String sigla, String UF, String tipo ) {
+	public float consultaDoacoes(int numero, String UF, String tipo ) {
 		Type t = new TypeToken<List<Transacao>>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
-		params.add(createParam("sigla", sigla));
+		params.add(createParam("numero", numero,Integer.class));
 		params.add(createParam("uf", UF));
 		params.add(createParam("tipo", tipo));
 		float valor = soap.executeSoapRequest(EleicoesSOAP.METHOD_BENS, t,params);
@@ -143,10 +145,10 @@ public class EleicoesSOAP {
 	 * @param tipo F - Física , J - Jurídica
 	 * @return Valor 
 	 */
-	public float consultaDoacoes(String sigla, String UF, String cpf, String tipo) {
+	public float consultaDoacoes(int numero, String UF, String cpf, String tipo) {
 		Type t = new TypeToken<List<Transacao>>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
-		params.add(createParam("sigla", sigla));
+		params.add(createParam("numero", numero,Integer.class));
 		params.add(createParam("uf", UF));
 		params.add(createParam("cpf", cpf));
 		params.add(createParam("tipo", tipo));

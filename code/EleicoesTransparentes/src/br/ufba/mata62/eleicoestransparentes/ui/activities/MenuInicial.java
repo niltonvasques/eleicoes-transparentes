@@ -19,21 +19,8 @@ public class MenuInicial extends ListActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-//		EleicoesSOAP eleicoes = new EleicoesSOAP(false);TODO 
-//		
-//		Log.d("AppPath: ",eleicoes.consultaApplicationPath());
-//		
-//		Log.d("CreateTables: ",eleicoes.createTables());
-//		
-		setListAdapter(
-				new ArrayAdapter<String>(
-						MenuInicial.this,
-						android.R.layout.simple_list_item_1,
-						classes
-				)
-		);
+		setListAdapter(new ArrayAdapter<String>(MenuInicial.this,android.R.layout.simple_list_item_1, classes));
 	}
 
 	@Override
@@ -41,11 +28,11 @@ public class MenuInicial extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
 		
-		String classSelecionada = classes[position];
+		String classSelected = classes[position];
 		
 		try
 		{
-			Class nossaClasse = Class.forName("br.ufba.mata62.eleicoestransparentes.ui." + classSelecionada);
+			Class nossaClasse = Class.forName("br.ufba.mata62.eleicoestransparentes.ui." + classSelected);
 			Intent classeParaAbrir = new Intent(MenuInicial.this, nossaClasse);
 			startActivity(classeParaAbrir);
 		}
