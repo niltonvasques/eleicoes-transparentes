@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes.fragments;
+package br.ufba.mata62.eleicoestransparentes.ui.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
