@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -35,7 +35,10 @@
   <ns1:operation name="createTables" qname="ns4:createTables" returnQName="ns4:createTablesReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns4:chaveSeguranca" type="xsd:string"/>
   </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="consultaSetoresEconomico consultaCandidatos createTables consultaApplicationPath"/>
+  <ns1:operation name="parserDadosTSE" qname="ns5:parserDadosTSE" returnQName="ns5:parserDadosTSEReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:chaveSeguranca" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="parserDadosTSE consultaSetoresEconomico consultaCandidatos createTables consultaApplicationPath"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="EleicoesWebService"/>
   <ns1:parameter name="className" value="br.ufba.mata62.eleicoestransparentes.webservice.EleicoesWebService"/>

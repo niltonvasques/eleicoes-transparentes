@@ -104,6 +104,9 @@ public class Transacao {
 	}
 
 	public void setDescricao(String descricao) {
+		if(descricao.length() > 200){
+			descricao = descricao.substring(0, 200);
+		}
 		this.descricao = descricao;
 	}
 

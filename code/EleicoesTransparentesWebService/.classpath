@@ -13,10 +13,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="lib/ormlite-core-4.48.jar"/>
-	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.28-bin.jar"/>
-	<classpathentry kind="lib" path="lib/ormlite-jdbc-4.48.jar"/>
-	<classpathentry kind="lib" path="lib/gson-2.2.4.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/EleicoesTransparentesPersistance"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/eleicoes-parser-tse.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

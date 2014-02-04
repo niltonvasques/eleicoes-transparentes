@@ -14,7 +14,6 @@ public class Main {
 		
 //		Seed.createTables();
 		
-		
 		System.out.println(EProperties.findTopLevelDirectory());
 		
 //		Comunicacao comm = new Comunicacao();
