@@ -8,12 +8,14 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		EleicoesSOAP eleicoes = new EleicoesSOAP(false);
+		EleicoesSOAP eleicoes = new EleicoesSOAP(true);
 		
 		System.out.println("AppPath: "+eleicoes.consultaApplicationPath());;
 		
-		System.out.println("CreateTables: "+eleicoes.createTables());
-		
+		System.out.println("starting... eleicoes.parserDados()");
+		System.out.println("ParserDados: "+eleicoes.parserDados());
+		System.out.println("finished... eleicoes.parserDados()");
+//		
 //		
 //		List<SetorEconomico> setores = eleicoes.consultaSetoresEconomico();
 //		

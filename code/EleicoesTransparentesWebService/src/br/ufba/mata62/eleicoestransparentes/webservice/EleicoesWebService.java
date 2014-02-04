@@ -98,6 +98,15 @@ public class EleicoesWebService {
 			return e.getCause().getMessage();
 		}
 	}
+	
+	public String consultaPathRoot(){
+		try{
+			Gson gson = new Gson();
+			return gson.toJson(EProperties.getPathRoot());
+		}catch (Exception e) {
+			return e.getCause().getMessage();
+		}
+	}
 
 	public String consultaSetoresEconomico(){
 
