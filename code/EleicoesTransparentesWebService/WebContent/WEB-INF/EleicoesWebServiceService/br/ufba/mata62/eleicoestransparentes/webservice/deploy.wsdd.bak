@@ -20,19 +20,26 @@
       <parameter name="className" value="br.ufba.mata62.eleicoestransparentes.webservice.EleicoesWebServiceSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="EleicoesWebService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="consultaCandidatos" qname="operNS:consultaCandidatos" xmlns:operNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnQName="retNS:consultaCandidatosReturn" xmlns:retNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      <operation name="parserDadosTSE" qname="operNS:parserDadosTSE" xmlns:operNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnQName="retNS:parserDadosTSEReturn" xmlns:retNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:chaveSeguranca" xmlns:pns="http://webservice.eleicoestransparentes.mata62.ufba.br" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="consultaApplicationPath" qname="operNS:consultaApplicationPath" xmlns:operNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnQName="retNS:consultaApplicationPathReturn" xmlns:retNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
       </operation>
+      <operation name="consultaPathRoot" qname="operNS:consultaPathRoot" xmlns:operNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnQName="retNS:consultaPathRootReturn" xmlns:retNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
       <operation name="consultaSetoresEconomico" qname="operNS:consultaSetoresEconomico" xmlns:operNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnQName="retNS:consultaSetoresEconomicoReturn" xmlns:retNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="consultaCandidatos" qname="operNS:consultaCandidatos" xmlns:operNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnQName="retNS:consultaCandidatosReturn" xmlns:retNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="consultaTransacaoPartido" qname="operNS:consultaTransacaoPartido" xmlns:operNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnQName="retNS:consultaTransacaoPartidoReturn" xmlns:retNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:numero" xmlns:pns="http://webservice.eleicoestransparentes.mata62.ufba.br" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:UF" xmlns:pns="http://webservice.eleicoestransparentes.mata62.ufba.br" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:tipo" xmlns:pns="http://webservice.eleicoestransparentes.mata62.ufba.br" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="createTables" qname="operNS:createTables" xmlns:operNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnQName="retNS:createTablesReturn" xmlns:retNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:chaveSeguranca" xmlns:pns="http://webservice.eleicoestransparentes.mata62.ufba.br" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="parserDadosTSE" qname="operNS:parserDadosTSE" xmlns:operNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnQName="retNS:parserDadosTSEReturn" xmlns:retNS="http://webservice.eleicoestransparentes.mata62.ufba.br" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:chaveSeguranca" xmlns:pns="http://webservice.eleicoestransparentes.mata62.ufba.br" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <parameter name="allowedMethods" value="parserDadosTSE consultaSetoresEconomico consultaCandidatos createTables consultaApplicationPath"/>
+      <parameter name="allowedMethods" value="parserDadosTSE consultaSetoresEconomico consultaCandidatos consultaTransacaoPartido createTables consultaApplicationPath consultaPathRoot"/>
 
   </service>
 </deployment>

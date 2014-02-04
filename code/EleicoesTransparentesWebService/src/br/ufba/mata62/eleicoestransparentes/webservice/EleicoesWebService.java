@@ -25,6 +25,18 @@ public class EleicoesWebService {
 	//		String md5 = MD5.crypt(CHAVE_SEGURANCA);
 	//		System.out.println(md5);
 	//	}
+	
+	public String consultaTransacaoPartido(int numero, String UF, String tipo){
+		try {
+			Gson gson = new Gson();
+			Comunicacao comm = new Comunicacao();
+			float valor = comm.consultaTransacaoPartido(numero, UF, tipo);
+			comm.close();
+			return gson.toJson(valor);
+		} catch (Exception e) {
+			return e.getCause().getMessage();
+		}
+	}
 
 	public String createTables(String chaveSeguranca){
 		try{

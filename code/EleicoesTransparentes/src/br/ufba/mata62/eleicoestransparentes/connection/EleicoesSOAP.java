@@ -70,7 +70,7 @@ public class EleicoesSOAP {
 	
 	public float consultaTransacaoCandidato(String sigla,String UF) {
 		
-		Type t = new TypeToken<List<Transacao>>(){}.getType();
+		Type t = new TypeToken<Float>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
 		params.add(createParam("sigla", sigla));
 		params.add(createParam("UF", UF));

@@ -19,7 +19,10 @@ public class Main {
 		Comunicacao comm = new Comunicacao();
 		
 		try {
-			comm.consultaDespesasPartido();
+			comm.consultaTransacaoPartido(13,"AC","D");
+			
+			comm.consultaTransacaoPartido(13,"AC","R");
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
