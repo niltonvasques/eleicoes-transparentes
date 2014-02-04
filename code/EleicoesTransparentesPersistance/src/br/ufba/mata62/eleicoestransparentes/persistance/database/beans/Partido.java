@@ -9,7 +9,7 @@ public class Partido extends PessoaJuridica{
 	@DatabaseField(unique = true)
 	private String sigla;
 
-	@DatabaseField(unique = true)
+	@DatabaseField(unique = false)//TODO pq no arquivo que popula não tem essa info.
 	private int numero;
 
 	public String getSigla() {

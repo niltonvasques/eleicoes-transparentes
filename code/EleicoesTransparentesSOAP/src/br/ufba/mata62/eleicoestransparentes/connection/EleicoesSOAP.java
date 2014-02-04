@@ -1,3 +1,5 @@
+package br.ufba.mata62.eleicoestransparentes.connection;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;

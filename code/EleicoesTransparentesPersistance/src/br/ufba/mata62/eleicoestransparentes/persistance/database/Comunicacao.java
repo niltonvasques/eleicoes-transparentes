@@ -266,6 +266,19 @@ public class Comunicacao {
 				transacao.setDebitado(inserePessoaFisica((PessoaFisica)debitado));
 			}
 		}
+		if(transacao.getCreditado().getId() <= 0){
+			int id  = 0;
+			Pessoa creditado = transacao.getCreditado();
+			if(creditado instanceof Partido){
+				transacao.setCreditado(inserePartido((Partido)creditado));
+			}else if(creditado instanceof Candidato){
+				transacao.setCreditado(insereCandidato((Candidato)creditado));
+			}else if(creditado instanceof PessoaJuridica){
+				transacao.setCreditado(inserePessoaJuridica((PessoaJuridica)creditado));
+			}else if(creditado instanceof PessoaFisica){
+				transacao.setCreditado(inserePessoaFisica((PessoaFisica)creditado));
+			}
+		}
 		
 		if(transacao.getCreditado() != null && transacao.getCreditado().getId() <= 0){
 			int id  = 0;
@@ -283,6 +296,8 @@ public class Comunicacao {
 		
 		return pessoaDAO.createIfNotExists(transacao);
 	}
+	
+	
 	
 	public List<Transacao> consultaTransacoes() throws SQLException{
 		
