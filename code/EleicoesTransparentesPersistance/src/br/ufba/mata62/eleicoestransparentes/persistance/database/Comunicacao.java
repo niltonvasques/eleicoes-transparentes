@@ -109,6 +109,10 @@ public class Comunicacao {
 		
 		if(c != null) return c;
 		
+		if(c.getPartido() != null && c.getPartido().getId() <= 0){
+			inserePartido(c.getPartido());
+		}
+		
 		return candidatoDao.createIfNotExists(cand);
 	}
 	
