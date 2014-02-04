@@ -1,4 +1,6 @@
+package br.ufba.mata62.eleicoestransparentes.connection.test;
 
+import br.ufba.mata62.eleicoestransparentes.connection.EleicoesSOAP;
 
 
 public class Main {

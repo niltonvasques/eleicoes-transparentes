@@ -3,7 +3,6 @@ package br.ufba.mata62.eleicoestransparentes;
 
 import java.sql.SQLException;
 
-import br.ufba.mata62.eleicoestransparentes.EProperties;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Seed;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
@@ -17,17 +16,17 @@ public class MainBD {
 	
 	public static void main(String[] args) {
 		
-//		Seed.createTables();
+		Seed.createTables();
 
 		Comunicacao comm = new Comunicacao();
-//		for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
-//			run(t,comm);
-//		}
-		
-		for(Candidato c : ReadCVS.readCandidatos(Path.UFS[0])){
-			run(c,comm);
+		for (Transacao t : ReadCVS.readPrestacaoContasPartidoDespesa(Path.UFS[0])) {
+			run(t,comm);
 		}
 		
+//		for(Candidato c : ReadCVS.readCandidatos(Path.UFS[0])){
+//			run(c,comm);
+//		}
+//		
 //		for (Bem b : ReadCVS.readBens(Path.UFS[0])) {
 //			run(b,comm);
 //		}
