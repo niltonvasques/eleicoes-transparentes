@@ -16,7 +16,8 @@ public class Main {
 		System.out.println("AppPath: "+eleicoes.consultaApplicationPath());;
 		
 		System.out.println("starting... eleicoes.parserDados()");
-		System.out.println("ParserDados: "+eleicoes.parserDados());
+//		System.out.println("ParserDados: "+eleicoes.parserDados());
+		System.out.println("ParserDados: "+eleicoes.consultaTransacaoPartido(13, "AC", 'D'));
 		System.out.println("finished... eleicoes.parserDados()");
 //		
 //		
