@@ -38,7 +38,7 @@ public class VisualizarPrestacaoDeContas extends FragmentActivity implements OnC
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.visualizar_prestacao_contas);
+		setContentView(R.layout.listagem_generica);
 		loadComponents();
 		
 }
@@ -60,7 +60,7 @@ public class VisualizarPrestacaoDeContas extends FragmentActivity implements OnC
 				TextView myText= (TextView) v;
 				Toast.makeText(VisualizarPrestacaoDeContas.this, "Nome Selecionado: " + myText.getText(), Toast.LENGTH_LONG).show();
 				
-				/*//pega nome pela posi��o
+				/*//pega nome pela posiï¿½ï¿½o
 				nome = parent.getItemAtPosition(posicao).toString();
 				//imprime um Toast na tela com o nome que foi selecionado
 				EleicoesSOAP soap = new EleicoesSOAP();
