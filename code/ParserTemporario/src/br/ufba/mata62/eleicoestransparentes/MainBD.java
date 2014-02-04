@@ -17,24 +17,6 @@ public class MainBD {
 	public static void main(String[] args) {
 		
 		Seed.createTables();
-<<<<<<< HEAD
-=======
-
-//		Comunicacao comm = new Comunicacao();
-//		for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
-//			run(t,comm);
-//		}
-		
-//		for(Candidato c : ReadCVS.readCandidatos(Path.UFS[0])){
-//			run(c,comm);
-//		}
-		
-//		for (Bem b : ReadCVS.readBens(Path.UFS[0])) {
-//			run(b,comm);
-//		}
-//		
-//		comm.close();
->>>>>>> d349fd52a3679923bad4717228c1ca02f7b76871
 		
 		try {
 			Comunicacao comm = new Comunicacao();
@@ -43,26 +25,26 @@ public class MainBD {
 				comm.insereCandidato(t);
 			}
 		
-//			for (Transacao t : ReadCVS.readPrestacaoContasPartidoReceita(Path.UFS[0])) {
-//				comm.insereTransacao(t);
-//			}
-//			
-//			for (Transacao t : ReadCVS.readPrestacaoContasPartidoDespesa(Path.UFS[0])) {
-//				comm.insereTransacao(t);
-//			}
-//			
-//			for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
-//				comm.insereTransacao(t);
-//			}
-//			
-//			for (Transacao t : ReadCVS.readPrestacaoContasCandidatoReceita(Path.UFS[0])) {
-//				comm.insereTransacao(t);
-//			}
-//			
-//			for (Bem b : ReadCVS.readBens(Path.UFS[0])) {
-//				comm.insereBem(b);
-//			}
-	//		
+			for (Transacao t : ReadCVS.readPrestacaoContasPartidoReceita(Path.UFS[0])) {
+				comm.insereTransacao(t);
+			}
+			
+			for (Transacao t : ReadCVS.readPrestacaoContasPartidoDespesa(Path.UFS[0])) {
+				comm.insereTransacao(t);
+			}
+			
+			for (Transacao t : ReadCVS.readPrestacaoContasCandidatoDespesa(Path.UFS[0])) {
+				comm.insereTransacao(t);
+			}
+			
+			for (Transacao t : ReadCVS.readPrestacaoContasCandidatoReceita(Path.UFS[0])) {
+				comm.insereTransacao(t);
+			}
+			
+			for (Bem b : ReadCVS.readBens(Path.UFS[0])) {
+				comm.insereBem(b);
+			}
+			
 			comm.close();
 		
 		} catch (SQLException e) {
