@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufba.mata62.eleicoestransparentes.parser.dados.ConsultaCandidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 
@@ -106,6 +105,7 @@ public class ParserConsultaCandidato {
 			Partido p = new Partido();
 			p.setNumero(Integer.parseInt(bc.getNumeroPartido()));
 			p.setSigla(bc.getSiglaPartido());
+			p.setNome(bc.getNomePartido());
 			cand.setPartido(p);
 	//		bem.setSexo(bc.ge)
 			cand.setSiglaUE(bc.getSiglaUE());

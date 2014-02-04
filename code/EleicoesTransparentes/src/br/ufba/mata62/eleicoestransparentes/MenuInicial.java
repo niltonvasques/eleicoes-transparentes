@@ -3,9 +3,11 @@ package br.ufba.mata62.eleicoestransparentes;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import br.ufba.mata62.eleicoestransparentes.connection.EleicoesSOAP;
 
 public class MenuInicial extends ListActivity {
 
@@ -20,6 +22,11 @@ public class MenuInicial extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		EleicoesSOAP eleicoes = new EleicoesSOAP(false);
+		
+		Log.d("AppPath: ",eleicoes.consultaApplicationPath());
+		
+		Log.d("CreateTables: ",eleicoes.createTables());
 		
 		setListAdapter(
 				new ArrayAdapter<String>(
