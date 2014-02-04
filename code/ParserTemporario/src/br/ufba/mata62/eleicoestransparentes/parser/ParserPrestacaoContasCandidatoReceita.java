@@ -18,6 +18,7 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFis
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
+import br.ufba.mata62.eleicoestransparentes.utils.ValidatorCPFCNPJ;
 
 public class ParserPrestacaoContasCandidatoReceita {
 	
