@@ -20,6 +20,9 @@ public class Comite {
 	
 	@DatabaseField(foreign = true)
 	private Partido partido;
+	
+	@DatabaseField(unique = true)
+	private String sequencialComite;
 
 	public String getUF() {
 		return UF;
@@ -60,9 +63,13 @@ public class Comite {
 	public void setPartido(Partido partido) {
 		this.partido = partido;
 	}
-	
-	
-	
-	
+
+	public String getSequencialComite() {
+		return sequencialComite;
+	}
+
+	public void setSequencialComite(String sequencialComite) {
+		this.sequencialComite = sequencialComite;
+	}
 
 }

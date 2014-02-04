@@ -27,19 +27,24 @@ public final class R {
         public static final int splashscreen=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f080005;
+        public static final int action_settings=0x7f080009;
         public static final int bar_fragment=0x7f080000;
-        public static final int label_item=0x7f080002;
-        public static final int logo=0x7f080003;
+        public static final int label_item=0x7f080006;
+        public static final int listGenerica=0x7f080005;
+        public static final int logo=0x7f080007;
         public static final int menu=0x7f080001;
-        public static final int spinner1=0x7f080004;
+        public static final int scrollView1=0x7f080004;
+        public static final int spinner1=0x7f080008;
+        public static final int spinnerListagem=0x7f080003;
+        public static final int textListagem=0x7f080002;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int menu_item=0x7f030001;
-        public static final int principal_bar=0x7f030002;
-        public static final int splash=0x7f030003;
-        public static final int visualizar_prestacao_contas=0x7f030004;
+        public static final int listagem_generica=0x7f030001;
+        public static final int menu_item=0x7f030002;
+        public static final int principal_bar=0x7f030003;
+        public static final int splash=0x7f030004;
+        public static final int visualizar_prestacao_contas=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f070000;
@@ -53,6 +58,7 @@ public final class R {
         public static final int mi_eleitores=0x7f060009;
         public static final int mi_maior_gasto=0x7f060005;
         public static final int mi_origem_gastos=0x7f060006;
+        public static final int mi_prestacao_contas=0x7f06000a;
         public static final int mi_prestacao_contas_candidato=0x7f060004;
         public static final int mi_prestacao_contas_partido=0x7f060003;
     }

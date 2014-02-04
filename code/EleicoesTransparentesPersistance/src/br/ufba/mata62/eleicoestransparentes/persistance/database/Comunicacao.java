@@ -36,7 +36,7 @@ public class Comunicacao {
 	
 	public Bem insereBem(final Bem bem) throws SQLException{
 		Dao<Bem, String> bemDao = DaoManager.createDao(database.getConnection(), Bem.class);
-
+		
 		Candidato ormCand = getCandidato(bem.getCandidato().getSequencialCandidato());
 		
 		if (ormCand != null) {//Só nos interessa se houver candidato.
@@ -79,6 +79,10 @@ public class Comunicacao {
 		
 		Dao<SetorEconomico, String> setorDao = DaoManager.createDao(database.getConnection(), SetorEconomico.class);
 		
+		SetorEconomico c = (SetorEconomico) checkIfExists(setorDao, "codSetorEco",setor.getCodSetorEco());
+		
+		if(c != null) return c;
+		
 		return setorDao.createIfNotExists(setor);
 	}
 	
@@ -105,6 +109,10 @@ public class Comunicacao {
 		
 		if(c != null) return c;
 		
+		if(c.getPartido() != null && c.getPartido().getId() <= 0){
+			inserePartido(c.getPartido());
+		}
+		
 		return candidatoDao.createIfNotExists(cand);
 	}
 	
@@ -126,6 +134,11 @@ public class Comunicacao {
 		
 		Dao<Comite, String> comiteDAO = DaoManager.createDao(database.getConnection(), Comite.class);
 		
+		
+		Comite c = (Comite) checkIfExists(comiteDAO, "sequencialComite",cand.getSequencialComite());
+		
+		if(c != null) return c;
+		
 		return comiteDAO.createIfNotExists(cand);
 	}
 	
@@ -146,6 +159,10 @@ public class Comunicacao {
 	public Eleicao insereEleicao(Eleicao eleicao) throws SQLException{
 		Dao<Eleicao, String> eleicaoDAO = DaoManager.createDao(database.getConnection(), Eleicao.class);
 		
+		Eleicao c = (Eleicao) checkIfExists(eleicaoDAO, "ano",eleicao.getAno());
+		
+		if(c != null) return c;
+		
 		return eleicaoDAO.createIfNotExists(eleicao);
 	}
 	
@@ -165,6 +182,10 @@ public class Comunicacao {
 	
 	public Partido inserePartido(Partido partido) throws SQLException{
 		Dao<Partido, String> partidoDAO = DaoManager.createDao(database.getConnection(), Partido.class);
+		
+		Partido c = (Partido) checkIfExists(partidoDAO, "sigla",partido.getSigla());
+		
+		if(c != null) return c;
 		
 		return partidoDAO.createIfNotExists(partido);
 	}
@@ -210,6 +231,10 @@ public class Comunicacao {
 	
 	public PessoaJuridica inserePessoaJuridica(PessoaJuridica pessoa) throws SQLException{
 		Dao<PessoaJuridica, String> pessoaDAO = DaoManager.createDao(database.getConnection(), PessoaJuridica.class);
+		
+		PessoaJuridica c = (PessoaJuridica) checkIfExists(pessoaDAO, "cnpj",pessoa.getCnpj());
+		
+		if(c != null) return c;
 
 		return pessoaDAO.createIfNotExists(pessoa);
 	}
@@ -232,7 +257,7 @@ public class Comunicacao {
 		
 		Dao<Transacao, String> pessoaDAO = DaoManager.createDao(database.getConnection(), Transacao.class);
 		
-		if(transacao.getDebitado().getId() <= 0){
+		if(transacao.getDebitado() != null && transacao.getDebitado().getId() <= 0){
 			int id  = 0;
 			Pessoa debitado = transacao.getDebitado();
 			if(debitado instanceof Partido){
@@ -246,6 +271,20 @@ public class Comunicacao {
 			}
 		}
 		if(transacao.getCreditado().getId() <= 0){
+			int id  = 0;
+			Pessoa creditado = transacao.getCreditado();
+			if(creditado instanceof Partido){
+				transacao.setCreditado(inserePartido((Partido)creditado));
+			}else if(creditado instanceof Candidato){
+				transacao.setCreditado(insereCandidato((Candidato)creditado));
+			}else if(creditado instanceof PessoaJuridica){
+				transacao.setCreditado(inserePessoaJuridica((PessoaJuridica)creditado));
+			}else if(creditado instanceof PessoaFisica){
+				transacao.setCreditado(inserePessoaFisica((PessoaFisica)creditado));
+			}
+		}
+		
+		if(transacao.getCreditado() != null && transacao.getCreditado().getId() <= 0){
 			int id  = 0;
 			Pessoa creditado = transacao.getCreditado();
 			if(creditado instanceof Partido){
@@ -291,7 +330,7 @@ public class Comunicacao {
 			if(!listORM.isEmpty()){
 				return listORM.get(0);
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
