@@ -107,10 +107,12 @@ public class Comunicacao {
 		
 		Candidato c = (Candidato) checkIfExists(candidatoDao, "sequencialCandidato",cand.getSequencialCandidato());
 		
-		if(c != null) return c;
+		if(c != null){
+			return c;
+		}
 		
-		if(c.getPartido() != null && c.getPartido().getId() <= 0){
-			inserePartido(c.getPartido());
+		if(cand.getPartido() != null && cand.getPartido().getId() <= 0){
+			cand.setPartido(inserePartido(cand.getPartido()));
 		}
 		
 		return candidatoDao.createIfNotExists(cand);
