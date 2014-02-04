@@ -11,7 +11,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		EleicoesSOAP eleicoes = new EleicoesSOAP(true);
+		EleicoesSOAP eleicoes = new EleicoesSOAP(false);
 		
 		System.out.println("AppPath: "+eleicoes.consultaApplicationPath());;
 		

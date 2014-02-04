@@ -1,5 +1,6 @@
 package br.ufba.mata62.eleicoestransparentes.persistance.database;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -317,6 +318,26 @@ public class Comunicacao {
 		}
 		
 		return itens;
+	}
+	
+	public void consultaDespesasPartido() throws SQLException{
+		
+		MySqlDatabase db = new MySqlDatabase();
+		
+//		ResultSet result = db.query("select * from eleicao.Partido");
+		ResultSet result = db.query("select p.nome, sum(valor), t.tipo from Transacao t inner join Partido p on p.id = t.debitado_id  where t.tipo = 'D' group by p.id order by sum(valor) desc;");
+		
+		System.out.println(result.getFetchSize());
+		
+		System.out.println("Colunas: "+result.getMetaData().getColumnCount());
+		
+		
+		while(result.next()){
+			System.out.println("Partido: "+result.getString(1)+" Valor: "+result.getString(2));
+		}
+		
+		db.close();
+//		
 	}
 	
 	public List<Transacao> consultaTransacao() throws SQLException{

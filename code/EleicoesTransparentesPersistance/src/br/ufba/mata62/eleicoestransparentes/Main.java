@@ -16,7 +16,17 @@ public class Main {
 		
 		System.out.println(EProperties.findTopLevelDirectory());
 		
-//		Comunicacao comm = new Comunicacao();
+		Comunicacao comm = new Comunicacao();
+		
+		try {
+			comm.consultaDespesasPartido();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		comm.close();
 //		
 //		SetorEconomico setor = new SetorEconomico();
 //		setor.setCodSetorEco("00023");

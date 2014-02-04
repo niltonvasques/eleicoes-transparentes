@@ -48,7 +48,6 @@ public class MainBD {
 			comm.close();
 		
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
