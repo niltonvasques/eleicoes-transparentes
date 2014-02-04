@@ -21,11 +21,6 @@ public class EleicoesWebService {
 
 	private static final String CHAVE_SEGURANCA = "eleicoes-transparentes-mata62-ufba";
 
-	//	public static void main(String[] args) {
-	//		String md5 = MD5.crypt(CHAVE_SEGURANCA);
-	//		System.out.println(md5);
-	//	}
-	
 	public String consultaTransacaoPartido(int numero, String UF, String tipo){
 		try {
 			Gson gson = new Gson();

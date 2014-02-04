@@ -1,37 +1,38 @@
 package br.ufba.mata62.eleicoestransparentes;
 
-import java.sql.SQLException;
-import java.util.List;
-
-import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Seed;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
 
 
 public class Main {
 	
 	public static void main(String[] args) {
 		
+//		Pessoa creditado = new PessoaFisica();
+//		
+//		System.out.println("ClassName: "+creditado.getClass().getSimpleName());
+//		
 //		Seed.createTables();
 		
-		System.out.println(EProperties.findTopLevelDirectory());
-		
-		Comunicacao comm = new Comunicacao();
-		
-		try {
-			comm.consultaTransacaoPartido(13,"AC","D");
-			
-			comm.consultaTransacaoPartido(13,"AC","R");
-			
-			comm.consultaTransacaoCandidato(13,"AC","R");
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		comm.close();
+//		System.out.println(EProperties.findTopLevelDirectory());
+//		
+//		Comunicacao comm = new Comunicacao();
+//		
+//		try {
+//			comm.consultaTransacaoPartido(13,"AC","D");
+//			
+//			comm.consultaTransacaoPartido(13,"AC","R");
+//			
+//			comm.consultaTransacaoCandidato(13,"AC","R");
+//			
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		comm.close();
 //		
 //		SetorEconomico setor = new SetorEconomico();
 //		setor.setCodSetorEco("00023");

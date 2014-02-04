@@ -40,9 +40,21 @@ public class Transacao {
 	 */
 	@DatabaseField(foreign = true)
 	private Pessoa creditado;
+	
+	/**
+	 * tipo creditado deverá conter o nome da tabela a qual este está apontando
+	 */
+	@DatabaseField
+	private String tipoCreditado;
 
 	@DatabaseField(foreign = true)
 	private Pessoa debitado;
+	
+	/**
+	 * tipo debitado deverá conter o nome da tabela a qual este está apontando
+	 */
+	@DatabaseField
+	private String tipoDebitado;
 
 	/**
 	 * R = RECEITA, D = DESPESA
@@ -115,6 +127,7 @@ public class Transacao {
 	}
 
 	public void setCreditado(Pessoa creditado) {
+		if(creditado != null)	this.tipoCreditado = creditado.getClass().getSimpleName();
 		this.creditado = creditado;
 	}
 
@@ -123,6 +136,7 @@ public class Transacao {
 	}
 
 	public void setDebitado(Pessoa debitado) {
+		if(debitado != null)	this.tipoDebitado = debitado.getClass().getSimpleName();
 		this.debitado = debitado;
 	}
 
@@ -157,4 +171,13 @@ public class Transacao {
 	public void setId(int id) {
 		this.id = id;
 	}
-}
+
+	public String getTipoCreditado() {
+		return tipoCreditado;
+	}
+
+	public String getTipoDebitado() {
+		return tipoDebitado;
+	}
+	
+ }

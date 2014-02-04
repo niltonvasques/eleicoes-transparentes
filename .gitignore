@@ -8,4 +8,4 @@ prestacao_final_2012.zip
 *.orig
 *eleicao.properties
 *.cache
-*/bin
+*/bin/*
