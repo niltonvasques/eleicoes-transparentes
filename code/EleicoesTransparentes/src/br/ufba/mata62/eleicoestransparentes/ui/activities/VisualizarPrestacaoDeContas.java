@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes.ui;
+package br.ufba.mata62.eleicoestransparentes.ui.activities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,18 +55,18 @@ public class VisualizarPrestacaoDeContas extends FragmentActivity implements OnC
  
 		//Identifica o Spinner no layout
 		spinnerList = (Spinner) findViewById(R.id.spinner1);
-		//Cria um ArrayAdapter usando um padrão de layout da classe R do android, passando o ArrayList nomes
+		//Cria um ArrayAdapter usando um padrï¿½o de layout da classe R do android, passando o ArrayList nomes
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, nomes);
 		ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
 		spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
 		spinnerList.setAdapter(spinnerArrayAdapter);
  
-		//Método do Spinner para capturar o item selecionado
+		//Mï¿½todo do Spinner para capturar o item selecionado
 		spinnerList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
  
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-				//pega nome pela posição
+				//pega nome pela posiï¿½ï¿½o
 				nome = parent.getItemAtPosition(posicao).toString();
 				//imprime um Toast na tela com o nome que foi selecionado
 				Toast.makeText(VisualizarPrestacaoDeContas.this, "Nome Selecionado: " + nome, Toast.LENGTH_LONG).show();

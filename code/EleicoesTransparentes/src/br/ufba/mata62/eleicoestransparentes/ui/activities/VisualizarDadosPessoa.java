@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes.ui;
+package br.ufba.mata62.eleicoestransparentes.ui.activities;
 
 public class VisualizarDadosPessoa {
 

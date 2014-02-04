@@ -1,33 +1,32 @@
-package br.ufba.mata62.eleicoestransparentes;
+package br.ufba.mata62.eleicoestransparentes.ui.activities;
 
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import br.ufba.mata62.eleicoestransparentes.connection.EleicoesSOAP;
 
 public class MenuInicial extends ListActivity {
 
-	String classes[] = {"VisualizarPrestacaoDeContas",
-						"VisualizarRankingMaioresDoadores",
-						"VisualizarOrigemGastos",
-						"VisualizarRelacaoEleitores",
-						"VisualizarGastosPorPartido"
+	//TODO Seguir requisitos eleitos que estão no TRello.
+	String classes[] = {VisualizarPrestacaoDeContas.class.getSimpleName(),
+						VisualizarRankingMaioresDoadores.class.getSimpleName(),
+						VisualizarListaCandidatos.class.getSimpleName(),
+						VisualizarDoadoresPartidoCandidatoEleicao.class.getSimpleName(),
+						VisualizarDoadoresPartidoCandidatoEleicao.class.getSimpleName(),
 						};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		EleicoesSOAP eleicoes = new EleicoesSOAP(false);
-		
-		Log.d("AppPath: ",eleicoes.consultaApplicationPath());
-		
-		Log.d("CreateTables: ",eleicoes.createTables());
-		
+//		EleicoesSOAP eleicoes = new EleicoesSOAP(false);TODO 
+//		
+//		Log.d("AppPath: ",eleicoes.consultaApplicationPath());
+//		
+//		Log.d("CreateTables: ",eleicoes.createTables());
+//		
 		setListAdapter(
 				new ArrayAdapter<String>(
 						MenuInicial.this,

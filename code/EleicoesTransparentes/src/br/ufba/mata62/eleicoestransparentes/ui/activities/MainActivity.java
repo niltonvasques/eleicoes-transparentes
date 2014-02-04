@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes;
+package br.ufba.mata62.eleicoestransparentes.ui.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -6,6 +6,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import br.ufba.mata62.eleicoestransparentes.R;
+import br.ufba.mata62.eleicoestransparentes.R.id;
+import br.ufba.mata62.eleicoestransparentes.R.layout;
+import br.ufba.mata62.eleicoestransparentes.R.string;
 import br.ufba.mata62.eleicoestransparentes.adapters.MenuAdapter;
 
 public class MainActivity extends FragmentActivity implements OnClickListener{

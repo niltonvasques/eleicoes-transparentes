@@ -17,7 +17,10 @@ public class MainBD {
 	public static void main(String[] args) {
 		
 		Seed.createTables();
+<<<<<<< HEAD
+=======
 		
+>>>>>>> 9469467891cfb37dc7ef0b86b130a526407cffb9
 		try {
 			Comunicacao comm = new Comunicacao();
 			
