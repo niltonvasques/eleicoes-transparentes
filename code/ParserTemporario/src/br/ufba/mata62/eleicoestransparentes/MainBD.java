@@ -35,6 +35,10 @@ public class MainBD {
 		
 		try {
 			Comunicacao comm = new Comunicacao();
+			
+			for (Candidato t : ReadCVS.readCandidatos(Path.UFS[0])) {
+				comm.insereCandidato(t);
+			}
 		
 			for (Transacao t : ReadCVS.readPrestacaoContasPartidoReceita(Path.UFS[0])) {
 				comm.insereTransacao(t);
