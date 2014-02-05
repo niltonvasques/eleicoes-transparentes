@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import br.ufba.mata62.eleicoestransparentes.R;
+import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 
 public class BarFragment extends Fragment{
 	

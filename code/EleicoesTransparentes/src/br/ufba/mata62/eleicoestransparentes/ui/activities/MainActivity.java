@@ -1,23 +1,22 @@
 package br.ufba.mata62.eleicoestransparentes.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
-import br.ufba.mata62.eleicoestransparentes.R;
-import br.ufba.mata62.eleicoestransparentes.R.id;
-import br.ufba.mata62.eleicoestransparentes.R.layout;
-import br.ufba.mata62.eleicoestransparentes.R.string;
 import br.ufba.mata62.eleicoestransparentes.adapters.MenuAdapter;
 
-public class MainActivity extends FragmentActivity implements OnClickListener{
+public class MainActivity extends FragmentActivity{
 
-	private int[] menuItens = { R.string.mi_prestacao_contas_partido,
-			R.string.mi_prestacao_contas_candidato, R.string.mi_maior_gasto,
-			R.string.mi_origem_gastos, R.string.mi_doadores,
-			R.string.mi_declaracao_bens, R.string.mi_eleitores };
+	private int[] menuItens = { R.string.mi_visualizar_prestacao_contas,
+			R.string.mi_visualizar_ranking_maiores_doadores,
+			R.string.mi_visualizar_lista_candidatos,
+			R.string.mi_visualizar_doadores_partido_candidato_eleicao,
+			R.string.mi_visualizar_doadores_partido_candidato_eleicao };
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,36 +28,29 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 		ListView menu = (ListView) findViewById(R.id.menu);
 		BaseAdapter adapter = new MenuAdapter(MainActivity.this, menuItens);
 		menu.setAdapter(adapter);
-	}
-
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.string.mi_prestacao_contas_partido:
-
-			break;
-		case R.string.mi_prestacao_contas_candidato:
-
-			break;
-
-		case R.string.mi_maior_gasto:
-
-			break;
-		case R.string.mi_origem_gastos:
-
-			break;
-		case R.string.mi_doadores:
-
-			break;
-		case R.string.mi_declaracao_bens:
-
-			break;
-		case R.string.mi_eleitores:
-
-			break;
-		default:
-			break;
-		}
 		
+		menu.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> adapter, View view, int position,long id) {
+				switch (position) {
+				case 0:
+					startActivity(new Intent(MainActivity.this,VisualizarPrestacaoDeContas.class));
+					break;
+				case 1:
+					startActivity(new Intent(MainActivity.this,VisualizarRankingMaioresDoadores.class));
+					break;
+
+				case 2:
+					startActivity(new Intent(MainActivity.this,VisualizarListaCandidatosBens.class));
+					break;
+				case 3:
+					startActivity(new Intent(MainActivity.this,VisualizarDoadoresPartidoCandidatoEleicao.class));
+					break;
+				default:
+					break;
+				}		
+			}
+		});
 	}
+
 }

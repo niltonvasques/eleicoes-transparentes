@@ -3,10 +3,11 @@ package br.ufba.mata62.eleicoestransparentes.adapters;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import br.ufba.mata62.eleicoestransparentes.R;
+import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 
 public class MenuAdapter extends BaseAdapter{
 
