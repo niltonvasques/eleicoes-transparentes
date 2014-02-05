@@ -4,34 +4,6 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="parserDadosTSE">
-    <complexType>
-     <sequence>
-      <element name="chaveSeguranca" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="parserDadosTSEResponse">
-    <complexType>
-     <sequence>
-      <element name="parserDadosTSEReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="rankingMaioresDoadoresPessoaJuridica">
-    <complexType>
-     <sequence>
-      <element name="UF" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="rankingMaioresDoadoresPessoaJuridicaResponse">
-    <complexType>
-     <sequence>
-      <element name="rankingMaioresDoadoresPessoaJuridicaReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
    <element name="consultaTransacaoCandidato">
     <complexType>
      <sequence>
@@ -47,17 +19,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="rankingMaioresDoadoresPessoaFisica">
+   <element name="parserDadosTSE">
     <complexType>
      <sequence>
-      <element name="UF" type="xsd:string"/>
+      <element name="chaveSeguranca" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="rankingMaioresDoadoresPessoaFisicaResponse">
+   <element name="parserDadosTSEResponse">
     <complexType>
      <sequence>
-      <element name="rankingMaioresDoadoresPessoaFisicaReturn" type="xsd:string"/>
+      <element name="parserDadosTSEReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -101,19 +73,55 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="consultaTransacaoPartido">
+   <element name="consultaPartidos">
+    <complexType/>
+   </element>
+   <element name="consultaPartidosResponse">
     <complexType>
      <sequence>
-      <element name="numero" type="xsd:int"/>
-      <element name="UF" type="xsd:string"/>
-      <element name="tipoTransacao" type="xsd:string"/>
+      <element name="consultaPartidosReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="consultaTransacaoPartidoResponse">
+   <element name="rankingMaioresDoadoresPessoaFisica">
     <complexType>
      <sequence>
-      <element name="consultaTransacaoPartidoReturn" type="xsd:string"/>
+      <element name="UF" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="rankingMaioresDoadoresPessoaFisicaResponse">
+    <complexType>
+     <sequence>
+      <element name="rankingMaioresDoadoresPessoaFisicaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultaBens">
+    <complexType>
+     <sequence>
+      <element name="sequencialCandidato" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultaBensResponse">
+    <complexType>
+     <sequence>
+      <element name="consultaBensReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="rankingMaioresDoadoresPessoaJuridica">
+    <complexType>
+     <sequence>
+      <element name="UF" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="rankingMaioresDoadoresPessoaJuridicaResponse">
+    <complexType>
+     <sequence>
+      <element name="rankingMaioresDoadoresPessoaJuridicaReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -131,17 +139,19 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="consultaBens">
+   <element name="consultaTransacaoPartido">
     <complexType>
      <sequence>
-      <element name="sequencialCandidato" type="xsd:string"/>
+      <element name="numero" type="xsd:int"/>
+      <element name="UF" type="xsd:string"/>
+      <element name="tipoTransacao" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="consultaBensResponse">
+   <element name="consultaTransacaoPartidoResponse">
     <complexType>
      <sequence>
-      <element name="consultaBensReturn" type="xsd:string"/>
+      <element name="consultaTransacaoPartidoReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -220,17 +230,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="consultaTransacaoCandidatoResponse">
+   <wsdl:message name="consultaPartidosRequest">
 
-      <wsdl:part element="impl:consultaTransacaoCandidatoResponse" name="parameters">
+      <wsdl:part element="impl:consultaPartidos" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="consultaBensResponse">
+   <wsdl:message name="consultaTransacaoCandidatoResponse">
 
-      <wsdl:part element="impl:consultaBensResponse" name="parameters">
+      <wsdl:part element="impl:consultaTransacaoCandidatoResponse" name="parameters">
 
       </wsdl:part>
 
@@ -244,6 +254,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="consultaBensResponse">
+
+      <wsdl:part element="impl:consultaBensResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="consultaCandidatosRequest">
 
       <wsdl:part element="impl:consultaCandidatos" name="parameters">
@@ -252,17 +270,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="consultaCandidatosResponse">
+   <wsdl:message name="rankingMaioresDoadoresPessoaFisicaRequest">
 
-      <wsdl:part element="impl:consultaCandidatosResponse" name="parameters">
+      <wsdl:part element="impl:rankingMaioresDoadoresPessoaFisica" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="rankingMaioresDoadoresPessoaFisicaRequest">
+   <wsdl:message name="consultaCandidatosResponse">
 
-      <wsdl:part element="impl:rankingMaioresDoadoresPessoaFisica" name="parameters">
+      <wsdl:part element="impl:consultaCandidatosResponse" name="parameters">
 
       </wsdl:part>
 
@@ -279,6 +297,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="parserDadosTSEResponse">
 
       <wsdl:part element="impl:parserDadosTSEResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="consultaPartidosResponse">
+
+      <wsdl:part element="impl:consultaPartidosResponse" name="parameters">
 
       </wsdl:part>
 
@@ -326,30 +352,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="EleicoesWebService">
 
-      <wsdl:operation name="parserDadosTSE">
-
-         <wsdl:input message="impl:parserDadosTSERequest" name="parserDadosTSERequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:parserDadosTSEResponse" name="parserDadosTSEResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="rankingMaioresDoadoresPessoaJuridica">
-
-         <wsdl:input message="impl:rankingMaioresDoadoresPessoaJuridicaRequest" name="rankingMaioresDoadoresPessoaJuridicaRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:rankingMaioresDoadoresPessoaJuridicaResponse" name="rankingMaioresDoadoresPessoaJuridicaResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="consultaTransacaoCandidato">
 
          <wsdl:input message="impl:consultaTransacaoCandidatoRequest" name="consultaTransacaoCandidatoRequest">
@@ -362,13 +364,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="rankingMaioresDoadoresPessoaFisica">
+      <wsdl:operation name="parserDadosTSE">
 
-         <wsdl:input message="impl:rankingMaioresDoadoresPessoaFisicaRequest" name="rankingMaioresDoadoresPessoaFisicaRequest">
+         <wsdl:input message="impl:parserDadosTSERequest" name="parserDadosTSERequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:rankingMaioresDoadoresPessoaFisicaResponse" name="rankingMaioresDoadoresPessoaFisicaResponse">
+         <wsdl:output message="impl:parserDadosTSEResponse" name="parserDadosTSEResponse">
 
        </wsdl:output>
 
@@ -422,25 +424,25 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="consultaTransacaoPartido">
+      <wsdl:operation name="consultaPartidos">
 
-         <wsdl:input message="impl:consultaTransacaoPartidoRequest" name="consultaTransacaoPartidoRequest">
+         <wsdl:input message="impl:consultaPartidosRequest" name="consultaPartidosRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:consultaTransacaoPartidoResponse" name="consultaTransacaoPartidoResponse">
+         <wsdl:output message="impl:consultaPartidosResponse" name="consultaPartidosResponse">
 
        </wsdl:output>
 
       </wsdl:operation>
 
-      <wsdl:operation name="createTables">
+      <wsdl:operation name="rankingMaioresDoadoresPessoaFisica">
 
-         <wsdl:input message="impl:createTablesRequest" name="createTablesRequest">
+         <wsdl:input message="impl:rankingMaioresDoadoresPessoaFisicaRequest" name="rankingMaioresDoadoresPessoaFisicaRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:createTablesResponse" name="createTablesResponse">
+         <wsdl:output message="impl:rankingMaioresDoadoresPessoaFisicaResponse" name="rankingMaioresDoadoresPessoaFisicaResponse">
 
        </wsdl:output>
 
@@ -458,47 +460,47 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="rankingMaioresDoadoresPessoaJuridica">
+
+         <wsdl:input message="impl:rankingMaioresDoadoresPessoaJuridicaRequest" name="rankingMaioresDoadoresPessoaJuridicaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:rankingMaioresDoadoresPessoaJuridicaResponse" name="rankingMaioresDoadoresPessoaJuridicaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createTables">
+
+         <wsdl:input message="impl:createTablesRequest" name="createTablesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createTablesResponse" name="createTablesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="consultaTransacaoPartido">
+
+         <wsdl:input message="impl:consultaTransacaoPartidoRequest" name="consultaTransacaoPartidoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:consultaTransacaoPartidoResponse" name="consultaTransacaoPartidoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="EleicoesWebServiceSoapBinding" type="impl:EleicoesWebService">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-
-      <wsdl:operation name="parserDadosTSE">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="parserDadosTSERequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="parserDadosTSEResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="rankingMaioresDoadoresPessoaJuridica">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="rankingMaioresDoadoresPessoaJuridicaRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="rankingMaioresDoadoresPessoaJuridicaResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
 
       <wsdl:operation name="consultaTransacaoCandidato">
 
@@ -518,17 +520,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="rankingMaioresDoadoresPessoaFisica">
+      <wsdl:operation name="parserDadosTSE">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="rankingMaioresDoadoresPessoaFisicaRequest">
+         <wsdl:input name="parserDadosTSERequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="rankingMaioresDoadoresPessoaFisicaResponse">
+         <wsdl:output name="parserDadosTSEResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -608,17 +610,71 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="consultaTransacaoPartido">
+      <wsdl:operation name="consultaPartidos">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="consultaTransacaoPartidoRequest">
+         <wsdl:input name="consultaPartidosRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="consultaTransacaoPartidoResponse">
+         <wsdl:output name="consultaPartidosResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="rankingMaioresDoadoresPessoaFisica">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="rankingMaioresDoadoresPessoaFisicaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="rankingMaioresDoadoresPessoaFisicaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="consultaBens">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="consultaBensRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="consultaBensResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="rankingMaioresDoadoresPessoaJuridica">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="rankingMaioresDoadoresPessoaJuridicaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="rankingMaioresDoadoresPessoaJuridicaResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -644,17 +700,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="consultaBens">
+      <wsdl:operation name="consultaTransacaoPartido">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="consultaBensRequest">
+         <wsdl:input name="consultaTransacaoPartidoRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="consultaBensResponse">
+         <wsdl:output name="consultaTransacaoPartidoResponse">
 
             <wsdlsoap:body use="literal"/>
 

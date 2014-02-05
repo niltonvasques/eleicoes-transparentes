@@ -8,6 +8,7 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Seed;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
@@ -195,6 +196,19 @@ public class EleicoesWebService {
 			Gson gson = new Gson();
 			Comunicacao comm = new Comunicacao();
 			List<Candidato> list = comm.consultaCandidatos();
+			comm.close();
+			return gson.toJson(list);
+		} catch (Exception e) {
+			return e.getCause().getMessage();
+		}
+	}
+	
+	public String consultaPartidos(){
+
+		try {
+			Gson gson = new Gson();
+			Comunicacao comm = new Comunicacao();
+			List<Partido> list = comm.consultaPartidos();
 			comm.close();
 			return gson.toJson(list);
 		} catch (Exception e) {

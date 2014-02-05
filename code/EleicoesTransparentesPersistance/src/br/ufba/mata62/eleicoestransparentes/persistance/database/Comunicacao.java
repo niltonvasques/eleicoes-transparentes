@@ -223,16 +223,11 @@ public class Comunicacao {
 	
 	public List<Partido> consultaPartidos() throws SQLException{
 		
-		List<Partido> itens = new ArrayList<Partido>();
-		
 		Dao<Partido, String> dao = DaoManager.createDao(database.getConnection(), Partido.class);
 		
-		List<Partido> ormItens = dao.queryForAll();
-		for (Partido orm : ormItens) {
-			itens.add(orm);
-		}
+		List<Partido> partidos = dao.queryForAll();
 		
-		return itens;
+		return partidos;
 	}
 	
 	
