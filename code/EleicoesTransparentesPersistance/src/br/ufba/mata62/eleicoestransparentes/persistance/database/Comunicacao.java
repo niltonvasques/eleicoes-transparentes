@@ -15,7 +15,8 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFis
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.DoadorWrapper;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -441,9 +442,9 @@ public class Comunicacao {
 		return transacaoDao.queryForAll();
 	}
 	
-	public List<DoadorWrapper>rankingMaioresDoadoresPessoaJuridica(String UF) throws SQLException{
+	public List<PessoaJuridicaDoador>rankingMaioresDoadoresPessoaJuridica(String UF) throws SQLException{
 		MySqlDatabase db = new MySqlDatabase();
-		List<DoadorWrapper> doadores = new ArrayList<DoadorWrapper>();
+		List<PessoaJuridicaDoador> doadores = new ArrayList<PessoaJuridicaDoador>();
 		
 		String queryPJ = "select pj.nome, pj.cnpj, t.tipoDebitado, sum(t.valor) as valor " +
 				"from Transacao t inner join PessoaJuridica pj on pj.id = t.debitado_id  " +
@@ -460,7 +461,8 @@ public class Comunicacao {
 			pj.setNome(result.getString(1));
 			pj.setCnpj(result.getString(2));
 			
-			DoadorWrapper doador = new DoadorWrapper();
+			PessoaJuridicaDoador doador = new PessoaJuridicaDoador();
+			
 			doador.setPessoa(pj);
 			doador.setValor(result.getFloat(4));
 			
@@ -473,9 +475,9 @@ public class Comunicacao {
 		return doadores;
 	}
 	
-	public List<DoadorWrapper>rankingMaioresDoadoresPessoaFisica(String UF) throws SQLException{
+	public List<PessoaFisicaDoador>rankingMaioresDoadoresPessoaFisica(String UF) throws SQLException{
 		MySqlDatabase db = new MySqlDatabase();
-		List<DoadorWrapper> doadores = new ArrayList<DoadorWrapper>();
+		List<PessoaFisicaDoador> doadores = new ArrayList<PessoaFisicaDoador>();
 		
 		String queryPJ = "select pj.nome, pj.cpf, t.tipoDebitado, sum(t.valor) as valor " +
 				"from Transacao t inner join PessoaFisica pj on pj.id = t.debitado_id  " +
@@ -492,7 +494,7 @@ public class Comunicacao {
 			pj.setNome(result.getString(1));
 			pj.setCpf(result.getString(2));
 			
-			DoadorWrapper doador = new DoadorWrapper();
+			PessoaFisicaDoador doador = new PessoaFisicaDoador();
 			doador.setPessoa(pj);
 			doador.setValor(result.getFloat(4));
 			

@@ -11,7 +11,8 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.DoadorWrapper;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
 
 import com.google.gson.reflect.TypeToken;
 
@@ -78,19 +79,19 @@ public class EleicoesSOAP {
 		return valor;
 	}
 	
-	public List<DoadorWrapper> rankingMaioresDoadoresPessoaJuridica(String UF) {
-		Type t = new TypeToken<List<DoadorWrapper>>(){}.getType();
+	public List<PessoaJuridicaDoador> rankingMaioresDoadoresPessoaJuridica(String UF) {
+		Type t = new TypeToken<List<PessoaJuridicaDoador>>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
 		params.add(createParam("UF", UF));
-		List<DoadorWrapper> doadores = soap.executeSoapRequest(EleicoesSOAP.METHOD_RANKING_MAIORES_DOADORES_PESSOA_JURIDICA, t,params);
+		List<PessoaJuridicaDoador> doadores = soap.executeSoapRequest(EleicoesSOAP.METHOD_RANKING_MAIORES_DOADORES_PESSOA_JURIDICA, t,params);
 		return doadores;
 	}
 	
-	public List<DoadorWrapper> rankingMaioresDoadoresPessoaFisica(String UF) {
-		Type t = new TypeToken<List<DoadorWrapper>>(){}.getType();
+	public List<PessoaFisicaDoador> rankingMaioresDoadoresPessoaFisica(String UF) {
+		Type t = new TypeToken<List<PessoaFisicaDoador>>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
 		params.add(createParam("UF", UF));
-		List<DoadorWrapper> doadores = soap.executeSoapRequest(EleicoesSOAP.METHOD_RANKING_MAIORES_DOADORES_PESSOA_FISICA, t,params);
+		List<PessoaFisicaDoador> doadores = soap.executeSoapRequest(EleicoesSOAP.METHOD_RANKING_MAIORES_DOADORES_PESSOA_FISICA, t,params);
 		return doadores;
 	}
 	

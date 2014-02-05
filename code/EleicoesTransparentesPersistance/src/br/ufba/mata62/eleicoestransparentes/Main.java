@@ -4,7 +4,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.DoadorWrapper;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
 
 
 public class Main {
@@ -25,8 +26,8 @@ public class Main {
 		try {
 			
 //			comm.consultaTransacaoCandidato("10000000756", "R");
-			List<DoadorWrapper> rankingPJ = comm.rankingMaioresDoadoresPessoaJuridica("AC");
-			List<DoadorWrapper> rankingPF = comm.rankingMaioresDoadoresPessoaFisica("AC");
+			List<PessoaJuridicaDoador> rankingPJ = comm.rankingMaioresDoadoresPessoaJuridica("AC");
+			List<PessoaFisicaDoador> rankingPF = comm.rankingMaioresDoadoresPessoaFisica("AC");
 //			for(DoadorWrapper d : ranking){
 //				System.out.println("Nome: "+d.getPessoa().getNome()+" VALOR: "+d.getValor());
 //			}
