@@ -9,8 +9,8 @@
     <string name="mi_visualizar_ranking_maiores_doadores">Ranking maiores doadores</string>
     <string name="mi_visualizar_lista_candidatos">Lista de candidatos</string>
     <string name="mi_visualizar_doadores_partido_candidato_eleicao">Doadores por partido e candidato</string>
-    <string name="prestacao_partido">Partido:$valor$</string>
-    <string name="prestacao_candidato">Partido:$valor$</string>
+    <string name="prestacao_despesa">Despesa:$valor$</string>
+    <string name="prestacao_receita">Receita:$valor$</string>
     <string name="cancel">Cancelar</string>
     <string name="ok">Escolher</string>
 

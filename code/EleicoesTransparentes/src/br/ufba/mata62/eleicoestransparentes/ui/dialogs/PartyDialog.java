@@ -12,15 +12,16 @@ import android.widget.ListView;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 
 /**
- * Classe que implementa um Dialog(espécie de janela pop-up) das UFS a serem escolhidas
+ * Classe que implementa um Dialog(espécie de janela pop-up) dos partidos a serem escolhidas
  * @author tiagogoncalves
  *
  */
-public class SelectUFDialog extends DialogFragment {
+public class PartyDialog extends DialogFragment {
 
-	public static final String[] UFS = { "AC", "AL", "AM", "AP", "BA", "CE",
-		"DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI",
-		"PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO" };
+	public static final String[] PARTIES = { "PMDB", "PTB", "PDT", "PT", "DEM",
+			"PCdoB", "PSB", "PSDB", "PTC", "PSC", "PMN", "PRP", "PPS", "PV",
+			"PTdoB", "PP", "PSTU", "PCB", "PRTB", "PHS", "PSDC", "PCO", "PTN",
+			"PSL", "PRB", "PSOL", "PR", "PSD", "PPL", "PEN", " PROS", "SDD" };
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,14 +33,14 @@ public class SelectUFDialog extends DialogFragment {
         View v = inflater.inflate(R.layout.uf_list_dialog, container, false);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         ListView languageList = (ListView) v.findViewById(R.id.uf_list);
-        UFAdapter languageAdapter = new UFAdapter(SelectUFDialog.this.getActivity(), UFS );
+        UFAdapter languageAdapter = new UFAdapter(PartyDialog.this.getActivity(), PARTIES );
         languageList.setAdapter(languageAdapter);
         
         Button cancel = (Button) v.findViewById(R.id.cancel);
         cancel.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				SelectUFDialog.this.dismiss();
+				PartyDialog.this.dismiss();
 			}
 		});
         
