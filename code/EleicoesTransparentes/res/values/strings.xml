@@ -4,21 +4,14 @@
     <string name="app_name">EleicoesTransparentes</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    
-        <string name="mi_prestacao_contas_partido">Prestação de contas por partido</string>
-        <string name="mi_prestacao_contas_candidato">Prestação de contas por candidato</string>
-        <string name="mi_maior_gasto">Quem gastou mais?</string>
-        <string name="mi_origem_gastos">Origem dos gastos</string>
-        <string name="mi_doadores">Doadores</string>
-        <string name="mi_declaracao_bens">Declaração de bens</string>
-        <string name="mi_eleitores">Sobre os eleitores</string>
-        <string name="mi_prestacao_contas">Prestacao de Contas</string>
-    
+    <string name="mi_visualizar_prestacao_contas">Prestação de contas</string>
+    <string name="mi_visualizar_ranking_maiores_doadores">Ranking maiores doadores</string>
+    <string name="mi_visualizar_lista_candidatos">Lista de candidatos</string>
+    <string name="mi_visualizar_doadores_partido_candidato_eleicao">Doadores por partido e candidato</string>
+
     <string-array name="itens">
         <item>Partidos</item>
         <item>Candidatos</item>
     </string-array>
-        
-        
 
 </resources>

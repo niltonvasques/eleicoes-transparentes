@@ -47,17 +47,17 @@ public class ParserConsultaCandidato {
 	private static ConsultaCandidato populate(String[] data) {
 		ConsultaCandidato cc = new ConsultaCandidato();
 		
-		cc.setAnoEleicao(data[ConsultaCandidato.INDEX_ANO_ELEICAO]);
-		cc.setCodGrauInstrucao(data[ConsultaCandidato.INDEX_COD_GRAU_INSTRUCAO]);
-		cc.setCodigoCargo(data[ConsultaCandidato.INDEX_CODIGO_CARGO]);
-		cc.setCodigoEstadoCivil(data[ConsultaCandidato.INDEX_CODIGO_ESTADO_CIVIL]);
-		cc.setCodigoLegenda(data[ConsultaCandidato.INDEX_CODIGO_LEGENDA]);
-		cc.setCodigoMunicipioNascimento(data[ConsultaCandidato.INDEX_CODIGO_MUNICIPIO_NASCIMENTO]);
-		cc.setCodigoNacionalidade(data[ConsultaCandidato.INDEX_CODIGO_NACIONALIDADE]);
-		cc.setCodigoOcupacao(data[ConsultaCandidato.INDEX_CODIGO_OCUPACAO]);
-		cc.setCodigoSexo(data[ConsultaCandidato.INDEX_CODIGO_SEXO]);
-		cc.setCodSitTotTurno(data[ConsultaCandidato.INDEX_COD_SIT_TOT_TURNO]);
-		cc.setCodSituacaoCandidatura(data[ConsultaCandidato.INDEX_COD_SITUACAO_CANDIDADATURA]);
+		cc.setAnoEleicao(data[ConsultaCandidato.INDEX_ANO_ELEICAO].trim());
+		cc.setCodGrauInstrucao(data[ConsultaCandidato.INDEX_COD_GRAU_INSTRUCAO].trim());
+		cc.setCodigoCargo(data[ConsultaCandidato.INDEX_CODIGO_CARGO].trim());
+		cc.setCodigoEstadoCivil(data[ConsultaCandidato.INDEX_CODIGO_ESTADO_CIVIL].trim());
+		cc.setCodigoLegenda(data[ConsultaCandidato.INDEX_CODIGO_LEGENDA].trim());
+		cc.setCodigoMunicipioNascimento(data[ConsultaCandidato.INDEX_CODIGO_MUNICIPIO_NASCIMENTO].trim());
+		cc.setCodigoNacionalidade(data[ConsultaCandidato.INDEX_CODIGO_NACIONALIDADE].trim());
+		cc.setCodigoOcupacao(data[ConsultaCandidato.INDEX_CODIGO_OCUPACAO].trim());
+		cc.setCodigoSexo(data[ConsultaCandidato.INDEX_CODIGO_SEXO].trim());
+		cc.setCodSitTotTurno(data[ConsultaCandidato.INDEX_COD_SIT_TOT_TURNO].trim());
+		cc.setCodSituacaoCandidatura(data[ConsultaCandidato.INDEX_COD_SITUACAO_CANDIDADATURA].trim());
 		cc.setData(data[ConsultaCandidato.INDEX_DATA]);
 		cc.setDataNascimento(data[ConsultaCandidato.INDEX_DATA_NASCIMENTO]);
 		cc.setDescricaoCargo(data[ConsultaCandidato.INDEX_DESCRICAO_CARGO]);
@@ -72,22 +72,22 @@ public class ParserConsultaCandidato {
 		cc.setDespesaMaxCampanha(data[ConsultaCandidato.INDEX_DESPESA_MAX_CAMPANHA]);
 		cc.setDesSituacaoCandidatura(data[ConsultaCandidato.INDEX_DES_SITUACAO_CANDIDATURA]);
 		cc.setHora(data[ConsultaCandidato.INDEX_HORA]);
-		cc.setIdadeDataEleicao(data[ConsultaCandidato.INDEX_IDADE_DATA_ELEICAO]);
+		cc.setIdadeDataEleicao(data[ConsultaCandidato.INDEX_IDADE_DATA_ELEICAO].trim());
 		cc.setNomeCandidato(data[ConsultaCandidato.INDEX_NOME_CANDIDATO]);
 		cc.setNomeLegenda(data[ConsultaCandidato.INDEX_NOME_CANDIDATO]);
 		cc.setNomeMunicipioNascimento(data[ConsultaCandidato.INDEX_NOME_MUNICIPIO_NASCIMENTO]);
 		cc.setNomePartido(data[ConsultaCandidato.INDEX_NOME_PARTIDO]);
 		cc.setNomeUrnaCandidato(data[ConsultaCandidato.INDEX_NOME_URNA_CANDIDATO]);
-		cc.setNumeroCandidadto(data[ConsultaCandidato.INDEX_NUMERO_CANDIDATO]);
-		cc.setNumeroPartido(data[ConsultaCandidato.INDEX_NUMERO_PARTIDO]);
-		cc.setNumTituloEleitoralCandidato(data[ConsultaCandidato.INDEX_NUM_TITULO_ELEITORAL_CANDIDATO]);
-		cc.setNumTurno(data[ConsultaCandidato.INDEX_NUM_TURNO]);
-		cc.setSequencialCandidadto(data[ConsultaCandidato.INDEX_SEQUENCIAL_CANDIDATO]);
-		cc.setSiglaLegenda(data[ConsultaCandidato.INDEX_SIGLA_LEGENDA]);
-		cc.setSiglaPartido(data[ConsultaCandidato.INDEX_SIGLA_PARTIDO]);
-		cc.setSiglaUE(data[ConsultaCandidato.INDEX_SIGLA_UE]);
-		cc.setSiglaUf(data[ConsultaCandidato.INDEX_SIGLA_UF]);
-		cc.setSiglaUfNascimento(data[ConsultaCandidato.INDEX_SIGLA_UF_NASCIMENTO]);
+		cc.setNumeroCandidadto(data[ConsultaCandidato.INDEX_NUMERO_CANDIDATO].trim());
+		cc.setNumeroPartido(data[ConsultaCandidato.INDEX_NUMERO_PARTIDO].trim());
+		cc.setNumTituloEleitoralCandidato(data[ConsultaCandidato.INDEX_NUM_TITULO_ELEITORAL_CANDIDATO].trim());
+		cc.setNumTurno(data[ConsultaCandidato.INDEX_NUM_TURNO].trim());
+		cc.setSequencialCandidadto(data[ConsultaCandidato.INDEX_SEQUENCIAL_CANDIDATO].trim());
+		cc.setSiglaLegenda(data[ConsultaCandidato.INDEX_SIGLA_LEGENDA].trim());
+		cc.setSiglaPartido(data[ConsultaCandidato.INDEX_SIGLA_PARTIDO].trim());
+		cc.setSiglaUE(data[ConsultaCandidato.INDEX_SIGLA_UE].trim());
+		cc.setSiglaUf(data[ConsultaCandidato.INDEX_SIGLA_UF].trim());
+		cc.setSiglaUfNascimento(data[ConsultaCandidato.INDEX_SIGLA_UF_NASCIMENTO].trim());
 		
 		return cc;
 	}

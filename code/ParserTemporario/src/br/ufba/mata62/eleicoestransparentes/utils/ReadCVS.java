@@ -3,7 +3,6 @@ package br.ufba.mata62.eleicoestransparentes.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufba.mata62.eleicoestransparentes.parser.BemCandidato;
 import br.ufba.mata62.eleicoestransparentes.parser.ParserBemCandidato;
 import br.ufba.mata62.eleicoestransparentes.parser.ParserConsultaCandidato;
 import br.ufba.mata62.eleicoestransparentes.parser.ParserPrestacaoContasCandidatoDespesa;
@@ -12,6 +11,7 @@ import br.ufba.mata62.eleicoestransparentes.parser.ParserPrestacaoContasComiteDe
 import br.ufba.mata62.eleicoestransparentes.parser.ParserPrestacaoContasComiteReceita;
 import br.ufba.mata62.eleicoestransparentes.parser.ParserPrestacaoContasPartidoDespesa;
 import br.ufba.mata62.eleicoestransparentes.parser.ParserPrestacaoContasPartidoReceita;
+import br.ufba.mata62.eleicoestransparentes.parser.dados.BemCandidato;
 import br.ufba.mata62.eleicoestransparentes.parser.dados.ConsultaCandidato;
 import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasCandidatoDespesa;
 import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasCandidatoReceita;

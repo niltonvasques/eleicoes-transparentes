@@ -1,4 +1,6 @@
-package br.ufba.mata62.eleicoestransparentes.parser;
+package br.ufba.mata62.eleicoestransparentes.parser.dados;
+
+import br.ufba.mata62.eleicoestransparentes.parser.annotations.Name;
 
 public class BemCandidato {
 	@Name("DATA_GERACAO")

@@ -1,6 +1,6 @@
 package br.ufba.mata62.eleicoestransparentes.parser.dados;
 
-import br.ufba.mata62.eleicoestransparentes.parser.Name;
+import br.ufba.mata62.eleicoestransparentes.parser.annotations.Name;
 
 public class PrestContasComiteReceita {
 	@Name("Data e hora")
