@@ -1,5 +1,6 @@
 package br.ufba.mata62.eleicoestransparentes.webservice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.ufba.mata62.eleicoestransparentes.EProperties;
@@ -71,6 +72,22 @@ public class EleicoesWebService {
 		}
 	}
 	
+	public String consultaBens(String sequencialCandidato){
+		try {
+			Gson gson = new Gson();
+			Comunicacao comm = new Comunicacao();
+			Candidato cand = comm.getCandidato(sequencialCandidato);
+			if(cand == null){
+				return gson.toJson(new ArrayList<Bem>());
+			}
+			int candidato_id = cand.getId();
+			List<Bem> rankingPF = comm.consultaBens(candidato_id);
+			comm.close();
+			return gson.toJson(rankingPF);
+		} catch (Exception e) {
+			return e.getCause().getMessage();
+		}
+	}
 
 	public String createTables(String chaveSeguranca){
 		try{

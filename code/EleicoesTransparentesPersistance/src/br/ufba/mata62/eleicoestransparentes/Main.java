@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
 
@@ -26,8 +28,15 @@ public class Main {
 		try {
 			
 //			comm.consultaTransacaoCandidato("10000000756", "R");
-			List<PessoaJuridicaDoador> rankingPJ = comm.rankingMaioresDoadoresPessoaJuridica("AC");
-			List<PessoaFisicaDoador> rankingPF = comm.rankingMaioresDoadoresPessoaFisica("AC");
+//			List<PessoaJuridicaDoador> rankingPJ = comm.rankingMaioresDoadoresPessoaJuridica("AC");
+//			List<PessoaFisicaDoador> rankingPF = comm.rankingMaioresDoadoresPessoaFisica("AC");
+			Candidato candi = comm.getCandidato("10000000757");
+			System.out.println(candi);
+//			List<Bem> bens = comm.consultaBens(1);
+//			Candidato cand = comm.getCandidato(1);
+//			for (Bem bem : bens) {
+//				System.out.println(cand.getNome()+" "+bem.getDescricao()+" "+bem.getValor());
+//			}
 //			for(DoadorWrapper d : ranking){
 //				System.out.println("Nome: "+d.getPessoa().getNome()+" VALOR: "+d.getValor());
 //			}
@@ -40,7 +49,7 @@ public class Main {
 //			
 //			comm.consultaTransacaoCandidato(13,"AC","R");
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

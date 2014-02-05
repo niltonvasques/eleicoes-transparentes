@@ -65,6 +65,21 @@ public class Comunicacao {
 		return orm;
 	}
 	
+	public Candidato getCandidato(int id){
+		Candidato orm = null;
+		List<Candidato> listORM;
+		Dao<Candidato, String> candidatoDao;
+		try {
+			candidatoDao = DaoManager.createDao(database.getConnection(), Candidato.class);
+			listORM = candidatoDao.queryForEq("id",id);
+			if(!listORM.isEmpty())
+				orm = listORM.get(0);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return orm;
+	}
+	
 	public List<Bem> consultaBens() throws SQLException{
 		
 		List<Bem> bens = new ArrayList<Bem>();
@@ -77,6 +92,16 @@ public class Comunicacao {
 		}
 		
 		return bens;
+	}
+	
+	public List<Bem> consultaBens(int candidato_id){
+		try {
+			Dao<Bem, String> candidatoDao = DaoManager.createDao(database.getConnection(), Bem.class);
+			return candidatoDao.queryForEq("candidato_id",candidato_id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public SetorEconomico insereSetorEconomico(SetorEconomico setor) throws SQLException{

@@ -39,7 +39,10 @@
       <operation xmlns:operNS="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:retNS="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="createTables" qname="operNS:createTables" returnQName="retNS:createTablesReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:chaveSeguranca" type="tns:string"/>
       </operation>
-      <parameter name="allowedMethods" value="parserDadosTSE consultaSetoresEconomico consultaCandidatos consultaTransacaoPartido rankingMaioresDoadoresPessoaFisica createTables rankingMaioresDoadoresPessoaJuridica consultaTransacaoCandidato consultaApplicationPath consultaPathRoot"/>
+      <operation xmlns:operNS="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:retNS="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="consultaBens" qname="operNS:consultaBens" returnQName="retNS:consultaBensReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:sequencialCandidato" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="consultaBens parserDadosTSE consultaSetoresEconomico consultaCandidatos consultaTransacaoPartido rankingMaioresDoadoresPessoaFisica createTables rankingMaioresDoadoresPessoaJuridica consultaTransacaoCandidato consultaApplicationPath consultaPathRoot"/>
 
   </service>
 </deployment>

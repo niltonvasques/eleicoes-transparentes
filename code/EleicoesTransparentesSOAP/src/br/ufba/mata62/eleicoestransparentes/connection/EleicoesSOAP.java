@@ -113,10 +113,10 @@ public class EleicoesSOAP {
 		return candidatos;
 	}
 	
-	public List<Bem> consultaBens(String cpf) {
+	public List<Bem> consultaBens(String sequencialCandidato) {
 		Type t = new TypeToken<List<Bem>>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
-		params.add(createParam("cpf", cpf));
+		params.add(createParam("sequencialCandidato", sequencialCandidato));
 		List<Bem> bens = soap.executeSoapRequest(EleicoesSOAP.METHOD_BENS, t,params);
 		
 		return bens;

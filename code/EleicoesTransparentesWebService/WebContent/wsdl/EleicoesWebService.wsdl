@@ -131,6 +131,20 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="consultaBens">
+    <complexType>
+     <sequence>
+      <element name="sequencialCandidato" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultaBensResponse">
+    <complexType>
+     <sequence>
+      <element name="consultaBensReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
   </schema>
  </wsdl:types>
 
@@ -214,6 +228,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="consultaBensResponse">
+
+      <wsdl:part element="impl:consultaBensResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="consultaTransacaoPartidoResponse">
 
       <wsdl:part element="impl:consultaTransacaoPartidoResponse" name="parameters">
@@ -273,6 +295,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="consultaApplicationPathRequest">
 
       <wsdl:part element="impl:consultaApplicationPath" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="consultaBensRequest">
+
+      <wsdl:part element="impl:consultaBens" name="parameters">
 
       </wsdl:part>
 
@@ -411,6 +441,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:createTablesResponse" name="createTablesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="consultaBens">
+
+         <wsdl:input message="impl:consultaBensRequest" name="consultaBensRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:consultaBensResponse" name="consultaBensResponse">
 
        </wsdl:output>
 
@@ -595,6 +637,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="createTablesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="consultaBens">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="consultaBensRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="consultaBensResponse">
 
             <wsdlsoap:body use="literal"/>
 
