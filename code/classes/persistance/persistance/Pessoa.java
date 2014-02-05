@@ -10,8 +10,6 @@ public class Pessoa {
 
 	private Bem bens;
 
-	private SetorEconomico setorEconomico;
-
 	private Bem[] bem;
 
 }
