@@ -109,4 +109,8 @@ public class Comunicacao {
 		return null;
 	}
 
+	public ArrayList consulataBensPartido(int numero, Eleicao eleicao){
+
+	}
+
 }
