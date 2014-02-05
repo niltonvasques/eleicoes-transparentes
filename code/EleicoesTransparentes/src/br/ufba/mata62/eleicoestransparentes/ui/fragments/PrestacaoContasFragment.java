@@ -11,10 +11,15 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Eleicao;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
+import br.ufba.mata62.eleicoestransparentes.ui.events.OnSelectionListener;
 
-public class PrestacaoContasFragment extends Fragment{
+public class PrestacaoContasFragment extends Fragment implements OnSelectionListener{
 
+	private Eleicao eleicao;
 	private EleicoesSOAP eleicoes;
+	private TextView despesa;
+	private TextView receita;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.prestacao_fragment, container, false);
@@ -24,22 +29,27 @@ public class PrestacaoContasFragment extends Fragment{
 	}
 	
 	private void loadComponents(View view) {
-		Eleicao eleicao = null;
-		Partido partido = null;
+		despesa = (TextView)view.findViewById(R.id.despesa);
+		receita = (TextView)view.findViewById(R.id.receita);
 		
-		TextView despesa = (TextView)view.findViewById(R.id.despesa);
-		TextView receita = (TextView)view.findViewById(R.id.receita);
-		
-		float valorDespesa = visualizaTransacoes(partido, eleicao, String.valueOf(Transacao.DESPESA));
-		despesa.setText(despesa.getText().toString().replace("$valor$", String.valueOf(valorDespesa)));
-		
-		float valorReceita = visualizaTransacoes(partido, eleicao, String.valueOf(Transacao.RECEITA));
-		receita.setText(receita.getText().toString().replace("$valor$", String.valueOf(valorReceita)));
 	}
 
 	public float visualizaTransacoes(Partido partido, Eleicao eleicao, String tipoTransacao) {
 		return eleicoes.consultaTransacaoPartido(13, "AC", tipoTransacao);
 	}
+
+	@Override
+	public void setParams(String uf, Partido partido) {
+		if(uf!=null && partido!=null){
+			float valorDespesa = visualizaTransacoes(partido, eleicao, String.valueOf(Transacao.DESPESA));
+			despesa.setText(despesa.getText().toString().replace("$valor$", String.valueOf(valorDespesa)));
+		
+			float valorReceita = visualizaTransacoes(partido, eleicao, String.valueOf(Transacao.RECEITA));
+			receita.setText(receita.getText().toString().replace("$valor$", String.valueOf(valorReceita)));
+		}
+		
+	}
+
 
 
 }
