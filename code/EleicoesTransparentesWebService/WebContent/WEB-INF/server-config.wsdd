@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -29,35 +29,36 @@
   <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
  </ns1:service>
  <ns1:service name="EleicoesWebService" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="parserDadosTSE" qname="ns1:parserDadosTSE" returnQName="ns1:parserDadosTSEReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:chaveSeguranca" type="xsd:string"/>
+  <ns2:operation name="consultaTransacaoCandidato" qname="ns1:consultaTransacaoCandidato" returnQName="ns1:consultaTransacaoCandidatoReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:sequencialCandidato" type="xsd:string"/>
+   <ns2:parameter qname="ns1:tipoTransacao" type="xsd:string"/>
   </ns2:operation>
-  <ns1:operation name="rankingMaioresDoadoresPessoaJuridica" qname="ns2:rankingMaioresDoadoresPessoaJuridica" returnQName="ns2:rankingMaioresDoadoresPessoaJuridicaReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns2:UF" type="xsd:string"/>
+  <ns1:operation name="parserDadosTSE" qname="ns2:parserDadosTSE" returnQName="ns2:parserDadosTSEReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:chaveSeguranca" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="consultaTransacaoCandidato" qname="ns3:consultaTransacaoCandidato" returnQName="ns3:consultaTransacaoCandidatoReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns3:sequencialCandidato" type="xsd:string"/>
-   <ns1:parameter qname="ns3:tipoTransacao" type="xsd:string"/>
+  <ns1:operation name="consultaApplicationPath" qname="ns3:consultaApplicationPath" returnQName="ns3:consultaApplicationPathReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="consultaPathRoot" qname="ns4:consultaPathRoot" returnQName="ns4:consultaPathRootReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="consultaSetoresEconomico" qname="ns5:consultaSetoresEconomico" returnQName="ns5:consultaSetoresEconomicoReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="consultaCandidatos" qname="ns6:consultaCandidatos" returnQName="ns6:consultaCandidatosReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="consultaPartidos" qname="ns7:consultaPartidos" returnQName="ns7:consultaPartidosReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="rankingMaioresDoadoresPessoaFisica" qname="ns8:rankingMaioresDoadoresPessoaFisica" returnQName="ns8:rankingMaioresDoadoresPessoaFisicaReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns8:UF" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="rankingMaioresDoadoresPessoaFisica" qname="ns4:rankingMaioresDoadoresPessoaFisica" returnQName="ns4:rankingMaioresDoadoresPessoaFisicaReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns4:UF" type="xsd:string"/>
+  <ns1:operation name="consultaBens" qname="ns9:consultaBens" returnQName="ns9:consultaBensReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:sequencialCandidato" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="consultaApplicationPath" qname="ns5:consultaApplicationPath" returnQName="ns5:consultaApplicationPathReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  <ns1:operation name="consultaPathRoot" qname="ns6:consultaPathRoot" returnQName="ns6:consultaPathRootReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  <ns1:operation name="consultaSetoresEconomico" qname="ns7:consultaSetoresEconomico" returnQName="ns7:consultaSetoresEconomicoReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  <ns1:operation name="consultaCandidatos" qname="ns8:consultaCandidatos" returnQName="ns8:consultaCandidatosReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  <ns1:operation name="consultaTransacaoPartido" qname="ns9:consultaTransacaoPartido" returnQName="ns9:consultaTransacaoPartidoReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns9:numero" type="xsd:int"/>
-   <ns1:parameter qname="ns9:UF" type="xsd:string"/>
-   <ns1:parameter qname="ns9:tipoTransacao" type="xsd:string"/>
+  <ns1:operation name="rankingMaioresDoadoresPessoaJuridica" qname="ns10:rankingMaioresDoadoresPessoaJuridica" returnQName="ns10:rankingMaioresDoadoresPessoaJuridicaReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns10:UF" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="createTables" qname="ns10:createTables" returnQName="ns10:createTablesReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns10:chaveSeguranca" type="xsd:string"/>
+  <ns1:operation name="createTables" qname="ns11:createTables" returnQName="ns11:createTablesReturn" returnType="xsd:string" soapAction="" xmlns:ns11="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns11:chaveSeguranca" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="consultaBens" qname="ns11:consultaBens" returnQName="ns11:consultaBensReturn" returnType="xsd:string" soapAction="" xmlns:ns11="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns11:sequencialCandidato" type="xsd:string"/>
+  <ns1:operation name="consultaTransacaoPartido" qname="ns12:consultaTransacaoPartido" returnQName="ns12:consultaTransacaoPartidoReturn" returnType="xsd:string" soapAction="" xmlns:ns12="http://webservice.eleicoestransparentes.mata62.ufba.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns12:numero" type="xsd:int"/>
+   <ns1:parameter qname="ns12:UF" type="xsd:string"/>
+   <ns1:parameter qname="ns12:tipoTransacao" type="xsd:string"/>
   </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="consultaBens parserDadosTSE consultaSetoresEconomico consultaCandidatos consultaTransacaoPartido rankingMaioresDoadoresPessoaFisica createTables rankingMaioresDoadoresPessoaJuridica consultaTransacaoCandidato consultaApplicationPath consultaPathRoot"/>
+  <ns1:parameter name="allowedMethods" value="consultaBens parserDadosTSE consultaSetoresEconomico consultaCandidatos consultaTransacaoPartido rankingMaioresDoadoresPessoaFisica createTables rankingMaioresDoadoresPessoaJuridica consultaPartidos consultaTransacaoCandidato consultaApplicationPath consultaPathRoot"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="EleicoesWebService"/>
   <ns1:parameter name="className" value="br.ufba.mata62.eleicoestransparentes.webservice.EleicoesWebService"/>

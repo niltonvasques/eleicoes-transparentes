@@ -6,6 +6,7 @@ import java.util.List;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
 
@@ -30,8 +31,12 @@ public class Main {
 //			comm.consultaTransacaoCandidato("10000000756", "R");
 //			List<PessoaJuridicaDoador> rankingPJ = comm.rankingMaioresDoadoresPessoaJuridica("AC");
 //			List<PessoaFisicaDoador> rankingPF = comm.rankingMaioresDoadoresPessoaFisica("AC");
-			Candidato candi = comm.getCandidato("10000000757");
-			System.out.println(candi);
+			List<Partido> partidos = comm.consultaPartidos();
+			for (Partido partido : partidos) {
+				System.out.println(partido.getNome());
+			}
+//			Candidato candi = comm.getCandidato("10000000757");
+//			System.out.println(candi);
 //			List<Bem> bens = comm.consultaBens(1);
 //			Candidato cand = comm.getCandidato(1);
 //			for (Bem bem : bens) {

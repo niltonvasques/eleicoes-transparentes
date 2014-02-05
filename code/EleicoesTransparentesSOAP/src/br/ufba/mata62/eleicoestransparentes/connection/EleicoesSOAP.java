@@ -8,6 +8,7 @@ import org.ksoap2.serialization.PropertyInfo;
 
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
@@ -32,6 +33,7 @@ public class EleicoesSOAP {
 	public static final String METHOD_RANKING_MAIORES_DOADORES_PESSOA_FISICA 	= "rankingMaioresDoadoresPessoaFisica";
 	public static final String METHOD_BENS										= "consultaBens";
 	public static final String METHOD_DOACOES									= "consultaDoacoes";
+	public static final String METHOD_PARTIDOS									= "consultaPartidos";
 	
 	private static final String AUTH_KEY 						= "f877fbd3d7c0d0313d3243ff0edcc73d";
 	
@@ -101,6 +103,14 @@ public class EleicoesSOAP {
 		List<Candidato> candidatos = soap.executeSoapRequest(EleicoesSOAP.METHOD_CANDIDATOS, t);
 		
 		return candidatos;
+	}
+	
+	public List<Partido> consultaPartidos() {
+		
+		Type t = new TypeToken<List<Partido>>(){}.getType();
+		List<Partido> partidos = soap.executeSoapRequest(EleicoesSOAP.METHOD_PARTIDOS, t);
+		
+		return partidos;
 	}
 	
 	public List<Candidato> consultaCandidatos(int numero,String UF) {
