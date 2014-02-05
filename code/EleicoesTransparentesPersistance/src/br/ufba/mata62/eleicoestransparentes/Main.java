@@ -1,8 +1,10 @@
 package br.ufba.mata62.eleicoestransparentes;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.database.Seed;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
+import java.sql.SQLException;
+import java.util.List;
+
+import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.DoadorWrapper;
 
 
 public class Main {
@@ -17,19 +19,30 @@ public class Main {
 		
 //		System.out.println(EProperties.findTopLevelDirectory());
 //		
-//		Comunicacao comm = new Comunicacao();
+		Comunicacao comm = new Comunicacao();
+		comm.setDebug(true);
 //		
-//		try {
-//			comm.consultaTransacaoPartido(13,"AC","D");
+		try {
+			
+//			comm.consultaTransacaoCandidato("10000000756", "R");
+			List<DoadorWrapper> rankingPJ = comm.rankingMaioresDoadoresPessoaJuridica("AC");
+			List<DoadorWrapper> rankingPF = comm.rankingMaioresDoadoresPessoaFisica("AC");
+//			for(DoadorWrapper d : ranking){
+//				System.out.println("Nome: "+d.getPessoa().getNome()+" VALOR: "+d.getValor());
+//			}
+			
+//			comm.consultaTransacaoCandidato("10000000756", "D");
+			
+//			comm.consultaTransacaoPartido(13,"AC","R");
 //			
 //			comm.consultaTransacaoPartido(13,"AC","R");
 //			
 //			comm.consultaTransacaoCandidato(13,"AC","R");
-//			
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 //		
 //		
 //		comm.close();
