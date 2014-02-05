@@ -12,6 +12,4 @@ public class Candidato {
 
 	private Partido partido;
 
-	private Partido partido;
-
 }
