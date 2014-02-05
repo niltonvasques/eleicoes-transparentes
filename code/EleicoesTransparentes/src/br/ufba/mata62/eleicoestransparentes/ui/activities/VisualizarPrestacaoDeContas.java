@@ -20,6 +20,7 @@ public class VisualizarPrestacaoDeContas extends FragmentActivity{
 }
 	
 	private void loadComponents() {
+		
 	}
 	
 	public void visualizaTransacoes(Candidato candidato, Eleicao eleicao) {

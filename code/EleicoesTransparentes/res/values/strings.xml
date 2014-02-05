@@ -3,11 +3,16 @@
 
     <string name="app_name">EleicoesTransparentes</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="select_uf">UF</string>
+    <string name="select_party">Partido</string>
     <string name="mi_visualizar_prestacao_contas">Prestação de contas</string>
     <string name="mi_visualizar_ranking_maiores_doadores">Ranking maiores doadores</string>
     <string name="mi_visualizar_lista_candidatos">Lista de candidatos</string>
     <string name="mi_visualizar_doadores_partido_candidato_eleicao">Doadores por partido e candidato</string>
+    <string name="prestacao_partido">Partido:$valor$</string>
+    <string name="prestacao_candidato">Partido:$valor$</string>
+    <string name="cancel">Cancelar</string>
+    <string name="ok">Escolher</string>
 
     <string-array name="itens">
         <item>Partidos</item>
