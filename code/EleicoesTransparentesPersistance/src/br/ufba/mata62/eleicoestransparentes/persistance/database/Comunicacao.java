@@ -15,6 +15,8 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFis
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -22,6 +24,7 @@ import com.j256.ormlite.dao.DaoManager;
 public class Comunicacao {
 	
 	private ORMDatabase database;
+	private boolean debug = false;
 	
 	public Comunicacao() {
 		database = new ORMDatabase();
@@ -62,6 +65,21 @@ public class Comunicacao {
 		return orm;
 	}
 	
+	public Candidato getCandidato(int id){
+		Candidato orm = null;
+		List<Candidato> listORM;
+		Dao<Candidato, String> candidatoDao;
+		try {
+			candidatoDao = DaoManager.createDao(database.getConnection(), Candidato.class);
+			listORM = candidatoDao.queryForEq("id",id);
+			if(!listORM.isEmpty())
+				orm = listORM.get(0);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return orm;
+	}
+	
 	public List<Bem> consultaBens() throws SQLException{
 		
 		List<Bem> bens = new ArrayList<Bem>();
@@ -74,6 +92,16 @@ public class Comunicacao {
 		}
 		
 		return bens;
+	}
+	
+	public List<Bem> consultaBens(int candidato_id){
+		try {
+			Dao<Bem, String> candidatoDao = DaoManager.createDao(database.getConnection(), Bem.class);
+			return candidatoDao.queryForEq("candidato_id",candidato_id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public SetorEconomico insereSetorEconomico(SetorEconomico setor) throws SQLException{
@@ -273,19 +301,6 @@ public class Comunicacao {
 				transacao.setDebitado(inserePessoaFisica((PessoaFisica)debitado));
 			}
 		}
-		if(transacao.getCreditado().getId() <= 0){
-			int id  = 0;
-			Pessoa creditado = transacao.getCreditado();
-			if(creditado instanceof Partido){
-				transacao.setCreditado(inserePartido((Partido)creditado));
-			}else if(creditado instanceof Candidato){
-				transacao.setCreditado(insereCandidato((Candidato)creditado));
-			}else if(creditado instanceof PessoaJuridica){
-				transacao.setCreditado(inserePessoaJuridica((PessoaJuridica)creditado));
-			}else if(creditado instanceof PessoaFisica){
-				transacao.setCreditado(inserePessoaFisica((PessoaFisica)creditado));
-			}
-		}
 		
 		if(transacao.getCreditado() != null && transacao.getCreditado().getId() <= 0){
 			int id  = 0;
@@ -321,16 +336,32 @@ public class Comunicacao {
 	}
 	
 	/**
-	 * @param numeroPartido
+	 * @param numero
 	 * @param UF
 	 * @param tipo "R" para receita e "D" para despesa.
 	 * @throws SQLException
 	 */
-	public float consultaTransacaoPartido(int numeroPartido, String UF, String tipo) throws SQLException{
+	public float consultaTransacaoPartido(int numero, String UF, String tipo) throws SQLException{
 		
 		MySqlDatabase db = new MySqlDatabase();
 		
-		ResultSet result = db.query("select p.nome, sum(valor), t.tipo from Transacao t inner join Partido p on p.id = t.debitado_id  where t.tipo = '"+tipo+"' and p.numero = "+numeroPartido+" group by p.id order by sum(valor) desc;");
+		String query = "select p.nome, sum(valor), t.tipo, count(*) as numero_transacoes "+ 
+						"from Transacao t inner join Partido p on p.id = t.creditado_id and t.tipoCreditado = 'Partido' "+  
+						"where  p.numero = "+numero+" and t.UF like '%"+UF+"%' "+ 
+						"group by p.id "+ 
+						"order by sum(valor) desc; ";
+		
+		if(tipo.equals("D")){
+			query = "select p.nome, sum(valor), t.tipo, count(*) as numero_transacoes "+ 
+					"from Transacao t inner join Partido p on p.id = t.debitado_id and t.tipoDebitado = 'Partido' "+  
+					"where  p.numero = "+numero+" and t.UF like '%"+UF+"%' "+ 
+					"group by p.id "+ 
+					"order by sum(valor) desc; ";	
+		}
+		
+		ResultSet result = db.query(query);
+		System.out.println(query);
+		
 		float valor = 0;
 		if(result.next()){
 			System.out.println("Partido: "+result.getString(1)+" Valor: "+result.getString(2));
@@ -340,22 +371,92 @@ public class Comunicacao {
 		return valor;
 	}
 	
-	public float consultaTransacaoCandidato(int numero,String UF,String tipoTransacao) throws SQLException {
+	/**
+	 * @param numero
+	 * @param UF
+	 * @param tipoTransacao
+	 * @return Uma lista de listas com os campos, nome, cargo, numero e valor, o primeiro objeto da lista contém os headers.
+	 * @throws SQLException
+	 */
+	public List<List<String>> consultaTransacaoCandidatos(int numero,String UF,String tipoTransacao) throws SQLException {
+		
+		List<List<String>> queryResults = new ArrayList<List<String>>();
 		MySqlDatabase db = new MySqlDatabase();
 		
-		String query = "select p.nome, sum(valor), t.tipo from Transacao t inner join Candidato p" +
-			" on p.id = t.debitado_id  where t.tipo = '"+tipoTransacao+"' and p.numero = "+numero+" group by p.id order by sum(valor) desc;";
+		String query = "select p.nome, p.cargo, p.numero, sum(valor) as valor, t.tipo "+ 
+						"from Transacao t inner join Candidato p on p.id = t.debitado_id "+  
+						"where t.tipoDebitado = 'Candidato' and t.tipo = 'D' and p.numero = "+numero+" and p.UF like '%"+UF+"%' "+ 
+						"group by p.id "+ 
+						"order by sum(valor) desc;";
+		
 		if(tipoTransacao.equals("R")){
-			query = "select p.nome, sum(valor), t.tipo from Transacao t inner join Candidato p" +
-				" on p.id = t.creditado_id  where t.tipo = '"+tipoTransacao+"' and p.numero = "+numero+" group by p.id order by sum(valor) desc;";
+			query = "select p.nome, p.cargo, p.numero, sum(valor), t.tipo "+ 
+					"from Transacao t inner join Candidato p on p.id = t.creditado_id "+  
+					"where t.tipoCreditado = 'Candidato' and t.tipo = 'R' and p.numero = "+numero+" and p.UF like '%"+UF+"%' "+ 
+					"group by p.id "+ 
+					"order by sum(valor) desc;";
 		}
+		
+		List<String> header = new ArrayList<String>();
+		
+		header.add("nome");
+		header.add("cargo");
+		header.add("numero");
+		header.add("valor");
+		queryResults.add(header);
+		
 		ResultSet result = db.query(query);
-		float valor = 0;
-		if(result.next()){
-			System.out.println("Candidato: "+result.getString(1)+" Valor: "+result.getString(2));
-			valor = result.getFloat(2);
+		if(debug) System.out.println(query);
+		
+		while(result.next()){
+			
+			List<String> tupla = new ArrayList<String>();
+			
+			tupla.add(result.getString(1));
+			tupla.add(result.getString(2));
+			tupla.add(result.getString(3));
+			tupla.add(result.getString(4));
+			queryResults.add(tupla);
+			
+			if(debug) System.out.println("Candidato: "+result.getString(1)+" Valor: "+result.getString(4));
 		}
 		db.close();
+		return queryResults;
+	}
+	
+	/**
+	 * @param numero
+	 * @param UF
+	 * @param tipoTransacao
+	 * @return Uma lista de listas com os campos, nome, cargo, numero e valor, o primeiro objeto da lista contém os headers.
+	 * @throws SQLException
+	 */
+	public float consultaTransacaoCandidato(String sequencialCandidato,String tipoTransacao) throws SQLException {
+		
+		MySqlDatabase db = new MySqlDatabase();
+		
+		String query = "select c.nome, sum(valor) "+
+						"from Transacao t inner join Candidato c on c.id = t.debitado_id "+ 
+						"where t.tipoDebitado = 'Candidato' and c.sequencialCandidato like '%"+sequencialCandidato+"%'";
+		
+		if(tipoTransacao.equals("R")){
+			query = "select c.nome, sum(valor) "+
+					"from Transacao t inner join Candidato c on c.id = t.creditado_id "+ 
+					"where t.tipoCreditado = 'Candidato' and c.sequencialCandidato like '%"+sequencialCandidato+"%'";
+		}
+		
+		ResultSet result = db.query(query);
+		
+		if(debug)		System.out.println(query);
+		
+		float valor = 0;
+		if(result.next()){
+			
+			valor = result.getFloat(2);
+			if(debug) System.out.println("Nome: "+result.getString(1)+" Valor: "+result.getString(2)); 
+		}
+		db.close();
+		
 		return valor;
 	}
 	
@@ -364,6 +465,71 @@ public class Comunicacao {
 		Dao<Transacao, String> transacaoDao = DaoManager.createDao(database.getConnection(), Transacao.class);
 		
 		return transacaoDao.queryForAll();
+	}
+	
+	public List<PessoaJuridicaDoador>rankingMaioresDoadoresPessoaJuridica(String UF) throws SQLException{
+		MySqlDatabase db = new MySqlDatabase();
+		List<PessoaJuridicaDoador> doadores = new ArrayList<PessoaJuridicaDoador>();
+		
+		String queryPJ = "select pj.nome, pj.cnpj, t.tipoDebitado, sum(t.valor) as valor " +
+				"from Transacao t inner join PessoaJuridica pj on pj.id = t.debitado_id  " +
+				"where t.tipo = 'R' and t.tipoDebitado = 'PessoaJuridica' and t.UF like '%"+UF+"%' "+
+				"group by t.debitado_id " +
+				"order by sum(t.valor) desc LIMIT 20;";
+		
+		if(debug) System.out.println(queryPJ);
+		
+		ResultSet result = db.query(queryPJ);
+		
+		while(result.next()){
+			PessoaJuridica pj = new PessoaJuridica();
+			pj.setNome(result.getString(1));
+			pj.setCnpj(result.getString(2));
+			
+			PessoaJuridicaDoador doador = new PessoaJuridicaDoador();
+			
+			doador.setPessoa(pj);
+			doador.setValor(result.getFloat(4));
+			
+			doadores.add(doador);
+			
+			if(debug) System.out.println("Nome: "+pj.getNome()+" CNPJ: "+pj.getCnpj()+" VALOR: "+result.getFloat(4));
+		}
+		
+		db.close();
+		return doadores;
+	}
+	
+	public List<PessoaFisicaDoador>rankingMaioresDoadoresPessoaFisica(String UF) throws SQLException{
+		MySqlDatabase db = new MySqlDatabase();
+		List<PessoaFisicaDoador> doadores = new ArrayList<PessoaFisicaDoador>();
+		
+		String queryPJ = "select pj.nome, pj.cpf, t.tipoDebitado, sum(t.valor) as valor " +
+				"from Transacao t inner join PessoaFisica pj on pj.id = t.debitado_id  " +
+				"where t.tipo = 'R' and t.tipoDebitado = 'PessoaFisica' and t.UF like '%"+UF+"%' "+
+				"group by t.debitado_id " +
+				"order by sum(t.valor) desc LIMIT 20;";
+		
+		if(debug) System.out.println(queryPJ);
+		
+		ResultSet result = db.query(queryPJ);
+		
+		while(result.next()){
+			PessoaFisica pj = new PessoaFisica();
+			pj.setNome(result.getString(1));
+			pj.setCpf(result.getString(2));
+			
+			PessoaFisicaDoador doador = new PessoaFisicaDoador();
+			doador.setPessoa(pj);
+			doador.setValor(result.getFloat(4));
+			
+			doadores.add(doador);
+			
+			if(debug) System.out.println("Nome: "+pj.getNome()+" CPF: "+pj.getCpf()+" VALOR: "+result.getFloat(4));
+		}
+		
+		db.close();
+		return doadores;
 	}
 	
 	private Object checkIfExists(Dao dao, String field, String value){
@@ -376,6 +542,10 @@ public class Comunicacao {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public void setDebug(boolean b) {
+		this.debug = b;
 	}
 
 }

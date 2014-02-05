@@ -1,8 +1,13 @@
 package br.ufba.mata62.eleicoestransparentes;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.database.Seed;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
+import java.sql.SQLException;
+import java.util.List;
+
+import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
 
 
 public class Main {
@@ -17,19 +22,37 @@ public class Main {
 		
 //		System.out.println(EProperties.findTopLevelDirectory());
 //		
-//		Comunicacao comm = new Comunicacao();
+		Comunicacao comm = new Comunicacao();
+		comm.setDebug(true);
 //		
-//		try {
-//			comm.consultaTransacaoPartido(13,"AC","D");
+		try {
+			
+//			comm.consultaTransacaoCandidato("10000000756", "R");
+//			List<PessoaJuridicaDoador> rankingPJ = comm.rankingMaioresDoadoresPessoaJuridica("AC");
+//			List<PessoaFisicaDoador> rankingPF = comm.rankingMaioresDoadoresPessoaFisica("AC");
+			Candidato candi = comm.getCandidato("10000000757");
+			System.out.println(candi);
+//			List<Bem> bens = comm.consultaBens(1);
+//			Candidato cand = comm.getCandidato(1);
+//			for (Bem bem : bens) {
+//				System.out.println(cand.getNome()+" "+bem.getDescricao()+" "+bem.getValor());
+//			}
+//			for(DoadorWrapper d : ranking){
+//				System.out.println("Nome: "+d.getPessoa().getNome()+" VALOR: "+d.getValor());
+//			}
+			
+//			comm.consultaTransacaoCandidato("10000000756", "D");
+			
+//			comm.consultaTransacaoPartido(13,"AC","R");
 //			
 //			comm.consultaTransacaoPartido(13,"AC","R");
 //			
 //			comm.consultaTransacaoCandidato(13,"AC","R");
-//			
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 //		
 //		
 //		comm.close();

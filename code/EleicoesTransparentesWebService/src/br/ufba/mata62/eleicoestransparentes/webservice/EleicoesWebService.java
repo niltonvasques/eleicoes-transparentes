@@ -1,5 +1,6 @@
 package br.ufba.mata62.eleicoestransparentes.webservice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.ufba.mata62.eleicoestransparentes.EProperties;
@@ -9,6 +10,8 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
 import br.ufba.mata62.eleicoestransparentes.utils.Path;
 import br.ufba.mata62.eleicoestransparentes.utils.ReadCVS;
 import br.ufba.mata62.eleicoestransparentes.webservice.util.MD5;
@@ -21,13 +24,66 @@ public class EleicoesWebService {
 
 	private static final String CHAVE_SEGURANCA = "eleicoes-transparentes-mata62-ufba";
 
-	public String consultaTransacaoPartido(int numero, String UF, String tipo){
+	public String consultaTransacaoPartido(int numero, String UF, String tipoTransacao){
 		try {
 			Gson gson = new Gson();
 			Comunicacao comm = new Comunicacao();
-			float valor = comm.consultaTransacaoPartido(numero, UF, tipo);
+			float valor = comm.consultaTransacaoPartido(numero, UF, tipoTransacao);
 			comm.close();
 			return gson.toJson(valor);
+		} catch (Exception e) {
+			return e.getCause().getMessage();
+		}
+	}
+	
+	public String consultaTransacaoCandidato(String sequencialCandidato, String tipoTransacao){
+		try {
+			Gson gson = new Gson();
+			Comunicacao comm = new Comunicacao();
+			float valor = comm.consultaTransacaoCandidato(sequencialCandidato, tipoTransacao);
+			comm.close();
+			return gson.toJson(valor);
+		} catch (Exception e) {
+			return e.getCause().getMessage();
+		}
+	}
+	
+	public String rankingMaioresDoadoresPessoaJuridica(String UF){
+		try {
+			Gson gson = new Gson();
+			Comunicacao comm = new Comunicacao();
+			List<PessoaJuridicaDoador> rankingPJ = comm.rankingMaioresDoadoresPessoaJuridica(UF);
+			comm.close();
+			return gson.toJson(rankingPJ);
+		} catch (Exception e) {
+			return e.getCause().getMessage();
+		}
+	}
+	
+	public String rankingMaioresDoadoresPessoaFisica(String UF){
+		try {
+			Gson gson = new Gson();
+			Comunicacao comm = new Comunicacao();
+			List<PessoaFisicaDoador> rankingPF = comm.rankingMaioresDoadoresPessoaFisica(UF);
+			comm.close();
+			return gson.toJson(rankingPF);
+		} catch (Exception e) {
+			return e.getCause().getMessage();
+		}
+	}
+	
+	public String consultaBens(String sequencialCandidato){
+		try {
+			Gson gson = new Gson();
+			Comunicacao comm = new Comunicacao();
+			Candidato cand = comm.getCandidato(sequencialCandidato);
+			if(cand == null){
+				return gson.toJson(new ArrayList<Bem>());
+			}
+			int candidato_id = cand.getId();
+			List<Bem> rankingPF = comm.consultaBens(candidato_id);
+			comm.close();
+			return gson.toJson(rankingPF);
 		} catch (Exception e) {
 			return e.getCause().getMessage();
 		}

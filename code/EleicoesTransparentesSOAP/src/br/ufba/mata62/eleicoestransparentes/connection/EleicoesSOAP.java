@@ -11,30 +11,29 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
 
 import com.google.gson.reflect.TypeToken;
 
 
 public class EleicoesSOAP {
 
-	public static final String METHOD_APP_PATH					= "consultaApplicationPath";
+	public static final String METHOD_APP_PATH									= "consultaApplicationPath";
 	
-	public static final String METHOD_CREATE_TABLES				= "createTables";
+	public static final String METHOD_CREATE_TABLES								= "createTables";
 	
-	public static final String METHOD_SETORES					= "consultaSetoresEconomico";
-	public static final String METHOD_CANDIDATOS				= "consultaCandidatos";
-	public static final String METHOD_PARSER					= "parserDadosTSE";
-	public static final String METHOD_PREST_CONTAS_PARTIDO		= "consultaTransacaoPartido";
-	private static final String METHOD_PREST_CONTAS_CANDIDATOS 	= "consultaTransacaoCandidatos";
-	public static final String METHOD_RANKING_MAIORES_DOADORES 	= "rankingMaioresDoadores";
-	public static final String METHOD_BENS						= "consultaBens";
-	public static final String METHOD_DOACOES				= "consultaDoacoes";
+	public static final String METHOD_SETORES									= "consultaSetoresEconomico";
+	public static final String METHOD_CANDIDATOS								= "consultaCandidatos";
+	public static final String METHOD_PARSER									= "parserDadosTSE";
+	public static final String METHOD_PREST_CONTAS_PARTIDO						= "consultaTransacaoPartido";
+	public static final String METHOD_PREST_CONTAS_CANDIDATOS 					= "consultaTransacaoCandidato";
+	public static final String METHOD_RANKING_MAIORES_DOADORES_PESSOA_JURIDICA 	= "rankingMaioresDoadoresPessoaJuridica";
+	public static final String METHOD_RANKING_MAIORES_DOADORES_PESSOA_FISICA 	= "rankingMaioresDoadoresPessoaFisica";
+	public static final String METHOD_BENS										= "consultaBens";
+	public static final String METHOD_DOACOES									= "consultaDoacoes";
 	
 	private static final String AUTH_KEY 						= "f877fbd3d7c0d0313d3243ff0edcc73d";
-
-	
-
-	
 	
 	private SoapRequest soap;
 	public EleicoesSOAP() {
@@ -63,34 +62,38 @@ public class EleicoesSOAP {
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
 		params.add(createParam("numero", numero,Integer.class));
 		params.add(createParam("UF", UF));
-		params.add(createParam("tipo", tipoTransacao));
+		params.add(createParam("tipoTransacao", tipoTransacao));
 		float valor = soap.executeSoapRequest(EleicoesSOAP.METHOD_PREST_CONTAS_PARTIDO, t,params);
 		
 		return valor;
 	}
 	
-	public float consultaTransacaoCandidato(int numero,String UF,String tipoTransacao) {
+	public float consultaTransacaoCandidato(String sequencialCandidato, String tipoTransacao) {
 		
 		Type t = new TypeToken<Float>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
-		params.add(createParam("numero", numero,Integer.class));
-		params.add(createParam("UF", UF));
-		params.add(createParam("tipo", tipoTransacao));
+		params.add(createParam("sequencialCandidato", sequencialCandidato));
+		params.add(createParam("tipoTransacao", tipoTransacao));
 		float valor = soap.executeSoapRequest(EleicoesSOAP.METHOD_PREST_CONTAS_CANDIDATOS, t,params);
 		
 		return valor;
 	}
 	
-	public List<Pessoa> rankingMaioresDoadores(int numero,String UF) {
-		Type t = new TypeToken<List<Transacao>>(){}.getType();
+	public List<PessoaJuridicaDoador> rankingMaioresDoadoresPessoaJuridica(String UF) {
+		Type t = new TypeToken<List<PessoaJuridicaDoador>>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
-		params.add(createParam("numero", numero,Integer.class));
 		params.add(createParam("UF", UF));
-		List<Pessoa> doadores = soap.executeSoapRequest(EleicoesSOAP.METHOD_RANKING_MAIORES_DOADORES, t,params);
+		List<PessoaJuridicaDoador> doadores = soap.executeSoapRequest(EleicoesSOAP.METHOD_RANKING_MAIORES_DOADORES_PESSOA_JURIDICA, t,params);
 		return doadores;
 	}
 	
-	
+	public List<PessoaFisicaDoador> rankingMaioresDoadoresPessoaFisica(String UF) {
+		Type t = new TypeToken<List<PessoaFisicaDoador>>(){}.getType();
+		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
+		params.add(createParam("UF", UF));
+		List<PessoaFisicaDoador> doadores = soap.executeSoapRequest(EleicoesSOAP.METHOD_RANKING_MAIORES_DOADORES_PESSOA_FISICA, t,params);
+		return doadores;
+	}
 	
 	public List<Candidato> consultaCandidatos() {
 		
@@ -110,10 +113,10 @@ public class EleicoesSOAP {
 		return candidatos;
 	}
 	
-	public List<Bem> consultaBens(String cpf) {
+	public List<Bem> consultaBens(String sequencialCandidato) {
 		Type t = new TypeToken<List<Bem>>(){}.getType();
 		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
-		params.add(createParam("cpf", cpf));
+		params.add(createParam("sequencialCandidato", sequencialCandidato));
 		List<Bem> bens = soap.executeSoapRequest(EleicoesSOAP.METHOD_BENS, t,params);
 		
 		return bens;
