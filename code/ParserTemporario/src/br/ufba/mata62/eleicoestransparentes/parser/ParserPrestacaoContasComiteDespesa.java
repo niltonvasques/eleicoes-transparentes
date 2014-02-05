@@ -54,21 +54,21 @@ public class ParserPrestacaoContasComiteDespesa {
 	private static PrestContasComiteDespesa populate(String[] data) {
 		PrestContasComiteDespesa pcc = new PrestContasComiteDespesa();
 		pcc.setDataHora(data[0]);
-		pcc.setSequencialComite(data[1]);
-		pcc.setUF(data[2]);
-		pcc.setNumeroUE(data[3]);
+		pcc.setSequencialComite(data[1].trim());
+		pcc.setUF(data[2].trim());
+		pcc.setNumeroUE(data[3].trim());
 		pcc.setMunicipio(data[4]);
 		pcc.setTipoComite(data[5]);
-		pcc.setSiglaPartido(data[6]);
+		pcc.setSiglaPartido(data[6].trim());
 		pcc.setTipoDocumento(data[7]);
 		pcc.setNumeroDocumento(data[8]);
-		pcc.setCPFCNPJFornecedor(data[9]);
+		pcc.setCPFCNPJFornecedor(data[9].trim());
 		pcc.setNomeFornecedor(data[10]);
 		pcc.setNomeReceitaFornecedor(data[11]);
-		pcc.setCodSetorEconomicoFornecedor(data[12]);
+		pcc.setCodSetorEconomicoFornecedor(data[12].trim());
 		pcc.setSetorEconomicoFornecedor(data[13]);
 		pcc.setDataDespesa(data[14]);
-		pcc.setValorDespesa(data[15]);
+		pcc.setValorDespesa(data[15].trim());
 		pcc.setTipoDespesa(data[16]);
 		pcc.setDescricaoDespesa(data[17]);
 		return pcc;

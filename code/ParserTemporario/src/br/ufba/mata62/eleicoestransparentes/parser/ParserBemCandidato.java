@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.parser.dados.BemCandidato;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
 
@@ -47,14 +48,14 @@ public class ParserBemCandidato {
 		BemCandidato bc = new BemCandidato();
 		bc.setDataGeracao(data[0]);
 		bc.setHoraGeracao(data[1]);
-		bc.setAnoEleicao(data[2]);
+		bc.setAnoEleicao(data[2].trim());
 		bc.setDescricaoEleicao(data[3]);
-		bc.setSiglaUF(data[4]);
-		bc.setSequencialCandidato(data[5]);
+		bc.setSiglaUF(data[4].trim());
+		bc.setSequencialCandidato(data[5].trim());
 		bc.setDescricao(data[6]);
 		bc.setCdTipoBemCandidato(data[7]);
 		bc.setDsTipoBemCandidato(data[8]);
-		bc.setValorBem(data[9]);
+		bc.setValorBem(data[9].trim());
 		bc.setDataUltimaAtualizacao(data[10]);
 		bc.setHoraUltimaAtualizacao(data[11]);
 		return bc;
