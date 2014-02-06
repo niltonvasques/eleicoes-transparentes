@@ -3,7 +3,9 @@ package br.ufba.mata62.eleicoestransparentes.persistance.database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
@@ -48,36 +50,6 @@ public class Comunicacao {
 			return bemDao.createIfNotExists(bem);
 		}
 		return null;
-	}
-	
-	public Candidato getCandidato(String sequencialCandidato){
-		Candidato orm = null;
-		List<Candidato> listORM;
-		Dao<Candidato, String> candidatoDao;
-		try {
-			candidatoDao = DaoManager.createDao(database.getConnection(), Candidato.class);
-			listORM = candidatoDao.queryForEq("sequencialCandidato",sequencialCandidato);
-			if(!listORM.isEmpty())
-				orm = listORM.get(0);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return orm;
-	}
-	
-	public Candidato getCandidato(int id){
-		Candidato orm = null;
-		List<Candidato> listORM;
-		Dao<Candidato, String> candidatoDao;
-		try {
-			candidatoDao = DaoManager.createDao(database.getConnection(), Candidato.class);
-			listORM = candidatoDao.queryForEq("id",id);
-			if(!listORM.isEmpty())
-				orm = listORM.get(0);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return orm;
 	}
 	
 	public List<Bem> consultaBens() throws SQLException{
@@ -147,6 +119,36 @@ public class Comunicacao {
 		return candidatoDao.createIfNotExists(cand);
 	}
 	
+	public Candidato getCandidato(String sequencialCandidato){
+		Candidato orm = null;
+		List<Candidato> listORM;
+		Dao<Candidato, String> candidatoDao;
+		try {
+			candidatoDao = DaoManager.createDao(database.getConnection(), Candidato.class);
+			listORM = candidatoDao.queryForEq("sequencialCandidato",sequencialCandidato);
+			if(!listORM.isEmpty())
+				orm = listORM.get(0);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return orm;
+	}
+
+	public Candidato getCandidato(int id){
+		Candidato orm = null;
+		List<Candidato> listORM;
+		Dao<Candidato, String> candidatoDao;
+		try {
+			candidatoDao = DaoManager.createDao(database.getConnection(), Candidato.class);
+			listORM = candidatoDao.queryForEq("id",id);
+			if(!listORM.isEmpty())
+				orm = listORM.get(0);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return orm;
+	}
+
 	public List<Candidato> consultaCandidatos() throws SQLException{
 		
 		List<Candidato> itens = new ArrayList<Candidato>();
@@ -154,6 +156,23 @@ public class Comunicacao {
 		Dao<Candidato, String> dao = DaoManager.createDao(database.getConnection(), Candidato.class);
 		
 		List<Candidato> ormItens = dao.queryForAll();
+		for (Candidato orm : ormItens) {
+			itens.add(orm);
+		}
+		
+		return itens;
+	}
+	
+	public List<Candidato> consultaCandidatos(int partido_id, String UF) throws SQLException{
+		
+		List<Candidato> itens = new ArrayList<Candidato>();
+		
+		Dao<Candidato, String> dao = DaoManager.createDao(database.getConnection(), Candidato.class);
+		Map<String, Object> fields = new HashMap<String, Object>();
+		fields.put("partido_id", partido_id);
+		fields.put("UF", UF);
+		
+		List<Candidato> ormItens = dao.queryForFieldValues(fields);
 		for (Candidato orm : ormItens) {
 			itens.add(orm);
 		}

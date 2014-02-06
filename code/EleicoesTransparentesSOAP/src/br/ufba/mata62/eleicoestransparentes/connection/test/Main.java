@@ -11,12 +11,10 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		EleicoesSOAP eleicoes = new EleicoesSOAP(false);
-		
-		System.out.println("AppPath: "+eleicoes.consultaApplicationPath());;
+		System.out.println("AppPath: "+EleicoesSOAP.getInstance().consultaApplicationPath());;
 		
 		System.out.println("starting... eleicoes.parserDados()");
-		System.out.println("ParserDados: "+eleicoes.parserDados());
+		System.out.println("ParserDados: "+EleicoesSOAP.getInstance().parserDados());
 //		System.out.println("ParserDados: "+eleicoes.consultaTransacaoPartido(13, "AC", "D"));
 //		
 //		System.out.println("ParserDados: "+eleicoes.consultaTransacaoCandidato(13, "AC", "D"));

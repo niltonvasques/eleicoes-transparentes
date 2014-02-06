@@ -23,7 +23,6 @@ public class RankingDoadoresJuridicosFragment extends Fragment implements OnSele
 	
 	private SelectionFragment sf;
 	private List<PessoaJuridicaDoador> doadores;
-	private EleicoesSOAP eleicoesSOAP;
 	private ListView listDoadores;
 	private BaseAdapter doadorAdapter;
 	private String UF;
@@ -76,8 +75,7 @@ public class RankingDoadoresJuridicosFragment extends Fragment implements OnSele
 		}
 		
 		private void reload(){
-			eleicoesSOAP = new EleicoesSOAP(false);
-			doadores.addAll(eleicoesSOAP.rankingMaioresDoadoresPessoaJuridica(UF));
+			doadores.addAll(EleicoesSOAP.getInstance().rankingMaioresDoadoresPessoaJuridica(UF));
 			progress.dismiss();
 		}
 		

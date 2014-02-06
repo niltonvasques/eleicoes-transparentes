@@ -35,7 +35,6 @@ public class PartyDialog extends DialogFragment implements OnItemClickListener{
 	private List<Partido> partidos;
 	private Partido partidoSelected;
 	private PartyAdapter partyAdapter;
-	private EleicoesSOAP eleicoesSOAP;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -114,8 +113,7 @@ public class PartyDialog extends DialogFragment implements OnItemClickListener{
 		}
 
 		private void reload(){
-			eleicoesSOAP = new EleicoesSOAP(false);
-			partidos.addAll(eleicoesSOAP.consultaPartidos());
+			partidos.addAll(EleicoesSOAP.getInstance().consultaPartidos());
 			progress.dismiss();
 		}
 
