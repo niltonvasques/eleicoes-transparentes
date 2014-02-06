@@ -53,24 +53,24 @@ public class ParserPrestacaoContasComiteDespesa {
 	 */
 	private static PrestContasComiteDespesa populate(String[] data) {
 		PrestContasComiteDespesa pcc = new PrestContasComiteDespesa();
-		pcc.setDataHora(data[0]);
+		pcc.setDataHora(data[0].trim());
 		pcc.setSequencialComite(data[1].trim());
 		pcc.setUF(data[2].trim());
 		pcc.setNumeroUE(data[3].trim());
-		pcc.setMunicipio(data[4]);
-		pcc.setTipoComite(data[5]);
+		pcc.setMunicipio(data[4].trim());
+		pcc.setTipoComite(data[5].trim());
 		pcc.setSiglaPartido(data[6].trim());
-		pcc.setTipoDocumento(data[7]);
-		pcc.setNumeroDocumento(data[8]);
+		pcc.setTipoDocumento(data[7].trim());
+		pcc.setNumeroDocumento(data[8].trim());
 		pcc.setCPFCNPJFornecedor(data[9].trim());
-		pcc.setNomeFornecedor(data[10]);
-		pcc.setNomeReceitaFornecedor(data[11]);
+		pcc.setNomeFornecedor(data[10].trim());
+		pcc.setNomeReceitaFornecedor(data[11].trim());
 		pcc.setCodSetorEconomicoFornecedor(data[12].trim());
-		pcc.setSetorEconomicoFornecedor(data[13]);
-		pcc.setDataDespesa(data[14]);
+		pcc.setSetorEconomicoFornecedor(data[13].trim());
+		pcc.setDataDespesa(data[14].trim());
 		pcc.setValorDespesa(data[15].trim());
-		pcc.setTipoDespesa(data[16]);
-		pcc.setDescricaoDespesa(data[17]);
+		pcc.setTipoDespesa(data[16].trim());
+		pcc.setDescricaoDespesa(data[17].trim());
 		return pcc;
 	}
 	

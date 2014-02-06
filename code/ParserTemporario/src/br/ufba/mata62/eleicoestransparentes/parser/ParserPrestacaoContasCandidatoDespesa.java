@@ -53,27 +53,27 @@ public class ParserPrestacaoContasCandidatoDespesa {
 	 */
 	private static PrestContasCandidatoDespesa populate(String[] data) {
 		PrestContasCandidatoDespesa pcc = new PrestContasCandidatoDespesa();
-		pcc.setDataHora(data[0]);
+		pcc.setDataHora(data[0].trim());
 		pcc.setSequencialCandidato(data[1].trim());
 		pcc.setUF(data[2].trim());
 		pcc.setNumeroUE(data[3].trim());
-		pcc.setMunicipio(data[4]);
+		pcc.setMunicipio(data[4].trim());
 		pcc.setSiglaPartido(data[5].trim());
 		pcc.setNumerocandidato(data[6].trim());
-		pcc.setCargo(data[7]);
-		pcc.setNomeCandidato(data[8]);
+		pcc.setCargo(data[7].trim());
+		pcc.setNomeCandidato(data[8].trim());
 		pcc.setCPFCandidato(data[9].trim());
-		pcc.setTipoDocumento(data[10]);
+		pcc.setTipoDocumento(data[10].trim());
 		pcc.setNumeroDocumento(data[11].trim());
 		pcc.setCPFCNPJFornecedor(data[12].trim());
-		pcc.setNomeFornecedor(data[13]);
-		pcc.setNomeReceitaFornecedor(data[14]);
+		pcc.setNomeFornecedor(data[13].trim());
+		pcc.setNomeReceitaFornecedor(data[14].trim());
 		pcc.setCodSetorEconomicoFornecedor(data[15].trim());
-		pcc.setSetorEconomicoFornecedor(data[16]);
-		pcc.setDataDespesa(data[17]);
+		pcc.setSetorEconomicoFornecedor(data[16].trim());
+		pcc.setDataDespesa(data[17].trim());
 		pcc.setValorDespesa(data[18].trim());
-		pcc.setTipoDespesa(data[19]);
-		pcc.setDescricaoDespesa(data[20]);
+		pcc.setTipoDespesa(data[19].trim());
+		pcc.setDescricaoDespesa(data[20].trim());
 		return pcc;
 	}
 	
