@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="10dp"
-        android:text="@string/mi_visualizar_ranking_maiores_doadores"
+        android:text="@string/mi_visualizar_ranking_maiores_doadores_juridico"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold" />
 
@@ -28,7 +28,7 @@
     
         <fragment
         android:id="@+id/ranking_doadores_fragment"
-        android:name="br.ufba.mata62.eleicoestransparentes.ui.fragments.RankingDoadoresFragment"
+        android:name="br.ufba.mata62.eleicoestransparentes.ui.fragments.RankingDoadoresJuridicosFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     

@@ -13,10 +13,9 @@ import br.ufba.mata62.eleicoestransparentes.adapters.MenuAdapter;
 public class VisualizarMenuOpcoes extends FragmentActivity{
 
 	private int[] menuItens = { R.string.mi_visualizar_prestacao_contas,
-			R.string.mi_visualizar_ranking_maiores_doadores,
-			R.string.mi_visualizar_lista_candidatos,
-			R.string.mi_visualizar_doadores_partido_candidato_eleicao,
-			R.string.mi_visualizar_doadores_partido_candidato_eleicao };
+			R.string.mi_visualizar_ranking_maiores_doadores_juridico,
+			R.string.mi_visualizar_ranking_maiores_doadores_fisica,
+			R.string.mi_visualizar_lista_candidatos};
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,14 +36,15 @@ public class VisualizarMenuOpcoes extends FragmentActivity{
 					startActivity(new Intent(VisualizarMenuOpcoes.this,VisualizarPrestacaoDeContas.class));
 					break;
 				case 1:
-					startActivity(new Intent(VisualizarMenuOpcoes.this,VisualizarRankingMaioresDoadores.class));
+					startActivity(new Intent(VisualizarMenuOpcoes.this,VisualizarRankingMaioresDoadoresJuridico.class));
+					break;
+					
+				case 2:
+					startActivity(new Intent(VisualizarMenuOpcoes.this,VisualizarRankingMaioresDoadoresFisico.class));
 					break;
 
-				case 2:
-					startActivity(new Intent(VisualizarMenuOpcoes.this,VisualizarListaCandidatosBens.class));
-					break;
 				case 3:
-					startActivity(new Intent(VisualizarMenuOpcoes.this,VisualizarDoadoresPartidoCandidatoEleicao.class));
+					startActivity(new Intent(VisualizarMenuOpcoes.this,VisualizarListaCandidatosBens.class));
 					break;
 				default:
 					break;

@@ -8,16 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 import br.ufba.mata62.eleicoestransparentes.utils.Util;
 
-public class DoadorAdapter extends BaseAdapter{
+public class DoadorFisicoAdapter extends BaseAdapter{
 
-	private List<PessoaJuridicaDoador> doadores;
+	private List<PessoaFisicaDoador> doadores;
 	private Context context;
 	
-	public DoadorAdapter(Context context,List<PessoaJuridicaDoador> doadores){
+	public DoadorFisicoAdapter(Context context,List<PessoaFisicaDoador> doadores){
 		this.doadores =doadores;
 		this.context=context;
 	}

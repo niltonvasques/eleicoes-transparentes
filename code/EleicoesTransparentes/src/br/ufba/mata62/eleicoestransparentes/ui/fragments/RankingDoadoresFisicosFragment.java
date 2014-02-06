@@ -13,16 +13,17 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import br.ufba.mata62.eleicoestransparentes.adapters.DoadorAdapter;
+import br.ufba.mata62.eleicoestransparentes.adapters.DoadorFisicoAdapter;
 import br.ufba.mata62.eleicoestransparentes.connection.EleicoesSOAP;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.events.OnSelectItemUFDialog;
 
-public class RankingDoadoresFragment extends Fragment implements OnSelectItemUFDialog{
+public class RankingDoadoresFisicosFragment extends Fragment implements OnSelectItemUFDialog{
 	
 	private SelectionFragment sf;
-	private List<PessoaJuridicaDoador> doadores;
+	private List<PessoaFisicaDoador> doadores;
+	private EleicoesSOAP eleicoesSOAP;
 	private ListView listDoadores;
 	private BaseAdapter doadorAdapter;
 	private String UF;
@@ -34,9 +35,10 @@ public class RankingDoadoresFragment extends Fragment implements OnSelectItemUFD
 		Button selectParty = (Button)sf.getView().findViewById(R.id.select_party);
 		selectParty.setVisibility(Button.GONE);
 		listDoadores = (ListView) view.findViewById(R.id.list_doadores);
-		doadores = new ArrayList<PessoaJuridicaDoador>();
-		doadorAdapter = new DoadorAdapter(getActivity(), doadores);
+		doadores = new ArrayList<PessoaFisicaDoador>();
+		doadorAdapter = new DoadorFisicoAdapter(getActivity(), doadores);
 		listDoadores.setAdapter(doadorAdapter);
+		
 		return view;
 	}
 
@@ -75,7 +77,8 @@ public class RankingDoadoresFragment extends Fragment implements OnSelectItemUFD
 		}
 		
 		private void reload(){
-			doadores.addAll(EleicoesSOAP.getInstance().rankingMaioresDoadoresPessoaJuridica(UF));
+			eleicoesSOAP = EleicoesSOAP.getInstance();
+			doadores.addAll(eleicoesSOAP.rankingMaioresDoadoresPessoaFisica(UF));
 			progress.dismiss();
 		}
 		

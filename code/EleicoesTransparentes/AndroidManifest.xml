@@ -26,7 +26,7 @@
         </activity>
         <activity android:name=".VisualizarPrestacaoDeContas"></activity>
         <activity android:name=".VisualizarListaCandidatosBens"></activity>
-        <activity android:name=".VisualizarRankingMaioresDoadores"></activity>
+        <activity android:name=".VisualizarRankingMaioresDoadoresJuridico"></activity>
         <activity android:name=".VisualizarDoadoresPartidoCandidatoEleicao"></activity>
         
         

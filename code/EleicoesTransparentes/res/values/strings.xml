@@ -6,7 +6,8 @@
     <string name="select_uf">UF</string>
     <string name="select_party">Partido</string>
     <string name="mi_visualizar_prestacao_contas">Prestação de contas</string>
-    <string name="mi_visualizar_ranking_maiores_doadores">Ranking maiores doadores</string>
+    <string name="mi_visualizar_ranking_maiores_doadores_juridico">Ranking maiores doadores - Pessoa Jurídica</string>
+    <string name="mi_visualizar_ranking_maiores_doadores_fisica">Ranking maiores doadores - Pessoa Física</string>
     <string name="mi_visualizar_lista_candidatos">Lista de candidatos</string>
     <string name="mi_visualizar_doadores_partido_candidato_eleicao">Doadores por partido e candidato</string>
     <string name="prestacao_despesa">Despesa:$valor$</string>
