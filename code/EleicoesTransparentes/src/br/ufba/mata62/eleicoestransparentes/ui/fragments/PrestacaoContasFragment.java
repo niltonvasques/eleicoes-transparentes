@@ -1,5 +1,7 @@
 package br.ufba.mata62.eleicoestransparentes.ui.fragments;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -30,7 +32,7 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.prestacao_fragment, container, false);
 		sf = (SelectionFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.selection_fragment);
-		eleicoesSOAP = new EleicoesSOAP(false);
+		eleicoesSOAP = new EleicoesSOAP();
 		eleicao = new Eleicao();
 		eleicao.setAno("2012");
 		loadComponents(view);
@@ -58,7 +60,9 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 		this.partido = new Partido();
 		partido.setSigla(sigla);
 		sf.setParams(sigla, R.id.select_party);
-		loadPrestacao();
+		
+		new NetworkAsyncThread().execute();
+		
 	}
 
 
@@ -67,15 +71,41 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 		this.partido = partido;
 	}
 	
-	private void loadPrestacao() {
-		if(partido!=null && partido.getSigla()!=null && uf!=null){
-			float valorDespesa = visualizaTransacoes(partido, eleicao, String.valueOf(Transacao.DESPESA));
-			despesa.setText(despesa.getText().toString().replace("$valor$", String.valueOf(valorDespesa)));
-			
-			float valorReceita = visualizaTransacoes(partido, eleicao, String.valueOf(Transacao.RECEITA));
-			receita.setText(receita.getText().toString().replace("$valor$", String.valueOf(valorReceita)));
-			
+	
+	private class NetworkAsyncThread extends AsyncTask{
+		private float valorDespesa = 0;
+		private float valorReceita = 0;
+		private ProgressDialog progress;
+		
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			progress = new ProgressDialog(getActivity());
+			progress.setTitle("Aguarde!");
+			progress.setMessage("Consultando dados!");
+			progress.show();
 		}
+		@Override
+		protected Object doInBackground(Object... params) {
+			loadPrestacao();
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(Object result) {
+			super.onPostExecute(result);
+			despesa.setText(despesa.getText().toString().replace("$valor$", String.valueOf(valorDespesa)));
+			receita.setText(receita.getText().toString().replace("$valor$", String.valueOf(valorReceita)));
+			progress.dismiss();
+		}
+		
+		private void loadPrestacao() {
+			if(partido!=null && partido.getSigla()!=null && uf!=null){
+				valorDespesa = visualizaTransacoes(partido, eleicao, String.valueOf(Transacao.DESPESA));
+				valorReceita = visualizaTransacoes(partido, eleicao, String.valueOf(Transacao.RECEITA));
+			}
+		}
+		
 	}
 
 
