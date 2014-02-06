@@ -3,6 +3,8 @@ package br.ufba.mata62.eleicoestransparentes.ui.fragments;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -17,6 +19,7 @@ import android.widget.ListView;
 import br.ufba.mata62.eleicoestransparentes.adapters.CandidatoAdapter;
 import br.ufba.mata62.eleicoestransparentes.connection.EleicoesSOAP;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 import br.ufba.mata62.eleicoestransparentes.ui.dialogs.CandidatoBensDialog;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.events.OnSelectItemUFDialog;
@@ -29,6 +32,7 @@ public class CandidatosFragment extends Fragment  implements OnSelectItemUFDialo
 	private ListView listCandidatos;
 	private BaseAdapter candidatoAdapter;
 	
+	private String UF;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -56,15 +60,39 @@ public class CandidatosFragment extends Fragment  implements OnSelectItemUFDialo
 
 	@Override
 	public void setParamUF(String UF) {
-		reloadList(UF);
+		this.UF = UF;
+		new NetworkAsyncThread().execute();
 		sf.setParams(UF, R.id.select_uf);
 	}
 
-	private void reloadList(String UF) {
-		eleicoesSOAP = new EleicoesSOAP(false);
-		candidatos.addAll(eleicoesSOAP.consultaCandidatos(0, UF));
-		candidatoAdapter = new CandidatoAdapter(getActivity(), candidatos);
-		listCandidatos.setAdapter(candidatoAdapter);
+	
+	private class NetworkAsyncThread extends AsyncTask{
+		private ProgressDialog progress;
+		
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			progress = new ProgressDialog(getActivity());
+			progress.setTitle("Aguarde!");
+			progress.setMessage("Consultando dados!");
+			progress.show();
+		}
+		@Override
+		protected Object doInBackground(Object... params) {
+			eleicoesSOAP = new EleicoesSOAP(false);
+			candidatos.addAll(eleicoesSOAP.consultaCandidatos());
+			candidatoAdapter = new CandidatoAdapter(getActivity(), candidatos);
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(Object result) {
+			super.onPostExecute(result);
+			progress.dismiss();
+			listCandidatos.setAdapter(candidatoAdapter);
+		}
+		
+		
 	}
 
 	
