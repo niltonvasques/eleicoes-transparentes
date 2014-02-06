@@ -1,6 +1,5 @@
 package br.ufba.mata62.eleicoestransparentes.ui.dialogs.adapters;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -8,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
@@ -18,13 +16,9 @@ public class PartyAdapter extends BaseAdapter{
 	private List<Partido> parties;
 	private Context context;
 	
-	
 	public PartyAdapter(Context context,List<Partido> parties){
 		this.context=context;
-		this.parties = new ArrayList<Partido>();
-		for (Partido p : parties) {
-			this.parties.add(p);
-		}
+		this.parties = parties;
 	}
 	
 	@Override

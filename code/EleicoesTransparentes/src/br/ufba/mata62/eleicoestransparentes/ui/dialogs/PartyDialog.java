@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,6 +29,8 @@ import br.ufba.mata62.eleicoestransparentes.ui.fragments.PrestacaoContasFragment
  *
  */
 public class PartyDialog extends DialogFragment implements OnItemClickListener{
+	
+	private static final String TAG = "[PartyDialog]";
 
 	private List<Partido> partidos;
 	private Partido partidoSelected;
@@ -45,7 +48,6 @@ public class PartyDialog extends DialogFragment implements OnItemClickListener{
 		getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 		ListView partyList = (ListView) v.findViewById(R.id.party_list);
 		partidos = new ArrayList<Partido>();
-		new NetworkAsyncThread().execute();
 
 		partyAdapter = new PartyAdapter(PartyDialog.this.getActivity(), partidos);
 		partyList.setAdapter(partyAdapter);
@@ -73,6 +75,12 @@ public class PartyDialog extends DialogFragment implements OnItemClickListener{
 
 
 		return v;
+	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		new NetworkAsyncThread().execute();
 	}
 
 	@Override
@@ -102,6 +110,7 @@ public class PartyDialog extends DialogFragment implements OnItemClickListener{
 		protected void onPostExecute(Object result) {
 			super.onPostExecute(result);
 			partyAdapter.notifyDataSetChanged();
+			Log.d(TAG, "onPostExecute");
 		}
 
 		private void reload(){
