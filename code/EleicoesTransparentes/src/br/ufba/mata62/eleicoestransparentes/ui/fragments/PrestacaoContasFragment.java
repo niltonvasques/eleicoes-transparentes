@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import br.ufba.mata62.eleicoestransparentes.ui.fragments.events.OnSelectItemUFDi
 import br.ufba.mata62.eleicoestransparentes.utils.Util;
 
 public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUFDialog,OnSelectItemPartyDialog{
+	private static final String TAG = "[PrestacaoContasFragment]";
 
 	private Eleicao eleicao;
 	private Partido partido;
@@ -94,8 +96,8 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 		@Override
 		protected void onPostExecute(Object result) {
 			super.onPostExecute(result);
-			despesa.setText(despesa.getText().toString().replace("$valor$", String.valueOf(Util.floatFormated(valorDespesa))));
-			receita.setText(receita.getText().toString().replace("$valor$", String.valueOf(Util.floatFormated(valorReceita))));
+			despesa.setText("Despesa: R$ "+String.valueOf(Util.floatFormated(valorDespesa)));
+			receita.setText("Receita: R$ "+String.valueOf(Util.floatFormated(valorReceita)));
 			progress.dismiss();
 		}
 		
