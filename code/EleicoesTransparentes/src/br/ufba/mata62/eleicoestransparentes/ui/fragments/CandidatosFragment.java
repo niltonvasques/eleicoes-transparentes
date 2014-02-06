@@ -19,12 +19,14 @@ import android.widget.ListView;
 import br.ufba.mata62.eleicoestransparentes.adapters.CandidatoAdapter;
 import br.ufba.mata62.eleicoestransparentes.connection.EleicoesSOAP;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 import br.ufba.mata62.eleicoestransparentes.ui.dialogs.CandidatoBensDialog;
+import br.ufba.mata62.eleicoestransparentes.ui.fragments.events.OnSelectItemPartyDialog;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.events.OnSelectItemUFDialog;
 
-public class CandidatosFragment extends Fragment  implements OnSelectItemUFDialog{
+public class CandidatosFragment extends Fragment  implements OnSelectItemUFDialog,OnSelectItemPartyDialog{
 
 	private SelectionFragment sf;
 	private List<Candidato> candidatos;
@@ -32,13 +34,12 @@ public class CandidatosFragment extends Fragment  implements OnSelectItemUFDialo
 	private BaseAdapter candidatoAdapter;
 	
 	private String UF;
+	private Partido partido;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.candidatos_fragment, container, false);
 		sf = (SelectionFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.selection_fragment);
-		Button selectParty = (Button)sf.getView().findViewById(R.id.select_party);
-		selectParty.setVisibility(Button.GONE);
 		listCandidatos = (ListView) view.findViewById(R.id.list_candidatos);
 		candidatos = new ArrayList<Candidato>();
 		candidatoAdapter = new CandidatoAdapter(getActivity(), candidatos);
@@ -60,8 +61,8 @@ public class CandidatosFragment extends Fragment  implements OnSelectItemUFDialo
 	@Override
 	public void setParamUF(String UF) {
 		this.UF = UF;
-		new NetworkAsyncThread().execute();
 		sf.setParams(UF, R.id.select_uf);
+		updateCandidatosList();
 	}
 
 	
@@ -78,8 +79,10 @@ public class CandidatosFragment extends Fragment  implements OnSelectItemUFDialo
 		}
 		@Override
 		protected Object doInBackground(Object... params) {
-			candidatos.addAll(EleicoesSOAP.getInstance().consultaCandidatos());
-			candidatoAdapter = new CandidatoAdapter(getActivity(), candidatos);
+			if(partido!=null && partido.getSigla()!=null && UF!=null){
+				candidatos.clear();
+				candidatos.addAll(EleicoesSOAP.getInstance().consultaCandidatosPorPartido(partido.getSigla(), UF));
+			}
 			return null;
 		}
 		
@@ -87,10 +90,29 @@ public class CandidatosFragment extends Fragment  implements OnSelectItemUFDialo
 		protected void onPostExecute(Object result) {
 			super.onPostExecute(result);
 			progress.dismiss();
-			listCandidatos.setAdapter(candidatoAdapter);
+			candidatoAdapter.notifyDataSetChanged();
 		}
 		
-		
+	}
+
+
+	@Override
+	public void setParamParty(String sigla) {
+		this.partido = new Partido();
+		this.partido.setSigla(sigla);
+		updateCandidatosList();
+	}
+
+	@Override
+	public void setParamParty(Partido partido) {
+		this.partido = partido;
+		updateCandidatosList();
+	}
+
+	private void updateCandidatosList() {
+		if(partido!=null && partido.getSigla()!=null && UF!=null){
+			new NetworkAsyncThread().execute();
+		}
 	}
 
 	

@@ -20,8 +20,14 @@ import android.widget.ListView;
 import br.ufba.mata62.eleicoestransparentes.connection.EleicoesSOAP;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
+import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarListaCandidatosBens;
+import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarPrestacaoDeContas;
+import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarRankingMaioresDoadoresJuridico;
 import br.ufba.mata62.eleicoestransparentes.ui.dialogs.adapters.PartyAdapter;
+import br.ufba.mata62.eleicoestransparentes.ui.fragments.CandidatosFragment;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.PrestacaoContasFragment;
+import br.ufba.mata62.eleicoestransparentes.ui.fragments.RankingDoadoresJuridicosFragment;
+import br.ufba.mata62.eleicoestransparentes.ui.fragments.events.OnSelectItemPartyDialog;
 
 /**
  * Classe que implementa um Dialog(espécie de janela pop-up) dos partidos a serem escolhidas
@@ -55,10 +61,16 @@ public class PartyDialog extends DialogFragment implements OnItemClickListener{
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
-				PrestacaoContasFragment prestacaoFragment = (PrestacaoContasFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.prestacao_contas_fragment);
-				//    				if(!ufSelected.equals(""))//TODO
+				OnSelectItemPartyDialog listener = null;
+				
+				if (getActivity().getClass().equals(VisualizarPrestacaoDeContas.class)) {
+					listener = (PrestacaoContasFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.prestacao_contas_fragment);
+				}else if (getActivity().getClass().equals(VisualizarListaCandidatosBens.class)) {
+					listener = (CandidatosFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.candidatos_Fragment);
+				}
+				
 				partidoSelected = partidos.get(position);
-				prestacaoFragment.setParamParty(partidoSelected);
+				if(listener != null) listener.setParamParty(partidoSelected);
 				PartyDialog.this.dismiss();
 
 			}

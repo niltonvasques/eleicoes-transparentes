@@ -25,6 +25,9 @@ public class SoapRequest {
 	private String url;
 	private String namespace;
 	
+	private String lastError = "";
+	private boolean error = false;
+	
 	public SoapRequest() {
 		this(URL_PRODUCTION,NAMESPACE_PRODUCTION);
 	}
@@ -68,9 +71,18 @@ public class SoapRequest {
 				System.out.println("Response: "+response);
 			}
 			Gson gson = new Gson();
-			T t = gson.fromJson(response.toString(), type);
-			return t;
+			try{
+				T t = gson.fromJson(response.toString(), type);
+				error = false;
+				return t;
+			}catch (Exception e) {
+				lastError = response.toString();
+				error = true;
+				System.out.println("Response: "+response);
+				e.printStackTrace();
+			}
 		} catch (Exception e) {
+			error = true;
 			e.printStackTrace();
 		}
 		return null;
@@ -79,4 +91,13 @@ public class SoapRequest {
 	public void setDebug(boolean b) {
 		this.debug = b;	
 	}
+
+	public String getLastError() {
+		return lastError;
+	}
+
+	public boolean isError() {
+		return error;
+	}
+	
 }

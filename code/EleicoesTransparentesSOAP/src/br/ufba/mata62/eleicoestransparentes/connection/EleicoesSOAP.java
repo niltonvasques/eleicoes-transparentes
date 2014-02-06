@@ -26,6 +26,7 @@ public class EleicoesSOAP {
 	
 	public static final String METHOD_SETORES									= "consultaSetoresEconomico";
 	public static final String METHOD_CANDIDATOS								= "consultaCandidatos";
+	public static final String METHOD_CANDIDATOS_POR_PARTIDO					= "consultaCandidatosPorPartido";
 	public static final String METHOD_PARSER									= "parserDadosTSE";
 	public static final String METHOD_PREST_CONTAS_PARTIDO						= "consultaTransacaoPartido";
 	public static final String METHOD_PREST_CONTAS_CANDIDATOS 					= "consultaTransacaoCandidato";
@@ -106,6 +107,18 @@ public class EleicoesSOAP {
 		
 		Type t = new TypeToken<List<Candidato>>(){}.getType();
 		List<Candidato> candidatos = soap.executeSoapRequest(EleicoesSOAP.METHOD_CANDIDATOS, t);
+		
+		return candidatos;
+	}
+	
+	public List<Candidato> consultaCandidatosPorPartido(String siglaPartido, String UF){
+		Type t = new TypeToken<List<Candidato>>(){}.getType();
+		
+		List<PropertyInfo> params = new ArrayList<PropertyInfo>();
+		params.add(createParam("siglaPartido", siglaPartido));
+		params.add(createParam("UF", UF));
+		
+		List<Candidato> candidatos = soap.executeSoapRequest(EleicoesSOAP.METHOD_CANDIDATOS_POR_PARTIDO, t, params);
 		
 		return candidatos;
 	}
@@ -215,6 +228,14 @@ public class EleicoesSOAP {
 		chaveSegurancaProperty.setValue(value);
 		chaveSegurancaProperty.setType(type);
 		return chaveSegurancaProperty;
+	}
+	
+	public String getLastErrorMessage(){
+		return soap.getLastError();
+	}
+	
+	public boolean lastRequestSucess(){
+		return !soap.isError();
 	}
 }
 

@@ -22,6 +22,7 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.Pess
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.stmt.QueryBuilder;
 
 public class Comunicacao {
 	
@@ -155,7 +156,10 @@ public class Comunicacao {
 		
 		Dao<Candidato, String> dao = DaoManager.createDao(database.getConnection(), Candidato.class);
 		
-		List<Candidato> ormItens = dao.queryForAll();
+		QueryBuilder<Candidato, String> queryBuilder =	dao.queryBuilder();
+		queryBuilder.orderBy("nome", true);
+		
+		List<Candidato> ormItens = dao.query(queryBuilder.prepare());
 		for (Candidato orm : ormItens) {
 			itens.add(orm);
 		}
@@ -167,12 +171,14 @@ public class Comunicacao {
 		
 		List<Candidato> itens = new ArrayList<Candidato>();
 		
-		Dao<Candidato, String> dao = DaoManager.createDao(database.getConnection(), Candidato.class);
-		Map<String, Object> fields = new HashMap<String, Object>();
-		fields.put("partido_id", partido_id);
-		fields.put("UF", UF);
 		
-		List<Candidato> ormItens = dao.queryForFieldValues(fields);
+		Dao<Candidato, String> dao = DaoManager.createDao(database.getConnection(), Candidato.class);
+		
+		QueryBuilder<Candidato, String> queryBuilder =	dao.queryBuilder();
+		queryBuilder.where().eq("partido_id", partido_id).and().eq("UF", UF);
+		queryBuilder.orderBy("nome", true);
+		
+		List<Candidato> ormItens = dao.query(queryBuilder.prepare());
 		for (Candidato orm : ormItens) {
 			itens.add(orm);
 		}
@@ -244,9 +250,26 @@ public class Comunicacao {
 		
 		Dao<Partido, String> dao = DaoManager.createDao(database.getConnection(), Partido.class);
 		
-		List<Partido> partidos = dao.queryForAll();
+		QueryBuilder<Partido, String> queryBuilder =	dao.queryBuilder();
+		queryBuilder.orderBy("nome", true);
+		
+		List<Partido> partidos = dao.query(queryBuilder.prepare());
 		
 		return partidos;
+	}
+	
+	public Partido consultaPartido(String sigla) throws SQLException{
+		
+		Dao<Partido, String> dao = DaoManager.createDao(database.getConnection(), Partido.class);
+		
+		QueryBuilder<Partido, String> queryBuilder =	dao.queryBuilder();
+		queryBuilder.where().eq("sigla", sigla);
+		
+		List<Partido> partidos = dao.query(queryBuilder.prepare());
+		
+		if(partidos.isEmpty()) return null;
+		
+		return partidos.get(0);
 	}
 	
 	

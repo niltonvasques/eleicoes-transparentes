@@ -203,6 +203,20 @@ public class EleicoesWebService {
 		}
 	}
 	
+	public String consultaCandidatosPorPartido(String siglaPartido, String UF){
+		try {
+			Gson gson = new Gson();
+			Comunicacao comm = new Comunicacao();
+			Partido partido = comm.consultaPartido(siglaPartido);
+			if(partido == null) return gson.toJson("Partido não encontrado");
+			List<Candidato> list = comm.consultaCandidatos(partido.getId(), UF);
+			comm.close();
+			return gson.toJson(list);
+		} catch (Exception e) {
+			return e.getCause().getMessage();
+		}
+	}
+	
 	public String consultaPartidos(){
 
 		try {
