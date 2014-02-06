@@ -15,9 +15,11 @@ import android.widget.ListView;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarListaCandidatosBens;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarPrestacaoDeContas;
+import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarRankingMaioresDoadoresFisico;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarRankingMaioresDoadoresJuridico;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.CandidatosFragment;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.PrestacaoContasFragment;
+import br.ufba.mata62.eleicoestransparentes.ui.fragments.RankingDoadoresFisicosFragment;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.RankingDoadoresJuridicosFragment;
 
 /**
@@ -59,7 +61,10 @@ public class SelectUFDialog extends DialogFragment{
 				} else if (getActivity().getClass().equals(VisualizarRankingMaioresDoadoresJuridico.class)) {
 					RankingDoadoresJuridicosFragment rankingFragment = (RankingDoadoresJuridicosFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.ranking_doadores_fragment);
 					rankingFragment.setParamUF(ufSelected);
-				} else if (getActivity().getClass().equals(VisualizarListaCandidatosBens.class)) {
+				} else if (getActivity().getClass().equals(VisualizarRankingMaioresDoadoresFisico.class)) {
+					RankingDoadoresFisicosFragment rankingFragment = (RankingDoadoresFisicosFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.ranking_doadores_fragment);
+					rankingFragment.setParamUF(ufSelected);
+				}else if (getActivity().getClass().equals(VisualizarListaCandidatosBens.class)) {
 					CandidatosFragment candidatoFragment = (CandidatosFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.candidatos_Fragment);
 					candidatoFragment.setParamUF(ufSelected);
 				}
