@@ -26,11 +26,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     
-        <fragment
+    <fragment
         android:id="@+id/prestacao_contas_fragment"
         android:name="br.ufba.mata62.eleicoestransparentes.ui.fragments.PrestacaoContasFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    
 
 </LinearLayout>

@@ -13,7 +13,7 @@
     <string name="prestacao_receita">Receita:$valor$</string>
     <string name="cancel">Cancelar</string>
     <string name="ok">Escolher</string>
-
+	<string name="label_bens">Bens</string>
     <string-array name="itens">
         <item>Partidos</item>
         <item>Candidatos</item>

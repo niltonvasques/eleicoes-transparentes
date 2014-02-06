@@ -7,16 +7,20 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
+import br.ufba.mata62.eleicoestransparentes.ui.dialogs.adapters.UFAdapter;
+import br.ufba.mata62.eleicoestransparentes.ui.fragments.PrestacaoContasFragment;
 
 /**
  * Classe que implementa um Dialog(espécie de janela pop-up) dos partidos a serem escolhidas
  * @author tiagogoncalves
  *
  */
-public class PartyDialog extends DialogFragment {
+public class PartyDialog extends DialogFragment implements OnItemClickListener{
 
 	public static final String[] PARTIES = { "PMDB", "PTB", "PDT", "PT", "DEM",
 			"PCdoB", "PSB", "PSDB", "PTC", "PSC", "PMN", "PRP", "PPS", "PV",
@@ -48,10 +52,22 @@ public class PartyDialog extends DialogFragment {
         ok.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//TODO BRUXARIA
+				PrestacaoContasFragment prestacaoFragment = (PrestacaoContasFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.prestacao_contas_fragment);
+//				if(!ufSelected.equals(""))//TODO
+					prestacaoFragment.setParamParty(PARTIES[3]);
+				//TODO Por mensagem
+					PartyDialog.this.dismiss();
 			}
 		});
         
         return v;
     }
+
+	@Override
+	public void onItemClick(AdapterView<?> a, View vi, int pos, long id) {
+		PrestacaoContasFragment prestacaoFragment = (PrestacaoContasFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.prestacao_contas_fragment);
+//		if(!ufSelected.equals(""))//TODO
+			prestacaoFragment.setParamParty(PARTIES[3]);
+		//TODO Por mensagem
+	}
 }

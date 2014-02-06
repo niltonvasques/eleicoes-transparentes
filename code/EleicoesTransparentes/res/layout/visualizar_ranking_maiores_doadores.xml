@@ -3,6 +3,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+
+    <fragment
+        android:id="@+id/bar_fragment"
+        android:name="br.ufba.mata62.eleicoestransparentes.ui.fragments.BarFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="@string/mi_visualizar_ranking_maiores_doadores"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
+
+    <fragment
+        android:id="@+id/selection_fragment"
+        android:name="br.ufba.mata62.eleicoestransparentes.ui.fragments.SelectionFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    
+        <fragment
+        android:id="@+id/ranking_doadores_fragment"
+        android:name="br.ufba.mata62.eleicoestransparentes.ui.fragments.RankingDoadoresFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     
 
 </LinearLayout>

@@ -8,14 +8,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 import br.ufba.mata62.eleicoestransparentes.ui.dialogs.PartyDialog;
 import br.ufba.mata62.eleicoestransparentes.ui.dialogs.SelectUFDialog;
+import br.ufba.mata62.eleicoestransparentes.ui.fragments.events.OnChangeLabelButton;
 
-public class SelectionFragment extends Fragment{
+public class SelectionFragment extends Fragment implements OnChangeLabelButton{
 	
-	private String uf;
+	private Button selectParty,selectUF;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -25,25 +25,32 @@ public class SelectionFragment extends Fragment{
 	}
 
 	private void loadComponents(View view) {
-		Button selectUF = (Button) view.findViewById(R.id.select_uf);
+		selectUF = (Button) view.findViewById(R.id.select_uf);
 		selectUF.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				SelectUFDialog selectionDialog = new SelectUFDialog();
+				DialogFragment selectionDialog = new SelectUFDialog();
 			    selectionDialog.show(getFragmentManager(), "dialog");
 			}
 		});
 		
-		Button selectParty = (Button) view.findViewById(R.id.select_party);
+		selectParty = (Button) view.findViewById(R.id.select_party);
 		selectParty.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				DialogFragment partieDialog = new PartyDialog();
 			    partieDialog.show(getFragmentManager(), "dialog");
-			    Partido partido = new Partido();
-			    partido.setNumero(13);
 			}
 		});
+	}
+
+	@Override
+	public void setParams(String label, long id) {
+		if(id==R.id.select_uf)
+			selectUF.setText(label);
+		else if(id==R.id.select_party)
+			selectParty.setText(label);
+		
 	}
 
 

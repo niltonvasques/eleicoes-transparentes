@@ -11,19 +11,28 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Eleicao;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
-import br.ufba.mata62.eleicoestransparentes.ui.events.OnSelectionListener;
+import br.ufba.mata62.eleicoestransparentes.ui.fragments.events.OnSelectItemPartyDialog;
+import br.ufba.mata62.eleicoestransparentes.ui.fragments.events.OnSelectItemUFDialog;
 
-public class PrestacaoContasFragment extends Fragment implements OnSelectionListener{
+public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUFDialog,OnSelectItemPartyDialog{
 
+	private EleicoesSOAP eleicoesSOAP;
 	private Eleicao eleicao;
-	private EleicoesSOAP eleicoes;
+	private Partido partido;
+	
 	private TextView despesa;
 	private TextView receita;
+	private String uf;
+	private SelectionFragment sf;
+	
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.prestacao_fragment, container, false);
-		eleicoes = new EleicoesSOAP(false);
+		sf = (SelectionFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.selection_fragment);
+		eleicoesSOAP = new EleicoesSOAP(false);
+		eleicao = new Eleicao();
+		eleicao.setAno("2012");
 		loadComponents(view);
 		return view;
 	}
@@ -35,21 +44,39 @@ public class PrestacaoContasFragment extends Fragment implements OnSelectionList
 	}
 
 	public float visualizaTransacoes(Partido partido, Eleicao eleicao, String tipoTransacao) {
-		return eleicoes.consultaTransacaoPartido(13, "AC", tipoTransacao);
+		return eleicoesSOAP.consultaTransacaoPartido(13, "AC", tipoTransacao);
 	}
 
 	@Override
-	public void setParams(String uf, Partido partido) {
-		if(uf!=null && partido!=null){
-			float valorDespesa = visualizaTransacoes(partido, eleicao, String.valueOf(Transacao.DESPESA));
-			despesa.setText(despesa.getText().toString().replace("$valor$", String.valueOf(valorDespesa)));
-		
-			float valorReceita = visualizaTransacoes(partido, eleicao, String.valueOf(Transacao.RECEITA));
-			receita.setText(receita.getText().toString().replace("$valor$", String.valueOf(valorReceita)));
-		}
-		
+	public void setParamUF(String UF) {
+		this.uf = UF;
+		sf.setParams(uf, R.id.select_uf);
 	}
 
+	@Override
+	public void setParamParty(String sigla) {
+		this.partido = new Partido();
+		partido.setSigla(sigla);
+		sf.setParams(sigla, R.id.select_party);
+		loadPrestacao();
+	}
+
+
+	@Override
+	public void setParamParty(Partido partido) {
+		this.partido = partido;
+	}
+	
+	private void loadPrestacao() {
+		if(partido!=null && partido.getSigla()!=null && uf!=null){
+			float valorDespesa = visualizaTransacoes(partido, eleicao, String.valueOf(Transacao.DESPESA));
+			despesa.setText(despesa.getText().toString().replace("$valor$", String.valueOf(valorDespesa)));
+			
+			float valorReceita = visualizaTransacoes(partido, eleicao, String.valueOf(Transacao.RECEITA));
+			receita.setText(receita.getText().toString().replace("$valor$", String.valueOf(valorReceita)));
+			
+		}
+	}
 
 
 }
