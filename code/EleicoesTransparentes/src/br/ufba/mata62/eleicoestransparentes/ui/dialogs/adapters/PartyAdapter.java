@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 
@@ -25,7 +26,6 @@ public class PartyAdapter extends BaseAdapter{
 			this.parties.add(p);
 		}
 	}
-	
 	
 	@Override
 	public int getCount() {
@@ -46,7 +46,7 @@ public class PartyAdapter extends BaseAdapter{
 	public View getView(int position, View convertView, ViewGroup parent) {
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View view = inflater.inflate(R.layout.item_party, null);
-		RadioButton itemLanguage = (RadioButton) view.findViewById(R.id.item_party);
+		TextView itemLanguage = (TextView) view.findViewById(R.id.item_party);
 		itemLanguage.setText(parties.get(position).getSigla());
 		return view;
 	}
