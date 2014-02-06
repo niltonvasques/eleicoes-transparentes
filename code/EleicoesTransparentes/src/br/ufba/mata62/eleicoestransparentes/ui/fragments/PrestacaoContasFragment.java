@@ -1,5 +1,7 @@
 package br.ufba.mata62.eleicoestransparentes.ui.fragments;
 
+import java.text.DecimalFormat;
+
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -94,8 +96,8 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 		@Override
 		protected void onPostExecute(Object result) {
 			super.onPostExecute(result);
-			despesa.setText(despesa.getText().toString().replace("$valor$", String.valueOf(valorDespesa)));
-			receita.setText(receita.getText().toString().replace("$valor$", String.valueOf(valorReceita)));
+			despesa.setText(despesa.getText().toString().replace("$valor$", String.valueOf(floatFormated(valorDespesa))));
+			receita.setText(receita.getText().toString().replace("$valor$", String.valueOf(floatFormated(valorReceita))));
 			progress.dismiss();
 		}
 		
@@ -107,6 +109,13 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 		}
 		
 	}
-
+	
+	private String floatFormated(float f){
+		Float vlr = new Float(f); 
+		DecimalFormat df = new DecimalFormat("#.#");
+		String s = df.format(vlr);  
+		return "R$ "+s;
+		
+	}
 
 }

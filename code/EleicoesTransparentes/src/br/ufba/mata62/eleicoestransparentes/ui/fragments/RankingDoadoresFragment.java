@@ -3,6 +3,8 @@ package br.ufba.mata62.eleicoestransparentes.ui.fragments;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -24,6 +26,7 @@ public class RankingDoadoresFragment extends Fragment implements OnSelectItemUFD
 	private EleicoesSOAP eleicoesSOAP;
 	private ListView listDoadores;
 	private BaseAdapter doadorAdapter;
+	private String UF;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -35,21 +38,51 @@ public class RankingDoadoresFragment extends Fragment implements OnSelectItemUFD
 		doadores = new ArrayList<PessoaJuridicaDoador>();
 		doadorAdapter = new DoadorAdapter(getActivity(), doadores);
 		listDoadores.setAdapter(doadorAdapter);
-		
 		return view;
 	}
 
 	@Override
 	public void setParamUF(String UF) {
+		this.UF=UF;
 		reloadList(UF);
 		sf.setParams(UF, R.id.select_uf);
 	}
 
 	private void reloadList(String UF) {
-		eleicoesSOAP = new EleicoesSOAP(false);
-		doadores.addAll(eleicoesSOAP.rankingMaioresDoadoresPessoaJuridica(UF));
-		doadorAdapter = new DoadorAdapter(getActivity(), doadores);
-		listDoadores.setAdapter(doadorAdapter);
+		new NetworkAsyncThread().execute();
+	}
+	
+	private class NetworkAsyncThread extends AsyncTask{
+		private float valorDespesa = 0;
+		private float valorReceita = 0;
+		private ProgressDialog progress;
+		
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			progress = new ProgressDialog(getActivity());
+			progress.setTitle("Aguarde!");
+			progress.setMessage("Consultando dados!");
+			progress.show();
+		}
+		@Override
+		protected Object doInBackground(Object... params) {
+			reload();
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(Object result) {
+			super.onPostExecute(result);
+			doadorAdapter.notifyDataSetChanged();
+		}
+		
+		private void reload(){
+			eleicoesSOAP = new EleicoesSOAP(false);
+			doadores.addAll(eleicoesSOAP.rankingMaioresDoadoresPessoaJuridica(UF));
+			progress.dismiss();
+		}
+		
 	}
 
 }
