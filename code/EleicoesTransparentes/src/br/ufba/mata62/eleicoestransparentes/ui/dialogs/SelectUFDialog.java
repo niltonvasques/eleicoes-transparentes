@@ -49,26 +49,19 @@ public class SelectUFDialog extends DialogFragment{
         ufList.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
-					long arg3) {
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,long arg3) {
 				
 				ufSelected=UFS[position];
 				
-				if(getActivity().getClass().equals(VisualizarPrestacaoDeContas.class)){
-					PrestacaoContasFragment prestacaoFragment = (PrestacaoContasFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.prestacao_contas_fragment);
-	//				if(!ufSelected.equals(""))//TODO
-						prestacaoFragment.setParamUF(UFS[0]);
-					//TODO Por mensagem
-				}else if(getActivity().getClass().equals(VisualizarRankingMaioresDoadores.class)){
-					RankingDoadoresFragment rankingFragment = (RankingDoadoresFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.ranking_doadores_fragment);
-	//				if(!ufSelected.equals(""))//TODO
-						rankingFragment.setParamUF(UFS[0]);
-					//TODO Por mensagem
-				}else if(getActivity().getClass().equals(VisualizarListaCandidatosBens.class)){
-					CandidatosFragment candidatoFragment = (CandidatosFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.candidatos_Fragment);
-	//				if(!ufSelected.equals(""))//TODO
-						candidatoFragment.setParamUF(UFS[0]);
-					//TODO Por mensagem
+				if (getActivity().getClass().equals(VisualizarPrestacaoDeContas.class)) {
+					PrestacaoContasFragment prestacaoFragment = (PrestacaoContasFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.prestacao_contas_fragment);
+					prestacaoFragment.setParamUF(ufSelected);
+				} else if (getActivity().getClass().equals(VisualizarRankingMaioresDoadores.class)) {
+					RankingDoadoresFragment rankingFragment = (RankingDoadoresFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.ranking_doadores_fragment);
+					rankingFragment.setParamUF(ufSelected);
+				} else if (getActivity().getClass().equals(VisualizarListaCandidatosBens.class)) {
+					CandidatosFragment candidatoFragment = (CandidatosFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.candidatos_Fragment);
+					candidatoFragment.setParamUF(ufSelected);
 				}
 				
 				SelectUFDialog.this.dismiss();
