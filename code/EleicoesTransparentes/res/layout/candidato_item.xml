@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:weightSum="10">
 
     <TextView
         android:id="@+id/name_item"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="6"
         android:maxLines="2"
-        android:padding="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/cargo_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:paddingLeft="10dp"
+        android:maxLines="2"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
         android:textStyle="bold" />

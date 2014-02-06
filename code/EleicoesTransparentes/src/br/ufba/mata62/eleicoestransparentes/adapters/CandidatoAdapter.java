@@ -42,6 +42,10 @@ public class CandidatoAdapter extends BaseAdapter{
 		View view = inflater.inflate(R.layout.candidato_item, null);
 		TextView nameItem = (TextView) view.findViewById(R.id.name_item);
 		nameItem.setText(candidatos.get(position).getNome());
+		
+		TextView cargoItem = (TextView) view.findViewById(R.id.cargo_item);
+		cargoItem.setText(candidatos.get(position).getCargo());
+
 		return view;
 	}
 
