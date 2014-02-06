@@ -77,7 +77,7 @@ public class RankingDoadoresFisicosFragment extends Fragment implements OnSelect
 		}
 		
 		private void reload(){
-			eleicoesSOAP = new EleicoesSOAP(false);
+			eleicoesSOAP = EleicoesSOAP.getInstance();
 			doadores.addAll(eleicoesSOAP.rankingMaioresDoadoresPessoaFisica(UF));
 			progress.dismiss();
 		}
