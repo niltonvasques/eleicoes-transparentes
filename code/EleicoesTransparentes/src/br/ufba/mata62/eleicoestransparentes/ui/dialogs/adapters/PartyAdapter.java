@@ -9,19 +9,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.RadioButton;
+import android.widget.TextView;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 
 public class PartyAdapter extends BaseAdapter{
 
-	private List<String> parties;
+	private List<Partido> parties;
 	private Context context;
 	
 	
-	public PartyAdapter(Context context,String[] parties){
+	public PartyAdapter(Context context,List<Partido> parties){
 		this.context=context;
-		this.parties = new ArrayList<String>();
-		for (String s : parties) {
-			this.parties.add(s);
+		this.parties = new ArrayList<Partido>();
+		for (Partido p : parties) {
+			this.parties.add(p);
 		}
 	}
 	
@@ -44,8 +46,8 @@ public class PartyAdapter extends BaseAdapter{
 	public View getView(int position, View convertView, ViewGroup parent) {
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View view = inflater.inflate(R.layout.item_party, null);
-		RadioButton itemLanguage = (RadioButton) view.findViewById(R.id.item_party);
-		itemLanguage.setText(parties.get(position));
+		TextView itemLanguage = (TextView) view.findViewById(R.id.item_party);
+		itemLanguage.setText(parties.get(position).getSigla());
 		return view;
 	}
 

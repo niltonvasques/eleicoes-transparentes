@@ -1,5 +1,7 @@
 package br.ufba.mata62.eleicoestransparentes.ui.fragments;
 
+import java.text.DecimalFormat;
+
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -45,7 +47,7 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 	}
 
 	public float visualizaTransacoes(Partido partido, Eleicao eleicao, String tipoTransacao) {
-		return eleicoesSOAP.consultaTransacaoPartido(13, "AC", tipoTransacao);
+		return eleicoesSOAP.consultaTransacaoPartido(partido.getNumero(), uf, tipoTransacao);
 	}
 
 	@Override
@@ -68,6 +70,8 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 	@Override
 	public void setParamParty(Partido partido) {
 		this.partido = partido;
+		sf.setParams(partido.getSigla(), R.id.select_party);
+		new NetworkAsyncThread().execute();
 	}
 	
 	
@@ -93,8 +97,8 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 		@Override
 		protected void onPostExecute(Object result) {
 			super.onPostExecute(result);
-			despesa.setText(despesa.getText().toString().replace("$valor$", String.valueOf(valorDespesa)));
-			receita.setText(receita.getText().toString().replace("$valor$", String.valueOf(valorReceita)));
+			despesa.setText(despesa.getText().toString().replace("$valor$", String.valueOf(floatFormated(valorDespesa))));
+			receita.setText(receita.getText().toString().replace("$valor$", String.valueOf(floatFormated(valorReceita))));
 			progress.dismiss();
 		}
 		
@@ -106,6 +110,13 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 		}
 		
 	}
-
+	
+	private String floatFormated(float f){
+		Float vlr = new Float(f); 
+		DecimalFormat df = new DecimalFormat("#.#");
+		String s = df.format(vlr);  
+		return "R$ "+s;
+		
+	}
 
 }

@@ -1,5 +1,10 @@
 package br.ufba.mata62.eleicoestransparentes.ui.dialogs;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -9,10 +14,12 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import br.ufba.mata62.eleicoestransparentes.connection.EleicoesSOAP;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
+import br.ufba.mata62.eleicoestransparentes.ui.dialogs.adapters.PartyAdapter;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.PrestacaoContasFragment;
 
 /**
@@ -22,53 +29,88 @@ import br.ufba.mata62.eleicoestransparentes.ui.fragments.PrestacaoContasFragment
  */
 public class PartyDialog extends DialogFragment implements OnItemClickListener{
 
-	public static final String[] PARTIES = { "PMDB", "PTB", "PDT", "PT", "DEM",
-			"PCdoB", "PSB", "PSDB", "PTC", "PSC", "PMN", "PRP", "PPS", "PV",
-			"PTdoB", "PP", "PSTU", "PCB", "PRTB", "PHS", "PSDC", "PCO", "PTN",
-			"PSL", "PRB", "PSOL", "PR", "PSD", "PPL", "PEN", " PROS", "SDD" };
-	
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+	private List<Partido> partidos;
+	private Partido partidoSelected;
+	private PartyAdapter partyAdapter;
+	private EleicoesSOAP eleicoesSOAP;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.uf_list_dialog, container, false);
-        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        ListView languageList = (ListView) v.findViewById(R.id.uf_list);
-        languageList.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,PARTIES));
-        
-        languageList.setOnItemClickListener(new OnItemClickListener() {
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
 
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.partie_list_dialog, container, false);
+		getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+		ListView partyList = (ListView) v.findViewById(R.id.party_list);
+		partidos = new ArrayList<Partido>();
+		new NetworkAsyncThread().execute();
+
+		partyAdapter = new PartyAdapter(PartyDialog.this.getActivity(), partidos);
+		partyList.setAdapter(partyAdapter);
+
+		partyList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
 				PrestacaoContasFragment prestacaoFragment = (PrestacaoContasFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.prestacao_contas_fragment);
-//				if(!ufSelected.equals(""))//TODO
-					prestacaoFragment.setParamParty(PARTIES[3]);
-				//TODO Por mensagem
-					PartyDialog.this.dismiss();
-				
+				//    				if(!ufSelected.equals(""))//TODO
+				partidoSelected = partidos.get(position);
+				prestacaoFragment.setParamParty(partidoSelected);
+				PartyDialog.this.dismiss();
+
 			}
 		});
-        
-        Button cancel = (Button) v.findViewById(R.id.cancel);
-        cancel.setOnClickListener(new OnClickListener() {
+
+		Button cancel = (Button) v.findViewById(R.id.cancel);
+		cancel.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				PartyDialog.this.dismiss();
 			}
 		});
-        
-        return v;
-    }
+
+
+		return v;
+	}
 
 	@Override
-	public void onItemClick(AdapterView<?> a, View vi, int pos, long id) {
-		PrestacaoContasFragment prestacaoFragment = (PrestacaoContasFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.prestacao_contas_fragment);
-//		if(!ufSelected.equals(""))//TODO
-			prestacaoFragment.setParamParty(PARTIES[3]);
-		//TODO Por mensagem
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		// TODO Auto-generated method stub
+
 	}
+
+	private class NetworkAsyncThread extends AsyncTask{
+		private ProgressDialog progress;
+
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			progress = new ProgressDialog(getActivity());
+			progress.setTitle("Aguarde!");
+			progress.setMessage("Consultando dados!");
+			progress.show();
+		}
+		@Override
+		protected Object doInBackground(Object... params) {
+			reload();
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Object result) {
+			super.onPostExecute(result);
+			partyAdapter.notifyDataSetChanged();
+		}
+
+		private void reload(){
+			eleicoesSOAP = new EleicoesSOAP(false);
+			partidos.addAll(eleicoesSOAP.consultaPartidos());
+			progress.dismiss();
+		}
+
+	}
+
+
 }
