@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="10dp"
-        android:text="@string/mi_visualizar_doadores_partido_candidato_eleicao"
+        android:text="@string/mi_visualizar_ranking_maiores_doadores_juridico"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold" />
 
@@ -26,10 +26,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     
-    <fragment
-        android:id="@+id/prestacao_contas_fragment"
-        android:name="br.ufba.mata62.eleicoestransparentes.ui.fragments.PrestacaoContasFragment"
+        <fragment
+        android:id="@+id/ranking_doadores_fragment"
+        android:name="br.ufba.mata62.eleicoestransparentes.ui.fragments.RankingDoadoresJuridicosFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    
 
 </LinearLayout>

@@ -13,13 +13,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import br.ufba.mata62.eleicoestransparentes.adapters.DoadorAdapter;
+import br.ufba.mata62.eleicoestransparentes.adapters.DoadorJuridicoAdapter;
 import br.ufba.mata62.eleicoestransparentes.connection.EleicoesSOAP;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.events.OnSelectItemUFDialog;
 
-public class RankingDoadoresFragment extends Fragment implements OnSelectItemUFDialog{
+public class RankingDoadoresJuridicosFragment extends Fragment implements OnSelectItemUFDialog{
 	
 	private SelectionFragment sf;
 	private List<PessoaJuridicaDoador> doadores;
@@ -36,7 +36,7 @@ public class RankingDoadoresFragment extends Fragment implements OnSelectItemUFD
 		selectParty.setVisibility(Button.GONE);
 		listDoadores = (ListView) view.findViewById(R.id.list_doadores);
 		doadores = new ArrayList<PessoaJuridicaDoador>();
-		doadorAdapter = new DoadorAdapter(getActivity(), doadores);
+		doadorAdapter = new DoadorJuridicoAdapter(getActivity(), doadores);
 		listDoadores.setAdapter(doadorAdapter);
 		return view;
 	}

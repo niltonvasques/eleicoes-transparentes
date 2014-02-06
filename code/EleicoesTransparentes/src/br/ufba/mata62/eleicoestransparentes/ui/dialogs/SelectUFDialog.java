@@ -15,10 +15,10 @@ import android.widget.ListView;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarListaCandidatosBens;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarPrestacaoDeContas;
-import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarRankingMaioresDoadores;
+import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarRankingMaioresDoadoresJuridico;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.CandidatosFragment;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.PrestacaoContasFragment;
-import br.ufba.mata62.eleicoestransparentes.ui.fragments.RankingDoadoresFragment;
+import br.ufba.mata62.eleicoestransparentes.ui.fragments.RankingDoadoresJuridicosFragment;
 
 /**
  * Classe que implementa um Dialog(espécie de janela pop-up) das UFS a serem escolhidas
@@ -56,8 +56,8 @@ public class SelectUFDialog extends DialogFragment{
 				if (getActivity().getClass().equals(VisualizarPrestacaoDeContas.class)) {
 					PrestacaoContasFragment prestacaoFragment = (PrestacaoContasFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.prestacao_contas_fragment);
 					prestacaoFragment.setParamUF(ufSelected);
-				} else if (getActivity().getClass().equals(VisualizarRankingMaioresDoadores.class)) {
-					RankingDoadoresFragment rankingFragment = (RankingDoadoresFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.ranking_doadores_fragment);
+				} else if (getActivity().getClass().equals(VisualizarRankingMaioresDoadoresJuridico.class)) {
+					RankingDoadoresJuridicosFragment rankingFragment = (RankingDoadoresJuridicosFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.ranking_doadores_fragment);
 					rankingFragment.setParamUF(ufSelected);
 				} else if (getActivity().getClass().equals(VisualizarListaCandidatosBens.class)) {
 					CandidatosFragment candidatoFragment = (CandidatosFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.candidatos_Fragment);
