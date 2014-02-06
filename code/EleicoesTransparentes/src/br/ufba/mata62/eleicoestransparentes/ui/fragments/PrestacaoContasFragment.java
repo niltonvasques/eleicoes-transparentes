@@ -19,7 +19,6 @@ import br.ufba.mata62.eleicoestransparentes.utils.Util;
 
 public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUFDialog,OnSelectItemPartyDialog{
 
-	private EleicoesSOAP eleicoesSOAP;
 	private Eleicao eleicao;
 	private Partido partido;
 	
@@ -33,7 +32,6 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.prestacao_fragment, container, false);
 		sf = (SelectionFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.selection_fragment);
-		eleicoesSOAP = new EleicoesSOAP();
 		eleicao = new Eleicao();
 		eleicao.setAno("2012");
 		loadComponents(view);
@@ -46,7 +44,7 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 	}
 
 	public float visualizaTransacoes(Partido partido, Eleicao eleicao, String tipoTransacao) {
-		return eleicoesSOAP.consultaTransacaoPartido(partido.getNumero(), uf, tipoTransacao);
+		return EleicoesSOAP.getInstance().consultaTransacaoPartido(partido.getNumero(), uf, tipoTransacao);
 	}
 
 	@Override

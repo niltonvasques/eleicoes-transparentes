@@ -28,7 +28,6 @@ public class CandidatosFragment extends Fragment  implements OnSelectItemUFDialo
 
 	private SelectionFragment sf;
 	private List<Candidato> candidatos;
-	private EleicoesSOAP eleicoesSOAP;
 	private ListView listCandidatos;
 	private BaseAdapter candidatoAdapter;
 	
@@ -79,8 +78,7 @@ public class CandidatosFragment extends Fragment  implements OnSelectItemUFDialo
 		}
 		@Override
 		protected Object doInBackground(Object... params) {
-			eleicoesSOAP = new EleicoesSOAP(false);
-			candidatos.addAll(eleicoesSOAP.consultaCandidatos());
+			candidatos.addAll(EleicoesSOAP.getInstance().consultaCandidatos());
 			candidatoAdapter = new CandidatoAdapter(getActivity(), candidatos);
 			return null;
 		}

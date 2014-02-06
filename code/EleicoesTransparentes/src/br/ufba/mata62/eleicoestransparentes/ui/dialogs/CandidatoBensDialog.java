@@ -60,11 +60,6 @@ public class CandidatoBensDialog extends DialogFragment{
 		lBens.setAdapter(bemAdapter);
 	}
 
-	private List<Bem> loadBens() {
-		EleicoesSOAP eleicoes = new EleicoesSOAP();
-		return eleicoes.consultaBens(sequencialCandidato);
-	}
-
 	private class NetworkAsyncThread extends AsyncTask{
 		private ProgressDialog progress;
 
@@ -78,8 +73,7 @@ public class CandidatoBensDialog extends DialogFragment{
 		}
 		@Override
 		protected Object doInBackground(Object... params) {
-			EleicoesSOAP eleicoes = new EleicoesSOAP();
-			bens = eleicoes.consultaBens(sequencialCandidato);
+			bens = EleicoesSOAP.getInstance().consultaBens(sequencialCandidato);
 			return null;
 		}
 

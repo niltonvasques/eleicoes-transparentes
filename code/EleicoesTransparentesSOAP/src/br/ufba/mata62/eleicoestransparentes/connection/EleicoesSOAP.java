@@ -37,18 +37,23 @@ public class EleicoesSOAP {
 	
 	private static final String AUTH_KEY 						= "f877fbd3d7c0d0313d3243ff0edcc73d";
 	
+	private static EleicoesSOAP instance;
+	
 	private SoapRequest soap;
-	public EleicoesSOAP() {
-		 this(false);
+	private EleicoesSOAP() {
+		soap = new SoapRequest();
 	}
 	
-	public EleicoesSOAP(boolean localhost){
-		if(localhost){
-			soap = new SoapRequest(SoapRequest.URL_DEBUG,SoapRequest.NAMESPACE_DEBUG);
-		}else{
-			soap = new SoapRequest();
-		}
+	public static EleicoesSOAP getInstance(){
+		if(instance == null) instance = new EleicoesSOAP();
+		return instance;
 	}
+	
+	public void enableLocalhostSoap(){
+		soap = new SoapRequest(SoapRequest.URL_DEBUG,SoapRequest.NAMESPACE_DEBUG);
+	}
+	
+	
 	
 	public List<SetorEconomico> consultaSetoresEconomico(){
 		
