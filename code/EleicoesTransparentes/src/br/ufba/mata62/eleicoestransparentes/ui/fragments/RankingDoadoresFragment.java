@@ -53,8 +53,6 @@ public class RankingDoadoresFragment extends Fragment implements OnSelectItemUFD
 	}
 	
 	private class NetworkAsyncThread extends AsyncTask{
-		private float valorDespesa = 0;
-		private float valorReceita = 0;
 		private ProgressDialog progress;
 		
 		@Override

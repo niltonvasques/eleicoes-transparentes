@@ -48,7 +48,7 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 	}
 
 	public float visualizaTransacoes(Partido partido, Eleicao eleicao, String tipoTransacao) {
-		return eleicoesSOAP.consultaTransacaoPartido(13, "AC", tipoTransacao);
+		return eleicoesSOAP.consultaTransacaoPartido(partido.getNumero(), uf, tipoTransacao);
 	}
 
 	@Override
@@ -71,6 +71,8 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 	@Override
 	public void setParamParty(Partido partido) {
 		this.partido = partido;
+		sf.setParams(partido.getSigla(), R.id.select_party);
+		new NetworkAsyncThread().execute();
 	}
 	
 	
