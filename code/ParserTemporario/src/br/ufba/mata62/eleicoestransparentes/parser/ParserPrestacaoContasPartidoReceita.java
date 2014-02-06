@@ -56,29 +56,29 @@ public class ParserPrestacaoContasPartidoReceita {
 	 */
 	private static PrestContasPartidoReceita populate(String[] data) {
 		PrestContasPartidoReceita pcr = new PrestContasPartidoReceita();
-		pcr.setDataHora(data[0]);
+		pcr.setDataHora(data[0].trim());
 		pcr.setSequencialPartido(data[1].trim());
 		pcr.setUF(data[2].trim());
 		pcr.setNumeroUE(data[3].trim());
-		pcr.setMunicipio(data[4]);
-		pcr.setTipoPartido(data[5]);
+		pcr.setMunicipio(data[4].trim());
+		pcr.setTipoPartido(data[5].trim());
 		pcr.setSiglaPartido(data[6].trim());
-		pcr.setTipoDocumento(data[7]);
+		pcr.setTipoDocumento(data[7].trim());
 		pcr.setNumeroDocumento(data[8].trim());
 		pcr.setCPFCNPJDoador(data[9].trim());
-		pcr.setNomeDoador(data[10]);
-		pcr.setNomeReceitaDoador(data[11]);
+		pcr.setNomeDoador(data[10].trim());
+		pcr.setNomeReceitaDoador(data[11].trim());
 		pcr.setSiglaUEDoador(data[12].trim());
 		pcr.setNumeroPartidoDoador(data[13].trim());
 		pcr.setNumeroCandidatoDoador(data[14].trim());
 		pcr.setCodSetorEconomicoDoador(data[15].trim());
-		pcr.setSetorEconomicoDoador(data[16]);
-		pcr.setDataReceita(data[17]);
+		pcr.setSetorEconomicoDoador(data[16].trim());
+		pcr.setDataReceita(data[17].trim());
 		pcr.setValorReceita(data[18].trim());
-		pcr.setTipoReceita(data[19]);
-		pcr.setFonteRecurso(data[20]);
-		pcr.setEspecieRecurso(data[21]);
-		pcr.setDescricaoReceita(data[22]);
+		pcr.setTipoReceita(data[19].trim());
+		pcr.setFonteRecurso(data[20].trim());
+		pcr.setEspecieRecurso(data[21].trim());
+		pcr.setDescricaoReceita(data[22].trim());
 		return pcr;
 	}
 	

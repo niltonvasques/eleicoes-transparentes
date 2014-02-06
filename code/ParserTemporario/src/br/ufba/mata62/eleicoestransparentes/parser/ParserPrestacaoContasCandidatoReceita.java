@@ -57,32 +57,32 @@ public class ParserPrestacaoContasCandidatoReceita {
 	 */
 	private static PrestContasCandidatoReceita populate(String[] data) {
 		PrestContasCandidatoReceita pcr = new PrestContasCandidatoReceita();
-		pcr.setDataHora(data[0]);
+		pcr.setDataHora(data[0].trim());
 		pcr.setSequencialCandidato(data[1].trim());
 		pcr.setUF(data[2].trim());
 		pcr.setNumeroUE(data[3].trim());
-		pcr.setMunicipio(data[4]);
+		pcr.setMunicipio(data[4].trim());
 		pcr.setSiglaPartido(data[5].trim());
 		pcr.setNumeroCandidato(data[6].trim());
-		pcr.setCargo(data[7]);
-		pcr.setNomeCandidato(data[8]);
+		pcr.setCargo(data[7].trim());
+		pcr.setNomeCandidato(data[8].trim());
 		pcr.setCPFCandidato(data[9].trim());
 		pcr.setNumeroReciboEleitoral(data[10].trim());
 		pcr.setNumeroDocumento(data[11].trim());
 		pcr.setCPFCNPJDoador(data[12].trim());
-		pcr.setNomeDoador(data[13]);
+		pcr.setNomeDoador(data[13].trim());
 		pcr.setNomeReceitaDoador(data[14]);
 		pcr.setSiglaUEDoador(data[15].trim());
 		pcr.setNumeroPartidoDoador(data[16].trim());
 		pcr.setNumeroCandidatoDoador(data[17].trim());
 		pcr.setCodSetorEconomicoDoador(data[18].trim());
-		pcr.setSetorEconomicoDoador(data[19]);
-		pcr.setDataReceita(data[20]);
+		pcr.setSetorEconomicoDoador(data[19].trim());
+		pcr.setDataReceita(data[20].trim());
 		pcr.setValorReceita(data[21].trim());
-		pcr.setTipoReceita(data[22]);
-		pcr.setFonteRecurso(data[23]);
-		pcr.setEspecieRecurso(data[24]);
-		pcr.setDescricaoReceita(data[25]);
+		pcr.setTipoReceita(data[22].trim());
+		pcr.setFonteRecurso(data[23].trim());
+		pcr.setEspecieRecurso(data[24].trim());
+		pcr.setDescricaoReceita(data[25].trim());
 		return pcr;
 	}
 	
