@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
-import br.ufba.mata62.eleicoestransparentes.ui.dialogs.adapters.UFAdapter;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.PrestacaoContasFragment;
 
 /**
@@ -37,26 +37,27 @@ public class PartyDialog extends DialogFragment implements OnItemClickListener{
         View v = inflater.inflate(R.layout.uf_list_dialog, container, false);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         ListView languageList = (ListView) v.findViewById(R.id.uf_list);
-        UFAdapter languageAdapter = new UFAdapter(PartyDialog.this.getActivity(), PARTIES );
-        languageList.setAdapter(languageAdapter);
+        languageList.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,PARTIES));
+        
+        languageList.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				PrestacaoContasFragment prestacaoFragment = (PrestacaoContasFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.prestacao_contas_fragment);
+//				if(!ufSelected.equals(""))//TODO
+					prestacaoFragment.setParamParty(PARTIES[3]);
+				//TODO Por mensagem
+					PartyDialog.this.dismiss();
+				
+			}
+		});
         
         Button cancel = (Button) v.findViewById(R.id.cancel);
         cancel.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				PartyDialog.this.dismiss();
-			}
-		});
-        
-        Button ok = (Button) v.findViewById(R.id.ok);
-        ok.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				PrestacaoContasFragment prestacaoFragment = (PrestacaoContasFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.prestacao_contas_fragment);
-//				if(!ufSelected.equals(""))//TODO
-					prestacaoFragment.setParamParty(PARTIES[3]);
-				//TODO Por mensagem
-					PartyDialog.this.dismiss();
 			}
 		});
         

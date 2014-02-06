@@ -25,7 +25,6 @@ public class PartyAdapter extends BaseAdapter{
 		}
 	}
 	
-	
 	@Override
 	public int getCount() {
 		return parties.size();

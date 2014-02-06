@@ -9,13 +9,13 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarListaCandidatosBens;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarPrestacaoDeContas;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.VisualizarRankingMaioresDoadores;
-import br.ufba.mata62.eleicoestransparentes.ui.dialogs.adapters.UFAdapter;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.CandidatosFragment;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.PrestacaoContasFragment;
 import br.ufba.mata62.eleicoestransparentes.ui.fragments.RankingDoadoresFragment;
@@ -26,6 +26,8 @@ import br.ufba.mata62.eleicoestransparentes.ui.fragments.RankingDoadoresFragment
  *
  */
 public class SelectUFDialog extends DialogFragment{
+	
+	private static final String TAG = "[SelectUFDialog]";
 
 	public static final String[] UFS = { "AC", "AL", "AM", "AP", "BA", "CE",
 		"DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI",
@@ -42,29 +44,16 @@ public class SelectUFDialog extends DialogFragment{
         View v = inflater.inflate(R.layout.uf_list_dialog, container, false);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         ListView ufList = (ListView) v.findViewById(R.id.uf_list);
-        UFAdapter ufAdapter = new UFAdapter(SelectUFDialog.this.getActivity(), UFS );
-        ufList.setAdapter(ufAdapter);
-        
+        ufList.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,UFS));
+   
         ufList.setOnItemClickListener(new OnItemClickListener() {
+
 			@Override
-			public void onItemClick(AdapterView<?> a, View vi, int position,long id) {
-				ufSelected=UFS[position];
-			}
-		});
-        
-        Button cancel = (Button) v.findViewById(R.id.cancel);
-        cancel.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				SelectUFDialog.this.dismiss();
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+					long arg3) {
 				
-			}
-		});
-        
-        Button ok = (Button) v.findViewById(R.id.ok);
-        ok.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
+				ufSelected=UFS[position];
+				
 				if(getActivity().getClass().equals(VisualizarPrestacaoDeContas.class)){
 					PrestacaoContasFragment prestacaoFragment = (PrestacaoContasFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.prestacao_contas_fragment);
 	//				if(!ufSelected.equals(""))//TODO
@@ -81,9 +70,21 @@ public class SelectUFDialog extends DialogFragment{
 						candidatoFragment.setParamUF(UFS[0]);
 					//TODO Por mensagem
 				}
-					SelectUFDialog.this.dismiss();
+				
+				SelectUFDialog.this.dismiss();
+			}
+        	
+		});
+        
+        Button cancel = (Button) v.findViewById(R.id.cancel);
+        cancel.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				SelectUFDialog.this.dismiss();
+				
 			}
 		});
+        
         
         return v;
     }

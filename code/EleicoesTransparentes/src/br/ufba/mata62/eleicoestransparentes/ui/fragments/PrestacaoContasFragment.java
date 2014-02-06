@@ -42,7 +42,6 @@ public class PrestacaoContasFragment extends Fragment  implements OnSelectItemUF
 	private void loadComponents(View view) {
 		despesa = (TextView)view.findViewById(R.id.despesa);
 		receita = (TextView)view.findViewById(R.id.receita);
-		
 	}
 
 	public float visualizaTransacoes(Partido partido, Eleicao eleicao, String tipoTransacao) {
