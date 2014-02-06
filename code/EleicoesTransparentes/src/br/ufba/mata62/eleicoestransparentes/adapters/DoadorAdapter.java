@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
 import br.ufba.mata62.eleicoestransparentes.ui.activities.R;
+import br.ufba.mata62.eleicoestransparentes.utils.Util;
 
 public class DoadorAdapter extends BaseAdapter{
 
@@ -44,7 +45,7 @@ public class DoadorAdapter extends BaseAdapter{
 		TextView valueItem = (TextView) view.findViewById(R.id.value_item);
 		
 		nameItem.setText(doadores.get(position).getPessoa().getNome());
-		valueItem.setText(String.valueOf(doadores.get(position).getValor()));
+		valueItem.setText(String.valueOf(Util.floatFormated(doadores.get(position).getValor())));
 		return view;
 	}
 
