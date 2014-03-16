@@ -12,7 +12,7 @@ public class VotacaoPartidoMunZona extends CVSFile {
 			"CODIGO_CARGO", "DESCRICAO_CARGO", "TIPO_LEGENDA",
 			"NOME_COLIGACAO", "COMPOSICAO_LEGENDA", "SIGLA_PARTIDO",
 			"NUMERO_PARTIDO", "NOME_PARTIDO", "QTDE_VOTOS_NOMINAIS",
-			"QTDE_VOTOS_LEGENDA", "DESCRIÇÃO" };
+			"QTDE_VOTOS_LEGENDA"};
 	
 	@CVSAttr(name = "DATA_GERACAO")
 	public String dataGeracao;
@@ -54,6 +54,4 @@ public class VotacaoPartidoMunZona extends CVSFile {
 	public String qtdeVotosNominais;
 	@CVSAttr(name = "QTDE_VOTOS_LEGENDA")
 	public String qtdeVotosLegenda;
-	@CVSAttr(name = "DESCRIÇÃO")
-	public String descricao;
 }
