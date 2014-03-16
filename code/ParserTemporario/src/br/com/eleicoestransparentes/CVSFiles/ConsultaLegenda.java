@@ -4,7 +4,7 @@ import br.com.eleicoestransparentes.annotations.CVSAttr;
 import br.com.eleicoestransparentes.annotations.CVSClass;
 
 @CVSClass(notation = "CONSULTA_LEGENDAS_<ANO ELEIÇÃO>_<SIGLA UF>",headerInFile=false)
-public class ConsultaLegenda {
+public class ConsultaLegenda  extends CVSFile {
 	
 	/**
 	 * Cabeçalho do arquivo - o cabeçalho não aparece nos arquivos, por isso a 
@@ -52,21 +52,4 @@ public class ConsultaLegenda {
 	 public String composicaoColigacao;
 //	 @CVSAttr(name = "SEQUENCIAL_COLIGACAO") TODO Esse campo existe no README, mas não existe no arquivo.
 //	 public String sequencialColigacao;
-	 
-	@Override
-	public String toString() {
-		return "ConsultaLegendas [dataGeracao=" + dataGeracao
-				+ ", horaGeracao=" + horaGeracao + ", anoEleicao=" + anoEleicao
-				+ ", numTurno=" + numTurno + ", descricaoEleicao="
-				+ descricaoEleicao + ", siglaUF=" + siglaUF + ", siglaUE="
-				+ siglaUE + ", nomeUE=" + nomeUE + ", codigoCargo="
-				+ codigoCargo + ", descricaoCargo=" + descricaoCargo
-				+ ", tipoLegenda=" + tipoLegenda + ", numPartido=" + numPartido
-				+ ", siglaPartido=" + siglaPartido + ", nomePartido="
-				+ nomePartido + ", siglaColigacao=" + siglaColigacao
-				+ ", nomeColigacao=" + nomeColigacao + ", composicaoColigacao="
-				+ composicaoColigacao + "]";
-	} 
-	 
-	 
 }

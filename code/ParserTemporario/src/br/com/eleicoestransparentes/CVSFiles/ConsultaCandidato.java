@@ -13,7 +13,7 @@ import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
  *
  */
 @CVSClass(notation = "CONSULTA_CAND_<ANO ELEIÇÃO>_<SIGLA UF>",headerInFile=false)
-public class ConsultaCandidato {
+public class ConsultaCandidato  extends CVSFile{
 	
 	/**
 	 * Cabeçalho do arquivo - o cabeçalho não aparece nos arquivos, por isso a 

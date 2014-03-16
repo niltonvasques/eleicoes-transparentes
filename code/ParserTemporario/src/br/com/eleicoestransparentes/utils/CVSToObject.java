@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
+import br.com.eleicoestransparentes.CVSFiles.CVSFile;
 import br.com.eleicoestransparentes.annotations.CVSAttr;
 
 /**
@@ -30,21 +31,21 @@ public abstract class CVSToObject {
 	
 	/**
 	 * Populate the object
-	 * @param obj
+	 * @param cvsFile
 	 * @param header_ - header of file.
 	 * @param row - row of file.
 	 */
-	public static void populate(Object obj,String[] header_,String[] row_){
+	public static void populate(CVSFile cvsFile,String[] header_,String[] row_){
 		Map<String, Integer> header = new HashMap<String, Integer>();
 		header = populateHeader(header_);
-	    Field[] fields = obj.getClass().getDeclaredFields();
+	    Field[] fields = cvsFile.getClass().getDeclaredFields();
 	     for (Field f : fields) {
 	        CVSAttr name = f.getAnnotation(CVSAttr.class);
 	        if(name!=null){
 				try {
 					String row =prepare(row_[header.get(name.name())]);
 					if(!name.canBeNull() || (!row.equals(VALUE_NULL_1) && !row.equals(VALUE_NULL_2)))
-						setValue(row,obj, f);
+						setValue(row,cvsFile, f);
 //					if(name.foreignKey()) TODO 
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();

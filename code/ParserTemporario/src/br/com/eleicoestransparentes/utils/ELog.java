@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.GregorianCalendar;
 
 /**
  * Classe de Log do projeto. As mensagens de log aparecem no
@@ -17,14 +18,23 @@ public class ELog {
 	public static final String WARNING="WARNING";
 	public static final String INFO="INFO";
 	
-	
+
+	/**
+	 * Mostra a mensagem no console e no arquivo elog.txt.
+	 * @param type - Elog.ERROR,Elog.WARNING ou Elog.INFO.
+	 * @param where - Classe onde está sendo executada a mensagem.
+	 * @param message - Mensagem.
+	 */
 	public static void print(String type,Class<?> where, String message){
 		printInLogFile(logMessage(type, where, message));
 		printInConsole(logMessage(type, where, message));
 	}
 	
+	/**
+	 * Formatação da mensagem
+	 */
 	private static String logMessage(String type, Class<?> where, String message) {
-		return "Type: "+type+", Class: "+where.getName()+", Message: "+message;
+		return "Date: "+new GregorianCalendar().getTime()+", Type: "+type+", Class: "+where.getName()+", Message: "+message;
 	}
 
 	private static void printInConsole(String logMessage) {
