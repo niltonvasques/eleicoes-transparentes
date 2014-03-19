@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import br.com.eleicoestransparentes.CVSFiles.CVSFile;
+import br.com.eleicoestransparentes.annotations.CVSClass;
 import br.com.eleicoestransparentes.utils.CVSToObject;
 import br.com.eleicoestransparentes.utils.ELog;
 
@@ -24,12 +25,21 @@ public abstract class Parser{
 		this.header=header;
 		this.path=path;
 	}
+	
+	public Parser(CVSFile cvsFile,String path){
+		this.cvsFile=cvsFile;
+		this.path=path;
+	}
+	
 	public void parse(){
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"));
-			while(br.ready()){  
-			   CVSToObject.populate(cvsFile,header, br.readLine().split(";"));
-			   ELog.print(ELog.INFO, Parser.class, "Realizando parsing."+cvsFile.toString());
+			while(br.ready()){
+			CVSClass cvsClass = cvsFile.getClass().getAnnotation(CVSClass.class);
+			if(cvsClass.headerInFile())
+				header=br.readLine().split(";");
+			CVSToObject.populate(cvsFile,header, br.readLine().split(";"));
+			ELog.print(ELog.INFO, Parser.class, "Realizando parsing."+cvsFile.toString());
 			}
 			br.close();
 		} catch (IOException e) {
