@@ -1,11 +1,12 @@
 #!/usr/local/bin/python
 
-import os
 
+import subprocess
 SEP = '/'
-root = SEP+'home'+SEP+'flavio'+SEP+'RepositorioDadosEleitorais'
+root = '~'+SEP+'RepositorioDadosEleitorais'
 
-os.popen('mkdir '+root,"r")
+process = subprocess.Popen('mkdir '+root, stdout=subprocess.PIPE, stderr=None, shell=True)
+output = process.communicate()
 
 years = ['1950','1955','1960','1970','1974','1978','1982','1986','1989','1990','1994','1996','1998','2000','2002','2004','2006','2008','2010','2012']
 
@@ -15,8 +16,10 @@ consultaCandidatoPath= root + SEP +'Candidatos'+ SEP + '$year$'+ SEP +'Candidato
 
 for y in years:
 	command = 'wget '+consultaCandidatoURL+' -P prefix --directory-prefix='+consultaCandidatoPath
-	os.popen('mkdir -p '+consultaCandidatoPath.replace('year',y),'r')
-	os.popen(command.replace('$year$',y),"r")
+	process = subprocess.Popen('mkdir -p '+consultaCandidatoPath.replace('$year$',y), stdout=subprocess.PIPE, stderr=None, shell=True)
+       	output = process.communicate()
+       	process = subprocess.Popen(command.replace('$year$',y), stdout=subprocess.PIPE, stderr=None, shell=True)
+       	output = process.communicate()
 
 #wget http://agencia.tse.jus.br/estatistica/sead/odsele/bem_candidato/bem_candidato_2012.zip
 
