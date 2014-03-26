@@ -3,7 +3,7 @@
 
 import subprocess
 SEP = '/'
-root = '~'+SEP+'RepositorioDadosEleitorais'
+root = 'RepositorioDadosEleitorais'
 
 process = subprocess.Popen('mkdir '+root, stdout=subprocess.PIPE, stderr=None, shell=True)
 output = process.communicate()
@@ -20,6 +20,10 @@ for y in years:
        	output = process.communicate()
        	process = subprocess.Popen(command.replace('$year$',y), stdout=subprocess.PIPE, stderr=None, shell=True)
        	output = process.communicate()
+
+process = subprocess.Popen('ls -R | grep -E \'^[^d]\' > files', stdout=subprocess.PIPE, stderr=None, shell=True)
+output = process.communicate()
+
 
 #wget http://agencia.tse.jus.br/estatistica/sead/odsele/bem_candidato/bem_candidato_2012.zip
 
