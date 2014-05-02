@@ -9,9 +9,6 @@ import java.sql.Statement;
 
 import br.ufba.mata62.eleicoestransparentes.EProperties;
 
-import com.j256.ormlite.jdbc.JdbcConnectionSource;
-import com.j256.ormlite.support.ConnectionSource;
-
 public class MySqlDatabase {
 	
 	private String databaseUrl;

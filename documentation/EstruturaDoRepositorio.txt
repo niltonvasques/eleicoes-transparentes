@@ -1,0 +1,20 @@
+Estrutura do repositório
+
++path\RepositorioDadosEleitorais
+++PrestacaoDeContas
++++2012
+++++Candidato
++++++AC
++++++...
++++++TO
+++++Comite
++++++AC
++++++...
++++++TO
+++++Partido
++++++AC
++++++...
++++++TO
++++2010
++++2008
+
