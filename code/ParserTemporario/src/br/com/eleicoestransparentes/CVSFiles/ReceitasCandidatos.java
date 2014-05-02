@@ -34,7 +34,7 @@ public class ReceitasCandidatos extends CVSFile {
 	public String CPFCNPJDoDoador;
 	@CVSAttr(name = "Nome do doador")
 	public String nomeDoDoador;
-	@CVSAttr(name = "Nome Receita Doador")
+	@CVSAttr(name = "Nome receita doador")
 	public String nomeReceitaDoador;
 	@CVSAttr(name = "Sigla UE doador")
 	public String siglaUEDoador;

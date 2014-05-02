@@ -34,12 +34,12 @@ public abstract class Parser{
 	public void parse(){
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"));
-			while(br.ready()){
 			CVSClass cvsClass = cvsFile.getClass().getAnnotation(CVSClass.class);
-			if(cvsClass.headerInFile())
-				header=br.readLine().split(";");
-			CVSToObject.populate(cvsFile,header, br.readLine().split(";"));
-			ELog.print(ELog.INFO, Parser.class, "Realizando parsing."+cvsFile.toString());
+			if (cvsClass.headerInFile())
+				header = br.readLine().split(";");
+			while (br.ready()) {
+				CVSToObject.populate(cvsFile, header, br.readLine().split(";"));
+				ELog.print(ELog.INFO, Parser.class, "Realizando parsing." + cvsFile.toString());
 			}
 			br.close();
 		} catch (IOException e) {

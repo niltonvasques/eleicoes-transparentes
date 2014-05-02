@@ -24,7 +24,7 @@ public abstract class CVSToObject {
 	private static Map<String, Integer> populateHeader(String[] h) {
 		Map<String, Integer> header =new HashMap<String, Integer>();
 		for (int pos = 0; pos < h.length; pos++)
-			header.put(h[pos], pos);
+			header.put(prepare(h[pos]), pos);
 		return header;
 	}
 
@@ -43,10 +43,12 @@ public abstract class CVSToObject {
 	        CVSAttr name = f.getAnnotation(CVSAttr.class);
 	        if(name!=null){
 				try {
-					String row =prepare(row_[header.get(name.name())]);
-					if(!name.canBeNull() || (!row.equals(VALUE_NULL_1) && !row.equals(VALUE_NULL_2)))
-						setValue(row,cvsFile, f);
-//					if(name.foreignKey()) TODO 
+					Integer pos = header.get(name.name());
+					if(pos != null){
+						String row =prepare(row_[pos]);
+						if(!name.canBeNull() || (!row.equals(VALUE_NULL_1) && !row.equals(VALUE_NULL_2)))
+							setValue(row,cvsFile, f);
+					}
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
 				}
