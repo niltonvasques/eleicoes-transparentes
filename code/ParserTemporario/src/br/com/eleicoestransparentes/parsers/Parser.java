@@ -39,12 +39,12 @@ public abstract class Parser{
 				header = br.readLine().split(";");
 			while (br.ready()) {
 				CVSToObject.populate(cvsFile, header, br.readLine().split(";"));
-				ELog.print(ELog.INFO, Parser.class, "Realizando parsing." + cvsFile.toString());
+				ELog.getInstance().print(ELog.INFO, Parser.class, "Realizando parsing." + cvsFile.toString());
 			}
 			br.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-			ELog.print(ELog.ERROR, Parser.class, e.getMessage());
+			ELog.getInstance().print(ELog.ERROR, Parser.class, e.getMessage());
 		}  
 	}
 

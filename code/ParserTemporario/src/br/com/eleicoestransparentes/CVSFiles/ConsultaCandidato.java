@@ -126,7 +126,7 @@ public class ConsultaCandidato  extends CVSFile{
 	/**
 	 * Objeto candidato extraído do Objeto CVS.
 	 */
-	private Candidato candidato;
+	protected Candidato candidato;
 	
 	public Candidato getCandidato() {
 		candidato = new Candidato();
