@@ -78,22 +78,18 @@ public abstract class Repository {
 	
 	public static class BemCandidato{
 		
-		private static final String FOLDER_ROOT = Repository.getPathRoot()+File.separator+"BemCandidato";
+		private static final String FOLDER_ROOT = Repository.getPathRoot()+File.separator+"Candidatos"+File.separator+"BemCandidato";
 		private static final String FILE_BEM_CANDIDATO = "bem_candidato_[YEAR]_[UF]";  
 		
 		public static final String YEARS[] = { "2006", "2008",
 			"2010", "2012" };
 		
-		/**
-		 * Método que retorna todos os caminhos de todos os arquivos da Prestação de Contas.
-		 * @return
-		 */
 		public static List<String> getPaths(String[] years, String[] ufs) {
 			List<String> paths = new ArrayList<String>();
 			years = (years == null) || (years.length == 0) ? YEARS : years;
 			ufs = (ufs == null) || (ufs.length == 0) ? UFS : ufs;
 			
-			for (String year : YEARS) {
+			for (String year : years) {
 				for(String uf:ufs){
 					paths.add(FOLDER_ROOT+File.separator+year+File.separator+FILE_BEM_CANDIDATO.replace("[YEAR]", year).replace("[UF]",uf)+"."+EXTENSION);
 				}
@@ -101,15 +97,146 @@ public abstract class Repository {
 			return paths;
 		}
 		
-		/**
-		 * Método que retorna todos os caminhos de todos os arquivos da Prestação de Contas.
-		 * @return
-		 */
 		public static List<String> getPaths(){
 			return getPaths(YEARS, UFS);
 		}
 		
 	}
+	
+	public static class ConsultaCandidato{
+		private static final String FOLDER_ROOT = Repository.getPathRoot()+File.separator+"Candidatos"+File.separator+"ConsultaCandidato";
+		private static final String FILE_CONSULTA_CANDIDATO = "consulta_cand_[YEAR]_[UF]";  
+		
+		public static final String YEARS[] = { "1994", "1996", "1998", "2000",
+				"2002", "2004", "2006", "2008", "2010", "2012" };
+
+		public static List<String> getPaths(String[] years, String[] ufs) {
+			List<String> paths = new ArrayList<String>();
+			years = (years == null) || (years.length == 0) ? YEARS : years;
+			ufs = (ufs == null) || (ufs.length == 0) ? UFS : ufs;
+			
+			for (String year : years) {
+				for(String uf:ufs){
+					paths.add(FOLDER_ROOT+File.separator+year+File.separator+FILE_CONSULTA_CANDIDATO.replace("[YEAR]", year).replace("[UF]",uf)+"."+EXTENSION);
+				}
+			}
+			return paths;
+		}
+		
+		
+		public static List<String> getPaths(){
+			return getPaths(YEARS, UFS);
+		}
+		
+	}
+	
+	
+	public static class ConsultaLegenda{
+		private static final String FOLDER_ROOT = Repository.getPathRoot()+File.separator+"Candidatos"+File.separator+"ConsultaLegenda";
+		private static final String FILE_CONSULTA_LEGENDA = "consulta_legendas_[YEAR]_[UF]";  
+		
+		public static final String YEARS[] = { "1950", "1955", "1960", "1970",
+				"1974", "1978", "1982", "1986", "1989", "1990", "1994", "1996",
+				"1998", "2000", "2002", "2004", "2006", "2008", "2010", "2012" };
+		
+		public static List<String> getPaths(String[] years, String[] ufs) {
+			List<String> paths = new ArrayList<String>();
+			years = (years == null) || (years.length == 0) ? YEARS : years;
+			ufs = (ufs == null) || (ufs.length == 0) ? UFS : ufs;
+			
+			for (String year : years) {
+				for(String uf:ufs){
+					paths.add(FOLDER_ROOT+File.separator+year+File.separator+FILE_CONSULTA_LEGENDA.replace("[YEAR]", year).replace("[UF]",uf)+"."+EXTENSION);
+				}
+			}
+			return paths;
+		}
+		
+		public static List<String> getPaths(){
+			return getPaths(YEARS, UFS);
+		}
+		
+	}
+	
+	
+	public static class ConsultaVagas{
+		private static final String FOLDER_ROOT = Repository.getPathRoot()+File.separator+"Candidatos"+File.separator+"ConsultaVagas";
+		private static final String FILE_CONSULTA_VAGAS = "consulta_vagas_[YEAR]_[UF]";  
+		
+		public static final String YEARS[] = { "1970", "1974", "1978", "1982",
+				"1986", "1990", "1994", "1996", "1998", "2000", "2002", "2004",
+				"2006", "2008", "2010", "2012" };
+		
+		public static List<String> getPaths(String[] years, String[] ufs) {
+			List<String> paths = new ArrayList<String>();
+			years = (years == null) || (years.length == 0) ? YEARS : years;
+			ufs = (ufs == null) || (ufs.length == 0) ? UFS : ufs;
+			
+			for (String year : years) {
+				for(String uf:ufs){
+					paths.add(FOLDER_ROOT+File.separator+year+File.separator+FILE_CONSULTA_VAGAS.replace("[YEAR]", year).replace("[UF]",uf)+"."+EXTENSION);
+				}
+			}
+			return paths;
+		}
+		
+		public static List<String> getPaths(){
+			return getPaths(YEARS, UFS);
+		}
+		
+	}
+
+	
+	public static class PerfilEleitorado{
+		private static final String FOLDER_ROOT = Repository.getPathRoot()+File.separator+"Eleitorado"+File.separator+"PerfilEleitorado";
+		private static final String FILE_PERFIL_ELEITORADO = "perfil_eleitorado_[YEAR]";  
+		
+		public static final String YEARS[] = {"1994", "1996", "1998", "2000", "2002", "2004",
+				"2006", "2008", "2010", "2012","ATUAL" };
+		
+		public static List<String> getPaths(String[] years) {
+			List<String> paths = new ArrayList<String>();
+			years = (years == null) || (years.length == 0) ? YEARS : years;
+			
+			for (String year : years) {
+					paths.add(FOLDER_ROOT+File.separator+File.separator+FILE_PERFIL_ELEITORADO.replace("[YEAR]", year)+"."+EXTENSION);
+			}
+			return paths;
+		}
+		
+		public static List<String> getPaths(){
+			return getPaths(YEARS);
+		}
+		
+	}
+	
+	
+	/**
+		Etapa de Resultados - a princípio não implementada na primeira versão do EleicoesTransparentes.
+		TODO - implementar
+	 */
+	
+	public static class DetalheVotacaoMunZona{
+		//TODO Implementar
+	}
+	
+	public static class DetalheVotacaoSecao{
+		//TODO Implementar
+		
+	}
+	
+	public static class VotacaoCandidatoMunZona{
+		//TODO Implementar
+	}
+	
+	public static class VotacaoPartidoMunZona{
+		//TODO Implementar
+	}
+	
+	public static class VotoSecao{
+		//TODO Implementar
+	}
+	
 	
 	/**
 	 * Método que retorna os caminhos de todos os arquivos do repositório.
@@ -119,6 +246,11 @@ public abstract class Repository {
 		List<String> paths=new ArrayList<String>();
 		paths.addAll(PrestacaoDeContas.getPaths());
 		paths.addAll(BemCandidato.getPaths());
+		paths.addAll(ConsultaCandidato.getPaths());
+		paths.addAll(ConsultaLegenda.getPaths());
+		paths.addAll(ConsultaVagas.getPaths());
+		paths.addAll(PerfilEleitorado.getPaths());
+		
 		return paths;
 	}
 }
