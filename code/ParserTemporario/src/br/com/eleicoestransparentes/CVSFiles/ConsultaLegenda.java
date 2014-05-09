@@ -2,6 +2,7 @@ package br.com.eleicoestransparentes.CVSFiles;
 
 import br.com.eleicoestransparentes.annotations.CVSAttr;
 import br.com.eleicoestransparentes.annotations.CVSClass;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 
 @CVSClass(notation = "CONSULTA_LEGENDAS_<ANO ELEIÇÃO>_<SIGLA UF>",headerInFile=false)
 public class ConsultaLegenda  extends CVSFile {
@@ -52,4 +53,16 @@ public class ConsultaLegenda  extends CVSFile {
 	 public String composicaoColigacao;
 //	 @CVSAttr(name = "SEQUENCIAL_COLIGACAO") TODO Esse campo existe no README, mas não existe no arquivo.
 //	 public String sequencialColigacao;
+	 
+	 protected Partido partido;
+	 
+	 public Partido getPartido(){
+		 partido = new Partido();
+		 partido.setNumero(Integer.parseInt(numPartido));
+		 partido.setSigla(siglaPartido);
+		 partido.setNome(nomePartido);
+		 return partido;
+	 }
+	 
+	 
 }

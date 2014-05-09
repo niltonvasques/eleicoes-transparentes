@@ -2,6 +2,8 @@ package br.com.eleicoestransparentes.CVSFiles;
 
 import br.com.eleicoestransparentes.annotations.CVSAttr;
 import br.com.eleicoestransparentes.annotations.CVSClass;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
 
 @CVSClass(notation = "BEM_CANDIDATO_<ANO ELEIÇÃO>_<SIGLA UF>",headerInFile = false)
 public class BensCandidato extends CVSFile{
@@ -34,5 +36,17 @@ public class BensCandidato extends CVSFile{
 	@CVSAttr(name ="HORA_ULTIMA_ATUALIZACAO")
 	public String horaUltimaAtualizacao;
 	
+	
+	protected Bem bem;
+	
+	public Bem getBem(){
+		bem = new Bem();
+		bem.setDescricao(cdTipoBemCandidato+" "+dsTipoBemCandidato);
+		bem.setValor(Float.parseFloat(valorBem));
+		Candidato candidato = new Candidato();
+		candidato.setSequencialCandidato(sqCandidato);
+		bem.setCandidato(candidato);
+		return bem;
+	}
 	
 }
