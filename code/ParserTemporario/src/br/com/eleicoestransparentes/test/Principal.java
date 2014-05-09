@@ -1,8 +1,14 @@
 package br.com.eleicoestransparentes.test;
 
+<<<<<<< HEAD
 import br.com.eleicoestransparentes.CVSFiles.PerfilEleitorado;
 import br.com.eleicoestransparentes.parsers.Parser;
 import br.com.eleicoestransparentes.parsers.ParserPerfilEleitorado;
+=======
+import br.com.eleicoestransparentes.CVSFiles.ConsultaVagas;
+import br.com.eleicoestransparentes.parsers.Parser;
+import br.com.eleicoestransparentes.parsers.ParserConsultaVagas;
+>>>>>>> 707dd437d879ecc40efea19a45c8202633b38029
 import br.com.eleicoestransparentes.utils.Repository;
 
 public class Principal {
@@ -18,7 +24,11 @@ public class Principal {
 //		String[] persons = {"Comite"};
 //		String[] transactions = {"Receitas"};
 //		
+<<<<<<< HEAD
 		Parser parser; 
+=======
+		Parser paser; 
+>>>>>>> 707dd437d879ecc40efea19a45c8202633b38029
 //		
 //		for(String path:Repository.PrestacaoDeContas.getPaths(years, ufs, persons, transactions)){
 //			paser = new ParserReceitasComites(dc, path);
@@ -34,10 +44,17 @@ public class Principal {
 //			paser.parse();
 //		}
 		
+<<<<<<< HEAD
 		PerfilEleitorado cc = new PerfilEleitorado();
 		for(String path:Repository.PerfilEleitorado.getPaths()){
 			parser = new ParserPerfilEleitorado(cc, path);
 			parser.parse();
+=======
+		ConsultaVagas cc = new ConsultaVagas();
+		for(String path:Repository.ConsultaVagas.getPaths(years, Repository.UFS)){
+			paser = new ParserConsultaVagas(cc, path);
+			paser.parse();
+>>>>>>> 707dd437d879ecc40efea19a45c8202633b38029
 		}
 	}
 
