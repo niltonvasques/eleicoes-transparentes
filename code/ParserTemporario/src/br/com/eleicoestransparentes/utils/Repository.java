@@ -185,7 +185,6 @@ public abstract class Repository {
 		}
 		
 	}
-<<<<<<< HEAD
 
 	
 	public static class PerfilEleitorado{
@@ -237,11 +236,6 @@ public abstract class Repository {
 	public static class VotoSecao{
 		//TODO Implementar
 	}
-=======
-	
-	
->>>>>>> 707dd437d879ecc40efea19a45c8202633b38029
-	
 	
 	/**
 	 * Método que retorna os caminhos de todos os arquivos do repositório.
@@ -254,10 +248,7 @@ public abstract class Repository {
 		paths.addAll(ConsultaCandidato.getPaths());
 		paths.addAll(ConsultaLegenda.getPaths());
 		paths.addAll(ConsultaVagas.getPaths());
-<<<<<<< HEAD
 		paths.addAll(PerfilEleitorado.getPaths());
-=======
->>>>>>> 707dd437d879ecc40efea19a45c8202633b38029
 		
 		return paths;
 	}
