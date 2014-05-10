@@ -2,6 +2,7 @@ package br.com.eleicoestransparentes.CVSFiles;
 
 import br.com.eleicoestransparentes.annotations.CVSAttr;
 import br.com.eleicoestransparentes.annotations.CVSClass;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Eleicao;
 
 @CVSClass(notation = "CONSULTA_VAGAS_<ANO ELEIÇÃO>_<SIGLA UF>",headerInFile = false)
 public class ConsultaVagas extends CVSFile{
@@ -27,7 +28,26 @@ public class ConsultaVagas extends CVSFile{
 	@CVSAttr(name = "CODIGO_CARGO")
 	public String codigoCargo;
 	@CVSAttr(name = "DESCRICAO_CARGO")
-	public String descricaoCArgo;
+	public String descricaoCargo;
 	@CVSAttr(name = "QTDE_VAGAS")
 	public String qtdeVagas;
+	
+
+	protected Eleicao eleicao;
+	
+	public Eleicao getEleicao(){
+		eleicao = new Eleicao();
+		eleicao.setAno(anoELeicao);
+//		eleicao.setTipo(descricaoEleicao);TODO ver esse tipo
+		return eleicao;
+	}
+	
+	@Override
+	public Object[] getBeans() {
+		Object[] objs = {getEleicao()};
+		return objs;
+	}
+	
+	
+	
 }

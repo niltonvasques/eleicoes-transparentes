@@ -58,4 +58,10 @@ public class ReceitasCandidatos extends CVSFile {
 	public String especieRecurso;
 	@CVSAttr(name = "Descricao da receita")
 	public String descricaoReceita;
+	
+	@Override
+	public Object[] getBeans() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -147,4 +147,11 @@ public class ConsultaCandidato  extends CVSFile{
 
 		return candidato;
 	}
+	
+	@Override
+	public Object[] getBeans() {
+		Object[] objs = {getCandidato()};
+		return objs;
+	}
+	
 }

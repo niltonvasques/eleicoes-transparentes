@@ -7,7 +7,7 @@ import java.lang.reflect.Field;
  * @author tiagogoncalves
  *
  */
-public class CVSFile {
+public abstract class CVSFile {
 	public String[] header = {};
 	
 	
@@ -25,4 +25,7 @@ public class CVSFile {
 		}
 		return str+"]";
 	}
+	
+	public abstract Object[] getBeans();
+	
 }

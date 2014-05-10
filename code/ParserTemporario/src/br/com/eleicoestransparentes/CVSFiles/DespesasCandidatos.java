@@ -47,4 +47,10 @@ public class DespesasCandidatos extends CVSFile {
 	public String tipoDespesa;
 	@CVSAttr(name = "Descricao da despesa")
 	public String descricaoDespesa;
+	
+	
+	@Override
+	public Object[] getBeans() {
+		return null;
+	}
 }

@@ -57,5 +57,12 @@ public class DetalheVotacaoSecao extends CVSFile {
 	public String qtVotosLegenda;
 	@CVSAttr(name = "QT_VOTOS_ANULADOS_APU_SEP")
 	public String qtVotosAnuladosApuSep;
+	
+	
+	@Override
+	public Object[] getBeans() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

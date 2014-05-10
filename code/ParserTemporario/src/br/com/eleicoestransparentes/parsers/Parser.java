@@ -4,9 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.eleicoestransparentes.CVSFiles.CVSFile;
 import br.com.eleicoestransparentes.annotations.CVSClass;
+import br.com.eleicoestransparentes.strategy.OnCatchBeanListener;
 import br.com.eleicoestransparentes.utils.CVSToObject;
 import br.com.eleicoestransparentes.utils.ELog;
 
@@ -19,6 +22,11 @@ public abstract class Parser{
 	private CVSFile cvsFile;
 	private String[] header;
 	private String path;
+	 List<OnCatchBeanListener> listeners = new ArrayList<OnCatchBeanListener>();
+	
+	public void addListener(OnCatchBeanListener onCatchBeanListener) {
+		listeners.add(onCatchBeanListener);
+	}
 	
 	public Parser(CVSFile cvsFile,String[] header,String path){
 		this.cvsFile=cvsFile;
@@ -40,7 +48,10 @@ public abstract class Parser{
 			while (br.ready()) {
 				CVSToObject.populate(cvsFile, header, br.readLine().split(";"));
 				ELog.getInstance().print(ELog.INFO, Parser.class, "Realizando parsing." + cvsFile.toString());
+				for(OnCatchBeanListener ocbl: listeners)
+					ocbl.getBeans(cvsFile.getBeans());
 			}
+			
 			br.close();
 		} catch (IOException e) {
 			e.printStackTrace();

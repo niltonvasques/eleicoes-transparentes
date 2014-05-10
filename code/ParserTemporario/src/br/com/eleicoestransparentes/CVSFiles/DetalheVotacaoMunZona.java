@@ -68,4 +68,10 @@ public class DetalheVotacaoMunZona extends CVSFile{
 	public String dataUltTotalizacao;
 	@CVSAttr(name = "HORA_ULT_TOTALIZACAO")
 	public String horaUltTotalizacao;
+	
+	@Override
+	public Object[] getBeans() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

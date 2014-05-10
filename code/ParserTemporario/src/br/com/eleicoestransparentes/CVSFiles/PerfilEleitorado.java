@@ -33,4 +33,10 @@ public class PerfilEleitorado  extends CVSFile{
 	public String grauDeEscolaridade;
 	@CVSAttr(name = "QTD_ELEITORES_NO_PERFIL")
 	public String qtdEleitoresNoPerfil;
+	
+	@Override
+	public Object[] getBeans() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

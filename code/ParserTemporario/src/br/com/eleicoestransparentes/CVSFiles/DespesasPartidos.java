@@ -41,4 +41,10 @@ public class DespesasPartidos extends CVSFile {
 	public String tipoDespesa;
 	@CVSAttr(name = "Descricao da despesa")
 	public String descricaoDespesa;
+	
+	@Override
+	public Object[] getBeans() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

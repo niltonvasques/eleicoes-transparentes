@@ -3,9 +3,10 @@ package br.com.eleicoestransparentes.test;
 import br.com.eleicoestransparentes.CVSFiles.ConsultaVagas;
 import br.com.eleicoestransparentes.parsers.Parser;
 import br.com.eleicoestransparentes.parsers.ParserConsultaVagas;
+import br.com.eleicoestransparentes.strategy.CatchBeanEvent;
 import br.com.eleicoestransparentes.utils.Repository;
 
-public class Principal {
+public class Principal{
 
 	public static void main(String[] args) throws IllegalArgumentException,IllegalAccessException {
 
@@ -18,7 +19,8 @@ public class Principal {
 //		String[] persons = {"Comite"};
 //		String[] transactions = {"Receitas"};
 //		
-		Parser parser; 
+		Parser parser;
+		CatchBeanEvent catchBeanEvent;
 //		
 //		for(String path:Repository.PrestacaoDeContas.getPaths(years, ufs, persons, transactions)){
 //			paser = new ParserReceitasComites(dc, path);
@@ -33,10 +35,11 @@ public class Principal {
 //			paser = new ParserBensCandidato(bc, path);
 //			paser.parse();
 //		}
-		
 		ConsultaVagas cc = new ConsultaVagas();
 		for(String path:Repository.ConsultaVagas.getPaths(years, Repository.UFS)){
 			parser = new ParserConsultaVagas(cc, path);
+			catchBeanEvent = new CatchBeanEvent();
+			parser.addListener(catchBeanEvent);
 			parser.parse();
 		}
 	}

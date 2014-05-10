@@ -54,4 +54,10 @@ public class VotacaoPartidoMunZona extends CVSFile {
 	public String qtdeVotosNominais;
 	@CVSAttr(name = "QTDE_VOTOS_LEGENDA")
 	public String qtdeVotosLegenda;
+	
+	@Override
+	public Object[] getBeans() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

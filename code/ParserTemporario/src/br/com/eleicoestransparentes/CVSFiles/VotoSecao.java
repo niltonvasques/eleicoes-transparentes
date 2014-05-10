@@ -41,5 +41,11 @@ public class VotoSecao extends CVSFile {
 	public String numVotavel;
 	@CVSAttr(name = "QTDE_VOTOS")
 	public String qtdeVotos;
+	
+	@Override
+	public Object[] getBeans() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

@@ -64,5 +64,11 @@ public class ConsultaLegenda  extends CVSFile {
 		 return partido;
 	 }
 	 
+		@Override
+		public Object[] getBeans() {
+			Object[] objs = {getPartido()};
+			return objs;
+		}
+		
 	 
 }

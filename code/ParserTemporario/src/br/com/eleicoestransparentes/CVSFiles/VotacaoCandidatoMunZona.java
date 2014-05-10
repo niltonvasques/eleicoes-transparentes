@@ -75,4 +75,10 @@ public class VotacaoCandidatoMunZona extends CVSFile{
 	public String composicaoLegenda;
 	@CVSAttr(name = "TOTAL_VOTOS")
 	public String totalVotos;
+	
+	@Override
+	public Object[] getBeans() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

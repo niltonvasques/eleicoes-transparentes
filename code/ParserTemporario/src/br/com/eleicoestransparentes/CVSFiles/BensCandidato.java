@@ -48,5 +48,11 @@ public class BensCandidato extends CVSFile{
 		bem.setCandidato(candidato);
 		return bem;
 	}
+
+	@Override
+	public Object[] getBeans() {
+		Object[] objs = {getBem()};
+		return objs;
+	}
 	
 }
