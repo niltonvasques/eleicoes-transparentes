@@ -3,6 +3,7 @@ package br.com.eleicoestransparentes.CVSFiles;
 import br.com.eleicoestransparentes.annotations.CVSAttr;
 import br.com.eleicoestransparentes.annotations.CVSClass;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.EBean;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 
 
@@ -149,8 +150,8 @@ public class ConsultaCandidato  extends CVSFile{
 	}
 	
 	@Override
-	public Object[] getBeans() {
-		Object[] objs = {getCandidato()};
+	public EBean[] getBeans() {
+		EBean[] objs = {getCandidato()};
 		return objs;
 	}
 	

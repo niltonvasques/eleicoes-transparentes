@@ -7,26 +7,26 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Candidato extends PessoaFisica{
 	
 	@DatabaseField(canBeNull = false, unique = false)
-	private String numero;
+	protected String numero;
 
 	@DatabaseField
-	private String cargo;
+	protected String cargo;
 
 	@DatabaseField
-	private String UF;
+	protected String UF;
 
 	@DatabaseField
-	private String municipio;
+	protected String municipio;
 
 	@DatabaseField(foreign = true)
-	private Partido partido;
+	protected Partido partido;
 	
 	@DatabaseField(unique=true)
-	private String sequencialCandidato;
+	protected String sequencialCandidato;
 	
 	//TODO: Rever como irá fazer com a relação entre candidatos e eleição
 //	@DatabaseField
-//	private List<Eleicao> eleicoes;
+//	protected List<Eleicao> eleicoes;
 
 	public String getNumero() {
 		return numero;

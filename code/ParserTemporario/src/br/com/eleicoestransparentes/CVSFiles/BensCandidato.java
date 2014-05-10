@@ -4,14 +4,17 @@ import br.com.eleicoestransparentes.annotations.CVSAttr;
 import br.com.eleicoestransparentes.annotations.CVSClass;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
 import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.EBean;
 
 @CVSClass(notation = "BEM_CANDIDATO_<ANO ELEIÃ‡ÃƒO>_<SIGLA UF>",headerInFile = false)
 public class BensCandidato extends CVSFile{
 	
+	
 	public String[] header = { "DATA_GERACAO", "HORA_GERACAO", "ANO_ELEICAO",
-			"DESCRICAO_ELEICAO", "SIGLA_UF", "SQ_CANDIDATO",
+			"DESCRICAO_ELEICAO", "SIGLA_UF", "SQ_CANDIDATO","COLUNA_DESCONHECIDA",
 			"CD_TIPO_BEM_CANDIDATO", "DS_TIPO_BEM_CANDIDATO", "VALOR_BEM",
 			"DATA_ULTIMA_ATUALIZACAO", "HORA_ULTIMA_ATUALIZACAO" };
+	//TODO - COLUNA_DESCONHECIDA - se encontra no arquivo, mas não há documentação para ela.
 	
 	@CVSAttr(name ="DATA_GERACAO")
 	public String dataGeracao;
@@ -25,6 +28,7 @@ public class BensCandidato extends CVSFile{
 	public String siglaUF;
 	@CVSAttr(name ="SQ_CANDIDATO")
 	public String sqCandidato;
+	
 	@CVSAttr(name ="CD_TIPO_BEM_CANDIDATO")
 	public String cdTipoBemCandidato;
 	@CVSAttr(name ="DS_TIPO_BEM_CANDIDATO")
@@ -50,8 +54,8 @@ public class BensCandidato extends CVSFile{
 	}
 
 	@Override
-	public Object[] getBeans() {
-		Object[] objs = {getBem()};
+	public EBean[] getBeans() {
+		EBean[] objs = {getBem()};
 		return objs;
 	}
 	

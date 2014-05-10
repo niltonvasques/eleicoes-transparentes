@@ -1,25 +1,24 @@
 package br.ufba.mata62.eleicoestransparentes.persistance.database.beans;
 
 import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
 
 
-public abstract class Pessoa {
+public abstract class Pessoa extends EBean {
 	
 	@DatabaseField(generatedId = true)
-	private int id;
+	protected int id;
 
 	@DatabaseField
-	private String siglaUE;
+	protected String siglaUE;
 
 	@DatabaseField
-	private String nome;
+	protected String nome;
 
 	@DatabaseField(foreign = true)
-	private SetorEconomico setorEconomico;
+	protected SetorEconomico setorEconomico;
 
 //TODO: Rever relação entre pessoa e bem
-//	private Bem[] bem;
+//	protected Bem[] bem;
 
 	public String getSiglaUE() {
 		return siglaUE;

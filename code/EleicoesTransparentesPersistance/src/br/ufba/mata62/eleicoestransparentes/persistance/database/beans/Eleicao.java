@@ -4,19 +4,19 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "Eleicao")
-public class Eleicao {
+public class Eleicao extends EBean {
 	
 	@DatabaseField(generatedId = true)
-	private int id;
+	protected int id;
 
 	@DatabaseField(unique = true)
-	private String ano;
+	protected String ano;
 
 	/**
 	 * Se municipal, estadual ou nacional
 	 */
 	@DatabaseField
-	private int tipo;
+	protected int tipo;
 
 	public String getAno() {
 		return ano;

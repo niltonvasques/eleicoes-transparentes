@@ -47,7 +47,7 @@ public abstract class Parser{
 				header = br.readLine().split(";");
 			while (br.ready()) {
 				CVSToObject.populate(cvsFile, header, br.readLine().split(";"));
-				ELog.getInstance().print(ELog.INFO, Parser.class, "Realizando parsing." + cvsFile.toString());
+//				ELog.getInstance().print(ELog.INFO, Parser.class, "Realizando parsing." + cvsFile.toString());
 				for(OnCatchBeanListener ocbl: listeners)
 					ocbl.getBeans(cvsFile.getBeans());
 			}

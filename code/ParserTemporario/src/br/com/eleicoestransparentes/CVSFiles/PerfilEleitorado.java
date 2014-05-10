@@ -2,6 +2,7 @@ package br.com.eleicoestransparentes.CVSFiles;
 
 import br.com.eleicoestransparentes.annotations.CVSAttr;
 import br.com.eleicoestransparentes.annotations.CVSClass;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.EBean;
 
 /**
  * Classe do arquivo CVS de perfil do eleitorado.
@@ -35,8 +36,9 @@ public class PerfilEleitorado  extends CVSFile{
 	public String qtdEleitoresNoPerfil;
 	
 	@Override
-	public Object[] getBeans() {
+	public EBean[] getBeans() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

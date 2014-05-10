@@ -6,70 +6,70 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "Transacao")
-public class Transacao {
+public class Transacao extends EBean {
 	
 	public static final char RECEITA = 'R';
 	public static final char DESPESA = 'D';
 	
 	@DatabaseField(generatedId = true)
-	private int id;
+	protected int id;
 
 	@DatabaseField
-	private String tipoDocumento;
+	protected String tipoDocumento;
 
 	@DatabaseField
-	private String numeroDocumento;
+	protected String numeroDocumento;
 
 	@DatabaseField
-	private Date data;
+	protected Date data;
 
 	@DatabaseField
-	private float valor;
+	protected float valor;
 
 	/**
 	 * Classificação da transação, referente ao setor da transação.
 	 */
 	@DatabaseField
-	private String classificacao;
+	protected String classificacao;
 
 	@DatabaseField
-	private String descricao;
+	protected String descricao;
 
 	/**
 	 * Pode ser Candidato, Partido ou Comite, apenas
 	 */
 	@DatabaseField(foreign = true)
-	private Pessoa creditado;
+	protected Pessoa creditado;
 	
 	/**
 	 * tipo creditado deverá conter o nome da tabela a qual este está apontando
 	 */
 	@DatabaseField
-	private String tipoCreditado;
+	protected String tipoCreditado;
 
 	@DatabaseField(foreign = true)
-	private Pessoa debitado;
+	protected Pessoa debitado;
 	
 	/**
 	 * tipo debitado deverá conter o nome da tabela a qual este está apontando
 	 */
 	@DatabaseField
-	private String tipoDebitado;
+	protected String tipoDebitado;
 
 	/**
 	 * R = RECEITA, D = DESPESA
 	 */
 	@DatabaseField
-	private char tipo;
+	protected char tipo;
 
 	@DatabaseField
-	private String UF;
+	protected String UF;
 
 	@DatabaseField
-	private String municipio;
+	protected String municipio;
 
 //	@DatabaseField
-//	private Pessoa[] pessoa;
+//	protected Pessoa[] pessoa;
 
 	public String getTipoDocumento() {
 		return tipoDocumento;

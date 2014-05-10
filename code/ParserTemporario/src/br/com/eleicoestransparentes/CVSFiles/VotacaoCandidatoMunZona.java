@@ -2,6 +2,7 @@ package br.com.eleicoestransparentes.CVSFiles;
 
 import br.com.eleicoestransparentes.annotations.CVSAttr;
 import br.com.eleicoestransparentes.annotations.CVSClass;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.EBean;
 
 @CVSClass(notation = "VOTACAO_CANDIDATO_MUN_ZONA_<ANO ELEIÇÃO>_<SIGLA UF>", headerInFile = false)
 public class VotacaoCandidatoMunZona extends CVSFile{
@@ -77,7 +78,7 @@ public class VotacaoCandidatoMunZona extends CVSFile{
 	public String totalVotos;
 	
 	@Override
-	public Object[] getBeans() {
+	public EBean[] getBeans() {
 		// TODO Auto-generated method stub
 		return null;
 	}

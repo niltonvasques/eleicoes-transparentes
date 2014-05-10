@@ -4,25 +4,25 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "Comite")
-public class Comite {
+public class Comite extends EBean {
 
 	@DatabaseField(generatedId = true)
-	private int id;
+	protected int id;
 	
 	@DatabaseField(canBeNull = false)
-	private String UF;
+	protected String UF;
 
 	@DatabaseField
-	private String municipio;
+	protected String municipio;
 
 	@DatabaseField
-	private String tipo;
+	protected String tipo;
 	
 	@DatabaseField(foreign = true)
-	private Partido partido;
+	protected Partido partido;
 	
 	@DatabaseField(unique = true)
-	private String sequencialComite;
+	protected String sequencialComite;
 
 	public String getUF() {
 		return UF;

@@ -9,40 +9,40 @@ import com.j256.ormlite.table.DatabaseTable;
 public class PessoaJuridica extends Pessoa{
 
 	@DatabaseField(unique=true)
-	private String cnpj;
+	protected String cnpj;
 
 	/**
 	 * Fonte: wikipedia, etc
 	 */
 	@DatabaseField
-	private String resumo;
+	protected String resumo;
 
 	/**
 	 * Fonte: wikipedia, etc
 	 */
 	@DatabaseField
-	private String segmento;
+	protected String segmento;
 
 	/**
 	 * Fonte: wikipedia, etc
 	 */
 	@DatabaseField
-	private Date fundacao;
+	protected Date fundacao;
 
 	@DatabaseField
-	private String localizacao;
-
-	/**
-	 * Fonte: wikipedia, etc
-	 */
-	@DatabaseField
-	private float faturamento;
+	protected String localizacao;
 
 	/**
 	 * Fonte: wikipedia, etc
 	 */
 	@DatabaseField
-	private float lucro;
+	protected float faturamento;
+
+	/**
+	 * Fonte: wikipedia, etc
+	 */
+	@DatabaseField
+	protected float lucro;
 
 	public String getCnpj() {
 		return cnpj;

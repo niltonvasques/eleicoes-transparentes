@@ -22,7 +22,7 @@ public abstract class CVSToObject {
 	 * @param h - header
 	 */
 	private static Map<String, Integer> populateHeader(String[] h) {
-		Map<String, Integer> header =new HashMap<String, Integer>();
+		Map<String, Integer> header = new HashMap<String, Integer>();
 		for (int pos = 0; pos < h.length; pos++)
 			header.put(prepare(h[pos]), pos);
 		return header;

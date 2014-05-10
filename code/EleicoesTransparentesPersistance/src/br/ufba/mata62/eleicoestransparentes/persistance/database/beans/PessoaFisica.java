@@ -7,22 +7,22 @@ import com.j256.ormlite.table.DatabaseTable;
 public class PessoaFisica extends Pessoa{
 
 	@DatabaseField(unique=true)
-	private String cpf;
+	protected String cpf;
 
 	@DatabaseField
-	private String nacionalidade;
+	protected String nacionalidade;
 
 	@DatabaseField
-	private String localNascimento;
+	protected String localNascimento;
 
 	@DatabaseField
-	private boolean alfabetizado;
+	protected boolean alfabetizado;
 
 	@DatabaseField(foreign = true)
-	private Partido filiacao;
+	protected Partido filiacao;
 
 	@DatabaseField
-	private char sexo;
+	protected char sexo;
 	
 	public PessoaFisica() {
 	}

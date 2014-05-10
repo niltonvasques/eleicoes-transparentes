@@ -7,10 +7,10 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Partido extends PessoaJuridica{
 	
 	@DatabaseField(unique = true)
-	private String sigla;
+	protected String sigla;
 
 	@DatabaseField(unique = false)//TODO pq no arquivo que popula não tem essa info.
-	private int numero;
+	protected int numero;
 
 	public String getSigla() {
 		return sigla;

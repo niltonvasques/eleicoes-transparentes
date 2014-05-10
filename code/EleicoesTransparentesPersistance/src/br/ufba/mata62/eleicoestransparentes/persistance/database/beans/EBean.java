@@ -1,18 +1,9 @@
-package br.com.eleicoestransparentes.CVSFiles;
+package br.ufba.mata62.eleicoestransparentes.persistance.database.beans;
 
 import java.lang.reflect.Field;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.EBean;
+public class EBean {
 
-/**
- * Classe corresponde ao arquivo CVS de dados.
- * @author tiagogoncalves
- *
- */
-public abstract class CVSFile {
-	public String[] header = {};
-	
-	
 	public String toString() {
 		String str = this.getClass().getSimpleName()+":[";
 		Field[] fields = this.getClass().getDeclaredFields();
@@ -27,7 +18,4 @@ public abstract class CVSFile {
 		}
 		return str+"]";
 	}
-	
-	public abstract EBean[] getBeans();
-	
 }

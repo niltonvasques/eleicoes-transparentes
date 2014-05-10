@@ -4,16 +4,16 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "SetorEconomico")
-public class SetorEconomico {
+public class SetorEconomico extends EBean {
 
 	@DatabaseField(generatedId = true)
-	private int id;
+	protected int id;
 	
 	@DatabaseField(unique = true)
-	private String codSetorEco;
+	protected String codSetorEco;
 
 	@DatabaseField
-	private String nome;
+	protected String nome;
 
 	public String getCodSetorEco() {
 		return codSetorEco;

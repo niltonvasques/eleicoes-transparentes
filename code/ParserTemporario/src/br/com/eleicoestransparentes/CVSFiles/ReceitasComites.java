@@ -2,6 +2,7 @@ package br.com.eleicoestransparentes.CVSFiles;
 
 import br.com.eleicoestransparentes.annotations.CVSAttr;
 import br.com.eleicoestransparentes.annotations.CVSClass;
+import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.EBean;
 
 @CVSClass(notation = "ReceitasComites", headerInFile = true)
 public class ReceitasComites extends CVSFile {
@@ -53,8 +54,9 @@ public class ReceitasComites extends CVSFile {
 	public String descricaoReceita;
 	
 	@Override
-	public Object[] getBeans() {
+	public EBean[] getBeans() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }
