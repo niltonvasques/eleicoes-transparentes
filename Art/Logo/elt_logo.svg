@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="elt_logo.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-50.382453"
+     inkscape:cy="589.75648"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="738"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;fill-opacity:1;stroke:none"
+       id="rect3039"
+       width="808.57172"
+       height="808.57172"
+       x="-117.14287"
+       y="200.93333"
+       inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\documentation\Art\Logo\elt_logo_sem_texto_alinhado.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       id="g3029">
+      <text
+         sodipodi:linespacing="125%"
+         id="text3757-1"
+         y="436.70847"
+         x="-1370.679"
+         style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#3e4095;fill-opacity:1;stroke:none;font-family:Eras Demi ITC;-inkscape-font-specification:Eras Demi ITC"
+         xml:space="preserve"><tspan
+           y="436.70847"
+           x="-1370.679"
+           id="tspan3759-7"
+           sodipodi:role="line">Eleições</tspan></text>
+      <g
+         transform="translate(-1500,-362.85714)"
+         id="g3826">
+        <path
+           style="fill:#00a859;fill-opacity:1;stroke:none"
+           d="M 77.56049,133.3727 C -383.10924,1003.3798 1462.6758,651.15754 549.60133,235.07068 456.36548,209.4825 407.38854,261.30323 338.24626,247.1925 249.799,229.14196 207.38098,132.39259 95.576416,126.98434 c 0,0 -7.315834,-0.45503 -10.660467,0.77259 -2.961136,1.08686 -7.355459,5.61577 -7.355459,5.61577 z"
+           id="rect3782"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccacsc" />
+        <path
+           style="fill:#ffcc29;fill-opacity:1;stroke:none"
+           d="m 365.85253,265.95537 c 0,0 339.88028,58.00202 343.90492,192.97094 3.17112,106.34572 -280.75178,197.11545 -280.75178,197.11545 0,0 -333.648704,-91.86506 -330.624102,-225.16981 C 100.75749,326.15679 365.85253,265.95537 365.85253,265.95537 z"
+           id="rect3755"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscac" />
+        <path
+           style="fill:#3e4095;fill-opacity:1;stroke:none"
+           d="m 586.6772,444.9341 c 14.35147,75.23341 -94.3656,136.98995 -168.15,144.99862 -59.71827,6.48191 -181.98048,-45.82613 -208.08744,-122.84523 -26.95736,-79.52791 85.39747,-151.12342 160.27184,-159.2633 84.77151,-9.21584 204.47128,70.44793 215.9656,137.10991 z"
+           id="path2985"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cssac" />
+      </g>
+      <text
+         transform="scale(0.81233593,1.2310178)"
+         sodipodi:linespacing="125%"
+         id="text3757-1-4"
+         y="435.44098"
+         x="-1680.0764"
+         style="font-size:101.44972229px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#3e4095;fill-opacity:1;stroke:none;font-family:Eras Demi ITC;-inkscape-font-specification:Eras Demi ITC"
+         xml:space="preserve"><tspan
+           y="435.44098"
+           x="-1680.0764"
+           id="tspan3759-7-0"
+           sodipodi:role="line">transparentes</tspan></text>
+    </g>
+    <g
+       id="g3826-4"
+       transform="translate(-117.55691,206.2901)"
+       inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\documentation\Art\Logo\elt_logo_sem_texto_alinhado.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sodipodi:nodetypes="ccacsc"
+         inkscape:connector-curvature="0"
+         id="rect3782-0"
+         d="M 77.56049,133.3727 C -383.10924,1003.3798 1462.6758,651.15754 549.60133,235.07068 456.36548,209.4825 407.38854,261.30323 338.24626,247.1925 249.799,229.14196 207.38098,132.39259 95.576416,126.98434 c 0,0 -7.315834,-0.45503 -10.660467,0.77259 -2.961136,1.08686 -7.355459,5.61577 -7.355459,5.61577 z"
+         style="fill:#00a859;fill-opacity:1;stroke:none" />
+      <path
+         sodipodi:nodetypes="cscac"
+         inkscape:connector-curvature="0"
+         id="rect3755-9"
+         d="m 365.85253,265.95537 c 0,0 339.88028,58.00202 343.90492,192.97094 3.17112,106.34572 -280.75178,197.11545 -280.75178,197.11545 0,0 -333.648704,-91.86506 -330.624102,-225.16981 C 100.75749,326.15679 365.85253,265.95537 365.85253,265.95537 z"
+         style="fill:#ffcc29;fill-opacity:1;stroke:none" />
+      <path
+         sodipodi:nodetypes="cssac"
+         inkscape:connector-curvature="0"
+         id="path2985-4"
+         d="m 586.6772,444.9341 c 14.35147,75.23341 -94.3656,136.98995 -168.15,144.99862 -59.71827,6.48191 -181.98048,-45.82613 -208.08744,-122.84523 -26.95736,-79.52791 85.39747,-151.12342 160.27184,-159.2633 84.77151,-9.21584 204.47128,70.44793 215.9656,137.10991 z"
+         style="fill:#3e4095;fill-opacity:1;stroke:none" />
+    </g>
+  </g>
+</svg>
