@@ -14,7 +14,7 @@
    id="svg2994"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="eleitorado.svg">
+   sodipodi:docname="resultados.svg">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -22,11 +22,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="408.62831"
-     inkscape:cy="445.54461"
+     inkscape:zoom="0.5"
+     inkscape:cx="23.452398"
+     inkscape:cy="411.94093"
      inkscape:document-units="px"
-     inkscape:current-layer="svg2994"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1280"
      inkscape:window-height="738"
@@ -52,16 +52,73 @@
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
-    <rect
-       y="430.93402"
-       x="194.14285"
-       height="256.57101"
-       width="256.57101"
-       id="rect3805"
-       style="fill:#3e4095;fill-opacity:1;stroke:none"
-       inkscape:export-filename="C:\Users\Tiago\Desktop\icons_elt\eleitorado.png"
+    <g
+       id="g3908"
+       inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\3-Resultados\resultado_i_y.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90"
+       transform="translate(-34.999985,-22.999956)">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Users\Tiago\Desktop\icons_elt\eleitorado.png"
+         style="fill:#ffcc29;fill-opacity:1;stroke:none"
+         id="rect3805-4"
+         width="256.57101"
+         height="256.57101"
+         x="306.71448"
+         y="547.0766"
+         ry="48" />
+      <g
+         style="fill:#ffffff"
+         transform="matrix(0.7734375,0,0,0.7734375,336,575.58871)"
+         id="Layer_2-5">
+        <circle
+           d="M 256,129 C 256,199.69245 198.69245,257 128,257 57.307552,257 0,199.69245 0,129 0,58.307552 57.307552,1 128,1 198.69245,1 256,58.307552 256,129 z"
+           style="fill:#ffffff"
+           sodipodi:ry="128"
+           sodipodi:rx="128"
+           sodipodi:cy="129"
+           sodipodi:cx="128"
+           cx="128"
+           cy="129"
+           r="128"
+           id="circle6-1" />
+      </g>
+      <rect
+         style="fill:#ffcc29;fill-opacity:1"
+         height="22.669453"
+         width="59.328842"
+         x="378.65894"
+         y="663.25397"
+         id="rect9-7" />
+      <rect
+         style="fill:#ffcc29;fill-opacity:1"
+         height="22.669453"
+         width="106.33373"
+         x="378.65973"
+         y="635.02509"
+         id="rect11-1" />
+      <rect
+         style="fill:#ffcc29;fill-opacity:1"
+         height="22.669453"
+         width="91.331367"
+         x="378.65973"
+         y="692.36694"
+         id="rect13-1" />
+      <g
+         style="fill:#ffcc29;fill-opacity:1"
+         id="Layer_3-5"
+         transform="matrix(0.7734375,0,0,0.7734375,336,575.58871)">
+        <rect
+           style="fill:#ffcc29;fill-opacity:1"
+           id="rect16-27"
+           y="75.021004"
+           x="48.687"
+           width="6.467"
+           height="112.366" />
+      </g>
+    </g>
     <path
        transform="translate(0,252.36215)"
        inkscape:connector-curvature="0"
@@ -189,81 +246,141 @@
        d=""
        style="fill:#3e4095;fill-opacity:1;stroke:none" />
     <g
-       transform="translate(-0.54266276,-3.9473211)"
-       id="g4203"
-       inkscape:export-filename="C:\Users\Tiago\Desktop\icons_elt\eleitorado.png"
+       id="g3890"
+       inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\3-Resultados\resultado_i_b.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
+       inkscape:export-ydpi="90"
+       transform="translate(350.00002,-290.00002)">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Users\Tiago\Desktop\icons_elt\eleitorado.png"
+         style="fill:#3e4095;fill-opacity:1;stroke:none"
+         id="rect3805"
+         width="256.57101"
+         height="256.57101"
+         x="271.71448"
+         y="524.07666"
+         ry="51" />
       <g
-         transform="matrix(0.78639238,0,0,0.78639238,137.0166,90.638226)"
-         id="g4137-1">
-        <path
-           inkscape:connector-curvature="0"
-           d="m 284.99483,555.4311 c -16.59409,17.88683 -20.45664,45.71601 -22.53286,68.95401 l 0,0 c -1.32408,14.78425 2.63249,22.384 15.66958,28.76152 l 0,0 c 19.08556,9.33908 41.38338,12.4965 62.39629,9.6603 l 0,0 c 5.26498,-0.71296 11.60333,-2.60115 16.44523,-4.74788 l 0,0 c 9.6603,-4.28563 24.55424,-9.69947 27.09271,-21.40466 l 0,0 c 2.89104,-13.27213 -4.80272,-31.40185 -8.58693,-42.39406 l 0,0 c -6.4637,-18.74082 -16.81346,-43.12269 -37.05073,-50.46389 l 0,0 c -1.80984,-0.65029 -3.67452,-1.14388 -5.57054,-1.46511 l 0,0 c -5.62538,-0.9245 -11.31344,-1.29274 -16.8448,-0.90883 l 0,0 c -11.60333,0.80698 -22.56421,4.89674 -31.01795,14.0086 l 0,0 z"
-           style="fill:#ffffff;fill-opacity:1"
-           id="path5-7" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 333.73317,538.53554 12.01074,13.2173 c 0,0 -1.77066,16.21018 -12.75504,25.36906 l -10.49862,-16.44523 -16.19452,16.99367 c 0,0 -11.91672,-17.53427 -8.7593,-31.90328 3.17309,-14.36118 36.19674,-7.23152 36.19674,-7.23152 z"
-           style="fill:#3e4095"
-           id="path7-4" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 320.18853,561.17026 c 23.15181,0 42.03366,-18.88185 42.03366,-42.03367 0,-23.15181 -18.88185,-42.03366 -42.03366,-42.03366 -23.15181,0 -42.03367,18.88185 -42.03367,42.03366 0,23.15182 18.88186,42.03367 42.03367,42.03367 z"
-           style="fill:#3e4095;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.7059148;stroke-miterlimit:2.61310005;stroke-opacity:1"
-           id="path9-0" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 296.23524,478.16433 c -16.30421,8.38323 -19.23442,27.5393 -17.8555,44.01587 l 0,0 c 8.82198,-0.61895 22.10195,-7.1375 28.90255,-12.63752 l 0,0 c -2.37394,4.49717 -6.34618,8.63394 -10.67882,10.3811 l 0,0 c 13.2408,-3.18876 21.71021,-9.7935 31.33133,-19.28926 l 0,0 c -1.31624,5.84475 -5.01426,11.54848 -9.01,15.92813 l 0,0 c 6.99646,0.047 12.65318,-7.42738 17.31488,-11.97156 l 0,0 c -1.43376,3.90956 -2.89103,7.56057 -5.5627,10.87469 l 0,0 c 5.49219,-1.03419 10.15389,-5.12396 13.33482,-9.74648 l 0,0 c 3.38463,7.43521 11.76786,9.35474 18.2864,12.01857 l 0,0 c -0.008,-0.11752 -0.008,-0.22721 -0.0157,-0.32906 l 0,0 c -1.21436,-17.91817 -4.98289,-33.00015 -23.36332,-40.65474 l 0,0 c -6.14247,-2.55415 -13.00575,-3.85472 -19.89253,-3.85472 l 0,0 c -7.95232,0 -15.9203,1.73932 -22.79141,5.26498 l 0,0 z"
-           style="fill:#ffffff;fill-opacity:1"
-           id="path11-9" />
+         transform="matrix(0.7734375,0,0,0.7734375,-46.273453,212.76957)"
+         id="g3816">
+        <g
+           id="Layer_2"
+           transform="translate(449,439.36215)"
+           style="fill:#ffffff">
+          <circle
+             id="circle6"
+             r="128"
+             cy="129"
+             cx="128"
+             sodipodi:cx="128"
+             sodipodi:cy="129"
+             sodipodi:rx="128"
+             sodipodi:ry="128"
+             style="fill:#ffffff"
+             d="M 256,129 C 256,199.69245 198.69245,257 128,257 57.307552,257 0,199.69245 0,129 0,58.307552 57.307552,1 128,1 198.69245,1 256,58.307552 256,129 z" />
+        </g>
+        <rect
+           id="rect9"
+           y="552.70715"
+           x="504.155"
+           width="76.708"
+           height="29.309999"
+           style="fill:#3e4095;fill-opacity:1" />
+        <rect
+           id="rect11"
+           y="516.20917"
+           x="504.15601"
+           width="137.48199"
+           height="29.309999"
+           style="fill:#3e4095;fill-opacity:1" />
+        <rect
+           id="rect13"
+           y="590.34814"
+           x="504.15601"
+           width="118.085"
+           height="29.309999"
+           style="fill:#3e4095;fill-opacity:1" />
+        <g
+           transform="translate(449,439.36215)"
+           id="Layer_3"
+           style="fill:#3e4095;fill-opacity:1">
+          <rect
+             height="112.366"
+             width="6.467"
+             x="48.687"
+             y="75.021004"
+             id="rect16"
+             style="fill:#3e4095;fill-opacity:1" />
+        </g>
       </g>
+    </g>
+    <g
+       id="g3925"
+       inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\3-Resultados\resultado_i_g.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="translate(-741.71788,-250.34773)">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Users\Tiago\Desktop\icons_elt\eleitorado.png"
+         style="fill:#00a859;fill-opacity:1;stroke:none"
+         id="rect3805-1"
+         width="256.57101"
+         height="256.57101"
+         x="261.43237"
+         y="520.42438"
+         ry="48" />
       <g
-         transform="matrix(0.78639238,0,0,0.78639238,0.19143418,90.638226)"
-         id="g4137-1-4">
-        <path
-           inkscape:connector-curvature="0"
-           d="m 284.99483,555.4311 c -16.59409,17.88683 -20.45664,45.71601 -22.53286,68.95401 l 0,0 c -1.32408,14.78425 2.63249,22.384 15.66958,28.76152 l 0,0 c 19.08556,9.33908 41.38338,12.4965 62.39629,9.6603 l 0,0 c 5.26498,-0.71296 11.60333,-2.60115 16.44523,-4.74788 l 0,0 c 9.6603,-4.28563 24.55424,-9.69947 27.09271,-21.40466 l 0,0 c 2.89104,-13.27213 -4.80272,-31.40185 -8.58693,-42.39406 l 0,0 c -6.4637,-18.74082 -16.81346,-43.12269 -37.05073,-50.46389 l 0,0 c -1.80984,-0.65029 -3.67452,-1.14388 -5.57054,-1.46511 l 0,0 c -5.62538,-0.9245 -11.31344,-1.29274 -16.8448,-0.90883 l 0,0 c -11.60333,0.80698 -22.56421,4.89674 -31.01795,14.0086 l 0,0 z"
-           style="fill:#ffffff;fill-opacity:1"
-           id="path5-7-8" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 333.73317,538.53554 12.01074,13.2173 c 0,0 -1.77066,16.21018 -12.75504,25.36906 l -10.49862,-16.44523 -16.19452,16.99367 c 0,0 -11.91672,-17.53427 -8.7593,-31.90328 3.17309,-14.36118 36.19674,-7.23152 36.19674,-7.23152 z"
-           style="fill:#3e4095"
-           id="path7-4-8" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 320.18853,561.17026 c 23.15181,0 42.03366,-18.88185 42.03366,-42.03367 0,-23.15181 -18.88185,-42.03366 -42.03366,-42.03366 -23.15181,0 -42.03367,18.88185 -42.03367,42.03366 0,23.15182 18.88186,42.03367 42.03367,42.03367 z"
-           style="fill:#3e4095;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.7059148;stroke-miterlimit:2.61310005;stroke-opacity:1"
-           id="path9-0-2" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 296.23524,478.16433 c -16.30421,8.38323 -19.23442,27.5393 -17.8555,44.01587 l 0,0 c 8.82198,-0.61895 22.10195,-7.1375 28.90255,-12.63752 l 0,0 c -2.37394,4.49717 -6.34618,8.63394 -10.67882,10.3811 l 0,0 c 13.2408,-3.18876 21.71021,-9.7935 31.33133,-19.28926 l 0,0 c -1.31624,5.84475 -5.01426,11.54848 -9.01,15.92813 l 0,0 c 6.99646,0.047 12.65318,-7.42738 17.31488,-11.97156 l 0,0 c -1.43376,3.90956 -2.89103,7.56057 -5.5627,10.87469 l 0,0 c 5.49219,-1.03419 10.15389,-5.12396 13.33482,-9.74648 l 0,0 c 3.38463,7.43521 11.76786,9.35474 18.2864,12.01857 l 0,0 c -0.008,-0.11752 -0.008,-0.22721 -0.0157,-0.32906 l 0,0 c -1.21436,-17.91817 -4.98289,-33.00015 -23.36332,-40.65474 l 0,0 c -6.14247,-2.55415 -13.00575,-3.85472 -19.89253,-3.85472 l 0,0 c -7.95232,0 -15.9203,1.73932 -22.79141,5.26498 l 0,0 z"
-           style="fill:#ffffff;fill-opacity:1"
-           id="path11-9-4" />
+         style="fill:#ffffff"
+         transform="matrix(0.7734375,0,0,0.7734375,290.71792,548.93645)"
+         id="Layer_2-4">
+        <circle
+           d="M 256,129 C 256,199.69245 198.69245,257 128,257 57.307552,257 0,199.69245 0,129 0,58.307552 57.307552,1 128,1 198.69245,1 256,58.307552 256,129 z"
+           style="fill:#ffffff"
+           sodipodi:ry="128"
+           sodipodi:rx="128"
+           sodipodi:cy="129"
+           sodipodi:cx="128"
+           cx="128"
+           cy="129"
+           r="128"
+           id="circle6-0" />
       </g>
+      <rect
+         style="fill:#00a859;fill-opacity:1"
+         height="22.669453"
+         width="59.328842"
+         x="333.37686"
+         y="636.60175"
+         id="rect9-9" />
+      <rect
+         style="fill:#00a859;fill-opacity:1"
+         height="22.669453"
+         width="106.33373"
+         x="333.37766"
+         y="608.3728"
+         id="rect11-4" />
+      <rect
+         style="fill:#00a859;fill-opacity:1"
+         height="22.669453"
+         width="91.331367"
+         x="333.37766"
+         y="665.71466"
+         id="rect13-8" />
       <g
-         id="g4137">
-        <path
-           inkscape:connector-curvature="0"
-           d="m 284.99483,555.4311 c -16.59409,17.88683 -20.45664,45.71601 -22.53286,68.95401 l 0,0 c -1.32408,14.78425 2.63249,22.384 15.66958,28.76152 l 0,0 c 19.08556,9.33908 41.38338,12.4965 62.39629,9.6603 l 0,0 c 5.26498,-0.71296 11.60333,-2.60115 16.44523,-4.74788 l 0,0 c 9.6603,-4.28563 24.55424,-9.69947 27.09271,-21.40466 l 0,0 c 2.89104,-13.27213 -4.80272,-31.40185 -8.58693,-42.39406 l 0,0 c -6.4637,-18.74082 -16.81346,-43.12269 -37.05073,-50.46389 l 0,0 c -1.80984,-0.65029 -3.67452,-1.14388 -5.57054,-1.46511 l 0,0 c -5.62538,-0.9245 -11.31344,-1.29274 -16.8448,-0.90883 l 0,0 c -11.60333,0.80698 -22.56421,4.89674 -31.01795,14.0086 l 0,0 z"
-           style="fill:#ffffff;fill-opacity:1"
-           id="path5" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 333.73317,538.53554 12.01074,13.2173 c 0,0 -1.77066,16.21018 -12.75504,25.36906 l -10.49862,-16.44523 -16.19452,16.99367 c 0,0 -11.91672,-17.53427 -8.7593,-31.90328 3.17309,-14.36118 36.19674,-7.23152 36.19674,-7.23152 z"
-           style="fill:#3e4095"
-           id="path7" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 320.18853,561.17026 c 23.15181,0 42.03366,-18.88185 42.03366,-42.03367 0,-23.15181 -18.88185,-42.03366 -42.03366,-42.03366 -23.15181,0 -42.03367,18.88185 -42.03367,42.03366 0,23.15182 18.88186,42.03367 42.03367,42.03367 z"
-           style="fill:#3e4095;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.7059148;stroke-miterlimit:2.61310005;stroke-opacity:1"
-           id="path9" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 296.23524,478.16433 c -16.30421,8.38323 -19.23442,27.5393 -17.8555,44.01587 l 0,0 c 8.82198,-0.61895 22.10195,-7.1375 28.90255,-12.63752 l 0,0 c -2.37394,4.49717 -6.34618,8.63394 -10.67882,10.3811 l 0,0 c 13.2408,-3.18876 21.71021,-9.7935 31.33133,-19.28926 l 0,0 c -1.31624,5.84475 -5.01426,11.54848 -9.01,15.92813 l 0,0 c 6.99646,0.047 12.65318,-7.42738 17.31488,-11.97156 l 0,0 c -1.43376,3.90956 -2.89103,7.56057 -5.5627,10.87469 l 0,0 c 5.49219,-1.03419 10.15389,-5.12396 13.33482,-9.74648 l 0,0 c 3.38463,7.43521 11.76786,9.35474 18.2864,12.01857 l 0,0 c -0.008,-0.11752 -0.008,-0.22721 -0.0157,-0.32906 l 0,0 c -1.21436,-17.91817 -4.98289,-33.00015 -23.36332,-40.65474 l 0,0 c -6.14247,-2.55415 -13.00575,-3.85472 -19.89253,-3.85472 l 0,0 c -7.95232,0 -15.9203,1.73932 -22.79141,5.26498 l 0,0 z"
-           style="fill:#ffffff;fill-opacity:1"
-           id="path11" />
+         style="fill:#00a859;fill-opacity:1"
+         id="Layer_3-8"
+         transform="matrix(0.7734375,0,0,0.7734375,290.71792,548.93645)">
+        <rect
+           style="fill:#00a859;fill-opacity:1"
+           id="rect16-2"
+           y="75.021004"
+           x="48.687"
+           width="6.467"
+           height="112.366" />
       </g>
     </g>
   </g>

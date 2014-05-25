@@ -14,7 +14,7 @@
    id="svg2994"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="eleitorado.svg">
+   sodipodi:docname="favoritos.svg">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -22,9 +22,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="408.62831"
-     inkscape:cy="445.54461"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="343.83891"
+     inkscape:cy="213.73834"
      inkscape:document-units="px"
      inkscape:current-layer="svg2994"
      showgrid="false"
@@ -48,20 +48,56 @@
     </rdf:RDF>
   </metadata>
   <g
+     id="g3020"
+     transform="translate(57.760284,15.778854)"
+     inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\6-Favoritos\favorito__i_g.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90">
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\6-Favoritos\favorito_g.png"
+       style="fill:#00a859;fill-opacity:1;stroke:none"
+       id="rect3805-2"
+       width="256.57101"
+       height="256.57101"
+       x="213.95421"
+       y="255.93564"
+       ry="50.91169" />
+    <g
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\6-Favoritos\favorito_g.png"
+       transform="translate(22.403535,91.574721)"
+       id="g3854-0">
+      <path
+         id="path7-1-9"
+         stroke-miterlimit="10"
+         d="m 325.08615,287.92171 v -75 c 0,0 69.5,-0.834 75,75 h -75 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff;stroke:none" />
+      <path
+         id="path9-7-7"
+         stroke-miterlimit="10"
+         d="m 314.58615,222.37171 c -41.421,0 -75,33.579 -75,75 0,41.42097 33.579,74.99997 75,74.99997 41.422,0 75,-33.579 75,-74.99997 h -75 v -75 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff;stroke:none" />
+    </g>
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\6-Favoritos\favorito_g.png"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:connector-curvature="0"
+       d="m 438.31834,460.08576 c 6.3358,-8.8255 12.8746,-7.457 12.8291,-7.5536 8.6985,-0.045 13.4523,5.5793 14.5591,10.2633 6.437,18.449 -30.4415,48.9133 -26.8713,45.3641 -13.5771,-9.1129 -30.0457,-29.4073 -28.1325,-42.026 -0.4265,-9.1774 9.4093,-13.1868 12.0734,-13.3308 6.8233,-0.8272 10.4209,0.6032 15.5422,7.283 z"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.05984713px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="path3917" />
+  </g>
+  <g
      transform="translate(0,-252.36215)"
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
-    <rect
-       y="430.93402"
-       x="194.14285"
-       height="256.57101"
-       width="256.57101"
-       id="rect3805"
-       style="fill:#3e4095;fill-opacity:1;stroke:none"
-       inkscape:export-filename="C:\Users\Tiago\Desktop\icons_elt\eleitorado.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
     <path
        transform="translate(0,252.36215)"
        inkscape:connector-curvature="0"
@@ -188,83 +224,106 @@
        id="path3992"
        d=""
        style="fill:#3e4095;fill-opacity:1;stroke:none" />
+  </g>
+  <g
+     id="g3027"
+     transform="translate(-1221.1122,484.79479)"
+     inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\6-Favoritos\favorito__i_b.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90">
     <g
-       transform="translate(-0.54266276,-3.9473211)"
-       id="g4203"
-       inkscape:export-filename="C:\Users\Tiago\Desktop\icons_elt\eleitorado.png"
+       inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
+       inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\6-Favoritos\favorito_b.png"
+       id="g3859-3"
+       transform="translate(778.4634,-101.73839)">
+      <rect
+         transform="translate(0,-252.36215)"
+         y="430.93402"
+         x="271.71448"
+         height="256.57101"
+         width="256.57101"
+         id="rect3805-6"
+         style="fill:#3e4095;fill-opacity:1;stroke:none"
+         inkscape:export-filename="C:\Users\Tiago\Desktop\icons_elt\eleitorado.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         ry="50.91169" />
       <g
-         transform="matrix(0.78639238,0,0,0.78639238,137.0166,90.638226)"
-         id="g4137-1">
+         id="g3854-1"
+         transform="translate(80.163835,14.210876)">
         <path
+           style="fill:#ffffff;stroke:none"
            inkscape:connector-curvature="0"
-           d="m 284.99483,555.4311 c -16.59409,17.88683 -20.45664,45.71601 -22.53286,68.95401 l 0,0 c -1.32408,14.78425 2.63249,22.384 15.66958,28.76152 l 0,0 c 19.08556,9.33908 41.38338,12.4965 62.39629,9.6603 l 0,0 c 5.26498,-0.71296 11.60333,-2.60115 16.44523,-4.74788 l 0,0 c 9.6603,-4.28563 24.55424,-9.69947 27.09271,-21.40466 l 0,0 c 2.89104,-13.27213 -4.80272,-31.40185 -8.58693,-42.39406 l 0,0 c -6.4637,-18.74082 -16.81346,-43.12269 -37.05073,-50.46389 l 0,0 c -1.80984,-0.65029 -3.67452,-1.14388 -5.57054,-1.46511 l 0,0 c -5.62538,-0.9245 -11.31344,-1.29274 -16.8448,-0.90883 l 0,0 c -11.60333,0.80698 -22.56421,4.89674 -31.01795,14.0086 l 0,0 z"
-           style="fill:#ffffff;fill-opacity:1"
-           id="path5-7" />
+           d="m 325.08615,287.92171 v -75 c 0,0 69.5,-0.834 75,75 h -75 z"
+           stroke-miterlimit="10"
+           id="path7-1-5" />
         <path
+           style="fill:#ffffff;stroke:none"
            inkscape:connector-curvature="0"
-           d="m 333.73317,538.53554 12.01074,13.2173 c 0,0 -1.77066,16.21018 -12.75504,25.36906 l -10.49862,-16.44523 -16.19452,16.99367 c 0,0 -11.91672,-17.53427 -8.7593,-31.90328 3.17309,-14.36118 36.19674,-7.23152 36.19674,-7.23152 z"
-           style="fill:#3e4095"
-           id="path7-4" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 320.18853,561.17026 c 23.15181,0 42.03366,-18.88185 42.03366,-42.03367 0,-23.15181 -18.88185,-42.03366 -42.03366,-42.03366 -23.15181,0 -42.03367,18.88185 -42.03367,42.03366 0,23.15182 18.88186,42.03367 42.03367,42.03367 z"
-           style="fill:#3e4095;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.7059148;stroke-miterlimit:2.61310005;stroke-opacity:1"
-           id="path9-0" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 296.23524,478.16433 c -16.30421,8.38323 -19.23442,27.5393 -17.8555,44.01587 l 0,0 c 8.82198,-0.61895 22.10195,-7.1375 28.90255,-12.63752 l 0,0 c -2.37394,4.49717 -6.34618,8.63394 -10.67882,10.3811 l 0,0 c 13.2408,-3.18876 21.71021,-9.7935 31.33133,-19.28926 l 0,0 c -1.31624,5.84475 -5.01426,11.54848 -9.01,15.92813 l 0,0 c 6.99646,0.047 12.65318,-7.42738 17.31488,-11.97156 l 0,0 c -1.43376,3.90956 -2.89103,7.56057 -5.5627,10.87469 l 0,0 c 5.49219,-1.03419 10.15389,-5.12396 13.33482,-9.74648 l 0,0 c 3.38463,7.43521 11.76786,9.35474 18.2864,12.01857 l 0,0 c -0.008,-0.11752 -0.008,-0.22721 -0.0157,-0.32906 l 0,0 c -1.21436,-17.91817 -4.98289,-33.00015 -23.36332,-40.65474 l 0,0 c -6.14247,-2.55415 -13.00575,-3.85472 -19.89253,-3.85472 l 0,0 c -7.95232,0 -15.9203,1.73932 -22.79141,5.26498 l 0,0 z"
-           style="fill:#ffffff;fill-opacity:1"
-           id="path11-9" />
+           d="m 314.58615,222.37171 c -41.421,0 -75,33.579 -75,75 0,41.42097 33.579,74.99997 75,74.99997 41.422,0 75,-33.579 75,-74.99997 h -75 v -75 z"
+           stroke-miterlimit="10"
+           id="path9-7-4" />
       </g>
+    </g>
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\6-Favoritos\favorito_b.png"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:connector-curvature="0"
+       d="m 1274.5421,280.98358 c 6.3358,-8.82552 12.8746,-7.45706 12.8291,-7.55364 8.6984,-0.0448 13.4522,5.57926 14.5591,10.26327 6.4369,18.44906 -30.4416,48.91328 -26.8714,45.36412 -13.5771,-9.11289 -30.0457,-29.40725 -28.1324,-42.02596 -0.4265,-9.17748 9.4093,-13.18683 12.0733,-13.33088 6.8233,-0.82717 10.421,0.60328 15.5423,7.28309 z"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.05984713px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="path3880" />
+  </g>
+  <g
+     id="g3035"
+     transform="translate(-1357.645,-560.22405)"
+     inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\6-Favoritos\favorito_i__y.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90">
+    <g
+       transform="translate(851.35656,610.94026)"
+       id="g3934">
+      <rect
+         y="178.57187"
+         x="271.71448"
+         height="256.57101"
+         width="256.57101"
+         id="rect3805"
+         style="fill:#ffcc29;fill-opacity:1;stroke:none"
+         inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\6-Favoritos\favorito_y.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         ry="49.497475" />
       <g
-         transform="matrix(0.78639238,0,0,0.78639238,0.19143418,90.638226)"
-         id="g4137-1-4">
+         id="g3854"
+         transform="translate(80.163835,14.210876)"
+         inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\6-Favoritos\favorito_y.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90">
         <path
+           style="fill:#ffffff;stroke:none"
            inkscape:connector-curvature="0"
-           d="m 284.99483,555.4311 c -16.59409,17.88683 -20.45664,45.71601 -22.53286,68.95401 l 0,0 c -1.32408,14.78425 2.63249,22.384 15.66958,28.76152 l 0,0 c 19.08556,9.33908 41.38338,12.4965 62.39629,9.6603 l 0,0 c 5.26498,-0.71296 11.60333,-2.60115 16.44523,-4.74788 l 0,0 c 9.6603,-4.28563 24.55424,-9.69947 27.09271,-21.40466 l 0,0 c 2.89104,-13.27213 -4.80272,-31.40185 -8.58693,-42.39406 l 0,0 c -6.4637,-18.74082 -16.81346,-43.12269 -37.05073,-50.46389 l 0,0 c -1.80984,-0.65029 -3.67452,-1.14388 -5.57054,-1.46511 l 0,0 c -5.62538,-0.9245 -11.31344,-1.29274 -16.8448,-0.90883 l 0,0 c -11.60333,0.80698 -22.56421,4.89674 -31.01795,14.0086 l 0,0 z"
-           style="fill:#ffffff;fill-opacity:1"
-           id="path5-7-8" />
+           d="m 325.08615,287.92171 v -75 c 0,0 69.5,-0.834 75,75 h -75 z"
+           stroke-miterlimit="10"
+           id="path7-1" />
         <path
+           style="fill:#ffffff;stroke:none"
            inkscape:connector-curvature="0"
-           d="m 333.73317,538.53554 12.01074,13.2173 c 0,0 -1.77066,16.21018 -12.75504,25.36906 l -10.49862,-16.44523 -16.19452,16.99367 c 0,0 -11.91672,-17.53427 -8.7593,-31.90328 3.17309,-14.36118 36.19674,-7.23152 36.19674,-7.23152 z"
-           style="fill:#3e4095"
-           id="path7-4-8" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 320.18853,561.17026 c 23.15181,0 42.03366,-18.88185 42.03366,-42.03367 0,-23.15181 -18.88185,-42.03366 -42.03366,-42.03366 -23.15181,0 -42.03367,18.88185 -42.03367,42.03366 0,23.15182 18.88186,42.03367 42.03367,42.03367 z"
-           style="fill:#3e4095;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.7059148;stroke-miterlimit:2.61310005;stroke-opacity:1"
-           id="path9-0-2" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 296.23524,478.16433 c -16.30421,8.38323 -19.23442,27.5393 -17.8555,44.01587 l 0,0 c 8.82198,-0.61895 22.10195,-7.1375 28.90255,-12.63752 l 0,0 c -2.37394,4.49717 -6.34618,8.63394 -10.67882,10.3811 l 0,0 c 13.2408,-3.18876 21.71021,-9.7935 31.33133,-19.28926 l 0,0 c -1.31624,5.84475 -5.01426,11.54848 -9.01,15.92813 l 0,0 c 6.99646,0.047 12.65318,-7.42738 17.31488,-11.97156 l 0,0 c -1.43376,3.90956 -2.89103,7.56057 -5.5627,10.87469 l 0,0 c 5.49219,-1.03419 10.15389,-5.12396 13.33482,-9.74648 l 0,0 c 3.38463,7.43521 11.76786,9.35474 18.2864,12.01857 l 0,0 c -0.008,-0.11752 -0.008,-0.22721 -0.0157,-0.32906 l 0,0 c -1.21436,-17.91817 -4.98289,-33.00015 -23.36332,-40.65474 l 0,0 c -6.14247,-2.55415 -13.00575,-3.85472 -19.89253,-3.85472 l 0,0 c -7.95232,0 -15.9203,1.73932 -22.79141,5.26498 l 0,0 z"
-           style="fill:#ffffff;fill-opacity:1"
-           id="path11-9-4" />
+           d="m 314.58615,222.37171 c -41.421,0 -75,33.579 -75,75 0,41.42097 33.579,74.99997 75,74.99997 41.422,0 75,-33.579 75,-74.99997 h -75 v -75 z"
+           stroke-miterlimit="10"
+           id="path9-7" />
       </g>
-      <g
-         id="g4137">
-        <path
-           inkscape:connector-curvature="0"
-           d="m 284.99483,555.4311 c -16.59409,17.88683 -20.45664,45.71601 -22.53286,68.95401 l 0,0 c -1.32408,14.78425 2.63249,22.384 15.66958,28.76152 l 0,0 c 19.08556,9.33908 41.38338,12.4965 62.39629,9.6603 l 0,0 c 5.26498,-0.71296 11.60333,-2.60115 16.44523,-4.74788 l 0,0 c 9.6603,-4.28563 24.55424,-9.69947 27.09271,-21.40466 l 0,0 c 2.89104,-13.27213 -4.80272,-31.40185 -8.58693,-42.39406 l 0,0 c -6.4637,-18.74082 -16.81346,-43.12269 -37.05073,-50.46389 l 0,0 c -1.80984,-0.65029 -3.67452,-1.14388 -5.57054,-1.46511 l 0,0 c -5.62538,-0.9245 -11.31344,-1.29274 -16.8448,-0.90883 l 0,0 c -11.60333,0.80698 -22.56421,4.89674 -31.01795,14.0086 l 0,0 z"
-           style="fill:#ffffff;fill-opacity:1"
-           id="path5" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 333.73317,538.53554 12.01074,13.2173 c 0,0 -1.77066,16.21018 -12.75504,25.36906 l -10.49862,-16.44523 -16.19452,16.99367 c 0,0 -11.91672,-17.53427 -8.7593,-31.90328 3.17309,-14.36118 36.19674,-7.23152 36.19674,-7.23152 z"
-           style="fill:#3e4095"
-           id="path7" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 320.18853,561.17026 c 23.15181,0 42.03366,-18.88185 42.03366,-42.03367 0,-23.15181 -18.88185,-42.03366 -42.03366,-42.03366 -23.15181,0 -42.03367,18.88185 -42.03367,42.03366 0,23.15182 18.88186,42.03367 42.03367,42.03367 z"
-           style="fill:#3e4095;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.7059148;stroke-miterlimit:2.61310005;stroke-opacity:1"
-           id="path9" />
-        <path
-           inkscape:connector-curvature="0"
-           d="m 296.23524,478.16433 c -16.30421,8.38323 -19.23442,27.5393 -17.8555,44.01587 l 0,0 c 8.82198,-0.61895 22.10195,-7.1375 28.90255,-12.63752 l 0,0 c -2.37394,4.49717 -6.34618,8.63394 -10.67882,10.3811 l 0,0 c 13.2408,-3.18876 21.71021,-9.7935 31.33133,-19.28926 l 0,0 c -1.31624,5.84475 -5.01426,11.54848 -9.01,15.92813 l 0,0 c 6.99646,0.047 12.65318,-7.42738 17.31488,-11.97156 l 0,0 c -1.43376,3.90956 -2.89103,7.56057 -5.5627,10.87469 l 0,0 c 5.49219,-1.03419 10.15389,-5.12396 13.33482,-9.74648 l 0,0 c 3.38463,7.43521 11.76786,9.35474 18.2864,12.01857 l 0,0 c -0.008,-0.11752 -0.008,-0.22721 -0.0157,-0.32906 l 0,0 c -1.21436,-17.91817 -4.98289,-33.00015 -23.36332,-40.65474 l 0,0 c -6.14247,-2.55415 -13.00575,-3.85472 -19.89253,-3.85472 l 0,0 c -7.95232,0 -15.9203,1.73932 -22.79141,5.26498 l 0,0 z"
-           style="fill:#ffffff;fill-opacity:1"
-           id="path11" />
-      </g>
+      <path
+         id="path3941"
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.05984713px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 496.07866,382.72197 c 6.33579,-8.82552 12.87464,-7.45706 12.82913,-7.55364 8.69843,-0.0448 13.45222,5.57926 14.55906,10.26327 6.43696,18.44906 -30.44151,48.91328 -26.87134,45.36412 -13.57709,-9.11289 -30.04569,-29.40725 -28.13241,-42.02596 -0.42653,-9.17748 9.40925,-13.18683 12.07333,-13.33088 6.8233,-0.82717 10.42097,0.60328 15.54223,7.28309 z"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:export-filename="C:\Users\Tiago\Documents\GitHub\eleicoes-transparentes\Art\Protótipo\Tela principal\6-Favoritos\favorito_y.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
     </g>
   </g>
 </svg>
