@@ -1,18 +1,18 @@
-package br.ufba.mata62.eleicoestransparentes.persistance.database;
+package br.com.eleicoestransparentes.persistence.database;
 
 import java.sql.SQLException;
 
-import br.ufba.mata62.eleicoestransparentes.EProperties;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Comite;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Eleicao;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
+import br.com.eleicoestransparentes.persistence.beans.Bem;
+import br.com.eleicoestransparentes.persistence.beans.Candidato;
+import br.com.eleicoestransparentes.persistence.beans.Comite;
+import br.com.eleicoestransparentes.persistence.beans.Eleicao;
+import br.com.eleicoestransparentes.persistence.beans.Partido;
+import br.com.eleicoestransparentes.persistence.beans.Pessoa;
+import br.com.eleicoestransparentes.persistence.beans.PessoaFisica;
+import br.com.eleicoestransparentes.persistence.beans.PessoaJuridica;
+import br.com.eleicoestransparentes.persistence.beans.SetorEconomico;
+import br.com.eleicoestransparentes.persistence.beans.Transacao;
+import br.com.eleicoestransparentes.persistence.util.EProperties;
 
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;

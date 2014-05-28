@@ -1,24 +1,22 @@
-package br.ufba.mata62.eleicoestransparentes.persistance.database;
+package br.com.eleicoestransparentes.persistence.database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Comite;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Eleicao;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
+import br.com.eleicoestransparentes.persistence.beans.Bem;
+import br.com.eleicoestransparentes.persistence.beans.Candidato;
+import br.com.eleicoestransparentes.persistence.beans.Comite;
+import br.com.eleicoestransparentes.persistence.beans.Eleicao;
+import br.com.eleicoestransparentes.persistence.beans.Partido;
+import br.com.eleicoestransparentes.persistence.beans.Pessoa;
+import br.com.eleicoestransparentes.persistence.beans.PessoaFisica;
+import br.com.eleicoestransparentes.persistence.beans.PessoaJuridica;
+import br.com.eleicoestransparentes.persistence.beans.SetorEconomico;
+import br.com.eleicoestransparentes.persistence.beans.Transacao;
+import br.com.eleicoestransparentes.persistence.beans.logic.PessoaFisicaDoador;
+import br.com.eleicoestransparentes.persistence.beans.logic.PessoaJuridicaDoador;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -326,7 +324,6 @@ public class Comunicacao {
 		Dao<Transacao, String> pessoaDAO = DaoManager.createDao(database.getConnection(), Transacao.class);
 		
 		if(transacao.getDebitado() != null && transacao.getDebitado().getId() <= 0){
-			int id  = 0;
 			Pessoa debitado = transacao.getDebitado();
 			if(debitado instanceof Partido){
 				transacao.setDebitado(inserePartido((Partido)debitado));
@@ -340,7 +337,6 @@ public class Comunicacao {
 		}
 		
 		if(transacao.getCreditado() != null && transacao.getCreditado().getId() <= 0){
-			int id  = 0;
 			Pessoa creditado = transacao.getCreditado();
 			if(creditado instanceof Partido){
 				transacao.setCreditado(inserePartido((Partido)creditado));

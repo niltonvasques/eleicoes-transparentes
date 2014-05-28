@@ -6,14 +6,14 @@ import java.util.List;
 
 import org.ksoap2.serialization.PropertyInfo;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
+import br.com.eleicoestransparentes.persistence.beans.Bem;
+import br.com.eleicoestransparentes.persistence.beans.Candidato;
+import br.com.eleicoestransparentes.persistence.beans.Partido;
+import br.com.eleicoestransparentes.persistence.beans.Pessoa;
+import br.com.eleicoestransparentes.persistence.beans.SetorEconomico;
+import br.com.eleicoestransparentes.persistence.beans.Transacao;
+import br.com.eleicoestransparentes.persistence.beans.logic.PessoaFisicaDoador;
+import br.com.eleicoestransparentes.persistence.beans.logic.PessoaJuridicaDoador;
 
 import com.google.gson.reflect.TypeToken;
 

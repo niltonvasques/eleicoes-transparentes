@@ -1,14 +1,14 @@
-package br.ufba.mata62.eleicoestransparentes;
+package br.com.eleicoestransparentes;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaFisicaDoador;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans.PessoaJuridicaDoador;
+import br.com.eleicoestransparentes.persistence.beans.Bem;
+import br.com.eleicoestransparentes.persistence.beans.Candidato;
+import br.com.eleicoestransparentes.persistence.beans.Partido;
+import br.com.eleicoestransparentes.persistence.beans.logic.PessoaFisicaDoador;
+import br.com.eleicoestransparentes.persistence.beans.logic.PessoaJuridicaDoador;
+import br.com.eleicoestransparentes.persistence.database.Comunicacao;
 
 
 public class Main {
