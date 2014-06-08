@@ -2,7 +2,7 @@ package br.com.eleicoestransparentes.CVSFiles;
 
 import java.lang.reflect.Field;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.EBean;
+import br.com.eleicoestransparentes.persistence.beans.EBean;
 
 /**
  * Classe corresponde ao arquivo CVS de dados.

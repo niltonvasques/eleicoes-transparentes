@@ -1,16 +1,16 @@
 package br.com.eleicoestransparentes.strategy;
 
+import br.com.eleicoestransparentes.persistence.beans.Bem;
+import br.com.eleicoestransparentes.persistence.beans.Candidato;
+import br.com.eleicoestransparentes.persistence.beans.Comite;
+import br.com.eleicoestransparentes.persistence.beans.EBean;
+import br.com.eleicoestransparentes.persistence.beans.Eleicao;
+import br.com.eleicoestransparentes.persistence.beans.Partido;
+import br.com.eleicoestransparentes.persistence.beans.PessoaFisica;
+import br.com.eleicoestransparentes.persistence.beans.PessoaJuridica;
+import br.com.eleicoestransparentes.persistence.beans.SetorEconomico;
+import br.com.eleicoestransparentes.persistence.beans.Transacao;
 import br.com.eleicoestransparentes.utils.ELog;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Comite;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.EBean;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Eleicao;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 
 /**
  * Classe que escuta o Parser. Toda vez que o Parser tiver algum bean para realizar

@@ -1,0 +1,14 @@
+drawable-xxhdpi 144X144
+
+drawable-xhdpi 96X96
+
+drawable-hdpi 72X72
+
+drawable-mdpi 48X48
+
+drawable-ldpi 32X32
+
+
+
+
+

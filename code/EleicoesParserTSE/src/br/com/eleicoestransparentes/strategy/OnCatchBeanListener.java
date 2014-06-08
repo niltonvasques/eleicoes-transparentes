@@ -1,6 +1,6 @@
 package br.com.eleicoestransparentes.strategy;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.EBean;
+import br.com.eleicoestransparentes.persistence.beans.EBean;
 
 
 public interface OnCatchBeanListener{
