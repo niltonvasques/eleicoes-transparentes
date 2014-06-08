@@ -1,0 +1,26 @@
+DATA_GERACAO;Data de geração do arquivo (data da extração)
+HORA_GERACAO;Hora de geração do arquivo (hora da extração) - Horário de Brasília
+ANO_ELEICAO;Ano da eleição
+NUM_TURNO (*);Número do turno
+DESCRICAO_ELEICAO (*);Descrição da eleição
+SIGLA_UF;Sigla da Unidade da Federação em que ocorreu a eleição
+SIGLA_UE (*);Sigla da Unidade Eleitoral (Em caso de eleição majoritária é a sigla da UF que o candidato concorre (texto) e em caso de eleição municipal é o código TSE do município (número)). Assume os valores especiais BR, ZZ e VT para designar, respectivamente, o Brasil, Exterior e Voto em Trânsito
+CODIGO_MUNICIPIO (*);Código TSE do município onde ocorreu a eleição
+NOME_MUNICIPIO;Nome do município onde ocorreu a eleição
+NUMERO_ZONA (*);Número da Zona
+CODIGO_CARGO (*);Código do cargo
+DESCRICAO_CARGO;Descrição do cargo
+QTD_APTOS;Quantidade de eleitores aptos a votar naquele município e Zona
+QTD_SECOES;Quantidade de seções eleitorais existentes naquele município e zona. Considera somente seções principais.
+QTD_SECOES_AGREGADAS;Quantidade de seções eleitorais que foram agregadas para votação em uma mesma urna naquele município e zona. Agregar seções significa unir seções eleitorais em uma única mesa receptora de votos, com a finalidade de atender ao Código Eleitoral, que estabelece, como regra, o mínimo de 50 eleitores em uma seção eleitoral, e de otimizar a utilização de recursos relativos a urnas eletrônicas e a mesários.
+QTD_APTOS_TOT;Quantidade de eleitores aptos nas seções totalizadas
+QTD_SECOES_TOT;Quantidade de seções eleitorais que foram totalizadas naquele município e zona
+QTD_COMPARECIMENTO;Quantidade de eleitores que compareceram às eleições naquele município e zona, naquele cargo
+QTD_ABSTENCOES;Quantidade de eleitores que não compareceram às eleições naquele município e zona
+QTD_VOTOS_NOMINAIS;Quantidade de votos nominais totalizados naquele município e zona
+QTD_VOTOS_BRANCOS;Quantidade de votos brancos totalizados naquele município e zona
+QTD_VOTOS_NULOS;Quantidade de votos nulos totalizados naquele município e zona
+QTD_VOTOS_LEGENDA;Quantidade de votos em legenda totalizados naquele município e zona
+QTD_VOTOS_ANULADOS_APU_SEP; Quantidade de votos anulados e apurados em separado naquele município e zona. Esse quantitativo reflete os votos oriundos de alguma urna que está sub-júdice. Ainda não são votos válidos nem nulos até a decisão do juiz eleitoral.
+DATA_ULT_TOTALIZACAO;Data da última totalização naquele município e zona
+HORA_ULT_TOTALIZACAO;Hora da última totalização naquele município e zona

@@ -1,0 +1,32 @@
+package br.com.eleicoestransparentes.persistance.beans;
+public class VotacaoCandidatoMunZona{
+protected String dataGeracao;
+protected String horaGeracao;
+protected String anoEleicao;
+protected String numTurno;
+protected String descricaoEleicao;
+protected String siglaUf;
+protected String siglaUe;
+protected String codigoMunicipio;
+protected String nomeMunicipio;
+protected String numeroZona;
+protected String codigoCargo;
+protected String numeroCand;
+protected String sqCandidato;
+protected String nomeCandidato;
+protected String nomeUrnaCandidato;
+protected String descricaoCargo;
+protected String codSitCandSuperior;
+protected String descSitCandSuperior;
+protected String codigoSitCandidato;
+protected String descSitCandidato;
+protected String codigoSitCandTot;
+protected String descSitCandTot;
+protected String numeroPartido;
+protected String siglaPartido;
+protected String nomePartido;
+protected String sequencialLegenda;
+protected String nomeColigacao;
+protected String composicaoLegenda;
+protected String totalVotos;
+}

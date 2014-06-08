@@ -1,0 +1,9 @@
+PERIODO;Período a que se referem os dados. É o ano da eleição nos arquivos referentes ao eleitorado da eleição ou então o ano e mês no caso ao arquivo ATUAL.
+UF;Sigla da Unidade da federação
+MUNICIPIO;Nome do município
+COD_MUNICIPIO_TSE;Código TSE do município
+NR_ZONA;Número da Zona Eleitoral
+SEXO;Sexo
+FAIXA_ETARIA;Faixa Etária
+GRAU_DE_ESCOLARIDADE;Grau de Escolaridade – Atenção ao trabalhar com esta informação, pois esta é a escolaridade declarada pelo eleitor. Em muitos casos, o eleitor se cadastra com um determinado grau de escolaridade, por exemplo: com ensino médio aos 16 anos de idade, e não volta ao cartório eleitoral para atualizar esta informação.
+QTD_ELEITORES_NO_PERFIL;Quantidade de eleitores no perfil

@@ -1,0 +1,29 @@
+DATA_GERACAO;Data de geração do arquivo (data da extração)
+HORA_GERACAO;Hora de geração do arquivo (hora da extração) - Horário de Brasília
+ANO_ELEICAO;Ano da eleição
+NUM_TURNO (*);Número do turno
+DESCRICAO_ELEICAO (*);Descrição da eleição
+SIGLA_UF;Sigla da Unidade da Federação em que ocorreu a eleição
+SIGLA_UE (*);Sigla da Unidade Eleitoral (Em caso de eleição majoritária é a sigla da UF que o candidato concorre (texto) e em caso de eleição municipal é o código TSE do município (número)). Assume os valores especiais BR, ZZ e VT para designar, respectivamente, o Brasil, Exterior e Voto em Trânsito
+CODIGO_MUNICIPIO (*);Código TSE do município onde ocorreu a eleição
+NOME_MUNICIPIO;Nome do município onde ocorreu a eleição
+NUMERO_ZONA (*);Número da Zona Eleitoral
+CODIGO_CARGO (*);Código do cargo a que o candidato concorre
+NUMERO_CAND (*);Número do candidato na urna
+SQ_CANDIDATO (*);Número sequencial do candidato gerado internamente pelos sistemas eleitorais. Não é o número de campanha do candidato.
+NOME_CANDIDATO;Nome completo do candidato
+NOME_URNA_CANDIDATO;Nome de urna do candidato
+DESCRICAO_CARGO;Descrição do cargo a que o candidato concorre
+COD_SIT_CAND_SUPERIOR;Código da situação de totalização do candidato superior naquele turno. Esta variável deve ser considerada apenas quando o cargo do candidato for vice ou suplente.
+DESC_SIT_CAND_SUPERIOR;Descrição da situação de totalização do candidato superior naquele turno. Esta variável deve ser considerada apenas quando o cargo do candidato for vice ou suplente.
+CODIGO_SIT_CANDIDATO;Código da situação do registro de candidatura do candidato
+DESC_SIT_CANDIDATO;Descrição da situação de registro de candidatura do candidato
+CODIGO_SIT_CAND_TOT;Código da situação de totalização do candidato naquele turno
+DESC_SIT_CAND_TOT;Descrição da situação de totalização do candidato naquele turno
+NUMERO_PARTIDO;Número do partido
+SIGLA_PARTIDO;Sigla do partido
+NOME_PARTIDO;Nome do partido
+SEQUENCIAL_LEGENDA;Código sequencial da legenda gerado pela Justiça Eleitoral
+NOME_COLIGACAO;Nome da legenda
+COMPOSICAO_LEGENDA;Composição da legenda
+TOTAL_VOTOS;Quantidade de votos nominais totalizados para aquele candidato naquele município e zona

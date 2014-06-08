@@ -1,0 +1,15 @@
+DATA_GERACAO;Data de geraÃ§Ã£o do arquivo (data da extraÃ§Ã£o)
+HORA_GERACAO;Hora de geraÃ§Ã£o do arquivo (hora da extraÃ§Ã£o) - HorÃ¡rio de BrasÃ­lia
+ANO_ELEICAO;Ano da eleiÃ§Ã£o
+NUM_TURNO (*);NÃºmero do turno
+DESCRICAO_ELEICAO (*);DescriÃ§Ã£o da eleiÃ§Ã£o
+SIGLA_UF;Sigla da Unidade da FederaÃ§Ã£o em que ocorreu a eleiÃ§Ã£o
+SIGLA_UE (*);Sigla da Unidade Eleitoral (Em caso de eleiÃ§Ã£o majoritÃ¡ria Ã© a sigla da UF que o candidato concorre e em caso de eleiÃ§Ã£o municipal Ã© o cÃ³digo TSE do municÃ­pio). Assume os valores especiais BR, ZZ e VT para designar, respectivamente, o Brasil, Exterior e Voto em TrÃ¢nsito 
+CODIGO_MUNICIPIO (*);CÃ³digo TSE do municÃ­pio onde ocorreu a eleiÃ§Ã£o
+NOME_MUNICIPIO;Nome do municÃ­pio onde ocorreu a eleiÃ§Ã£o
+NUM_ZONA (*);NÃºmero da Zona Eleitoral
+NUM_SECAO (*);NÃºmero da seÃ§Ã£o eleitoral
+CODIGO_CARGO (*);CÃ³digo do cargo
+DESCRICAO_CARGO;DescriÃ§Ã£o do cargo
+NUM_VOTAVEL (*);NÃºmero do votÃ¡vel â€“ Ã© o nÃºmero do candidato (quando voto nominal) ou do partido (quando voto em legenda). â€œVoto Brancoâ€� recebe cÃ³digo votÃ¡vel 95; â€œVoto Nuloâ€� recebe cÃ³digo votÃ¡vel 96 e â€œVoto Anulado e Apurado em Separadoâ€� recebe cÃ³digo votÃ¡vel 97.
+QTDE_VOTOS;Quantidade de votos apurados na seÃ§Ã£o para o votÃ¡vel

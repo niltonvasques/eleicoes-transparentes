@@ -1,0 +1,17 @@
+DATA_GERACAO;Data de geração do arquivo (data da extração)
+HORA_GERACAO;Hora de geração do arquivo (hora da extração) - Horário de Brasília
+ANO_ELEICAO;Ano da eleição
+NUM_TURNO (*);Número do turno
+DESCRICAO_ELEICAO (*);Descrição da eleição
+SIGLA_UF;Sigla da Unidade da Federação em que ocorreu a eleição
+SIGLA_UE (*);Sigla da Unidade Eleitoral (Em caso de eleição majoritária é a sigla da UF que o candidato concorre e em caso de eleição municipal é o código TSE do município). Assume os valores especiais BR, ZZ e VT para designar, respectivamente, o Brasil, Exterior e Voto em Trânsito
+NOME_UE; Nome de Unidade Eleitoral
+CODIGO_CARGO (*);Código do cargo a que o candidato concorre
+DESCRICAO_CARGO;Descrição do cargo a que o candidato concorre
+TIPO_LEGENDA;Informa se o candidato concorre por “legenda” ou ”partido isolado”
+NUM_PARTIDO (*);Número do partido
+SIGLA_PARTIDO;Sigla do partido
+NOME_PARTIDO;Nome do partido
+SIGLA_COLIGACAO;Sigla da coligação
+NOME_COLIGACAO;Nome da coligação
+COMPOSICAO_COLIGACAO;Composição da coligação
