@@ -2,6 +2,7 @@ package br.com.eleicoestransparentes.persistance.beans;
 
 public class Candidatura {
 	protected Eleicao eleicao;
+	
 	protected Situacao[] situacoes;
 	protected Candidato candidato;
 
