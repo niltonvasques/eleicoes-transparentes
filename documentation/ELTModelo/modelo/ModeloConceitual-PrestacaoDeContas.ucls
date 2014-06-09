@@ -264,6 +264,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="50">    
+    <bendpoint x="-113" y="-92"/>    
     <end type="SOURCE" refId="10" navigable="false">      
       <attribute id="51" name="candidato"/>      
       <multiplicity id="52" minimum="0" maximum="1"/>    
