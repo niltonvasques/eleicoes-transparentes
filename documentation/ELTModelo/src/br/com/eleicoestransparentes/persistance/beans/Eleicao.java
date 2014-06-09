@@ -7,5 +7,4 @@ public class Eleicao {
 	protected String siglaUF;
 	protected String siglaUE;
 	protected String descricaoUE;
-	protected Turno[] turnos;
 }

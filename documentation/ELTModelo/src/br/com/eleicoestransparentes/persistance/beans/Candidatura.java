@@ -1,7 +1,8 @@
 package br.com.eleicoestransparentes.persistance.beans;
 
 public class Candidatura {
-	protected Turno turno;
+	protected Eleicao eleicao;
+	protected Situacao[] situacoes;
 	protected Candidato candidato;
 
 	protected Cargo cargo;
@@ -12,6 +13,5 @@ public class Candidatura {
 	protected Legenda legenda;
 
 	protected float despesaMaxCampanha;
-	protected String codSitTotTurno;
-	protected String descSitTotTurno;
+
 }

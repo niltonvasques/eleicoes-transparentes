@@ -1,8 +1,7 @@
 package br.com.eleicoestransparentes.persistance.beans;
 
 public class Candidato {
-	protected Candidatura candidatura;
-	protected Bem[] bens;
+	protected Candidatura[] candidaturas;
 	
 	protected String nome;
 	protected String sequencial;

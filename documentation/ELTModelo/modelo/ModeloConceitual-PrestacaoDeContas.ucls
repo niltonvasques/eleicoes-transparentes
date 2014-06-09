@@ -4,264 +4,292 @@
   <class id="1" language="java" name="br.com.eleicoestransparentes.persistance.beans.Eleitorado" project="ELTModelo" 
     file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Eleitorado.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1147" y="-230"/>    
+    <position height="-1" width="-1" x="1089" y="-939"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="2" language="java" name="br.com.eleicoestransparentes.persistance.beans.Eleicao" project="ELTModelo" 
     file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Eleicao.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="617" y="-199"/>    
+    <position height="-1" width="-1" x="-369" y="-1020"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="br.com.eleicoestransparentes.persistance.beans.Candidato" project="ELTModelo" 
-    file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Candidato.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="541" y="-872"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="br.com.eleicoestransparentes.persistance.beans.Legenda" project="ELTModelo" 
+  <class id="3" language="java" name="br.com.eleicoestransparentes.persistance.beans.Legenda" project="ELTModelo" 
     file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Legenda.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="553" y="-465"/>    
+    <position height="-1" width="-1" x="145" y="-772"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="br.com.eleicoestransparentes.persistance.beans.Candidatura" project="ELTModelo" 
-    file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Candidatura.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="225" width="212" x="35" y="-795"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="br.com.eleicoestransparentes.persistance.beans.Turno" project="ELTModelo" 
-    file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Turno.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="212" x="192" y="-246"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="br.com.eleicoestransparentes.persistance.beans.Bem" project="ELTModelo" 
-    file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Bem.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="212" x="950" y="-993"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="br.com.eleicoestransparentes.persistance.beans.Transacao" project="ELTModelo" 
+  <class id="4" language="java" name="br.com.eleicoestransparentes.persistance.beans.Transacao" project="ELTModelo" 
     file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Transacao.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="445" y="148"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="br.com.eleicoestransparentes.persistance.beans.Receitas" project="ELTModelo" 
+  <class id="5" language="java" name="br.com.eleicoestransparentes.persistance.beans.Receitas" project="ELTModelo" 
     file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Receitas.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="171" width="212" x="65" y="272"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="br.com.eleicoestransparentes.persistance.beans.Despesas" project="ELTModelo" 
+  <class id="6" language="java" name="br.com.eleicoestransparentes.persistance.beans.Despesas" project="ELTModelo" 
     file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Despesas.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="814" y="376"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="br.com.eleicoestransparentes.persistance.beans.DespesasCandidatos" 
+  <class id="7" language="java" name="br.com.eleicoestransparentes.persistance.beans.DespesasCandidatos" 
     project="ELTModelo" file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/DespesasCandidatos.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1123" y="449"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="br.com.eleicoestransparentes.persistance.beans.DespesasComites" 
+  <class id="8" language="java" name="br.com.eleicoestransparentes.persistance.beans.DespesasComites" 
     project="ELTModelo" file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/DespesasComites.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="846" y="510"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="br.com.eleicoestransparentes.persistance.beans.DespesasPartidos" 
+  <class id="9" language="java" name="br.com.eleicoestransparentes.persistance.beans.DespesasPartidos" 
     project="ELTModelo" file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/DespesasPartidos.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="580" y="489"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="br.com.eleicoestransparentes.persistance.beans.ReceitasCandidatos" 
+  <class id="10" language="java" name="br.com.eleicoestransparentes.persistance.beans.ReceitasCandidatos" 
     project="ELTModelo" file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/ReceitasCandidatos.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-101" y="596"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="br.com.eleicoestransparentes.persistance.beans.ReceitasComites" 
+  <class id="11" language="java" name="br.com.eleicoestransparentes.persistance.beans.ReceitasComites" 
     project="ELTModelo" file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/ReceitasComites.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="172" y="593"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="br.com.eleicoestransparentes.persistance.beans.ReceitasPartidos" 
+  <class id="12" language="java" name="br.com.eleicoestransparentes.persistance.beans.ReceitasPartidos" 
     project="ELTModelo" file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/ReceitasPartidos.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="421" y="617"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="br.com.eleicoestransparentes.persistance.beans.Coligacao" project="ELTModelo" 
+    file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Coligacao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="155" y="-576"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="br.com.eleicoestransparentes.persistance.beans.Candidato" project="ELTModelo" 
+    file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Candidato.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="676" y="-908"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="br.com.eleicoestransparentes.persistance.beans.Bem" project="ELTModelo" 
+    file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Bem.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="336" y="-1089"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="br.com.eleicoestransparentes.persistance.beans.Situacao" project="ELTModelo" 
+    file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Situacao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-254" y="-766"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="br.com.eleicoestransparentes.persistance.beans.Candidatura" project="ELTModelo" 
+    file="/ELTModelo/src/br/com/eleicoestransparentes/persistance/beans/Candidatura.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="167" width="212" x="-111" y="-1095"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="17">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="18" name="turnos"/>      
-      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="20">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="21" name="candidato"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="23">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="24">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="8"/>  
-  </generalization>  
-  <generalization id="25">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <generalization id="26">    
+  <generalization id="18">    
     <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="8"/>  
+    <end type="TARGET" refId="6"/>  
   </generalization>  
-  <generalization id="27">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="29">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <association id="30">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="31" name="candidatura"/>      
-      <multiplicity id="32" minimum="0" maximum="1"/>    
+  <association id="19">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="20" name="situacoes"/>      
+      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="33">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="34" name="candidato"/>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="36">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="37" name="turno"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="39">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="40" name="eleicao"/>      
-      <multiplicity id="41" minimum="0" maximum="1"/>    
+  <association id="22">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="23" name="eleicao"/>      
+      <multiplicity id="24" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="25">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="26" name="candidatoDoador"/>      
+      <multiplicity id="27" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="28">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="29" name="candidato"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="31">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="32">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="33" name="candidato"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="36" name="coligacao"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="38">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="39">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="40" name="legenda"/>      
+      <multiplicity id="41" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="42">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="43" name="eleicao"/>      
-      <multiplicity id="44" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="43" name="candidaturas"/>      
+      <multiplicity id="44" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="45">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="46" name="legenda"/>      
-      <multiplicity id="47" minimum="0" maximum="1"/>    
+  <generalization id="45">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="46">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="47">    
+    <bendpoint x="503" y="-1031"/>    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="48" name="candidato"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="48">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="49" name="bens"/>      
-      <multiplicity id="50" minimum="0" maximum="2147483647"/>    
+  <association id="50">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="51" name="candidato"/>      
+      <multiplicity id="52" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="51">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="9"/>  
+  <generalization id="53">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="54">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="55">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="56" name="candidatura"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="58">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="5"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    

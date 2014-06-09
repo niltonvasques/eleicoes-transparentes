@@ -2,7 +2,7 @@ package br.com.eleicoestransparentes.persistance.beans;
 
 public class DetalheVotacaoMunZona {
 	
-	protected Turno turno;
+	protected Situacao situacao;
 	
 	protected String codigoMunicipio;
 	protected String nomeMunicipio;
