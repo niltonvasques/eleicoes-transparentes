@@ -1,6 +1,5 @@
 package br.ufba.mata62.eleicoestransparentes.utils;
 
-import java.text.DecimalFormat;
 
 public class Util {
 

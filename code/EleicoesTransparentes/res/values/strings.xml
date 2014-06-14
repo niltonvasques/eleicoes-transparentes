@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">EleicoesTransparentes</string>
+    <string name="app_name">Eleicoes Transparentes</string>
+    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="select_uf">UF</string>
-    <string name="select_party">Partido</string>
-    <string name="mi_visualizar_prestacao_contas">Prestação de contas</string>
-    <string name="mi_visualizar_ranking_maiores_doadores_juridico">Ranking maiores doadores - Pessoa Jurídica</string>
-    <string name="mi_visualizar_ranking_maiores_doadores_fisica">Ranking maiores doadores - Pessoa Física</string>
-    <string name="mi_visualizar_lista_candidatos">Lista de candidatos</string>
-    <string name="mi_visualizar_doadores_partido_candidato_eleicao">Doadores por partido e candidato</string>
-    <string name="prestacao_despesa">Despesa:$valor$</string>
-    <string name="prestacao_receita">Receita:$valor$</string>
-    <string name="cancel">Cancelar</string>
-    <string name="ok">Escolher</string>
-	<string name="label_bens">Bens</string>
-    <string-array name="itens">
-        <item>Partidos</item>
-        <item>Candidatos</item>
-    </string-array>
 
 </resources>
