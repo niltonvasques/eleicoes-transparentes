@@ -1,7 +1,7 @@
 package br.com.eleicoestransparentes.persistance.beans;
 
 public class VotoSecao {
-	protected Turno turno;
+//	protected Turno turno;
 	protected String codigoMunicipio;
 	protected String nomeMunicipio;
 	protected String numZona;
