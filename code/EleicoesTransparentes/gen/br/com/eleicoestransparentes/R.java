@@ -22,19 +22,64 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int candidatos__i_y=0x7f020000;
+        public static final int candidatos_b=0x7f020001;
+        public static final int candidatos_g=0x7f020002;
+        public static final int candidatos_i_b=0x7f020003;
+        public static final int candidatos_i_g=0x7f020004;
+        public static final int candidatos_y=0x7f020005;
+        public static final int eleitorado_b=0x7f020006;
+        public static final int eleitorado_g=0x7f020007;
+        public static final int eleitorado_i_b=0x7f020008;
+        public static final int eleitorado_i_g=0x7f020009;
+        public static final int eleitorado_i_y=0x7f02000a;
+        public static final int eleitorado_y=0x7f02000b;
+        public static final int elt_bar=0x7f02000c;
+        public static final int favorito__i_b=0x7f02000d;
+        public static final int favorito__i_g=0x7f02000e;
+        public static final int favorito_b=0x7f02000f;
+        public static final int favorito_g=0x7f020010;
+        public static final int favorito_i__y=0x7f020011;
+        public static final int favorito_y=0x7f020012;
+        public static final int ic_launcher=0x7f020013;
+        public static final int prestacao__i_b=0x7f020014;
+        public static final int prestacao__i_g=0x7f020015;
+        public static final int prestacao__i_y=0x7f020016;
+        public static final int prestacao_b=0x7f020017;
+        public static final int prestacao_g=0x7f020018;
+        public static final int prestacao_y=0x7f020019;
+        public static final int resultado_b=0x7f02001a;
+        public static final int resultado_g=0x7f02001b;
+        public static final int resultado_i_b=0x7f02001c;
+        public static final int resultado_i_g=0x7f02001d;
+        public static final int resultado_i_y=0x7f02001e;
+        public static final int resultado_y=0x7f02001f;
     }
     public static final class id {
+        public static final int bar_fragment=0x7f070001;
         public static final int container=0x7f070000;
+        public static final int item_fragment11=0x7f070003;
+        public static final int item_fragment12=0x7f070004;
+        public static final int item_fragment21=0x7f070006;
+        public static final int item_fragment22=0x7f070007;
+        public static final int item_fragment31=0x7f070009;
+        public static final int itens1=0x7f070002;
+        public static final int itens2=0x7f070005;
+        public static final int itens3=0x7f070008;
+        public static final int logo=0x7f07000a;
+        public static final int txt_item=0x7f07000c;
+        public static final int txt_title=0x7f07000b;
     }
     public static final class layout {
         public static final int activity_elt_main=0x7f030000;
-        public static final int fragment_elt_main=0x7f030001;
+        public static final int bar=0x7f030001;
+        public static final int item_fragment=0x7f030002;
     }
     public static final class string {
         public static final int action_settings=0x7f060002;
         public static final int app_name=0x7f060000;
         public static final int hello_world=0x7f060001;
+        public static final int label=0x7f060003;
     }
     public static final class style {
         public static final int elt_theme=0x7f050000;

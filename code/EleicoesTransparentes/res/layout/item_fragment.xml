@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/txt_item"
+    android:layout_width="wrap_content"
+    android:padding="10dp"
+    android:layout_height="wrap_content"
+    android:drawableTop="@drawable/eleitorado_i_g"
+    android:maxLines="2"
+    android:text="@string/label"
+    android:textColor="#00A859"
+    android:textStyle="normal" >
+
+</TextView>
