@@ -11,56 +11,12 @@
         android:name="br.com.eleicoestransparentes.ui.fragments.BarFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-    <LinearLayout
-        android:id="@+id/itens1"
+    
+      <fragment
+        android:id="@+id/menu_fragment"
+        android:name="br.com.eleicoestransparentes.ui.fragments.MenuFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_height="wrap_content" />
 
-        <fragment
-            android:id="@+id/item_fragment11"
-            android:name="br.com.eleicoestransparentes.ui.fragments.ItemFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <fragment
-            android:id="@+id/item_fragment12"
-            android:name="br.com.eleicoestransparentes.ui.fragments.ItemFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/itens2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <fragment
-            android:id="@+id/item_fragment21"
-            android:name="br.com.eleicoestransparentes.ui.fragments.ItemFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <fragment
-            android:id="@+id/item_fragment22"
-            android:name="br.com.eleicoestransparentes.ui.fragments.ItemFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/itens3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <fragment
-            android:id="@+id/item_fragment31"
-            android:name="br.com.eleicoestransparentes.ui.fragments.ItemFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
 
 </LinearLayout>

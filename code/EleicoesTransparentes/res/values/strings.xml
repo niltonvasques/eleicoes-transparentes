@@ -5,4 +5,14 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="label">Item Label</string>
+    <string name="lbl_eleitorado">Eleitorado</string>
+    <string name="lbl_desc_eleitorado">Dados sobre o eleitorado</string>
+    <string name="lbl_candidatos">Candidatos</string>
+    <string name="lbl_desc_candidatos">Bens, candidaturas, perfil, etc.</string>
+    <string name="lbl_resultados">Resultados</string>
+    <string name="lbl_desc_resultados">Por zonas, seções, municípios,etc.</string>
+    <string name="lbl_prestacao">Prestação de contas</string>
+    <string name="lbl_desc_prestacao">Por candidato, comite, partido, etc.</string>
+    <string name="lbl_favoritos">Favoritos</string>
+    <string name="lbl_desc_favoritos">Buscas favoritas.</string>
 </resources>

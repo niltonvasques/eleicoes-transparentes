@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/elt_theme">
         <activity
-            android:name="br.com.eleicoestransparentes.ELTMainActivity"
+            android:name="br.com.eleicoestransparentes.ui.activities.ELTMainActivity"
             android:label="@string/app_name" 
               >
             <intent-filter>

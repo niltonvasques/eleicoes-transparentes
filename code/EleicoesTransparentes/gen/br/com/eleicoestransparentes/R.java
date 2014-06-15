@@ -58,28 +58,34 @@ public final class R {
     public static final class id {
         public static final int bar_fragment=0x7f070001;
         public static final int container=0x7f070000;
-        public static final int item_fragment11=0x7f070003;
-        public static final int item_fragment12=0x7f070004;
-        public static final int item_fragment21=0x7f070006;
-        public static final int item_fragment22=0x7f070007;
-        public static final int item_fragment31=0x7f070009;
-        public static final int itens1=0x7f070002;
-        public static final int itens2=0x7f070005;
-        public static final int itens3=0x7f070008;
-        public static final int logo=0x7f07000a;
-        public static final int txt_item=0x7f07000c;
-        public static final int txt_title=0x7f07000b;
+        public static final int description=0x7f070006;
+        public static final int icon=0x7f070005;
+        public static final int label=0x7f070007;
+        public static final int logo=0x7f070003;
+        public static final int menu_fragment=0x7f070002;
+        public static final int txt_title=0x7f070004;
     }
     public static final class layout {
         public static final int activity_elt_main=0x7f030000;
         public static final int bar=0x7f030001;
-        public static final int item_fragment=0x7f030002;
+        public static final int item_menu=0x7f030002;
+        public static final int menu_fragment=0x7f030003;
     }
     public static final class string {
         public static final int action_settings=0x7f060002;
         public static final int app_name=0x7f060000;
         public static final int hello_world=0x7f060001;
         public static final int label=0x7f060003;
+        public static final int lbl_candidatos=0x7f060006;
+        public static final int lbl_desc_candidatos=0x7f060007;
+        public static final int lbl_desc_eleitorado=0x7f060005;
+        public static final int lbl_desc_favoritos=0x7f06000d;
+        public static final int lbl_desc_prestacao=0x7f06000b;
+        public static final int lbl_desc_resultados=0x7f060009;
+        public static final int lbl_eleitorado=0x7f060004;
+        public static final int lbl_favoritos=0x7f06000c;
+        public static final int lbl_prestacao=0x7f06000a;
+        public static final int lbl_resultados=0x7f060008;
     }
     public static final class style {
         public static final int elt_theme=0x7f050000;

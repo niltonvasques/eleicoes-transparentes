@@ -1,7 +1,8 @@
-package br.com.eleicoestransparentes;
+package br.com.eleicoestransparentes.ui.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import br.com.eleicoestransparentes.R;
 
 public class ELTMainActivity extends FragmentActivity {
 
