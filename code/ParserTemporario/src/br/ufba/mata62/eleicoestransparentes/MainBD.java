@@ -3,11 +3,11 @@ package br.ufba.mata62.eleicoestransparentes;
 
 import java.sql.SQLException;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.database.Comunicacao;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.Seed;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
+import br.ufba.mata62.eleicoestransparentes.model.Bem;
+import br.ufba.mata62.eleicoestransparentes.model.Candidato;
+import br.ufba.mata62.eleicoestransparentes.model.Transacao;
+import br.ufba.mata62.eleicoestransparentes.model.database.Comunicacao;
+import br.ufba.mata62.eleicoestransparentes.model.database.Seed;
 import br.ufba.mata62.eleicoestransparentes.utils.Path;
 import br.ufba.mata62.eleicoestransparentes.utils.ReadCVS;
 

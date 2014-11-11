@@ -1,6 +1,6 @@
 package br.ufba.mata62.eleicoestransparentes.utils;
 
-import br.ufba.mata62.eleicoestransparentes.EProperties;
+import br.ufba.mata62.eleicoestransparentes.util.EProperties;
 
 public abstract class Path {
 	

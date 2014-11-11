@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.model.Partido;
+import br.ufba.mata62.eleicoestransparentes.model.Pessoa;
+import br.ufba.mata62.eleicoestransparentes.model.PessoaFisica;
+import br.ufba.mata62.eleicoestransparentes.model.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.model.SetorEconomico;
+import br.ufba.mata62.eleicoestransparentes.model.Transacao;
 import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasPartidoReceita;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Pessoa;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 import br.ufba.mata62.eleicoestransparentes.utils.ValidatorCPFCNPJ;
 
 public class ParserPrestacaoContasPartidoReceita {

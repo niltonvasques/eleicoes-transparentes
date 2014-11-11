@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes.persistance.database;
+package br.ufba.mata62.eleicoestransparentes.model.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import br.ufba.mata62.eleicoestransparentes.EProperties;
+import br.ufba.mata62.eleicoestransparentes.util.EProperties;
 
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;

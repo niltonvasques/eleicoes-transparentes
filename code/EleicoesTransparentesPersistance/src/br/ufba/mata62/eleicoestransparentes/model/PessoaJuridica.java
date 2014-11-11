@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes.persistance.database.beans;
+package br.ufba.mata62.eleicoestransparentes.model;
 
 import java.util.Date;
 

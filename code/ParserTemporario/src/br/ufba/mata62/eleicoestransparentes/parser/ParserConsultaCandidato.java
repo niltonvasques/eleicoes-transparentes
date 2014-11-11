@@ -1,15 +1,17 @@
 package br.ufba.mata62.eleicoestransparentes.parser;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.model.Candidato;
+import br.ufba.mata62.eleicoestransparentes.model.Partido;
 import br.ufba.mata62.eleicoestransparentes.parser.dados.ConsultaCandidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
 
 public class ParserConsultaCandidato {
 	
@@ -21,7 +23,7 @@ public class ParserConsultaCandidato {
 		String cvsSplitBy = ";";
 
 			try {
-				br = new BufferedReader(new FileReader(csvFile));
+				br = new BufferedReader(new InputStreamReader(new FileInputStream(csvFile), "ISO-8859-1"));
 				while ((line = br.readLine()) != null) {
 					line = line.replace("\"\"", " ");
 					line = line.replace("\"", " ");
