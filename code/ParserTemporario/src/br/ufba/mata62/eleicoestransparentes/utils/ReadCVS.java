@@ -3,25 +3,25 @@ package br.ufba.mata62.eleicoestransparentes.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.business.dados.BemCandidato;
+import br.ufba.mata62.eleicoestransparentes.business.dados.ConsultaCandidato;
+import br.ufba.mata62.eleicoestransparentes.business.dados.PrestContasCandidatoDespesa;
+import br.ufba.mata62.eleicoestransparentes.business.dados.PrestContasCandidatoReceita;
+import br.ufba.mata62.eleicoestransparentes.business.dados.PrestContasComiteDespesa;
+import br.ufba.mata62.eleicoestransparentes.business.dados.PrestContasComiteReceita;
+import br.ufba.mata62.eleicoestransparentes.business.dados.PrestContasPartidoDespesa;
+import br.ufba.mata62.eleicoestransparentes.business.dados.PrestContasPartidoReceita;
+import br.ufba.mata62.eleicoestransparentes.business.parser.ParserBemCandidato;
+import br.ufba.mata62.eleicoestransparentes.business.parser.ParserConsultaCandidato;
+import br.ufba.mata62.eleicoestransparentes.business.parser.ParserPrestacaoContasCandidatoDespesa;
+import br.ufba.mata62.eleicoestransparentes.business.parser.ParserPrestacaoContasCandidatoReceita;
+import br.ufba.mata62.eleicoestransparentes.business.parser.ParserPrestacaoContasComiteDespesa;
+import br.ufba.mata62.eleicoestransparentes.business.parser.ParserPrestacaoContasComiteReceita;
+import br.ufba.mata62.eleicoestransparentes.business.parser.ParserPrestacaoContasPartidoDespesa;
+import br.ufba.mata62.eleicoestransparentes.business.parser.ParserPrestacaoContasPartidoReceita;
 import br.ufba.mata62.eleicoestransparentes.model.Bem;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
 import br.ufba.mata62.eleicoestransparentes.model.Transacao;
-import br.ufba.mata62.eleicoestransparentes.parser.ParserBemCandidato;
-import br.ufba.mata62.eleicoestransparentes.parser.ParserConsultaCandidato;
-import br.ufba.mata62.eleicoestransparentes.parser.ParserPrestacaoContasCandidatoDespesa;
-import br.ufba.mata62.eleicoestransparentes.parser.ParserPrestacaoContasCandidatoReceita;
-import br.ufba.mata62.eleicoestransparentes.parser.ParserPrestacaoContasComiteDespesa;
-import br.ufba.mata62.eleicoestransparentes.parser.ParserPrestacaoContasComiteReceita;
-import br.ufba.mata62.eleicoestransparentes.parser.ParserPrestacaoContasPartidoDespesa;
-import br.ufba.mata62.eleicoestransparentes.parser.ParserPrestacaoContasPartidoReceita;
-import br.ufba.mata62.eleicoestransparentes.parser.dados.BemCandidato;
-import br.ufba.mata62.eleicoestransparentes.parser.dados.ConsultaCandidato;
-import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasCandidatoDespesa;
-import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasCandidatoReceita;
-import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasComiteDespesa;
-import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasComiteReceita;
-import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasPartidoDespesa;
-import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasPartidoReceita;
 
 public class ReadCVS {
 
