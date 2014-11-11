@@ -2,3 +2,5 @@
 eleicao.properties
 *.*~ 
 *.log
+*.swp
+.metadata

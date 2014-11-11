@@ -1,6 +1,6 @@
-package br.ufba.mata62.eleicoestransparentes.persistance.database.logicbeans;
+package br.ufba.mata62.eleicoestransparentes.model.logicbeans;
 
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaFisica;
+import br.ufba.mata62.eleicoestransparentes.model.PessoaFisica;
 
 public class PessoaFisicaDoador {
 

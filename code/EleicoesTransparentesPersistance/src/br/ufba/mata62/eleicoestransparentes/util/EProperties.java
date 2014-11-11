@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes;
+package br.ufba.mata62.eleicoestransparentes.util;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;

@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.model.Candidato;
+import br.ufba.mata62.eleicoestransparentes.model.Partido;
+import br.ufba.mata62.eleicoestransparentes.model.PessoaJuridica;
+import br.ufba.mata62.eleicoestransparentes.model.SetorEconomico;
+import br.ufba.mata62.eleicoestransparentes.model.Transacao;
 import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasCandidatoDespesa;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Partido;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.PessoaJuridica;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.SetorEconomico;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 
 public class ParserPrestacaoContasCandidatoDespesa {
 	

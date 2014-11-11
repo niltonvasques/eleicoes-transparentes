@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes.persistance.database;
+package br.ufba.mata62.eleicoestransparentes.model.database;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

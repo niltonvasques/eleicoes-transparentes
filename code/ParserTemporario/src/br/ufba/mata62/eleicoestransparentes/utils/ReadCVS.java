@@ -3,6 +3,9 @@ package br.ufba.mata62.eleicoestransparentes.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.model.Bem;
+import br.ufba.mata62.eleicoestransparentes.model.Candidato;
+import br.ufba.mata62.eleicoestransparentes.model.Transacao;
 import br.ufba.mata62.eleicoestransparentes.parser.ParserBemCandidato;
 import br.ufba.mata62.eleicoestransparentes.parser.ParserConsultaCandidato;
 import br.ufba.mata62.eleicoestransparentes.parser.ParserPrestacaoContasCandidatoDespesa;
@@ -19,9 +22,6 @@ import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasComiteDespes
 import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasComiteReceita;
 import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasPartidoDespesa;
 import br.ufba.mata62.eleicoestransparentes.parser.dados.PrestContasPartidoReceita;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Bem;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Candidato;
-import br.ufba.mata62.eleicoestransparentes.persistance.database.beans.Transacao;
 
 public class ReadCVS {
 
