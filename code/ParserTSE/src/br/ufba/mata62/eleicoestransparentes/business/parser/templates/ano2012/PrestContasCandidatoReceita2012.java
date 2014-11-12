@@ -2,7 +2,7 @@ package br.ufba.mata62.eleicoestransparentes.business.parser.templates.ano2012;
 
 import br.ufba.mata62.eleicoestransparentes.business.annotations.Name;
 import br.ufba.mata62.eleicoestransparentes.business.parser.templates.TemplateArquivo;
-import br.ufba.mata62.eleicoestransparentes.utils.Path;
+import br.ufba.mata62.eleicoestransparentes.util.Path;
 
 public class PrestContasCandidatoReceita2012 extends TemplateArquivo{
 	@Name("Data e hora")

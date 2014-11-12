@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes.utils;
+package br.ufba.mata62.eleicoestransparentes.util;
 
 import br.ufba.mata62.eleicoestransparentes.util.EProperties;
 

@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes.utils;
+package br.ufba.mata62.eleicoestransparentes.util;
 
 public class ValidatorCPFCNPJ {
 	   private static final int[] pesoCPF = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
