@@ -14,9 +14,9 @@ import br.ufba.mata62.eleicoestransparentes.business.parser.templates.ano2012.Co
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
 import br.ufba.mata62.eleicoestransparentes.model.Partido;
 
-public class ParserConsultaCandidato extends ParserFile<ConsultaCandidato2012, Candidato>{
+public class ParserConsultaCandidato2012 extends ParserFile<ConsultaCandidato2012, Candidato>{
 	
-	public ParserConsultaCandidato(String file) {
+	public ParserConsultaCandidato2012(String file) {
 		super(file);
 	}
 

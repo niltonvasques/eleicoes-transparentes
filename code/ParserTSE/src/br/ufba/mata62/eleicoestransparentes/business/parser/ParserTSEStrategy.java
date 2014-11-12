@@ -5,10 +5,10 @@ import java.sql.SQLException;
 
 import br.ufba.mata62.eleicoestransparentes.model.database.Seed;
 
-public class ParserTSE {
+public class ParserTSEStrategy {
 	private ComportamentoParser comportamento;
 	
-	public ParserTSE(ComportamentoParser comportamento) {
+	public ParserTSEStrategy(ComportamentoParser comportamento) {
 		this.comportamento = comportamento;
 	}
 	

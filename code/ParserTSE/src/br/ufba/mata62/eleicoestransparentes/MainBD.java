@@ -4,7 +4,7 @@ package br.ufba.mata62.eleicoestransparentes;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import br.ufba.mata62.eleicoestransparentes.business.parser.ParserTSE;
+import br.ufba.mata62.eleicoestransparentes.business.parser.ParserTSEStrategy;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ano2012.ComportamentoParser2012;
 import br.ufba.mata62.eleicoestransparentes.model.Bem;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
@@ -18,7 +18,7 @@ public class MainBD {
 	public static void main(String[] args) {
 		
 		try {
-			ParserTSE parser = new ParserTSE(new ComportamentoParser2012());
+			ParserTSEStrategy parser = new ParserTSEStrategy(new ComportamentoParser2012());
 			parser.resetarParser();
 			parser.realizarParser();
 		} catch (IOException | SQLException e) {

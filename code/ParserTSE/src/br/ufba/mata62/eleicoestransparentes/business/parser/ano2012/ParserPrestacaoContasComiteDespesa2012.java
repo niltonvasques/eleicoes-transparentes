@@ -1,20 +1,26 @@
 package br.ufba.mata62.eleicoestransparentes.business.parser.ano2012;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import br.ufba.mata62.eleicoestransparentes.business.parser.ParserFile;
-import br.ufba.mata62.eleicoestransparentes.business.parser.templates.ano2012.PrestContasCandidatoDespesa2012;
-import br.ufba.mata62.eleicoestransparentes.model.Candidato;
+import br.ufba.mata62.eleicoestransparentes.business.parser.templates.ano2012.PrestContasComiteDespesa2012;
+import br.ufba.mata62.eleicoestransparentes.model.Comite;
 import br.ufba.mata62.eleicoestransparentes.model.Partido;
 import br.ufba.mata62.eleicoestransparentes.model.PessoaJuridica;
 import br.ufba.mata62.eleicoestransparentes.model.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.model.Transacao;
 
-public class ParserPrestacaoContasCandidatoDespesa extends ParserFile<PrestContasCandidatoDespesa2012, Transacao>{
-
-	public ParserPrestacaoContasCandidatoDespesa(String file) {
+public class ParserPrestacaoContasComiteDespesa2012 extends ParserFile<PrestContasComiteDespesa2012, Transacao>{
+	
+	public ParserPrestacaoContasComiteDespesa2012(String file) {
 		super(file);
 		setSkipHeader(true);
 	}
@@ -25,34 +31,31 @@ public class ParserPrestacaoContasCandidatoDespesa extends ParserFile<PrestConta
 	 * @param data
 	 */
 	@Override
-	protected PrestContasCandidatoDespesa2012 populateTemplate(String[] data) {
-		PrestContasCandidatoDespesa2012 pcc = new PrestContasCandidatoDespesa2012();
+	protected PrestContasComiteDespesa2012 populateTemplate(String[] data) {
+		PrestContasComiteDespesa2012 pcc = new PrestContasComiteDespesa2012();
 		pcc.setDataHora(data[0].trim());
-		pcc.setSequencialCandidato(data[1].trim());
+		pcc.setSequencialComite(data[1].trim());
 		pcc.setUF(data[2].trim());
 		pcc.setNumeroUE(data[3].trim());
 		pcc.setMunicipio(data[4].trim());
-		pcc.setSiglaPartido(data[5].trim());
-		pcc.setNumerocandidato(data[6].trim());
-		pcc.setCargo(data[7].trim());
-		pcc.setNomeCandidato(data[8].trim());
-		pcc.setCPFCandidato(data[9].trim());
-		pcc.setTipoDocumento(data[10].trim());
-		pcc.setNumeroDocumento(data[11].trim());
-		pcc.setCPFCNPJFornecedor(data[12].trim());
-		pcc.setNomeFornecedor(data[13].trim());
-		pcc.setNomeReceitaFornecedor(data[14].trim());
-		pcc.setCodSetorEconomicoFornecedor(data[15].trim());
-		pcc.setSetorEconomicoFornecedor(data[16].trim());
-		pcc.setDataDespesa(data[17].trim());
-		pcc.setValorDespesa(data[18].trim());
-		pcc.setTipoDespesa(data[19].trim());
-		pcc.setDescricaoDespesa(data[20].trim());
+		pcc.setTipoComite(data[5].trim());
+		pcc.setSiglaPartido(data[6].trim());
+		pcc.setTipoDocumento(data[7].trim());
+		pcc.setNumeroDocumento(data[8].trim());
+		pcc.setCPFCNPJFornecedor(data[9].trim());
+		pcc.setNomeFornecedor(data[10].trim());
+		pcc.setNomeReceitaFornecedor(data[11].trim());
+		pcc.setCodSetorEconomicoFornecedor(data[12].trim());
+		pcc.setSetorEconomicoFornecedor(data[13].trim());
+		pcc.setDataDespesa(data[14].trim());
+		pcc.setValorDespesa(data[15].trim());
+		pcc.setTipoDespesa(data[16].trim());
+		pcc.setDescricaoDespesa(data[17].trim());
 		return pcc;
 	}
 	
 	@Override
-	protected Transacao populateModel(PrestContasCandidatoDespesa2012 pccd) {
+	protected Transacao populateModel(PrestContasComiteDespesa2012 pccd) {
 		Transacao trans = new Transacao();
 		trans.setTipoDocumento(pccd.getTipoDocumento());
 		trans.setNumeroDocumento(pccd.getNumeroDocumento());
@@ -63,30 +66,25 @@ public class ParserPrestacaoContasCandidatoDespesa extends ParserFile<PrestConta
 		trans.setClassificacao(pccd.getTipoDespesa());
 		trans.setDescricao(pccd.getDescricaoDespesa());
 		trans.setCreditado(createFornecedor(pccd));
-		trans.setDebitado(createCandidato(pccd));
+//		trans.setDebitado(createComite(pccd));//TODO Comite não é tipo Pessoa
 		trans.setTipo(Transacao.DESPESA);
 		trans.setUF(pccd.getUF());
 		trans.setMunicipio(pccd.getMunicipio());
 		return trans;
 	}
 
-	private static Candidato createCandidato(PrestContasCandidatoDespesa2012 pccd) {
-		Candidato cand = new Candidato();
-		cand.setNumero(pccd.getNumerocandidato());
-		cand.setCargo(pccd.getCargo());
-		cand.setUF(pccd.getUF());
-		cand.setMunicipio(pccd.getMunicipio());
-		cand.setSequencialCandidato(pccd.getSequencialCandidato());
+	private static Comite createComite(PrestContasComiteDespesa2012 pccd) {
+		Comite com = new Comite();
+		com.setUF(pccd.getUF());
+		com.setMunicipio(pccd.getMunicipio());
+		com.setTipo(pccd.getTipoComite());
 		Partido partido = new Partido();
 		partido.setSigla(pccd.getSiglaPartido());
-		cand.setPartido(partido);
-		cand.setCpf(pccd.getCPFCandidato());
-		cand.setNome(pccd.getNomeCandidato());
-		
-		return cand; 
+		com.setPartido(partido);
+		return com; 
 	}
 
-	private static PessoaJuridica createFornecedor(PrestContasCandidatoDespesa2012 pccd) {
+	private static PessoaJuridica createFornecedor(PrestContasComiteDespesa2012 pccd) {
 		PessoaJuridica pj = new PessoaJuridica();
 		pj.setCnpj(pccd.getCPFCNPJFornecedor());
 		pj.setNome(pccd.getNomeFornecedor());
@@ -106,5 +104,6 @@ public class ParserPrestacaoContasCandidatoDespesa extends ParserFile<PrestConta
 		}
 		return null;
 	}
+
 	
 }
