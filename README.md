@@ -1,5 +1,4 @@
 ## PROJETO ELEIÇÕES TRANSPARENTES
----
 
 ## ÍNDICE
 1. Introdução ao Projeto
