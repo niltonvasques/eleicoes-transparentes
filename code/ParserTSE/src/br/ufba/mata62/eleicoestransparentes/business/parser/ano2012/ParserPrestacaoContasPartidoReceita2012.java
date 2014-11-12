@@ -12,7 +12,7 @@ import br.ufba.mata62.eleicoestransparentes.model.PessoaFisica;
 import br.ufba.mata62.eleicoestransparentes.model.PessoaJuridica;
 import br.ufba.mata62.eleicoestransparentes.model.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.model.Transacao;
-import br.ufba.mata62.eleicoestransparentes.utils.ValidatorCPFCNPJ;
+import br.ufba.mata62.eleicoestransparentes.util.ValidatorCPFCNPJ;
 
 public class ParserPrestacaoContasPartidoReceita2012 extends ParserFile<PrestContasPartidoReceita2012, Transacao>{
 	

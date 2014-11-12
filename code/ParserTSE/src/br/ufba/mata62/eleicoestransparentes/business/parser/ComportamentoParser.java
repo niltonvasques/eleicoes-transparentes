@@ -8,7 +8,7 @@ import br.ufba.mata62.eleicoestransparentes.model.Bem;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
 import br.ufba.mata62.eleicoestransparentes.model.Transacao;
 import br.ufba.mata62.eleicoestransparentes.model.database.Comunicacao;
-import br.ufba.mata62.eleicoestransparentes.utils.Path;
+import br.ufba.mata62.eleicoestransparentes.util.Path;
 
 public abstract class ComportamentoParser {
 	
