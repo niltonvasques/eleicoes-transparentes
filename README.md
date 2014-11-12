@@ -1,7 +1,4 @@
-eleicoes-transparentes
-======================
-
-# PROJETO “ELEIÇÕES TRANSPARENTES”
+## PROJETO ELEIÇÕES TRANSPARENTES
 ---
 
 ## ÍNDICE
