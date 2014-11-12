@@ -22,9 +22,9 @@ import br.ufba.mata62.eleicoestransparentes.model.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.model.Transacao;
 import br.ufba.mata62.eleicoestransparentes.utils.ValidatorCPFCNPJ;
 
-public class ParserPrestacaoContasComiteReceita extends ParserFile<PrestContasComiteReceita2012, Transacao> {
+public class ParserPrestacaoContasComiteReceita2012 extends ParserFile<PrestContasComiteReceita2012, Transacao> {
 	
-	public ParserPrestacaoContasComiteReceita(String file) {
+	public ParserPrestacaoContasComiteReceita2012(String file) {
 		super(file);
 		setSkipHeader(true);
 	}

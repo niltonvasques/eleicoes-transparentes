@@ -18,9 +18,9 @@ import br.ufba.mata62.eleicoestransparentes.model.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.model.Transacao;
 
 
-public class ParserPrestacaoContasPartidoDespesa extends ParserFile<PrestContasPartidoDespesa2012, Transacao>{
+public class ParserPrestacaoContasPartidoDespesa2012 extends ParserFile<PrestContasPartidoDespesa2012, Transacao>{
 	
-	public ParserPrestacaoContasPartidoDespesa(String file) {
+	public ParserPrestacaoContasPartidoDespesa2012(String file) {
 		super(file);
 		setSkipHeader(true);
 	}
