@@ -115,6 +115,8 @@ public class Comunicacao {
 		if(c != null){
 			return c;
 		}
+		AgenteEleitoral agente = insereAgenteEleitoral(new AgenteEleitoral());
+		cand.setAgenteEleitoral(agente);
 
 		if(cand.getPartido() != null && cand.getPartido().getId() <= 0){
 			cand.setPartido(inserePartido(cand.getPartido()));
@@ -194,9 +196,14 @@ public class Comunicacao {
 		Dao<Comite, String> comiteDAO = DaoManager.createDao(database.getConnection(), Comite.class);
 
 
-		Comite c = (Comite) checkIfExists(comiteDAO, "sequencialComite",cand.getSequencialComite());
+		if(cand.getSequencialComite() != null){
+			Comite c = (Comite) checkIfExists(comiteDAO, "sequencialComite",cand.getSequencialComite());
+	
+			if(c != null) return c;
+		}
 
-		if(c != null) return c;
+		AgenteEleitoral agente = insereAgenteEleitoral(new AgenteEleitoral());
+		cand.setAgenteEleitoral(agente);
 
 		return comiteDAO.createIfNotExists(cand);
 	}
@@ -246,6 +253,9 @@ public class Comunicacao {
 
 		if(c != null) return c;
 
+		AgenteEleitoral agente = insereAgenteEleitoral(new AgenteEleitoral());
+		partido.setAgenteEleitoral(agente);
+
 		return partidoDAO.createIfNotExists(partido);
 	}
 
@@ -282,6 +292,8 @@ public class Comunicacao {
 		PessoaFisica c = (PessoaFisica) checkIfExists(pessoaDAO, "cpf",pessoa.getCpf());
 
 		if(c != null) return c;
+		AgenteEleitoral agente = insereAgenteEleitoral(new AgenteEleitoral());
+		pessoa.setAgenteEleitoral(agente);
 
 		return pessoaDAO.createIfNotExists(pessoa);
 	}
@@ -307,6 +319,9 @@ public class Comunicacao {
 
 		if(c != null) return c;
 
+		AgenteEleitoral agente = insereAgenteEleitoral(new AgenteEleitoral());
+		pessoa.setAgenteEleitoral(agente);
+
 		return pessoaDAO.createIfNotExists(pessoa);
 	}
 
@@ -321,6 +336,7 @@ public class Comunicacao {
 			itens.add(orm);
 		}
 
+
 		return itens;
 	}
 
@@ -329,7 +345,6 @@ public class Comunicacao {
 		Dao<Transacao, String> pessoaDAO = DaoManager.createDao(database.getConnection(), Transacao.class);
 
 		if(transacao.getDebitado() != null && transacao.getDebitado().getId() <= 0){
-			int id  = 0;
 			AgenteEleitoral agenteDebitado = transacao.getDebitado();
 			if(agenteDebitado.getTipoAgente() == Pessoa.class){
 				Pessoa debitado = agenteDebitado.getPessoa();
@@ -342,17 +357,16 @@ public class Comunicacao {
 				}else if(debitado instanceof PessoaFisica){
 					debitado = inserePessoaFisica((PessoaFisica)debitado);
 				}
-				agenteDebitado.setPessoa(debitado);
-				agenteDebitado = insereAgenteEleitoral(agenteDebitado);
+				agenteDebitado = debitado.getAgenteEleitoral();
 				transacao.setDebitado(agenteDebitado);
 			}else if(agenteDebitado.getTipoAgente() == Comite.class){
 				Comite debitado = agenteDebitado.getComite();
 				debitado = insereComite(debitado);
-				agenteDebitado.setComite(debitado);
-				agenteDebitado = insereAgenteEleitoral(agenteDebitado);
+				agenteDebitado = debitado.getAgenteEleitoral();
 				transacao.setDebitado(agenteDebitado);
 			}
 		}
+
 
 		if(transacao.getCreditado() != null && transacao.getCreditado().getId() <= 0){
 			AgenteEleitoral agenteCreditado = transacao.getCreditado();
@@ -367,14 +381,14 @@ public class Comunicacao {
 				}else if(creditado instanceof PessoaFisica){
 					creditado = inserePessoaFisica((PessoaFisica)creditado);
 				}
+				agenteCreditado = creditado.getAgenteEleitoral();
 				agenteCreditado.setPessoa(creditado);
-				agenteCreditado = insereAgenteEleitoral(agenteCreditado);
 				transacao.setCreditado(agenteCreditado);
 			}else if(agenteCreditado.getTipoAgente() == Comite.class){
 				Comite creditado = agenteCreditado.getComite();
 				creditado = insereComite(creditado);
+				agenteCreditado = creditado.getAgenteEleitoral();
 				agenteCreditado.setComite(creditado);
-				agenteCreditado = insereAgenteEleitoral(agenteCreditado);
 				transacao.setCreditado(agenteCreditado);
 			}
 		}
@@ -387,16 +401,16 @@ public class Comunicacao {
 	public AgenteEleitoral insereAgenteEleitoral(AgenteEleitoral agenteDebitado) throws SQLException {
 		Dao<AgenteEleitoral, String> eleicaoDAO = DaoManager.createDao(database.getConnection(), AgenteEleitoral.class);
 
-		AgenteEleitoral c = null;
-		if(agenteDebitado.getTipoAgente() == Pessoa.class){
-			c = (AgenteEleitoral) checkIfExists(eleicaoDAO, "pessoa_id",agenteDebitado.getPessoa().getId()+"");
-		}else if(agenteDebitado.getTipoAgente() == Comite.class){
-			c = (AgenteEleitoral) checkIfExists(eleicaoDAO, "comite_id",agenteDebitado.getComite().getId()+"");
-		}else{
-			new InvalidAttributeValueException("AgenteEleitoral precisa ter um tipo");
-		}
-
-		if(c != null) return c;
+		//		AgenteEleitoral c = null;
+		//		if(agenteDebitado.getTipoAgente() == Pessoa.class){
+			//			c = (AgenteEleitoral) checkIfExists(eleicaoDAO, "pessoa_id",agenteDebitado.getPessoa().getId()+"");
+			//		}else if(agenteDebitado.getTipoAgente() == Comite.class){
+				//			c = (AgenteEleitoral) checkIfExists(eleicaoDAO, "comite_id",agenteDebitado.getComite().getId()+"");
+				//		}else{
+					//			new InvalidAttributeValueException("AgenteEleitoral precisa ter um tipo");
+					//		}
+		//
+		//		if(c != null) return c;
 
 		return eleicaoDAO.createIfNotExists(agenteDebitado);
 	}
@@ -612,14 +626,10 @@ public class Comunicacao {
 		return doadores;
 	}
 
-	private Object checkIfExists(Dao dao, String field, String value){
-		try {
-			List listORM = dao.queryForEq(field,value);
-			if(!listORM.isEmpty()){
-				return listORM.get(0);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+	private Object checkIfExists(Dao dao, String field, String value) throws SQLException{
+		List listORM = dao.queryForEq(field,value);
+		if(!listORM.isEmpty()){
+			return listORM.get(0);
 		}
 		return null;
 	}

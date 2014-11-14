@@ -23,6 +23,9 @@ public class Comite {
 	
 	@DatabaseField(unique = true)
 	private String sequencialComite;
+	
+	@DatabaseField(foreign = true)
+	private AgenteEleitoral agenteEleitoral;
 
 	public String getUF() {
 		return UF;
@@ -70,6 +73,14 @@ public class Comite {
 
 	public void setSequencialComite(String sequencialComite) {
 		this.sequencialComite = sequencialComite;
+	}
+
+	public AgenteEleitoral getAgenteEleitoral() {
+		return agenteEleitoral;
+	}
+
+	public void setAgenteEleitoral(AgenteEleitoral agenteEleitoral) {
+		this.agenteEleitoral = agenteEleitoral;
 	}
 
 }

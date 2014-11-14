@@ -19,6 +19,14 @@ public abstract class ComportamentoParser {
 				for (Candidato t : readCandidatos(uf)) {
 					comm.insereCandidato(t);
 				}
+				
+				for (Transacao t : readPrestacaoContasComiteDespesa(uf)) {
+					comm.insereTransacao(t);
+				}
+				
+				for (Transacao t : readPrestacaoContasComiteReceita(uf)) {
+					comm.insereTransacao(t);
+				}
 			
 				for (Transacao t : readPrestacaoContasPartidoReceita(uf)) {
 					comm.insereTransacao(t);

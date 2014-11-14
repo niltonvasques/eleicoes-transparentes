@@ -17,9 +17,20 @@ public abstract class Pessoa {
 
 	@DatabaseField(foreign = true)
 	private SetorEconomico setorEconomico;
+	
+	@DatabaseField(foreign = true)
+	private AgenteEleitoral agenteEleitoral;
 
 //TODO: Rever relação entre pessoa e bem
 //	private Bem[] bem;
+
+	public AgenteEleitoral getAgenteEleitoral() {
+		return agenteEleitoral;
+	}
+
+	public void setAgenteEleitoral(AgenteEleitoral agenteEleitoral) {
+		this.agenteEleitoral = agenteEleitoral;
+	}
 
 	public String getSiglaUE() {
 		return siglaUE;
