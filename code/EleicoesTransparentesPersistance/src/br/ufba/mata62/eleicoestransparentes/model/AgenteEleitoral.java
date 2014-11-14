@@ -10,20 +10,16 @@ public class AgenteEleitoral {
 	@DatabaseField(generatedId = true)
 	private int id;
 	
-	@DatabaseField(foreign = true)
 	private Pessoa pessoa;
 	
-	@DatabaseField(foreign = true)
 	private Comite comite;
-
-	public int getId() {
-		return id;
+	
+	public Class getTipoAgente(){
+		if(pessoa != null) return Pessoa.class;
+		if(comite != null) return Comite.class;
+		return null;
 	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
@@ -39,13 +35,13 @@ public class AgenteEleitoral {
 	public void setComite(Comite comite) {
 		this.comite = comite;
 	}
-	
-	public Class getTipoAgente(){
-		if(pessoa != null) return Pessoa.class;
-		if(comite != null) return Comite.class;
-		return null;
+
+	public int getId() {
+		return id;
 	}
-	
-	
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 }

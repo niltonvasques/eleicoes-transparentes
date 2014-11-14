@@ -22,7 +22,7 @@ public abstract class ParserFile <T, M> {
 		String line = "";
 		String cvsSplitBy = ";";
 
-		br = new BufferedReader(new InputStreamReader(new FileInputStream(csvFile), "ISO-8859-1"));
+		br = new BufferedReader(new InputStreamReader(new FileInputStream(csvFile), getCharset()));
 		int count = 0;
 		while ((line = br.readLine()) != null) {
 			if(count == 0 && skipHeader){
@@ -46,6 +46,10 @@ public abstract class ParserFile <T, M> {
 
 	}
 	
+	protected String getCharset() {
+		return "ISO-8859-1";
+	}
+
 	public void setSkipHeader(boolean skip){
 		this.skipHeader = skip;
 	}

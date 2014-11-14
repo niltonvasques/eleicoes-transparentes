@@ -73,12 +73,18 @@ public class ParserPrestacaoContasComiteDespesa2012 extends ParserFile<PrestCont
 		trans.setMunicipio(pccd.getMunicipio());
 		return trans;
 	}
+	
+	@Override
+	protected String getCharset() {
+		return "utf-8";
+	}
 
 	private static AgenteEleitoral createComite(PrestContasComiteDespesa2012 pccd) {
 		Comite com = new Comite();
 		com.setUF(pccd.getUF());
 		com.setMunicipio(pccd.getMunicipio());
 		com.setTipo(pccd.getTipoComite());
+		com.setSequencialComite(pccd.getUF()+pccd.getTipoComite()+pccd.getSiglaPartido());
 		Partido partido = new Partido();
 		partido.setSigla(pccd.getSiglaPartido());
 		com.setPartido(partido);

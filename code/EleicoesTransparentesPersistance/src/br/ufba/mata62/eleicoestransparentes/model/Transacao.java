@@ -129,16 +129,6 @@ public class Transacao {
 	}
 
 	public void setCreditado(AgenteEleitoral creditado) {
-		if(creditado != null)	{
-			if(creditado.getTipoAgente() == Pessoa.class){
-				this.tipoCreditado = creditado.getPessoa().getClass().getSimpleName();
-			}else if(creditado.getTipoAgente() == Comite.class){
-				this.tipoCreditado = creditado.getComite().getClass().getSimpleName();
-			}
-			if( creditado.getTipoAgente() == null ){
-				new InvalidAttributeValueException("AgenteEleitoral não possui um tipo!");
-			}
-		}
 		this.creditado = creditado;
 	}
 

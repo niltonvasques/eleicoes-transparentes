@@ -87,6 +87,7 @@ public class ParserPrestacaoContasComiteReceita2012 extends ParserFile<PrestCont
 		com.setUF(pccd.getUF());
 		com.setMunicipio(pccd.getMunicipio());
 		com.setTipo(pccd.getTipoComite());
+		com.setSequencialComite(pccd.getUF()+pccd.getTipoComite()+pccd.getSiglaPartido());
 		Partido partido = new Partido();
 		partido.setSigla(pccd.getSiglaPartido());
 		com.setPartido(partido);
@@ -127,6 +128,13 @@ public class ParserPrestacaoContasComiteReceita2012 extends ParserFile<PrestCont
 		agente.setPessoa(pessoa);
 		return agente;
 	}
+	
+
+	@Override
+	protected String getCharset() {
+		return "utf-8";
+	}
+	
 	private static Date formatDate(String dateStr) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyyhh:mm");
 		try {
