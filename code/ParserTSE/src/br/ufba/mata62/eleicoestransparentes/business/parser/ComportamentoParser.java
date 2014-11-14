@@ -12,11 +12,6 @@ import br.ufba.mata62.eleicoestransparentes.util.Path;
 
 public abstract class ComportamentoParser {
 	
-	public ParserFile parserPrestacaoContasPartidoReceita;
-	
-	public ParserFile parserPrestacaoContasPartidoDespesa;
-	
-	
 	public void seguirModelo() throws IOException, SQLException {
 		for (String uf : Path.UFS) {
 				Comunicacao comm = new Comunicacao();
@@ -46,6 +41,9 @@ public abstract class ComportamentoParser {
 				}
 				
 				comm.close();
+				
+				
+				break;
 		}
 		
 	}

@@ -12,6 +12,7 @@ import java.util.List;
 
 import br.ufba.mata62.eleicoestransparentes.business.parser.ParserFile;
 import br.ufba.mata62.eleicoestransparentes.business.parser.templates.ano2012.PrestContasPartidoDespesa2012;
+import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Partido;
 import br.ufba.mata62.eleicoestransparentes.model.PessoaJuridica;
 import br.ufba.mata62.eleicoestransparentes.model.SetorEconomico;
@@ -73,13 +74,15 @@ public class ParserPrestacaoContasPartidoDespesa2012 extends ParserFile<PrestCon
 		return trans;
 	}
 
-	private static Partido createPartido(PrestContasPartidoDespesa2012 pccd) {
+	private static AgenteEleitoral createPartido(PrestContasPartidoDespesa2012 pccd) {
 		Partido part = new Partido();
 		part.setSigla(pccd.getSiglaPartido());
-		return part; 
+		AgenteEleitoral agente = new AgenteEleitoral();
+		agente.setPessoa(part);
+		return agente; 
 	}
 
-	private static PessoaJuridica createFornecedor(PrestContasPartidoDespesa2012 pccd) {
+	private static AgenteEleitoral createFornecedor(PrestContasPartidoDespesa2012 pccd) {
 		PessoaJuridica pj = new PessoaJuridica();
 		pj.setCnpj(pccd.getCPFCNPJFornecedor());
 		pj.setNome(pccd.getNomeFornecedor());
@@ -87,7 +90,9 @@ public class ParserPrestacaoContasPartidoDespesa2012 extends ParserFile<PrestCon
 		se.setNome(pccd.getSetorEconomicoFornecedor());
 		se.setCodSetorEco(pccd.getCodSetorEconomicoFornecedor());
 		pj.setSetorEconomico(se);
-		return pj;
+		AgenteEleitoral agente = new AgenteEleitoral();
+		agente.setPessoa(pj);
+		return agente;
 	}
 
 	private static Date formatDate(String dateStr) {

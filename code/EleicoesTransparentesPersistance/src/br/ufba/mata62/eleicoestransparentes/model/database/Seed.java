@@ -2,6 +2,7 @@ package br.ufba.mata62.eleicoestransparentes.model.database;
 
 import java.sql.SQLException;
 
+import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Bem;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
 import br.ufba.mata62.eleicoestransparentes.model.Comite;
@@ -49,6 +50,8 @@ public class Seed {
 	        
 	        TableUtils.createTable(connectionSource, Comite.class);
 	        
+	        TableUtils.createTable(connectionSource, AgenteEleitoral.class);
+	        
 	        TableUtils.createTable(connectionSource, Eleicao.class);
 	        
 	        TableUtils.createTable(connectionSource, Transacao.class);
@@ -90,6 +93,8 @@ public class Seed {
 	        TableUtils.dropTable(connectionSource, Candidato.class, true);
 	        
 	        TableUtils.dropTable(connectionSource, Comite.class, true);
+	        
+	        TableUtils.dropTable(connectionSource, AgenteEleitoral.class, true);
 	        
 	        TableUtils.dropTable(connectionSource, Eleicao.class, true);
 	        

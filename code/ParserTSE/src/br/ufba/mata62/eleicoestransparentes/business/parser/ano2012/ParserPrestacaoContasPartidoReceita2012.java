@@ -6,6 +6,7 @@ import java.util.Date;
 
 import br.ufba.mata62.eleicoestransparentes.business.parser.ParserFile;
 import br.ufba.mata62.eleicoestransparentes.business.parser.templates.ano2012.PrestContasPartidoReceita2012;
+import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Partido;
 import br.ufba.mata62.eleicoestransparentes.model.Pessoa;
 import br.ufba.mata62.eleicoestransparentes.model.PessoaFisica;
@@ -73,13 +74,15 @@ public class ParserPrestacaoContasPartidoReceita2012 extends ParserFile<PrestCon
 		return trans;
 	}
 	
-	private static Partido createPartido(PrestContasPartidoReceita2012 pccr) {
+	private static AgenteEleitoral createPartido(PrestContasPartidoReceita2012 pccr) {
 		Partido part = new Partido();
 		part.setSigla(pccr.getSiglaPartido());
-		return part; 
+		AgenteEleitoral agente = new AgenteEleitoral();
+		agente.setPessoa(part);
+		return agente; 
 	}
 
-	private static Pessoa createDoador(PrestContasPartidoReceita2012 pccr) {
+	private static AgenteEleitoral createDoador(PrestContasPartidoReceita2012 pccr) {
 		Pessoa pessoa = null;
 		
 		if(ValidatorCPFCNPJ.isValidCPF(pccr.getCPFCNPJDoador())){
@@ -107,7 +110,9 @@ public class ParserPrestacaoContasPartidoReceita2012 extends ParserFile<PrestCon
 			se.setNome(pccr.getSetorEconomicoDoador());
 			pessoa.setSetorEconomico(se);
 		}
-		return pessoa;
+		AgenteEleitoral agente = new AgenteEleitoral();
+		agente.setPessoa(pessoa);
+		return agente;
 	}
 	private static Date formatDate(String dateStr) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyyhh:mm");

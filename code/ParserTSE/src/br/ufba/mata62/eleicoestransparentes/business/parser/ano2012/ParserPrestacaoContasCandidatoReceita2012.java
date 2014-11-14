@@ -6,6 +6,7 @@ import java.util.Date;
 
 import br.ufba.mata62.eleicoestransparentes.business.parser.ParserFile;
 import br.ufba.mata62.eleicoestransparentes.business.parser.templates.ano2012.PrestContasCandidatoReceita2012;
+import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
 import br.ufba.mata62.eleicoestransparentes.model.Partido;
 import br.ufba.mata62.eleicoestransparentes.model.Pessoa;
@@ -77,7 +78,8 @@ public class ParserPrestacaoContasCandidatoReceita2012 extends ParserFile<PrestC
 		return trans;
 	}
 	
-	private static Candidato createCandidato(PrestContasCandidatoReceita2012 pccr) {
+	private static AgenteEleitoral createCandidato(PrestContasCandidatoReceita2012 pccr) {
+		AgenteEleitoral agente = new AgenteEleitoral();
 		Candidato cand = new Candidato();
 		cand.setNumero(pccr.getNumeroCandidato());
 		cand.setCargo(pccr.getCargo());
@@ -89,10 +91,13 @@ public class ParserPrestacaoContasCandidatoReceita2012 extends ParserFile<PrestC
 		cand.setPartido(partido);
 		cand.setCpf(pccr.getCPFCandidato());
 		cand.setNome(pccr.getNomeCandidato());
-		return cand; 
+		agente.setPessoa(cand);
+		
+		return agente; 
 	}
 
-	private static Pessoa createDoador(PrestContasCandidatoReceita2012 pccr) {
+	private static AgenteEleitoral createDoador(PrestContasCandidatoReceita2012 pccr) {
+		AgenteEleitoral agente = new AgenteEleitoral();
 		Pessoa pessoa = null;
 		
 		if(ValidatorCPFCNPJ.isValidCPF(pccr.getCPFCNPJDoador())){
@@ -120,7 +125,8 @@ public class ParserPrestacaoContasCandidatoReceita2012 extends ParserFile<PrestC
 			se.setNome(pccr.getSetorEconomicoDoador());
 			pessoa.setSetorEconomico(se);
 		}
-		return pessoa;
+		agente.setPessoa(pessoa);
+		return agente;
 	}
 	private static Date formatDate(String dateStr) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyyhh:mm");
