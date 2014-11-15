@@ -2,6 +2,8 @@ package br.ufba.mata62.eleicoestransparentes.model;
 
 import java.util.Date;
 
+import javax.management.InvalidAttributeValueException;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -39,7 +41,7 @@ public class Transacao {
 	 * Pode ser Candidato, Partido ou Comite, apenas
 	 */
 	@DatabaseField(foreign = true)
-	private Pessoa creditado;
+	private AgenteEleitoral creditado;
 	
 	/**
 	 * tipo creditado deverá conter o nome da tabela a qual este está apontando
@@ -48,7 +50,7 @@ public class Transacao {
 	private String tipoCreditado;
 
 	@DatabaseField(foreign = true)
-	private Pessoa debitado;
+	private AgenteEleitoral debitado;
 	
 	/**
 	 * tipo debitado deverá conter o nome da tabela a qual este está apontando
@@ -122,20 +124,19 @@ public class Transacao {
 		this.descricao = descricao;
 	}
 
-	public Pessoa getCreditado() {
+	public AgenteEleitoral getCreditado() {
 		return creditado;
 	}
 
-	public void setCreditado(Pessoa creditado) {
-		if(creditado != null)	this.tipoCreditado = creditado.getClass().getSimpleName();
+	public void setCreditado(AgenteEleitoral creditado) {
 		this.creditado = creditado;
 	}
 
-	public Pessoa getDebitado() {
+	public AgenteEleitoral getDebitado() {
 		return debitado;
 	}
 
-	public void setDebitado(Pessoa debitado) {
+	public void setDebitado(AgenteEleitoral debitado) {
 		if(debitado != null)	this.tipoDebitado = debitado.getClass().getSimpleName();
 		this.debitado = debitado;
 	}

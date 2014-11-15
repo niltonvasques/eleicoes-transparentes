@@ -12,6 +12,7 @@ import java.util.List;
 
 import br.ufba.mata62.eleicoestransparentes.business.parser.ParserFile;
 import br.ufba.mata62.eleicoestransparentes.business.parser.templates.ano2012.PrestContasComiteDespesa2012;
+import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Comite;
 import br.ufba.mata62.eleicoestransparentes.model.Partido;
 import br.ufba.mata62.eleicoestransparentes.model.PessoaJuridica;
@@ -66,25 +67,33 @@ public class ParserPrestacaoContasComiteDespesa2012 extends ParserFile<PrestCont
 		trans.setClassificacao(pccd.getTipoDespesa());
 		trans.setDescricao(pccd.getDescricaoDespesa());
 		trans.setCreditado(createFornecedor(pccd));
-//		trans.setDebitado(createComite(pccd));//TODO Comite não é tipo Pessoa
+		trans.setDebitado(createComite(pccd));//TODO Comite não é tipo Pessoa
 		trans.setTipo(Transacao.DESPESA);
 		trans.setUF(pccd.getUF());
 		trans.setMunicipio(pccd.getMunicipio());
 		return trans;
 	}
+	
+	@Override
+	protected String getCharset() {
+		return "utf-8";
+	}
 
-	private static Comite createComite(PrestContasComiteDespesa2012 pccd) {
+	private static AgenteEleitoral createComite(PrestContasComiteDespesa2012 pccd) {
 		Comite com = new Comite();
 		com.setUF(pccd.getUF());
 		com.setMunicipio(pccd.getMunicipio());
 		com.setTipo(pccd.getTipoComite());
+		com.setSequencialComite(pccd.getUF()+pccd.getTipoComite()+pccd.getSiglaPartido());
 		Partido partido = new Partido();
 		partido.setSigla(pccd.getSiglaPartido());
 		com.setPartido(partido);
-		return com; 
+		AgenteEleitoral agente = new AgenteEleitoral();
+		agente.setComite(com);
+		return agente; 
 	}
 
-	private static PessoaJuridica createFornecedor(PrestContasComiteDespesa2012 pccd) {
+	private static AgenteEleitoral createFornecedor(PrestContasComiteDespesa2012 pccd) {
 		PessoaJuridica pj = new PessoaJuridica();
 		pj.setCnpj(pccd.getCPFCNPJFornecedor());
 		pj.setNome(pccd.getNomeFornecedor());
@@ -92,7 +101,9 @@ public class ParserPrestacaoContasComiteDespesa2012 extends ParserFile<PrestCont
 		se.setNome(pccd.getSetorEconomicoFornecedor());
 		se.setCodSetorEco(pccd.getCodSetorEconomicoFornecedor());
 		pj.setSetorEconomico(se);
-		return pj;
+		AgenteEleitoral agente = new AgenteEleitoral();
+		agente.setPessoa(pj);
+		return agente;
 	}
 
 	private static Date formatDate(String dateStr) {

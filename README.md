@@ -18,8 +18,4 @@ relevantes para o eleitor:
 
 ---
 
-Obs.: Junto a entrega desse trabalho estão o projeto de implementação e a
-Diagramatização (Classes e Sequencial) em conjunto com os Modelos também
-requeridos pelo Projeto, tais modelos e Diagramatização estão em um projeto no
-formato “.astah” e a implementação é a de um projeto Android.
 

@@ -6,6 +6,7 @@ import java.util.Date;
 
 import br.ufba.mata62.eleicoestransparentes.business.parser.ParserFile;
 import br.ufba.mata62.eleicoestransparentes.business.parser.templates.ano2012.PrestContasCandidatoDespesa2012;
+import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
 import br.ufba.mata62.eleicoestransparentes.model.Partido;
 import br.ufba.mata62.eleicoestransparentes.model.PessoaJuridica;
@@ -70,7 +71,8 @@ public class ParserPrestacaoContasCandidatoDespesa2012 extends ParserFile<PrestC
 		return trans;
 	}
 
-	private static Candidato createCandidato(PrestContasCandidatoDespesa2012 pccd) {
+	private static AgenteEleitoral createCandidato(PrestContasCandidatoDespesa2012 pccd) {
+		AgenteEleitoral agente = new AgenteEleitoral();
 		Candidato cand = new Candidato();
 		cand.setNumero(pccd.getNumerocandidato());
 		cand.setCargo(pccd.getCargo());
@@ -82,11 +84,13 @@ public class ParserPrestacaoContasCandidatoDespesa2012 extends ParserFile<PrestC
 		cand.setPartido(partido);
 		cand.setCpf(pccd.getCPFCandidato());
 		cand.setNome(pccd.getNomeCandidato());
+		agente.setPessoa(cand);
 		
-		return cand; 
+		return agente; 
 	}
 
-	private static PessoaJuridica createFornecedor(PrestContasCandidatoDespesa2012 pccd) {
+	private static AgenteEleitoral createFornecedor(PrestContasCandidatoDespesa2012 pccd) {
+		AgenteEleitoral agente = new AgenteEleitoral();
 		PessoaJuridica pj = new PessoaJuridica();
 		pj.setCnpj(pccd.getCPFCNPJFornecedor());
 		pj.setNome(pccd.getNomeFornecedor());
@@ -94,7 +98,8 @@ public class ParserPrestacaoContasCandidatoDespesa2012 extends ParserFile<PrestC
 		se.setNome(pccd.getSetorEconomicoFornecedor());
 		se.setCodSetorEco(pccd.getCodSetorEconomicoFornecedor());
 		pj.setSetorEconomico(se);
-		return pj;
+		agente.setPessoa(pj);
+		return agente;
 	}
 
 	private static Date formatDate(String dateStr) {
