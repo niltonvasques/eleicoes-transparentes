@@ -3,14 +3,14 @@ package business;
 public class PerfilCandidato extends PerfilPessoaAbstrato {
 
 	@Override
-	public void carregarImagem() {
-		// TODO Auto-generated method stub
-		
+	public String carregarEnderecoImagem() {
+		return null;		
 	}
 
 	@Override
-	public void carregarTrajetoriaWikipedia() {
-		// TODO Auto-generated method stub
+	public String carregarBiografia() {
+		return null;
+		
 		
 	}
 

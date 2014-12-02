@@ -1,21 +1,23 @@
 package business;
 
-import java.util.ArrayList;
-
 import com.google.gson.Gson;
 
 public class GraficoFinal {
 	
-	public ArrayList<Double> valores;
+	public PontosGrafico pontosGrafico;
 	
 	public String tipo;
 	
 	public String nome;
 	
-	public Gson formatarGrafico(){
+	public String formatarGrafico(){
 		
+		Gson gson = new Gson();
+	
+		String json = gson.toJson(this); 
 		
-		return null;
-		}
+		return json;
+		
+	}
 	
 }

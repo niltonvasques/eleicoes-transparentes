@@ -8,13 +8,18 @@ public abstract class PerfilPessoaAbstrato {
 	
 	public Pessoa pessoa;
 	
-	public Gson formatarPerfilPessoa() {
+	public String formatarPerfilPessoa() {
 		
-		return null;
+		Gson gson = new Gson();
+		
+		String json = gson.toJson(this);
+		
+		
+		return json;
 	}
 	
-	public abstract void carregarImagem();
+	public abstract String carregarEnderecoImagem();
 	
-	public abstract void carregarTrajetoriaWikipedia();
+	public abstract String carregarBiografia();
 	
 }
