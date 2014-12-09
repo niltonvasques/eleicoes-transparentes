@@ -8,9 +8,9 @@ public abstract class GraficoBuilder {
 
 	public GraficoFinal graficoFinal;
 	
-	public abstract void buildValores(ArrayList<AgenteEleitoral> candidatos);
+	public abstract void buildValores();
 
 	public abstract void buildTipo();
 	
-	public abstract void buildNome(String nomeGrafico);
+	public abstract void buildNome();
 }

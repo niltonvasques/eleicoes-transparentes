@@ -1,23 +1,49 @@
 package business;
 
-import com.google.gson.Gson;
+import java.util.ArrayList;
+
+import com.google.gson.*;
 
 public class GraficoFinal {
 	
-	public PontosGrafico pontosGrafico;
+	private ArrayList<PontosGrafico> pontosGrafico;
 	
-	public String tipo;
+	private String tipo;
 	
-	public String nome;
+	private String nome;
 	
 	public String formatarGrafico(){
 		
 		Gson gson = new Gson();
 	
-		String json = gson.toJson(this); 
+		JsonObject dadosGrafico = new JsonObject();
 		
-		return json;
+		return gson.toJson(this);
 		
+	}
+
+	public ArrayList<PontosGrafico> getPontosGrafico() {
+		return pontosGrafico;
+	}
+
+	public void setPontosGrafico(ArrayList<PontosGrafico> pontosGrafico) {
+		this.pontosGrafico = pontosGrafico;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 }
