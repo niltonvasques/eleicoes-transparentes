@@ -4,8 +4,14 @@ import java.util.ArrayList;
 
 public class PontosGrafico {
 
-	public ArrayList<Double> valoresX;
+	public String rotulo;
 	
-	public ArrayList<Double> valoresY;
+	public Double valor;
+
+	public PontosGrafico(String rotulo, Double valor) {
+		super();
+		this.rotulo = rotulo;
+		this.valor = valor;
+	}
 	
 }

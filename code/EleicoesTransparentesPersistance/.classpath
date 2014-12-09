@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="lib/ds/commons-dbcp-1.4-sources.jar"/>
 	<classpathentry kind="lib" path="lib/ds/commons-dbcp-1.4.jar"/>
 	<classpathentry kind="lib" path="/home/vini/Downloads/gson-2.3.jar"/>
+	<classpathentry kind="lib" path="/home/vini/Downloads/afreechart-0.0.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
