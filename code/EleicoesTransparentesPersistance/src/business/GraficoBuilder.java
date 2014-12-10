@@ -9,7 +9,7 @@ public abstract class GraficoBuilder {
 
 	public GraficoFinal graficoFinal;
 	
-	public abstract void buildValores() throws SQLException;
+	public abstract void buildValores();
 
 	public abstract void buildTipo();
 	
