@@ -14,7 +14,7 @@ import br.ufba.mata62.eleicoestransparentes.view.chart.GraficoPizzaCandidatos;
 
 import br.ufba.mata62.eleicoestransparentes.business.Facade;
 import br.ufba.mata62.eleicoestransparentes.business.grafico.GraficoFinal;
-import br.ufba.mata62.eleicoestransparentes.business.parser.ParserTSEStrategy;
+import br.ufba.mata62.eleicoestransparentes.business.parser.ParserTSE;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ano2012.ComportamentoParser2012;
 import br.ufba.mata62.eleicoestransparentes.business.perfil.PerfilCandidato;
 import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
