@@ -24,8 +24,6 @@ public class Facade {
 			instanceFacede = new Facade();
 		
 		return instanceFacede;
-		
-		
 	}
 	
 	
