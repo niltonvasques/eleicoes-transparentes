@@ -1,12 +1,9 @@
 package br.ufba.mata62.eleicoestransparentes.business;
 
+import br.ufba.mata62.eleicoestransparentes.model.database.Comunicacao;
+
 
 public class GraficoBuilderPizzaValorVoto extends GraficoBuilder {
-
-	@Override
-	public void buildValores()  {
-		   	
-	}
 
 	@Override
 	public void buildTipo() {
@@ -16,8 +13,19 @@ public class GraficoBuilderPizzaValorVoto extends GraficoBuilder {
 
 	@Override
 	public void buildNome() {
-		this.graficoFinal.setNome("Candidatos por maior razao entre voto e montande de financiamento.");
+		this.graficoFinal.setNome("Divisão da renda dos candidatos que mais receberam receita.");
 		
+	}
+
+	@Override
+	public void buildValores() {
+		Comunicacao comunicacao = new Comunicacao();
+		
+		this.pontos = comunicacao.topCandidatos();
+		
+		this.graficoFinal.setPontosGrafico(pontos);
+				;
+			
 	}
 
 }

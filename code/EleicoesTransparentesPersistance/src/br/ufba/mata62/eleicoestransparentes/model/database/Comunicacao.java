@@ -9,6 +9,7 @@ import java.util.Map;
 
 import javax.naming.directory.InvalidAttributeValueException;
 
+import br.ufba.mata62.eleicoestransparentes.business.PontosGrafico;
 import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Bem;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
@@ -638,4 +639,85 @@ public class Comunicacao {
 		this.debug = b;
 	}
 
+
+	
+	//queries para os os graficos
+	public ArrayList<PontosGrafico> topFinanciadores() {
+		MySqlDatabase db = new MySqlDatabase();
+
+		String query =  "select pj.nome, sum(t.valor) as valor " +
+	      		"from Transacao t inner join PessoaFisica pj on pj.id = t.debitado_id  " +
+	      		"where t.tipo = 'R' and t.tipoDebitado = 'PessoaFisica' " +
+	      		"group by t.debitado_id order by sum(t.valor) desc LIMIT 5;";
+
+
+		ArrayList<PontosGrafico> pontos = new ArrayList<PontosGrafico>();
+		
+		ResultSet result = null;
+		try {
+			result = db.query(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(query);
+
+		
+			try {
+				while(result.next()){
+				     //Retrieve by column name
+				     String nome  = result.getString("pj.nome");
+				     double financimento = result.getDouble("valor");
+				     PontosGrafico ponto = new PontosGrafico(nome, financimento);
+				     pontos.add(ponto);
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			db.close();
+
+		return pontos;
+	}
+	
+	
+	public ArrayList<PontosGrafico> topCandidatos() {
+		MySqlDatabase db = new MySqlDatabase();
+
+		String query =  "SELECT c.nome, SUM(valor) as TOTAL_ARRECADADO_CANDIDATO " +
+				"FROM Candidato c INNER JOIN Transacao t on t.creditado_id = c.agenteEleitoral_id " +
+				"group by c.id order by t.valor DESC limit 10";
+
+
+		ArrayList<PontosGrafico> pontos = new ArrayList<PontosGrafico>();
+		
+		ResultSet result = null;
+		try {
+			result = db.query(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(query);
+
+		
+			try {
+				while(result.next()){
+				     //Retrieve by column name
+				     String nome  = result.getString("c.nome");
+				     double arrecadacao = result.getDouble("TOTAL_ARRECADADO_CANDIDATO");
+				     PontosGrafico ponto = new PontosGrafico(nome, arrecadacao);
+				     pontos.add(ponto);
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			db.close();
+
+		return pontos;
+	}
+	
 }
