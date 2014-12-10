@@ -1,20 +1,12 @@
 package business;
 
-import java.text.Normalizer;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.sql.SQLException;
+import java.util.List;
 
-import org.afree.chart.AFreeChart;
-import org.afree.chart.ChartFactory;
-import org.afree.chart.plot.PiePlot;
-import org.afree.chart.title.TextTitle;
-import org.afree.data.general.DefaultPieDataset;
-import org.afree.data.general.PieDataset;
-import org.afree.graphics.geom.Font;
-
-import br.ufba.mata62.eleicoestransparentes.model.*;
-
-import com.google.gson.*;
+import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
+import br.ufba.mata62.eleicoestransparentes.model.Candidato;
+import br.ufba.mata62.eleicoestransparentes.model.PessoaFisica;
+import br.ufba.mata62.eleicoestransparentes.model.database.Comunicacao;
 
 public class ExemploGrafico {
 
@@ -27,6 +19,18 @@ public class ExemploGrafico {
 		agente.setPessoa(fis); 
 		agente.getPessoa().setNome("Vinicius Gesteira");
 	    PerfilPartido cand = new PerfilPartido(agente);
+	    
+	    Comunicacao comm = new Comunicacao();
+	    
+	    try {
+			List<Candidato> candidato = comm.consultaCandidatos();
+			for (Candidato candidato2 : candidato) {
+				System.out.println(candidato2.getNome());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    
 	    System.out.println(cand.formatarPerfilAgenteEleitoral());
 	    
