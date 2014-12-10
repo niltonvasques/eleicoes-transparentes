@@ -6,13 +6,14 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.jfree.ui.RefineryUtilities;
+
 import br.ufba.mata62.eleicoestransparentes.business.Facade;
 import br.ufba.mata62.eleicoestransparentes.business.PerfilCandidato;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ParserTSEStrategy;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ano2012.ComportamentoParser2012;
 import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
-import br.ufba.mata62.eleicoestransparentes.model.database.Comunicacao;
 
 public class Menu {
 	
@@ -138,7 +139,10 @@ public class Menu {
 	}
 	
 	private void opcaoExibirGrafico1(){
-		
+		BarChartDemo demo = new BarChartDemo("Gráfico 1");
+		demo.pack();
+        RefineryUtilities.centerFrameOnScreen(demo);
+        demo.setVisible(true);
 	}
 	
 	private void opcaoExibirGrafico2(){
@@ -160,7 +164,8 @@ public class Menu {
 		List<AgenteEleitoral> candidatos = Facade.getInstanceFacade().consultarCandidatosPorNumero(numero);
 		int count = 0; 
 		for (AgenteEleitoral c : candidatos) {
-			System.out.println(count++ + " " +c.getPessoa().getNome());
+			Candidato ca = (Candidato) c.getPessoa();
+			System.out.println(count++ + " " +c.getPessoa().getNome() + " "+ca.getMunicipio()+" "+ca.getSequencialCandidato() );
 		}
 		if(count > 0){
 			System.out.println("Escolha um candidato para visualizar o perfil: ");
