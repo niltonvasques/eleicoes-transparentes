@@ -11,12 +11,12 @@ import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.database.Comunicacao;
 import br.ufba.mata62.eleicoestransparentes.model.database.MySqlDatabase;
 
-public class GraficoBuilderBarraTopFinanciadores extends GraficoBuilder {
+public class GraficoBuilderBarraTopFinanciadoresPF extends GraficoBuilder {
 
 	@Override
 	public void buildValores(Comunicacao comunicacao) {
 		
-		this.setPontos(comunicacao.topCandidatos());
+		this.setPontos(comunicacao.topFinanciadoresPF());
 		
 	}
 
