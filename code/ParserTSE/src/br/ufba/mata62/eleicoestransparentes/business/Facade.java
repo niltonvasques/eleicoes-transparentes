@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-import br.ufba.mata62.eleicoestransparentes.business.grafico.GraficoBuilderBarraTopFinanciadores;
+import br.ufba.mata62.eleicoestransparentes.business.grafico.GraficoBuilderBarraTopCandidatosRecebedores;
+import br.ufba.mata62.eleicoestransparentes.business.grafico.GraficoBuilderBarraTopFinanciadoresPF;
+import br.ufba.mata62.eleicoestransparentes.business.grafico.GraficoBuilderBarraTopFinanciadoresPJ;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ParserTSE;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ano2012.ComportamentoParser2012;
 import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
@@ -55,8 +57,17 @@ public class Facade {
 		
 	}
 	
-	public String visualizarGraficoDoadores() {
-		GraficoBuilderBarraTopFinanciadores graficoFinanciadores = new GraficoBuilderBarraTopFinanciadores();
+	public String visualizarGraficoDoadoresPF() {
+		GraficoBuilderBarraTopFinanciadoresPF graficoFinanciadores = new GraficoBuilderBarraTopFinanciadoresPF();
+		
+		graficoFinanciadores.buildValores(comm);
+		
+		return graficoFinanciadores.getGraficoFinal().formatarGrafico();
+		
+	}
+	
+	public String visualizarGraficoDoadoresPJ() {
+		GraficoBuilderBarraTopFinanciadoresPJ graficoFinanciadores = new GraficoBuilderBarraTopFinanciadoresPJ();
 		
 		graficoFinanciadores.buildValores(comm);
 		
@@ -65,8 +76,12 @@ public class Facade {
 	}
 	
 
-	public void visualizarGraficoCandidatos() {
+	public String visualizarGraficoCandidatos() {
+		GraficoBuilderBarraTopCandidatosRecebedores graficoFinanciadores = new GraficoBuilderBarraTopCandidatosRecebedores();
 		
+		graficoFinanciadores.buildValores(comm);
+		
+		return graficoFinanciadores.getGraficoFinal().formatarGrafico();
 		
 	}
 	

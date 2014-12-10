@@ -9,8 +9,8 @@ import java.util.List;
 import org.jfree.ui.RefineryUtilities;
 
 import br.ufba.mata62.eleicoestransparentes.util.*;
-import br.ufba.mata62.eleicoestransparentes.view.chart.GraficoBarraDoadores;
-import br.ufba.mata62.eleicoestransparentes.view.chart.GraficoPizzaCandidatos;
+import br.ufba.mata62.eleicoestransparentes.view.chart.GraficoBarra;
+import br.ufba.mata62.eleicoestransparentes.view.chart.GraficoPizza;
 
 import br.ufba.mata62.eleicoestransparentes.business.Facade;
 import br.ufba.mata62.eleicoestransparentes.business.grafico.GraficoFinal;
@@ -34,6 +34,8 @@ public class Menu {
 	private static final int REALIZAR_PARSER 		= 2;
 	private static final int EXIBIR_GRAFICO_1 		= 3;
 	private static final int EXIBIR_GRAFICO_2 		= 4;
+	private static final int EXIBIR_GRAFICO_3 		= 5;
+	private static final int EXIBIR_GRAFICO_4 		= 6;
 	private static final int CONSULTA_CANDIDATOS_NUM	= 7;
 
 	public void start() {
@@ -64,6 +66,14 @@ public class Menu {
 				case EXIBIR_GRAFICO_2:
 					opcaoExibirGrafico2();
 					break;
+					
+				case EXIBIR_GRAFICO_3:
+					opcaoExibirGrafico3();
+					break;
+					
+				case EXIBIR_GRAFICO_4:
+					opcaoExibirGrafico4();
+					break;
 
 				case CONSULTA_CANDIDATOS_NUM:
 					opcaoExibirPerfilCandidatoPorNumero();
@@ -86,14 +96,13 @@ public class Menu {
 		System.out.println("-----------------------------MENU---------------------------");
 		System.out.println("(1) - Consulta Candidatos");
 		System.out.println("(2) - Realizar Parser");
-		System.out.println("(3) - Exibir gráfico 1");
-		System.out.println("(4) - Exibir gráfico 2");
-		System.out.println("(5) - Exibir gráfico 3");
-		System.out.println("(6) - Exibir gráfico 4");
+		System.out.println("(3) - Gráfico Barra Ranking Maiores Financiadores PF ");
+		System.out.println("(4) - Gráfico Pizza Ranking Maiores Financiadores PF ");
+		System.out.println("(5) - Gráfico Barra Ranking Maiores Financiadores PJ ");
+		System.out.println("(6) - Gráfico Barra Ranking Candidatos ");
 		System.out.println("(7) - Consulta Candidatos por número");
 		System.out.println("(0) - Sair");
 		System.out.println("------------------------------------------------------------");
-
 	}
 
 	private  int perguntaOpcao() throws IOException{
@@ -132,31 +141,59 @@ public class Menu {
 	}
 
 	private void opcaoExibirGrafico1(){
-		String json = Facade.getInstanceFacade().visualizarGraficoDoadores();
+		String json = Facade.getInstanceFacade().visualizarGraficoDoadoresPF();
 		System.out.println(json);
 		Gson gson = new Gson();
 		GraficoFinal graficoParse = gson.fromJson(json, GraficoFinal.class);
 		System.out.println(graficoParse.getClass());
 
 		System.out.println(graficoParse.getNome());
-		GraficoBarraDoadores view1 = new GraficoBarraDoadores(graficoParse);
+		GraficoBarra view1 = new GraficoBarra(graficoParse);
 		view1.pack();
 		RefineryUtilities.centerFrameOnScreen(view1);
 		view1.setVisible(true);
 	}
 
 	private void opcaoExibirGrafico2(){
-		String json = Facade.getInstanceFacade().visualizarGraficoDoadores();
+		String json = Facade.getInstanceFacade().visualizarGraficoDoadoresPF();
 
 		Gson gson = new Gson();
 		GraficoFinal graficoParse = gson.fromJson(json, GraficoFinal.class);
 		System.out.println(graficoParse.getClass());
 
 		System.out.println(graficoParse.getNome());
-		GraficoPizzaCandidatos view2 = new GraficoPizzaCandidatos(graficoParse);
+		GraficoPizza view2 = new GraficoPizza(graficoParse);
 		view2.pack();
 		RefineryUtilities.centerFrameOnScreen(view2);
 		view2.setVisible(true);		
+	}
+	
+	private void opcaoExibirGrafico3(){
+		String json = Facade.getInstanceFacade().visualizarGraficoDoadoresPJ();
+		System.out.println(json);
+		Gson gson = new Gson();
+		GraficoFinal graficoParse = gson.fromJson(json, GraficoFinal.class);
+		System.out.println(graficoParse.getClass());
+
+		System.out.println(graficoParse.getNome());
+		GraficoBarra view1 = new GraficoBarra(graficoParse);
+		view1.pack();
+		RefineryUtilities.centerFrameOnScreen(view1);
+		view1.setVisible(true);
+	}
+	
+	private void opcaoExibirGrafico4(){
+		String json = Facade.getInstanceFacade().visualizarGraficoCandidatos();
+		System.out.println(json);
+		Gson gson = new Gson();
+		GraficoFinal graficoParse = gson.fromJson(json, GraficoFinal.class);
+		System.out.println(graficoParse.getClass());
+
+		System.out.println(graficoParse.getNome());
+		GraficoBarra view1 = new GraficoBarra(graficoParse);
+		view1.pack();
+		RefineryUtilities.centerFrameOnScreen(view1);
+		view1.setVisible(true);
 	}
 
 	private void opcaoExibirPerfilCandidatoPorNumero() throws IOException {
@@ -167,7 +204,7 @@ public class Menu {
 		int count = 0; 
 		for (AgenteEleitoral c : candidatos) {
 			Candidato ca = (Candidato) c.getPessoa();
-			System.out.println(count++ + " " +c.getPessoa().getNome() + " "+ca.getMunicipio()+" "+ca.getSequencialCandidato() );
+			System.out.println(count++ + " " +c.getPessoa().getNome() + " - "+ca.getSequencialCandidato() );
 		}
 		if(count > 0){
 			System.out.println("Escolha um candidato para visualizar o perfil: ");
