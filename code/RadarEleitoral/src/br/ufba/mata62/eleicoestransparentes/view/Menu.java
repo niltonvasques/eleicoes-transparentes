@@ -140,7 +140,6 @@ public class Menu {
 	}
 	
 	private void opcaoExibirGrafico1(){
-	System.out.println(Facade.getInstanceFacade().consultarCandidatos());		
 		BarChartDemo demo = new BarChartDemo("Gráfico 1");
 		demo.pack();
         RefineryUtilities.centerFrameOnScreen(demo);
