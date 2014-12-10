@@ -18,3 +18,6 @@ SELECT SUM(valor) as TOTAL_ARRECADADO_COMITE FROM Comite c INNER JOIN Transacao 
 
 SELECT nome, SUM(valor) as valor FROM PessoaFisica p INNER JOIN Transacao t on t.debitado_id = p.agenteEleitoral_id GROUP BY p.id ORDER BY SUM(t.valor) DESC LIMIT 10;
 SELECT nome, SUM(valor) as valor FROM PessoaJuridica p INNER JOIN Transacao t on t.debitado_id = p.agenteEleitoral_id GROUP BY p.id ORDER BY SUM(t.valor) DESC LIMIT 10;
+
+-- CÁLCULAR OS MAIORES CANDIDATOS RECEBEDORES
+SELECT c.nome, SUM(valor) as TOTAL_ARRECADADO_CANDIDATO FROM Candidato c INNER JOIN Transacao t on t.creditado_id = c.agenteEleitoral_id group by c.id order by t.valor DESC limit 10

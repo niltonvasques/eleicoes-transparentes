@@ -1,4 +1,4 @@
-package business;
+package br.ufba.mata62.eleicoestransparentes.business;
 
 import java.text.Normalizer;
 import java.util.regex.Matcher;

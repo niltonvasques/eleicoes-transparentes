@@ -1,4 +1,4 @@
-package business;
+package br.ufba.mata62.eleicoestransparentes.business;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
