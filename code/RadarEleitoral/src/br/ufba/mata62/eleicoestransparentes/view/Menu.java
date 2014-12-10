@@ -1,5 +1,7 @@
 package br.ufba.mata62.eleicoestransparentes.view;
 
+
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,12 +10,19 @@ import java.util.List;
 
 import org.jfree.ui.RefineryUtilities;
 
+import br.ufba.mata62.eleicoestransparentes.util.*;
+
 import br.ufba.mata62.eleicoestransparentes.business.Facade;
+import br.ufba.mata62.eleicoestransparentes.business.GraficoFinal;
 import br.ufba.mata62.eleicoestransparentes.business.PerfilCandidato;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ParserTSEStrategy;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ano2012.ComportamentoParser2012;
 import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
+
+import java.util.ArrayList;
+
+import com.google.gson.*;
 
 
 public class Menu {
@@ -140,15 +149,31 @@ public class Menu {
 	}
 	
 	private void opcaoExibirGrafico1(){
-	System.out.println(Facade.getInstanceFacade().consultarCandidatos());		
-		BarChartDemo demo = new BarChartDemo("Gráfico 1");
-		demo.pack();
-        RefineryUtilities.centerFrameOnScreen(demo);
-        demo.setVisible(true);
+	String json = Facade.getInstanceFacade().visualizarGraficoDoadores();
+	
+	Gson gson = new Gson();
+    GraficoFinal graficoParse = gson.fromJson(json, GraficoFinal.class);
+    System.out.println(graficoParse.getClass());
+    
+    System.out.println(graficoParse.getNome());
+    	GraficoBarraDoadores view1 = new GraficoBarraDoadores(graficoParse);
+		view1.pack();
+        RefineryUtilities.centerFrameOnScreen(view1);
+        view1.setVisible(true);
 	}
 	
 	private void opcaoExibirGrafico2(){
+		String json = Facade.getInstanceFacade().visualizarGraficoDoadores();
 		
+		Gson gson = new Gson();
+	    GraficoFinal graficoParse = gson.fromJson(json, GraficoFinal.class);
+	    System.out.println(graficoParse.getClass());
+	    
+	    System.out.println(graficoParse.getNome());
+	    GraficoPizzaCandidatos view2 = new GraficoPizzaCandidatos(graficoParse);
+			view2.pack();
+	        RefineryUtilities.centerFrameOnScreen(view2);
+	        view2.setVisible(true);		
 	}
 	
 	private void opcaoExibirGrafico3(){
