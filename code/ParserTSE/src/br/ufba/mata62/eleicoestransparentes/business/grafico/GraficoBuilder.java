@@ -1,20 +1,18 @@
-package br.ufba.mata62.eleicoestransparentes.business;
+package br.ufba.mata62.eleicoestransparentes.business.grafico;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
-import br.ufba.mata62.eleicoestransparentes.model.*;
-
-import br.ufba.mata62.eleicoestransparentes.model.database.*;
+import br.ufba.mata62.eleicoestransparentes.model.database.Comunicacao;
+import br.ufba.mata62.eleicoestransparentes.model.logicbeans.PontosGrafico;
 
 public abstract class GraficoBuilder {
 
 	public ArrayList<PontosGrafico> getPontos() {
-		return pontos;
+		return this.graficoFinal.getPontosGrafico();
 	}
 
 	public void setPontos(ArrayList<PontosGrafico> pontos) {
-		this.pontos = pontos;
+		this.graficoFinal.setPontosGrafico(pontos);
 	}
 
 	public GraficoFinal getGraficoFinal() {
@@ -25,8 +23,6 @@ public abstract class GraficoBuilder {
 		this.graficoFinal = graficoFinal;
 	}
 
-	private ArrayList<PontosGrafico> pontos; 
-	
 	private GraficoFinal graficoFinal;
 	
 	public abstract void buildValores(Comunicacao comunicacao);

@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.business.grafico.GraficoBuilderBarraTopFinanciadores;
+import br.ufba.mata62.eleicoestransparentes.business.parser.ParserTSEStrategy;
+import br.ufba.mata62.eleicoestransparentes.business.parser.ano2012.ComportamentoParser2012;
 import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.database.Comunicacao;
 
@@ -47,8 +50,6 @@ public class Facade {
 	}
 
 	public void consultarPartido() {
-		
-		
 	}
 
 	public void consultarDoador() {
@@ -69,6 +70,16 @@ public class Facade {
 	public void visualizarGraficoCandidatos() {
 		
 		
+	}
+	
+	public void realizarParser(){
+		try {
+			ParserTSEStrategy parser = new ParserTSEStrategy(new ComportamentoParser2012());
+			parser.resetarParser();
+			parser.realizarParser();
+		} catch (IOException | SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 

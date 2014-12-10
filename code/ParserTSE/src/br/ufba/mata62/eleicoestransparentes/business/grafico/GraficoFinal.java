@@ -1,6 +1,9 @@
-package br.ufba.mata62.eleicoestransparentes.business;
+package br.ufba.mata62.eleicoestransparentes.business.grafico;
 
 import java.util.ArrayList;
+
+
+import br.ufba.mata62.eleicoestransparentes.model.logicbeans.PontosGrafico;
 
 import com.google.gson.*;
 

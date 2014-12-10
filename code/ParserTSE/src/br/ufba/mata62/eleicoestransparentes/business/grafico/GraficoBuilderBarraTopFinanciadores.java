@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes.business;
+package br.ufba.mata62.eleicoestransparentes.business.grafico;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,8 +18,6 @@ public class GraficoBuilderBarraTopFinanciadores extends GraficoBuilder {
 		
 		this.setPontos(comunicacao.topCandidatos());
 		
-	
-	
 	}
 
 	@Override
