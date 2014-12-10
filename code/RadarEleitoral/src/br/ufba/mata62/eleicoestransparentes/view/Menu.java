@@ -12,6 +12,7 @@ import br.ufba.mata62.eleicoestransparentes.business.parser.ano2012.Comportament
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
 import br.ufba.mata62.eleicoestransparentes.model.database.Comunicacao;
 
+@SuppressWarnings("unused")
 public class Menu {
 	
 	private static final String DEFAULT_ADMIN_PASS	= "matc89";
@@ -128,7 +129,7 @@ public class Menu {
 	}
 	
 	private void opcaoExibirGrafico1(){
-		
+		System.out.println(Facade.getInstanceFacade().consultarCandidatos());
 	}
 	
 	private void opcaoExibirGrafico2(){

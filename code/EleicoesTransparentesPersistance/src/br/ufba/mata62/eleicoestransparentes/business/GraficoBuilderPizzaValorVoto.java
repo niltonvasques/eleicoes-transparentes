@@ -7,24 +7,24 @@ public class GraficoBuilderPizzaValorVoto extends GraficoBuilder {
 
 	@Override
 	public void buildTipo() {
-		this.graficoFinal.setTipo("pie");
+		this.getGraficoFinal().setTipo("pie");
 		
 	}
 
 	@Override
 	public void buildNome() {
-		this.graficoFinal.setNome("Divisão da renda dos candidatos que mais receberam receita.");
+		this.getGraficoFinal().setNome("Divisão da renda dos candidatos que mais receberam receita.");
 		
 	}
 
 	@Override
-	public void buildValores() {
-		Comunicacao comunicacao = new Comunicacao();
+	public void buildValores(Comunicacao comunicacao) {
 		
-		this.pontos = comunicacao.topCandidatos();
+		this.setPontos(comunicacao.topCandidatos());
 		
-		this.graficoFinal.setPontosGrafico(pontos);
-				;
+		this.getGraficoFinal().setPontosGrafico(this.getPontos());
+			
+		
 			
 	}
 

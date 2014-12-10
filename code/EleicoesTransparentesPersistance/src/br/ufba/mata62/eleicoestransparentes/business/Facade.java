@@ -45,8 +45,12 @@ public class Facade {
 		
 	}
 	
-	public void visualizarGraficoDoadores() {
+	public String visualizarGraficoDoadores() {
+		GraficoBuilderBarraTopFinanciadores graficoFinanciadores = new GraficoBuilderBarraTopFinanciadores();
 		
+		graficoFinanciadores.buildValores(comm);
+		
+		return graficoFinanciadores.getGraficoFinal().formatarGrafico();
 		
 	}
 	

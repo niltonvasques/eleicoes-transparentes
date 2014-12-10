@@ -9,11 +9,27 @@ import br.ufba.mata62.eleicoestransparentes.model.database.*;
 
 public abstract class GraficoBuilder {
 
-	public ArrayList<PontosGrafico> pontos; 
+	public ArrayList<PontosGrafico> getPontos() {
+		return pontos;
+	}
+
+	public void setPontos(ArrayList<PontosGrafico> pontos) {
+		this.pontos = pontos;
+	}
+
+	public GraficoFinal getGraficoFinal() {
+		return graficoFinal;
+	}
+
+	public void setGraficoFinal(GraficoFinal graficoFinal) {
+		this.graficoFinal = graficoFinal;
+	}
+
+	private ArrayList<PontosGrafico> pontos; 
 	
-	public GraficoFinal graficoFinal = new GraficoFinal();
+	private GraficoFinal graficoFinal;
 	
-	public abstract void buildValores();
+	public abstract void buildValores(Comunicacao comunicacao);
 	
 	public abstract void buildTipo();
 	
@@ -21,8 +37,6 @@ public abstract class GraficoBuilder {
 
 	public GraficoBuilder() {
 		super();
-		
-
 	
 		this.graficoFinal = new GraficoFinal();
 		
