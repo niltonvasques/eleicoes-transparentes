@@ -1,4 +1,4 @@
-package business;
+package br.ufba.mata62.eleicoestransparentes.business;
 
 
 public class GraficoBuilderPizzaValorVoto extends GraficoBuilder {
