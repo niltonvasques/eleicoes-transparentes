@@ -9,12 +9,14 @@ import java.util.List;
 import org.jfree.ui.RefineryUtilities;
 
 import br.ufba.mata62.eleicoestransparentes.util.*;
+import br.ufba.mata62.eleicoestransparentes.view.chart.GraficoBarraDoadores;
+import br.ufba.mata62.eleicoestransparentes.view.chart.GraficoPizzaCandidatos;
 
 import br.ufba.mata62.eleicoestransparentes.business.Facade;
-import br.ufba.mata62.eleicoestransparentes.business.GraficoFinal;
-import br.ufba.mata62.eleicoestransparentes.business.PerfilCandidato;
+import br.ufba.mata62.eleicoestransparentes.business.grafico.GraficoFinal;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ParserTSEStrategy;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ano2012.ComportamentoParser2012;
+import br.ufba.mata62.eleicoestransparentes.business.perfil.PerfilCandidato;
 import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
 
@@ -24,18 +26,16 @@ import com.google.gson.*;
 
 
 public class Menu {
-	
+
 	private static final String DEFAULT_ADMIN_PASS	= "matc89";
-	
+
 	private static final int SAIR 					= 0;
 	private static final int CONSULTA_CANDIDATOS 	= 1;
 	private static final int REALIZAR_PARSER 		= 2;
 	private static final int EXIBIR_GRAFICO_1 		= 3;
 	private static final int EXIBIR_GRAFICO_2 		= 4;
-	private static final int EXIBIR_GRAFICO_3		= 5;
-	private static final int EXIBIR_GRAFICO_4		= 6;
 	private static final int CONSULTA_CANDIDATOS_NUM	= 7;
-	
+
 	public void start() {
 		try {
 			boolean running = true;
@@ -46,33 +46,25 @@ public class Menu {
 				case SAIR:
 					running = false;
 					break;
-					
+
 				case CONSULTA_CANDIDATOS:
 					opcaoConsultaCandidatos();
 					break;
-					
+
 				case REALIZAR_PARSER:
 					if(solicitaSenhaAdmin()){
 						opcaoRealizarParser();						
 					}
 					break;
-					
+
 				case EXIBIR_GRAFICO_1:
 					opcaoExibirGrafico1();
 					break;
-					
+
 				case EXIBIR_GRAFICO_2:
 					opcaoExibirGrafico2();
 					break;
-					
-				case EXIBIR_GRAFICO_3:
-					opcaoExibirGrafico3();
-					break;
-					
-				case EXIBIR_GRAFICO_4:
-					opcaoExibirGrafico4();
-					break;
-					
+
 				case CONSULTA_CANDIDATOS_NUM:
 					opcaoExibirPerfilCandidatoPorNumero();
 					break;
@@ -81,14 +73,14 @@ public class Menu {
 					break;
 				}
 				if(opcao == 0) break;
-				
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 
 	private  void desenhaMenu(){
 		System.out.println("-----------------------------MENU---------------------------");
@@ -101,9 +93,9 @@ public class Menu {
 		System.out.println("(7) - Consulta Candidatos por número");
 		System.out.println("(0) - Sair");
 		System.out.println("------------------------------------------------------------");
-		
+
 	}
-	
+
 	private  int perguntaOpcao() throws IOException{
 		System.out.println("Opção: ");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -112,11 +104,11 @@ public class Menu {
 		try{
 			opcao = Integer.valueOf(num);
 		}catch(Exception e){
-			
+
 		}
 		return opcao;
 	}
-	
+
 	private boolean solicitaSenhaAdmin() throws IOException{
 		System.out.println("Senha: ");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -127,61 +119,46 @@ public class Menu {
 		}
 		return true;
 	}
-	
+
 	private  void opcaoConsultaCandidatos(){
 		List<AgenteEleitoral> candidatos = Facade.getInstanceFacade().consultarCandidatos();
 		for (AgenteEleitoral c : candidatos) {
 			System.out.println(c.getPessoa().getNome());
 		}		
 	}
-	
-	private void opcaoRealizarParser(){
 
-		try {
-			ParserTSEStrategy parser = new ParserTSEStrategy(new ComportamentoParser2012());
-			parser.resetarParser();
-			parser.realizarParser();
-		} catch (IOException | SQLException e) {
-			e.printStackTrace();
-		}
+	private void opcaoRealizarParser(){
+		Facade.getInstanceFacade().realizarParser();
 	}
-	
+
 	private void opcaoExibirGrafico1(){
-	String json = Facade.getInstanceFacade().visualizarGraficoDoadores();
-	
-	Gson gson = new Gson();
-    GraficoFinal graficoParse = gson.fromJson(json, GraficoFinal.class);
-    System.out.println(graficoParse.getClass());
-    
-    System.out.println(graficoParse.getNome());
-    	GraficoBarraDoadores view1 = new GraficoBarraDoadores(graficoParse);
+		String json = Facade.getInstanceFacade().visualizarGraficoDoadores();
+		System.out.println(json);
+		Gson gson = new Gson();
+		GraficoFinal graficoParse = gson.fromJson(json, GraficoFinal.class);
+		System.out.println(graficoParse.getClass());
+
+		System.out.println(graficoParse.getNome());
+		GraficoBarraDoadores view1 = new GraficoBarraDoadores(graficoParse);
 		view1.pack();
-        RefineryUtilities.centerFrameOnScreen(view1);
-        view1.setVisible(true);
+		RefineryUtilities.centerFrameOnScreen(view1);
+		view1.setVisible(true);
 	}
-	
+
 	private void opcaoExibirGrafico2(){
 		String json = Facade.getInstanceFacade().visualizarGraficoDoadores();
-		
+
 		Gson gson = new Gson();
-	    GraficoFinal graficoParse = gson.fromJson(json, GraficoFinal.class);
-	    System.out.println(graficoParse.getClass());
-	    
-	    System.out.println(graficoParse.getNome());
-	    GraficoPizzaCandidatos view2 = new GraficoPizzaCandidatos(graficoParse);
-			view2.pack();
-	        RefineryUtilities.centerFrameOnScreen(view2);
-	        view2.setVisible(true);		
+		GraficoFinal graficoParse = gson.fromJson(json, GraficoFinal.class);
+		System.out.println(graficoParse.getClass());
+
+		System.out.println(graficoParse.getNome());
+		GraficoPizzaCandidatos view2 = new GraficoPizzaCandidatos(graficoParse);
+		view2.pack();
+		RefineryUtilities.centerFrameOnScreen(view2);
+		view2.setVisible(true);		
 	}
-	
-	private void opcaoExibirGrafico3(){
-		
-	}
-	
-	private void opcaoExibirGrafico4(){
-		
-	}
-	
+
 	private void opcaoExibirPerfilCandidatoPorNumero() throws IOException {
 		System.out.println("Número Candidato: ");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -207,7 +184,7 @@ public class Menu {
 				System.out.println("Opção inválida!!");
 			}
 		}
-		
+
 	}
-	
+
 }

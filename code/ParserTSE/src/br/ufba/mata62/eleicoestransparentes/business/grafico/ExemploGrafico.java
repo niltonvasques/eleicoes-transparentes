@@ -1,8 +1,9 @@
-package br.ufba.mata62.eleicoestransparentes.business;
+package br.ufba.mata62.eleicoestransparentes.business.grafico;
 
 import java.sql.SQLException;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.business.perfil.PerfilPartido;
 import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
 import br.ufba.mata62.eleicoestransparentes.model.PessoaFisica;

@@ -1,4 +1,4 @@
-package br.ufba.mata62.eleicoestransparentes.business;
+package br.ufba.mata62.eleicoestransparentes.business.perfil;
 
 import br.ufba.mata62.eleicoestransparentes.model.*;
 

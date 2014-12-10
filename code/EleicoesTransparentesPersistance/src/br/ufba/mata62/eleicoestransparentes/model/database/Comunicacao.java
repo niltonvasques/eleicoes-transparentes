@@ -3,13 +3,8 @@ package br.ufba.mata62.eleicoestransparentes.model.database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import javax.naming.directory.InvalidAttributeValueException;
-
-import br.ufba.mata62.eleicoestransparentes.business.PontosGrafico;
 import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Bem;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
@@ -23,6 +18,7 @@ import br.ufba.mata62.eleicoestransparentes.model.SetorEconomico;
 import br.ufba.mata62.eleicoestransparentes.model.Transacao;
 import br.ufba.mata62.eleicoestransparentes.model.logicbeans.PessoaFisicaDoador;
 import br.ufba.mata62.eleicoestransparentes.model.logicbeans.PessoaJuridicaDoador;
+import br.ufba.mata62.eleicoestransparentes.model.logicbeans.PontosGrafico;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -728,9 +724,7 @@ public class Comunicacao {
 	public ArrayList<PontosGrafico> topCandidatos() {
 		MySqlDatabase db = new MySqlDatabase();
 
-		String query =  "SELECT c.nome, SUM(valor) as TOTAL_ARRECADADO_CANDIDATO " +
-				"FROM Candidato c INNER JOIN Transacao t on t.creditado_id = c.agenteEleitoral_id " +
-				"group by c.id order by t.valor DESC limit 10";
+		String query =  "SELECT c.nome, SUM(valor) as TOTAL_ARRECADADO_CANDIDATO FROM Candidato c INNER JOIN Transacao t on t.creditado_id = c.agenteEleitoral_id group by c.id order by t.valor DESC limit 10;";
 
 
 		ArrayList<PontosGrafico> pontos = new ArrayList<PontosGrafico>();
