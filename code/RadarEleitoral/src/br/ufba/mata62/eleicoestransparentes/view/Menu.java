@@ -19,6 +19,10 @@ public class Menu {
 	private static final int SAIR 					= 0;
 	private static final int CONSULTA_CANDIDATOS 	= 1;
 	private static final int REALIZAR_PARSER 		= 2;
+	private static final int EXIBIR_GRAFICO_1 		= 3;
+	private static final int EXIBIR_GRAFICO_2 		= 4;
+	private static final int EXIBIR_GRAFICO_3		= 5;
+	private static final int EXIBIR_GRAFICO_4		= 6;
 	
 	public void start() {
 		try {
@@ -40,6 +44,22 @@ public class Menu {
 						opcaoRealizarParser();						
 					}
 					break;
+					
+				case EXIBIR_GRAFICO_1:
+					opcaoExibirGrafico1();
+					break;
+					
+				case EXIBIR_GRAFICO_2:
+					opcaoExibirGrafico2();
+					break;
+					
+				case EXIBIR_GRAFICO_3:
+					opcaoExibirGrafico3();
+					break;
+					
+				case EXIBIR_GRAFICO_4:
+					opcaoExibirGrafico4();
+					break;
 
 				default:
 					break;
@@ -56,6 +76,10 @@ public class Menu {
 		System.out.println("------------------------------------------------------------");
 		System.out.println("(1) - Consulta Candidatos");
 		System.out.println("(2) - Realizar Parser");
+		System.out.println("(3) - Exibir gráfico 1");
+		System.out.println("(4) - Exibir gráfico 2");
+		System.out.println("(5) - Exibir gráfico 3");
+		System.out.println("(6) - Exibir gráfico 4");
 		System.out.println("(0) - Sair");
 		System.out.println("------------------------------------------------------------");
 		
@@ -101,6 +125,22 @@ public class Menu {
 		} catch (IOException | SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private void opcaoExibirGrafico1(){
+		
+	}
+	
+	private void opcaoExibirGrafico2(){
+		
+	}
+	
+	private void opcaoExibirGrafico3(){
+		
+	}
+	
+	private void opcaoExibirGrafico4(){
+		
 	}
 	
 	
