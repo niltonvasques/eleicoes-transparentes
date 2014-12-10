@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.business.Facade;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ParserTSEStrategy;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ano2012.ComportamentoParser2012;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
@@ -20,7 +21,6 @@ public class Menu {
 	private static final int REALIZAR_PARSER 		= 2;
 	
 	public void start() {
-		Comunicacao comm = new Comunicacao();
 		try {
 			boolean running = true;
 			while(running){
@@ -32,7 +32,7 @@ public class Menu {
 					break;
 					
 				case CONSULTA_CANDIDATOS:
-					opcaoConsultaCandidatos(comm);
+					opcaoConsultaCandidatos();
 					break;
 					
 				case REALIZAR_PARSER:
@@ -50,7 +50,6 @@ public class Menu {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		comm.close();
 	}
 	
 	private  void desenhaMenu(){
@@ -86,16 +85,11 @@ public class Menu {
 		return true;
 	}
 	
-	private  void opcaoConsultaCandidatos(Comunicacao comm){
-		try {
-			List<Candidato> candidato = comm.consultaCandidatos();
-			for (Candidato candidato2 : candidato) {
-				System.out.println(candidato2.getNome());
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	private  void opcaoConsultaCandidatos(){
+		List<Candidato> candidatos = Facade.getInstanceFacade().consultarCandidatos();
+		for (Candidato candidato2 : candidatos) {
+			System.out.println(candidato2.getNome());
+		}		
 	}
 	
 	private void opcaoRealizarParser(){
