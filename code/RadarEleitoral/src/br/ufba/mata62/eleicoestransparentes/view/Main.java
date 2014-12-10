@@ -1,6 +1,5 @@
-package br.ufba.mata62.eleicoestransparentes;
+package br.ufba.mata62.eleicoestransparentes.view;
 
-import br.ufba.mata62.eleicoestransparentes.view.Menu;
 
 
 public class Main {

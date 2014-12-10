@@ -6,12 +6,18 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.business.parser.ParserTSEStrategy;
+import br.ufba.mata62.eleicoestransparentes.business.parser.ano2012.ComportamentoParser2012;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
 import br.ufba.mata62.eleicoestransparentes.model.database.Comunicacao;
 
 public class Menu {
-	private static final int SAIR = 0;
-	private static final int CONSULTA_CANDIDATOS = 1;
+	
+	private static final String DEFAULT_ADMIN_PASS	= "matc89";
+	
+	private static final int SAIR 					= 0;
+	private static final int CONSULTA_CANDIDATOS 	= 1;
+	private static final int REALIZAR_PARSER 		= 2;
 	
 	public void start() {
 		Comunicacao comm = new Comunicacao();
@@ -27,6 +33,12 @@ public class Menu {
 					
 				case CONSULTA_CANDIDATOS:
 					opcaoConsultaCandidatos(comm);
+					break;
+					
+				case REALIZAR_PARSER:
+					if(solicitaSenhaAdmin()){
+						opcaoRealizarParser();						
+					}
 					break;
 
 				default:
@@ -44,11 +56,14 @@ public class Menu {
 	private  void desenhaMenu(){
 		System.out.println("------------------------------------------------------------");
 		System.out.println("(1) - Consulta Candidatos");
+		System.out.println("(2) - Realizar Parser");
 		System.out.println("(0) - Sair");
 		System.out.println("------------------------------------------------------------");
 		
 	}
+	
 	private  int perguntaOpcao() throws IOException{
+		System.out.println("Opção: ");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int opcao = 0;
 		String num = reader.readLine();
@@ -60,6 +75,17 @@ public class Menu {
 		return opcao;
 	}
 	
+	private boolean solicitaSenhaAdmin() throws IOException{
+		System.out.println("Senha: ");
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String senha = reader.readLine();
+		if(!senha.equals(DEFAULT_ADMIN_PASS)){
+			System.out.println("ERRO! Senha inválida!!!");
+			return false;	
+		}
+		return true;
+	}
+	
 	private  void opcaoConsultaCandidatos(Comunicacao comm){
 		try {
 			List<Candidato> candidato = comm.consultaCandidatos();
@@ -68,6 +94,17 @@ public class Menu {
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private void opcaoRealizarParser(){
+
+		try {
+			ParserTSEStrategy parser = new ParserTSEStrategy(new ComportamentoParser2012());
+			parser.resetarParser();
+			parser.realizarParser();
+		} catch (IOException | SQLException e) {
 			e.printStackTrace();
 		}
 	}
