@@ -1,10 +1,10 @@
 package br.ufba.mata62.eleicoestransparentes.business;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
-import br.ufba.mata62.eleicoestransparentes.model.Candidato;
 import br.ufba.mata62.eleicoestransparentes.model.database.Comunicacao;
 
 public class Facade {
@@ -70,6 +70,7 @@ public class Facade {
 		
 		
 	}
+	
 
 }
 
