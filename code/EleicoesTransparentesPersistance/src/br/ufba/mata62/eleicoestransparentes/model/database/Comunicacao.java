@@ -172,6 +172,49 @@ public class Comunicacao {
 
 		return itens;
 	}
+	
+	public List<AgenteEleitoral> consultaCandidatosAgentes() throws SQLException{
+
+		List<Candidato> itens = new ArrayList<Candidato>();
+
+		Dao<Candidato, String> dao = DaoManager.createDao(database.getConnection(), Candidato.class);
+
+		QueryBuilder<Candidato, String> queryBuilder =	dao.queryBuilder();
+		queryBuilder.orderBy("nome", true);
+
+		List<Candidato> ormItens = dao.query(queryBuilder.prepare());
+		List<AgenteEleitoral> agentes = new ArrayList<AgenteEleitoral>();
+		for (Candidato orm : ormItens) {
+			itens.add(orm);
+			AgenteEleitoral a = new AgenteEleitoral();
+			a.setPessoa(orm);
+			agentes.add(a);
+		}
+		
+		return agentes;
+	}
+	
+	public List<AgenteEleitoral> consultaCandidatosAgentesNum(String num) throws SQLException{
+
+		List<Candidato> itens = new ArrayList<Candidato>();
+
+		Dao<Candidato, String> dao = DaoManager.createDao(database.getConnection(), Candidato.class);
+
+		QueryBuilder<Candidato, String> queryBuilder =	dao.queryBuilder();
+		queryBuilder.where().eq("numero", num);
+		queryBuilder.orderBy("nome", true);
+
+		List<Candidato> ormItens = dao.query(queryBuilder.prepare());
+		List<AgenteEleitoral> agentes = new ArrayList<AgenteEleitoral>();
+		for (Candidato orm : ormItens) {
+			itens.add(orm);
+			AgenteEleitoral a = new AgenteEleitoral();
+			a.setPessoa(orm);
+			agentes.add(a);
+		}
+		
+		return agentes;
+	}
 
 	public List<Candidato> consultaCandidatos(int partido_id, String UF) throws SQLException{
 
