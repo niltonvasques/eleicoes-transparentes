@@ -3,6 +3,7 @@ package br.ufba.mata62.eleicoestransparentes.business;
 import java.sql.SQLException;
 import java.util.List;
 
+import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
 import br.ufba.mata62.eleicoestransparentes.model.database.Comunicacao;
 
@@ -25,9 +26,19 @@ public class Facade {
 	}
 	
 	
-	public List<Candidato> consultarCandidatos(){
+	public List<AgenteEleitoral> consultarCandidatos(){
 		try {
-			return comm.consultaCandidatos();			
+			return comm.consultaCandidatosAgentes();			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
+	
+	public List<AgenteEleitoral> consultarCandidatosPorNumero(String numero){
+		try {
+			return comm.consultaCandidatosAgentesNum(numero);			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

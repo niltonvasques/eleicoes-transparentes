@@ -6,13 +6,16 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.jfree.ui.RefineryUtilities;
+
 import br.ufba.mata62.eleicoestransparentes.business.Facade;
+import br.ufba.mata62.eleicoestransparentes.business.PerfilCandidato;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ParserTSEStrategy;
 import br.ufba.mata62.eleicoestransparentes.business.parser.ano2012.ComportamentoParser2012;
+import br.ufba.mata62.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.mata62.eleicoestransparentes.model.Candidato;
-import br.ufba.mata62.eleicoestransparentes.model.database.Comunicacao;
 
-@SuppressWarnings("unused")
+
 public class Menu {
 	
 	private static final String DEFAULT_ADMIN_PASS	= "matc89";
@@ -24,6 +27,7 @@ public class Menu {
 	private static final int EXIBIR_GRAFICO_2 		= 4;
 	private static final int EXIBIR_GRAFICO_3		= 5;
 	private static final int EXIBIR_GRAFICO_4		= 6;
+	private static final int CONSULTA_CANDIDATOS_NUM	= 7;
 	
 	public void start() {
 		try {
@@ -61,6 +65,10 @@ public class Menu {
 				case EXIBIR_GRAFICO_4:
 					opcaoExibirGrafico4();
 					break;
+					
+				case CONSULTA_CANDIDATOS_NUM:
+					opcaoExibirPerfilCandidatoPorNumero();
+					break;
 
 				default:
 					break;
@@ -73,14 +81,17 @@ public class Menu {
 		}
 	}
 	
+	
+
 	private  void desenhaMenu(){
-		System.out.println("------------------------------------------------------------");
+		System.out.println("-----------------------------MENU---------------------------");
 		System.out.println("(1) - Consulta Candidatos");
 		System.out.println("(2) - Realizar Parser");
 		System.out.println("(3) - Exibir gráfico 1");
 		System.out.println("(4) - Exibir gráfico 2");
 		System.out.println("(5) - Exibir gráfico 3");
 		System.out.println("(6) - Exibir gráfico 4");
+		System.out.println("(7) - Consulta Candidatos por número");
 		System.out.println("(0) - Sair");
 		System.out.println("------------------------------------------------------------");
 		
@@ -111,9 +122,9 @@ public class Menu {
 	}
 	
 	private  void opcaoConsultaCandidatos(){
-		List<Candidato> candidatos = Facade.getInstanceFacade().consultarCandidatos();
-		for (Candidato candidato2 : candidatos) {
-			System.out.println(candidato2.getNome());
+		List<AgenteEleitoral> candidatos = Facade.getInstanceFacade().consultarCandidatos();
+		for (AgenteEleitoral c : candidatos) {
+			System.out.println(c.getPessoa().getNome());
 		}		
 	}
 	
@@ -129,7 +140,11 @@ public class Menu {
 	}
 	
 	private void opcaoExibirGrafico1(){
-		System.out.println(Facade.getInstanceFacade().consultarCandidatos());
+	System.out.println(Facade.getInstanceFacade().consultarCandidatos());		
+		BarChartDemo demo = new BarChartDemo("Gráfico 1");
+		demo.pack();
+        RefineryUtilities.centerFrameOnScreen(demo);
+        demo.setVisible(true);
 	}
 	
 	private void opcaoExibirGrafico2(){
@@ -144,5 +159,32 @@ public class Menu {
 		
 	}
 	
+	private void opcaoExibirPerfilCandidatoPorNumero() throws IOException {
+		System.out.println("Número Candidato: ");
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String numero = reader.readLine();
+		List<AgenteEleitoral> candidatos = Facade.getInstanceFacade().consultarCandidatosPorNumero(numero);
+		int count = 0; 
+		for (AgenteEleitoral c : candidatos) {
+			Candidato ca = (Candidato) c.getPessoa();
+			System.out.println(count++ + " " +c.getPessoa().getNome() + " "+ca.getMunicipio()+" "+ca.getSequencialCandidato() );
+		}
+		if(count > 0){
+			System.out.println("Escolha um candidato para visualizar o perfil: ");
+			numero = reader.readLine();	
+			try{
+				int op = Integer.valueOf(numero);
+				if(op >= 0 && op < count){
+					PerfilCandidato perfil = new PerfilCandidato(candidatos.get(op));
+					System.out.println(perfil.gerarInformacaoAdicional());
+				}else{
+					System.out.println("Opção inválida!!");
+				}
+			}catch(Exception e){
+				System.out.println("Opção inválida!!");
+			}
+		}
+		
+	}
 	
 }
