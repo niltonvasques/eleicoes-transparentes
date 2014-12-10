@@ -14,10 +14,9 @@ import br.ufba.mata62.eleicoestransparentes.model.database.MySqlDatabase;
 public class GraficoBuilderBarraTopFinanciadores extends GraficoBuilder {
 
 	@Override
-	public void buildValores() {
-		Comunicacao comunicacao = new Comunicacao();
+	public void buildValores(Comunicacao comunicacao) {
 		
-		this.pontos = comunicacao.topCandidatos();
+		this.setPontos(comunicacao.topCandidatos());
 		
 	
 	
@@ -25,13 +24,13 @@ public class GraficoBuilderBarraTopFinanciadores extends GraficoBuilder {
 
 	@Override
 	public void buildTipo() {
-		this.graficoFinal.setTipo("bar");
+		this.getGraficoFinal().setTipo("bar");
 		
 	}
 
 	@Override
 	public void buildNome() {
-		this.graficoFinal.setNome("Maiores financiadores");
+		this.getGraficoFinal().setNome("Maiores financiadores");
 		
 	}
 
