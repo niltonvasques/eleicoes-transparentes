@@ -30,6 +30,7 @@ relevantes para o eleitor:
   - [ ] Web App
   - [ ] Android App
   - [x] Sample App
+- [ ] Testes
   
 
 
