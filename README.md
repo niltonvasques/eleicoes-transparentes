@@ -2,11 +2,12 @@
 
 [![Join the chat at https://gitter.im/niltonvasques/eleicoes-transparentes](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/niltonvasques/eleicoes-transparentes?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-## ÍNDICE
-1. Introdução ao Projeto
 
-### I.Introdução
-Mineração dos dados financeiros/eleitorais presentes no TSE
+- [Introdução](#introdução)
+
+### Introdução
+Sistema para mineração dos dados financeiros/eleitorais presentes no TSE
+
 Descrição do cenário
 O sistema irá extrair dos dados brutos presentes no TSE [1], as seguintes informações
 relevantes para o eleitor:
@@ -19,5 +20,15 @@ relevantes para o eleitor:
 6. Parsing: dados brutos -> informações
 
 ---
+### Checklist do projeto
+- [x] Parser dos dados
+- [ ] API
+  - [ ] REST API
+  - [x] Facade
+- [ ] Apps
+  - [ ] Web App
+  - [ ] Android App
+  - [x] Sample App
+  
 
 
