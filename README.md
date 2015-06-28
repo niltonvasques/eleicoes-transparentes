@@ -4,6 +4,7 @@
 
 
 - [Introdução](#introdução)
+- [Checklist do projeto](#checklist-do-projeto)
 
 ### Introdução
 Sistema para mineração dos dados financeiros/eleitorais presentes no TSE
