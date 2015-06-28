@@ -1,16 +1,13 @@
 package br.ufba.eleicoestransparentes;
 
 
-import java.io.IOException;
 import java.sql.SQLException;
 
-import br.ufba.eleicoestransparentes.business.parser.ParserTSE;
-import br.ufba.eleicoestransparentes.business.parser.ano2012.ComportamentoParser2012;
+import br.ufba.eleicoestransparentes.business.Facade;
 import br.ufba.eleicoestransparentes.model.Bem;
 import br.ufba.eleicoestransparentes.model.Candidato;
 import br.ufba.eleicoestransparentes.model.Transacao;
 import br.ufba.eleicoestransparentes.model.database.Comunicacao;
-import br.ufba.eleicoestransparentes.model.database.Seed;
 
 
 public class MainBD {
@@ -18,14 +15,11 @@ public class MainBD {
 	public static void main(String[] args) {
 		
 		try {
-			ParserTSE parser = new ParserTSE(new ComportamentoParser2012());
-			parser.resetarParser();
-			parser.realizarParser();
-		} catch (IOException | SQLException e) {
-			// TODO Auto-generated catch block
+			Facade.getInstanceFacade().resetarParser();
+			Facade.getInstanceFacade().realizarParser();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 
 	}
 	
