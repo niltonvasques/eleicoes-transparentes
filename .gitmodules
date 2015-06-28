@@ -1,0 +1,3 @@
+[submodule "code/api"]
+	path = code/api
+	url = https://github.com/niltonvasques/eleicoes-transparentes-api.git
