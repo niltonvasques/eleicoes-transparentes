@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import br.ufba.eleicoestransparentes.util.EProperties;
 
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
+import com.j256.ormlite.logger.LocalLog;
 import com.j256.ormlite.support.ConnectionSource;
 
 public class ORMDatabase {
@@ -29,8 +30,8 @@ public class ORMDatabase {
 		
 		if(connection == null){
 			connection = new JdbcConnectionSource(databaseUrl);
-		}
-		
+		}		
+				
 		return connection;
 	}
 	

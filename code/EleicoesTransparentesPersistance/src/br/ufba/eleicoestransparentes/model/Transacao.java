@@ -31,10 +31,10 @@ public class Transacao {
 	/**
 	 * Classificação da transação, referente ao setor da transação.
 	 */
-	@DatabaseField
+	@DatabaseField(width = 1000)
 	private String classificacao;
 
-	@DatabaseField
+	@DatabaseField(width = 1000)
 	private String descricao;
 
 	/**

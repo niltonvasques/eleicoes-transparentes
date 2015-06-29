@@ -3,26 +3,21 @@ package br.ufba.eleicoestransparentes.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.jfree.ui.RefineryUtilities;
 
 import br.ufba.eleicoestransparentes.business.Facade;
 import br.ufba.eleicoestransparentes.business.grafico.GraficoFinal;
-import br.ufba.eleicoestransparentes.business.parser.ParserTSE;
-import br.ufba.eleicoestransparentes.business.parser.ano2012.ComportamentoParser2012;
+import br.ufba.eleicoestransparentes.business.parser.ComportamentoParser.OnProgressListener;
 import br.ufba.eleicoestransparentes.business.perfil.PerfilCandidato;
 import br.ufba.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.eleicoestransparentes.model.Candidato;
-import br.ufba.eleicoestransparentes.util.*;
+import br.ufba.eleicoestransparentes.util.Util;
 import br.ufba.eleicoestransparentes.view.chart.GraficoBarra;
 import br.ufba.eleicoestransparentes.view.chart.GraficoPizza;
 
-
-import java.util.ArrayList;
-
-import com.google.gson.*;
+import com.google.gson.Gson;
 
 
 public class Menu {
@@ -144,7 +139,18 @@ public class Menu {
 	}
 
 	private void opcaoRealizarParser(){
-		Facade.getInstanceFacade().realizarParser();
+		final ProgressBarTraditional progressBar = new ProgressBarTraditional();
+//		ProgressBarRotating progress = new ProgressBarRotating();
+		progressBar.start();
+		Facade.getInstanceFacade().realizarParser(new OnProgressListener() {			
+			@Override
+			public void onProgressChange(String job, String message, float progress) {
+//				System.out.println(job+" "+message+" "+Util.round(progress, 4)+"%");
+				progressBar.update((float)Util.round(progress, 4), job+" "+message);
+				
+			}
+		});
+		progressBar.finish();
 	}
 	
 	private void opcaoResetarParser() {

@@ -1,4 +1,6 @@
-package br.ufba.eleicoestransparentes.view;
+package br.ufba.eleicoestransparentes;
+
+import br.ufba.eleicoestransparentes.view.Menu;
 
 
 

@@ -15,7 +15,7 @@ public class Bem {
 	@DatabaseField(generatedId = true)
 	private int id;
 	
-	@DatabaseField
+	@DatabaseField(width = 1000)
 	private String descricao;
 
 	@DatabaseField
