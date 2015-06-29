@@ -16,6 +16,7 @@ import br.ufba.eleicoestransparentes.model.Transacao;
 import br.ufba.eleicoestransparentes.util.EProperties;
 
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
+import com.j256.ormlite.logger.LocalLog;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
@@ -29,7 +30,7 @@ public class Seed {
 			String databaseUrl = EProperties.getDatabaseUrl();
 			
 			// create a connection source to our database
-			ConnectionSource connectionSource = new JdbcConnectionSource(databaseUrl);		
+			ConnectionSource connectionSource = new JdbcConnectionSource(databaseUrl);
 			
 //			Dao<Bem, String> accountDao = DaoManager.createDao(connectionSource, Bem.class);
 			
@@ -69,6 +70,7 @@ public class Seed {
 		// This will load the MySQL driver, each DB has its own driver
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			
 			
 			String databaseUrl = EProperties.getDatabaseUrl();
 			

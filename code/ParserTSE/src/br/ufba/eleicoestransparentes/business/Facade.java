@@ -8,6 +8,7 @@ import br.ufba.eleicoestransparentes.business.grafico.GraficoBuilderBarraTopCand
 import br.ufba.eleicoestransparentes.business.grafico.GraficoBuilderBarraTopFinanciadoresPF;
 import br.ufba.eleicoestransparentes.business.grafico.GraficoBuilderBarraTopFinanciadoresPJ;
 import br.ufba.eleicoestransparentes.business.parser.ParserTSE;
+import br.ufba.eleicoestransparentes.business.parser.ComportamentoParser.OnProgressListener;
 import br.ufba.eleicoestransparentes.business.parser.ano2012.ComportamentoParser2012;
 import br.ufba.eleicoestransparentes.model.AgenteEleitoral;
 import br.ufba.eleicoestransparentes.model.database.Comunicacao;
@@ -86,8 +87,13 @@ public class Facade {
 	}
 	
 	public void realizarParser(){
+		realizarParser(null);
+	}
+	
+	public void realizarParser(OnProgressListener listener){
 		try {
 			ParserTSE parser = new ParserTSE(new ComportamentoParser2012());
+			parser.setListener(listener);
 			parser.resetarParser();
 			parser.realizarParser();
 		} catch (IOException | SQLException e) {

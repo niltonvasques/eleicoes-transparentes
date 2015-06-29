@@ -34,7 +34,9 @@ select id, valor, tipoDebitado, debitado_id, tipoCreditado, creditado_id, SUBSTR
 from Transacao 
 where (creditado_id = 2262 and tipoCreditado = 'Candidato') OR (debitado_id = 2262 and tipoDebitado = 'Candidato');
 
-select t.id, t.valor, t.tipo, t.tipoDebitado, t.debitado_id, t.tipoCreditado, t.creditado_id, SUBSTRING(t.descricao,1,50) from Transacao t inner join Candidato c where ((c.id = t.creditado_id and t.tipoCreditado = 'Candidato') OR (c.id = t.debitado_id and t.tipoDebitado = 'Candidato')) and c.sequencialCandidato like '%10000000443%';
+select t.id, t.valor, t.tipo, t.tipoDebitado, t.debitado_id, t.tipoCreditado, t.creditado_id, SUBSTRING(t.descricao,1,50) 
+from Transacao t inner join Candidato c 
+where ((c.id = t.creditado_id and t.tipoCreditado = 'Candidato') OR (c.id = t.debitado_id and t.tipoDebitado = 'Candidato')) and c.sequencialCandidato like '%10000000443%';
 
 
 --RANKING DOADORES PESSOA JURIDICA
