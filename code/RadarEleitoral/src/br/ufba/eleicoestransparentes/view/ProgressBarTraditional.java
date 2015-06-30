@@ -47,7 +47,7 @@ class ProgressBarTraditional extends Thread {
 		int lastTaskSize = 0;
 		int lastGeralTaskSize = 0;
 		float progressBefore = 0;
-		AverageMobile average = new AverageMobile(100);
+		AverageMobile average = new AverageMobile(500);
 		while (showProgress) {
 			int barSize = (int)progress % anim.length();
 			int spaceSize = anim.length() - barSize;
@@ -84,7 +84,7 @@ class ProgressBarTraditional extends Thread {
 					estimatedTimeInMilis = elapsed > 0 ? (times * 100 * left / elapsed) : 0;
 					average.addTime(estimatedTimeInMilis);
 				}
-				if(times > 100) times = 0;
+				if(times > 10) times = 0;
 			}catch (Exception e) {};
 		}
 	}	

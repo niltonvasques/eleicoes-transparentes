@@ -2,8 +2,8 @@ package br.ufba.eleicoestransparentes.business.parser;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
+import br.ufba.eleicoestransparentes.business.parser.ParserFile.OnReadDataListener;
 import br.ufba.eleicoestransparentes.model.Bem;
 import br.ufba.eleicoestransparentes.model.Candidato;
 import br.ufba.eleicoestransparentes.model.Eleicao;
@@ -14,139 +14,159 @@ import br.ufba.mata62.eleicoestransparentes.util.Path;
 
 public abstract class ComportamentoParser {
 
-	public ParserFile parserPrestacaoContasPartidoReceita;
-
-	public ParserFile parserPrestacaoContasPartidoDespesa;
-
-	public OnProgressListener listener;
-
-	public void setListener(OnProgressListener listener) {
-		this.listener = listener;
-	}
-
+	protected OnProgressListener listener;
+	
 	public interface OnProgressListener{
 		public void onProgressChange(String job, String message, float progress, float taskProgress);
 	}
-
-
+	
+	private float progressStart, jobsFatia;
+	
+	
 	public void seguirModelo() throws IOException, SQLException {
 		float totalUFs = Path.UFS.length;
 		float ufIndex = 0;
-		float fatia = 1/totalUFs;
+		final float fatia = 1/totalUFs;
 		
 		String inicialUF = EProperties.getStartUF();
-		Comunicacao comm = new Comunicacao();
+		final Comunicacao comm = new Comunicacao();
 		
-		Eleicao eleicao = comm.insereEleicao(readEleicao());
+		final Eleicao eleicao = comm.insereEleicao(readEleicao());
 		
-		for (String uf : Path.UFS) {
+		for (final String uf : Path.UFS) {
 			
 			
-			float progressStart = ufIndex / totalUFs;
-			float jobsFatia = 1.0f/8.0f;
+			progressStart = ufIndex / totalUFs;
+			jobsFatia = 1.0f / 8.0f;
 			
 			if(inicialUF != null && uf.compareTo(inicialUF) < 0){
 				ufIndex++;
 				continue;
 			}
+			
 			if(!containsUF(uf)){
 				ufIndex++;
 				continue;
 			}
+
+			readCandidatos(uf, new OnReadDataListener<Candidato>() {
+				@Override
+				public void onRead(Candidato data, int line, int numberOfLines) {
+					try {
+						data.setEleicao(eleicao);
+						comm.insereCandidato(data);
+						
+						updateProgress(fatia, uf, "readCandidatos", progressStart, jobsFatia, numberOfLines, line);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			});
 			
-
-			List<Candidato> candidatos = readCandidatos(uf);
-			float totalItems = candidatos.size();
-			float indexItem = 0;
-			for (Candidato t : candidatos) {
-				t.setEleicao(eleicao);
-				comm.insereCandidato(t);
-				
-				indexItem++;
-				updateProgress(fatia, uf, "readCandidatos", progressStart, jobsFatia, totalItems,	indexItem);
-			}
 			progressStart += jobsFatia*fatia;
 
-			List<Transacao> transacoes = readPrestacaoContasComiteDespesa(uf);
-			totalItems = transacoes.size();
-			indexItem = 0;
-			for (Transacao t : transacoes) {
-				t.setEleicao(eleicao);
-				comm.insereTransacao(t);
-				
-				indexItem++;
-				updateProgress(fatia, uf, "readPrestacaoContasComiteDespesa", progressStart, jobsFatia, totalItems,	indexItem);				
-			}
+			readPrestacaoContasComiteDespesa(uf, new OnReadDataListener<Transacao>() {
+				@Override
+				public void onRead(Transacao data, int line, int numberOfLines) {
+					try {
+						data.setEleicao(eleicao);
+						comm.insereTransacao(data);
+						
+						updateProgress(fatia, uf, "readPrestacaoContasComiteDespesa", progressStart, jobsFatia, numberOfLines,	line);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}					
+				}
+			});
 			progressStart += jobsFatia*fatia;
-
-			transacoes = readPrestacaoContasComiteReceita(uf);
-			totalItems = transacoes.size();
-			indexItem = 0;
-			for (Transacao t : transacoes) {
-				t.setEleicao(eleicao);
-				comm.insereTransacao(t);
-				
-				indexItem++;
-				updateProgress(fatia, uf, "readPrestacaoContasComiteReceita", progressStart, jobsFatia, totalItems,	indexItem);	
-			}
+//
+			readPrestacaoContasComiteReceita(uf, new OnReadDataListener<Transacao>() {
+				@Override
+				public void onRead(Transacao data, int line, int numberOfLines) {
+					try {
+						data.setEleicao(eleicao);
+						comm.insereTransacao(data);
+						
+						updateProgress(fatia, uf, "readPrestacaoContasComiteReceita", progressStart, jobsFatia, numberOfLines,	line);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}					
+				}
+			});
 			progressStart += jobsFatia*fatia;
-
-			transacoes = readPrestacaoContasPartidoReceita(uf);
-			totalItems = transacoes.size();
-			indexItem = 0;
-			for (Transacao t : transacoes) {
-				comm.insereTransacao(t);
-				
-				indexItem++;
-				updateProgress(fatia, uf, "readPrestacaoContasPartidoReceita", progressStart, jobsFatia, totalItems,	indexItem);
-			}
+//
+			readPrestacaoContasPartidoReceita(uf, new OnReadDataListener<Transacao>() {
+				@Override
+				public void onRead(Transacao data, int line, int numberOfLines) {
+					try {
+						data.setEleicao(eleicao);
+						comm.insereTransacao(data);
+						
+						updateProgress(fatia, uf, "readPrestacaoContasPartidoReceita", progressStart, jobsFatia, numberOfLines,	line);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}	
+				}
+			});
 			progressStart += jobsFatia*fatia;
-
-			transacoes = readPrestacaoContasPartidoDespesa(uf);
-			totalItems = transacoes.size();
-			indexItem = 0;
-			for (Transacao t : transacoes) {
-				t.setEleicao(eleicao);
-				comm.insereTransacao(t);
-				
-				indexItem++;
-				updateProgress(fatia, uf, "readPrestacaoContasPartidoDespesa", progressStart, jobsFatia, totalItems,	indexItem);
-			}
+//
+			readPrestacaoContasPartidoDespesa(uf, new OnReadDataListener<Transacao>() {
+				@Override
+				public void onRead(Transacao data, int line, int numberOfLines) {
+					try {
+						data.setEleicao(eleicao);
+						comm.insereTransacao(data);
+						
+						updateProgress(fatia, uf, "readPrestacaoContasPartidoDespesa", progressStart, jobsFatia, numberOfLines,	line);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}					
+				}
+			});
 			progressStart += jobsFatia*fatia;
-
-			transacoes = readPrestacaoContasCandidatoDespesa(uf);
-			totalItems = transacoes.size();
-			indexItem = 0;
-			for (Transacao t : transacoes) {
-				t.setEleicao(eleicao);
-				comm.insereTransacao(t);
-
-				indexItem++;
-				updateProgress(fatia, uf, "readPrestacaoContasCandidatoDespesa", progressStart, jobsFatia, totalItems,	indexItem);
-			}
+//
+			readPrestacaoContasCandidatoDespesa(uf, new OnReadDataListener<Transacao>() {
+				@Override
+				public void onRead(Transacao data, int line, int numberOfLines) {
+					try {
+						data.setEleicao(eleicao);
+						comm.insereTransacao(data);
+						
+						updateProgress(fatia, uf, "readPrestacaoContasCandidatoDespesa", progressStart, jobsFatia, numberOfLines,	line);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}					
+				}
+			});
 			progressStart += jobsFatia*fatia;
-
-			transacoes = readPrestacaoContasCandidatoReceita(uf);
-			totalItems = transacoes.size();
-			indexItem = 0;
-			for (Transacao t : transacoes) {
-				t.setEleicao(eleicao);
-				comm.insereTransacao(t);
-				
-				indexItem++;
-				updateProgress(fatia, uf, "readPrestacaoContasCandidatoReceita", progressStart, jobsFatia, totalItems,	indexItem);
-			}
+//
+			readPrestacaoContasCandidatoReceita(uf, new OnReadDataListener<Transacao>() {
+				@Override
+				public void onRead(Transacao data, int line, int numberOfLines) {
+					try {
+						data.setEleicao(eleicao);
+						comm.insereTransacao(data);
+						
+						updateProgress(fatia, uf, "readPrestacaoContasCandidatoReceita", progressStart, jobsFatia, numberOfLines,	line);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}					
+				}
+			});
 			progressStart += jobsFatia*fatia;
-
-			List<Bem> bens = readBens(uf);
-			totalItems = bens.size();
-			indexItem = 0;
-			for (Bem b : bens) {
-				comm.insereBem(b);
-				
-				indexItem++;
-				updateProgress(fatia, uf, "readBens", progressStart, jobsFatia, totalItems,	indexItem);
-			}
+//
+			readBens(uf, new OnReadDataListener<Bem>() {
+				@Override
+				public void onRead(Bem data, int line, int numberOfLines) {
+					try {
+						comm.insereBem(data);
+						
+						updateProgress(fatia, uf, "readBens", progressStart, jobsFatia, numberOfLines,	line);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}					
+				}
+			});
 			progressStart += jobsFatia*fatia;
 			
 			ufIndex++;
@@ -167,7 +187,7 @@ public abstract class ComportamentoParser {
 	
 	public abstract Eleicao readEleicao() throws IOException;
 
-	public abstract List<Transacao> readPrestacaoContasCandidatoReceita(String uf) throws IOException;
+	public abstract void readPrestacaoContasCandidatoReceita(String uf, OnReadDataListener<Transacao> listener) throws IOException;
 
 	/**
 	 * Lê dos arquivos correspondentes
@@ -176,7 +196,7 @@ public abstract class ComportamentoParser {
 	 * @throws IOException 
 	 * 
 	 * */
-	public abstract List<Transacao> readPrestacaoContasComiteReceita(String uf) throws IOException;
+	public abstract void readPrestacaoContasComiteReceita(String uf, OnReadDataListener<Transacao> listener) throws IOException;
 
 	/**
 	 * Lê dos arquivos correspondentes
@@ -185,7 +205,7 @@ public abstract class ComportamentoParser {
 	 * @throws IOException 
 	 * 
 	 * */
-	public abstract List<Transacao> readPrestacaoContasPartidoReceita(String uf) throws IOException;
+	public abstract void readPrestacaoContasPartidoReceita(String uf, OnReadDataListener<Transacao> listener) throws IOException;
 
 	/**
 	 * Lê dos arquivos correspondentes
@@ -195,7 +215,7 @@ public abstract class ComportamentoParser {
 	 * 
 	 * */
 
-	public abstract List<Transacao> readPrestacaoContasCandidatoDespesa(String uf) throws IOException;
+	public abstract void readPrestacaoContasCandidatoDespesa(String uf, OnReadDataListener<Transacao> listener) throws IOException;
 
 	/**
 	 * Lê dos arquivos correspondentes
@@ -204,7 +224,7 @@ public abstract class ComportamentoParser {
 	 * @throws IOException 
 	 * 
 	 * */
-	public abstract List<Transacao> readPrestacaoContasComiteDespesa(String uf) throws IOException;
+	public abstract void readPrestacaoContasComiteDespesa(String uf, OnReadDataListener<Transacao> listener) throws IOException;
 
 	/**
 	 * Lê dos arquivos correspondentes
@@ -213,7 +233,7 @@ public abstract class ComportamentoParser {
 	 * @throws IOException 
 	 * 
 	 * */
-	public abstract List<Transacao> readPrestacaoContasPartidoDespesa(String uf) throws IOException;
+	public abstract void readPrestacaoContasPartidoDespesa(String uf, OnReadDataListener<Transacao> listener) throws IOException;
 
 
 	/**
@@ -223,7 +243,7 @@ public abstract class ComportamentoParser {
 	 * @throws IOException 
 	 * 
 	 * */
-	public abstract List<Bem> readBens(String uf) throws IOException;
+	public abstract void readBens(String uf, OnReadDataListener<Bem> listener) throws IOException;
 
 	/**
 	 * Lê dos arquivos correspondentes
@@ -232,5 +252,10 @@ public abstract class ComportamentoParser {
 	 * @throws IOException 
 	 * 
 	 * */
-	public abstract List<Candidato> readCandidatos(String uf) throws IOException;
+	public abstract void readCandidatos(String uf, OnReadDataListener<Candidato> listener) throws IOException;
+
+	public void setListener(OnProgressListener listener) {
+		this.listener = listener;
+	}	
+	
 }
