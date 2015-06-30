@@ -24,7 +24,7 @@ relevantes para o eleitor:
 ### Checklist do projeto
 - [x] Parser dos dados
 - [ ] API
-  - [ ] REST API
+  - [ ] [REST API](https://github.com/niltonvasques/eleicoes-transparentes-api)
   - [x] Facade
 - [ ] Apps
   - [ ] Web App
