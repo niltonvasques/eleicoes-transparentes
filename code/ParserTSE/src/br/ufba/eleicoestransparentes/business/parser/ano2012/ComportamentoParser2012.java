@@ -7,11 +7,38 @@ import java.util.List;
 import br.ufba.eleicoestransparentes.business.parser.ComportamentoParser;
 import br.ufba.eleicoestransparentes.model.Bem;
 import br.ufba.eleicoestransparentes.model.Candidato;
+import br.ufba.eleicoestransparentes.model.Eleicao;
 import br.ufba.eleicoestransparentes.model.Transacao;
 import br.ufba.eleicoestransparentes.model.database.Comunicacao;
 import br.ufba.mata62.eleicoestransparentes.util.Path;
 
 public class ComportamentoParser2012 extends ComportamentoParser{
+	
+	/**
+	 * Lê dos arquivos correspondentes
+	 * 
+	 * @param uf - Unidades Federadas. ver Path.UFS	 
+	 * @throws IOException 
+	 * 
+	 * */
+	@Override
+	public Eleicao readEleicao() throws IOException {
+		Eleicao eleicao = new Eleicao();
+		eleicao.setAno("2012");
+		eleicao.setTipo("municipal");
+		return eleicao;
+	}
+	
+	/**
+	 * @return true se a uf existe na eleição.
+	 * 
+	 * @param uf - Unidades Federadas. ver Path.UFS 
+	 * */
+	@Override
+	public  boolean containsUF(String uf){
+		if(uf.equals("DF")) return false;
+		return true;
+	}
 
 	/**
 	 * Lê dos arquivos correspondentes

@@ -69,6 +69,9 @@ public class Transacao {
 
 	@DatabaseField
 	private String municipio;
+	
+	@DatabaseField(foreign = true)
+	private Eleicao eleicao;
 
 //	@DatabaseField
 //	private Pessoa[] pessoa;
@@ -180,5 +183,15 @@ public class Transacao {
 	public String getTipoDebitado() {
 		return tipoDebitado;
 	}
+
+	public Eleicao getEleicao() {
+		return eleicao;
+	}
+
+	public void setEleicao(Eleicao eleicao) {
+		this.eleicao = eleicao;
+	}
+	
+	
 	
  }
