@@ -16,7 +16,7 @@ public class Eleicao {
 	 * Se municipal, estadual ou nacional
 	 */
 	@DatabaseField
-	private int tipo;
+	private String tipo;
 
 	public String getAno() {
 		return ano;
@@ -26,11 +26,11 @@ public class Eleicao {
 		this.ano = ano;
 	}
 
-	public int getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(int tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 

@@ -21,6 +21,9 @@ public class Candidato extends PessoaFisica{
 	@DatabaseField(foreign = true)
 	private Partido partido;
 	
+	@DatabaseField(foreign = true)
+	private Eleicao eleicao;
+	
 	@DatabaseField(unique=true)
 	private String sequencialCandidato;
 	
@@ -75,9 +78,14 @@ public class Candidato extends PessoaFisica{
 	public void setSequencialCandidato(String sequencialCandidato) {
 		this.sequencialCandidato = sequencialCandidato;
 	}
-	
-	
-	
+
+	public Eleicao getEleicao() {
+		return eleicao;
+	}
+
+	public void setEleicao(Eleicao eleicao) {
+		this.eleicao = eleicao;
+	}
 	
 
 }

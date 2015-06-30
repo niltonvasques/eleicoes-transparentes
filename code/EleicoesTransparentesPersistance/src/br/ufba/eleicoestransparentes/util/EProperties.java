@@ -65,4 +65,13 @@ public class EProperties {
 		return null;
 	}
 	
+	public static String getStartUF() {
+		try {
+			return getProp().getProperty("start_uf");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 }

@@ -103,6 +103,7 @@ public class Menu {
 		System.out.println("(5) - Gráfico Barra Ranking Maiores Financiadores PJ ");
 		System.out.println("(6) - Gráfico Barra Ranking Candidatos ");
 		System.out.println("(7) - Consulta Candidatos por número");
+		System.out.println("(8) - Resetar Parser");
 		System.out.println("(0) - Sair");
 		System.out.println("------------------------------------------------------------");
 	}
@@ -144,9 +145,9 @@ public class Menu {
 		progressBar.start();
 		Facade.getInstanceFacade().realizarParser(new OnProgressListener() {			
 			@Override
-			public void onProgressChange(String job, String message, float progress) {
+			public void onProgressChange(String job, String message, float progress, float taskProgress) {
 //				System.out.println(job+" "+message+" "+Util.round(progress, 4)+"%");
-				progressBar.update((float)Util.round(progress, 4), job+" "+message);
+				progressBar.update(progress, taskProgress, job+" "+message);
 				
 			}
 		});

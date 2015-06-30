@@ -93,8 +93,7 @@ public class Facade {
 	public void realizarParser(OnProgressListener listener){
 		try {
 			ParserTSE parser = new ParserTSE(new ComportamentoParser2012());
-			parser.setListener(listener);
-			parser.resetarParser();
+			parser.setListener(listener);			
 			parser.realizarParser();
 		} catch (IOException | SQLException e) {
 			e.printStackTrace();
