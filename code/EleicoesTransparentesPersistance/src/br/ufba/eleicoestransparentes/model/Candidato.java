@@ -27,6 +27,9 @@ public class Candidato extends PessoaFisica{
 	@DatabaseField(unique=true)
 	private String sequencialCandidato;
 	
+	@DatabaseField
+	private String situacaoCandidatura;
+	
 	//TODO: Rever como irá fazer com a relação entre candidatos e eleição
 //	@DatabaseField
 //	private List<Eleicao> eleicoes;
@@ -86,6 +89,13 @@ public class Candidato extends PessoaFisica{
 	public void setEleicao(Eleicao eleicao) {
 		this.eleicao = eleicao;
 	}
-	
 
+	public String getSituacaoCandidatura() {
+		return situacaoCandidatura;
+	}
+
+	public void setSituacaoCandidatura(String situacaoCandidatura) {
+		this.situacaoCandidatura = situacaoCandidatura;
+	}
+	
 }

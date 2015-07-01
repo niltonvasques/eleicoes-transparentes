@@ -16,13 +16,22 @@ public class PessoaFisica extends Pessoa{
 	private String localNascimento;
 
 	@DatabaseField
-	private boolean alfabetizado;
+	private String escolaridade;
 
 	@DatabaseField(foreign = true)
 	private Partido filiacao;
 
 	@DatabaseField
-	private char sexo;
+	private String sexo;
+	
+	@DatabaseField
+	private String estadoCivil;
+	
+	@DatabaseField
+	private String ocupacao;
+	
+	@DatabaseField
+	private String tituloEleitoral;
 	
 	public PessoaFisica() {
 	}
@@ -51,12 +60,12 @@ public class PessoaFisica extends Pessoa{
 		this.localNascimento = localNascimento;
 	}
 
-	public boolean isAlfabetizado() {
-		return alfabetizado;
+	public String getEscolaridade() {
+		return escolaridade;
 	}
 
-	public void setAlfabetizado(boolean alfabetizado) {
-		this.alfabetizado = alfabetizado;
+	public void setEscolaridade(String escolaridade) {
+		this.escolaridade = escolaridade;
 	}
 
 	public Partido getFiliacao() {
@@ -67,13 +76,36 @@ public class PessoaFisica extends Pessoa{
 		this.filiacao = filiacao;
 	}
 
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 
+	public String getEstadoCivil() {
+		return estadoCivil;
+	}
+
+	public void setEstadoCivil(String estadoCivil) {
+		this.estadoCivil = estadoCivil;
+	}
+
+	public String getOcupacao() {
+		return ocupacao;
+	}
+
+	public void setOcupacao(String ocupacao) {
+		this.ocupacao = ocupacao;
+	}
+
+	public String getTituloEleitoral() {
+		return tituloEleitoral;
+	}
+
+	public void setTituloEleitoral(String tituloEleitoral) {
+		this.tituloEleitoral = tituloEleitoral;
+	}
 
 }
