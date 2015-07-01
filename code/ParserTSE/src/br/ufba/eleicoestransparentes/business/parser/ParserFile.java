@@ -23,7 +23,7 @@ public abstract class ParserFile <T, M> {
 	public void parsing(OnReadDataListener<M> dataListener) throws IOException{
 		BufferedReader br = null;
 		String line = "";
-		String cvsSplitBy = ";";
+		String cvsSplitBy = "§";
 		
 		int totalLines = FileUtil.countLines(csvFile);
 		int indexLine = 0;
@@ -36,6 +36,8 @@ public abstract class ParserFile <T, M> {
 				indexLine++;
 				continue;
 			}
+			line = line.replace("§", " ");
+			line = line.replace("\";\"", "\"§\"");
 			line = line.replace("\"\"", " ");
 			line = line.replace("\"", " ");
 			line = line.replace("#NULO#", " ");

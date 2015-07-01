@@ -74,7 +74,7 @@ public class ParserPrestacaoContasComiteReceita2012 extends ParserFile<PrestCont
 		trans.setValor(Float.parseFloat(pccr.getValorReceita().replace(",", ".")));
 		trans.setClassificacao(pccr.getTipoReceita());
 		trans.setDescricao(pccr.getDescricaoReceita());
-		trans.setCreditado(createComite(pccr)); //TODO Comite não é uma pessoa
+		trans.setCreditado(createComite(pccr)); 
 		trans.setDebitado(createDoador(pccr));
 		trans.setTipo(Transacao.RECEITA);
 		trans.setUF(pccr.getUF());
