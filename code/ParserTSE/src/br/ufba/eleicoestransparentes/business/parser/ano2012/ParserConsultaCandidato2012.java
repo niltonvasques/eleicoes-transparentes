@@ -84,6 +84,13 @@ public class ParserConsultaCandidato2012 extends ParserFile<ConsultaCandidato201
 			cand.setNome(data.getNomeCandidato());
 			cand.setNumero(data.getNumeroCandidadto());
 			cand.setSequencialCandidato(data.getSequencialCandidadto());
+			cand.setMunicipio(data.getDescricaoUE());
+			cand.setSexo(data.getDescricaoSexo());
+			cand.setEscolaridade(data.getDescricaoGrauInstrucao());
+			cand.setEstadoCivil(data.getDescricaoEstadoCivil());
+			cand.setOcupacao(data.getDescricaoOcupacao());
+			cand.setTituloEleitoral(data.getNumTituloEleitoralCandidato());
+			cand.setSituacaoCandidatura(data.getDesSituacaoCandidatura());
 			
 			Partido p = new Partido();
 			p.setNumero(Integer.parseInt(data.getNumeroPartido().trim()));

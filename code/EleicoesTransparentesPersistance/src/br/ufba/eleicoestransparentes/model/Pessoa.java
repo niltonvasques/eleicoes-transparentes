@@ -64,9 +64,4 @@ public abstract class Pessoa {
 		this.id = id;
 	}
 
-	
-	
-	
-	
-
 }
