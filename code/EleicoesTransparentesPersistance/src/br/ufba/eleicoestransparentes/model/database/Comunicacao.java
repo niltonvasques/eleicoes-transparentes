@@ -244,6 +244,10 @@ public class Comunicacao {
 
 		AgenteEleitoral agente = insereAgenteEleitoral(new AgenteEleitoral());
 		cand.setAgenteEleitoral(agente);
+		
+		if(cand.getPartido() != null && cand.getPartido().getId() <= 0){
+			cand.setPartido(inserePartido(cand.getPartido()));
+		}
 
 		return comiteDAO.createIfNotExists(cand);
 	}
