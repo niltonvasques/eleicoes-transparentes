@@ -40,7 +40,7 @@ public class Transacao {
 	/**
 	 * Pode ser Candidato, Partido ou Comite, apenas
 	 */
-	@DatabaseField(foreign = true)
+	@DatabaseField(foreign = true, index = true)
 	private AgenteEleitoral creditado;
 	
 	/**
@@ -49,7 +49,7 @@ public class Transacao {
 	@DatabaseField
 	private String tipoCreditado;
 
-	@DatabaseField(foreign = true)
+	@DatabaseField(foreign = true, index = true)
 	private AgenteEleitoral debitado;
 	
 	/**
