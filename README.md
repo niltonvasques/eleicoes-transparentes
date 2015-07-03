@@ -4,6 +4,7 @@
 
 
 - [Introdução](#introdução)
+- [Instalação](#instalação)
 - [Checklist do projeto](#checklist-do-projeto)
 
 ### Introdução
@@ -19,6 +20,43 @@ relevantes para o eleitor:
 4. Comparativo de doações: pessoas físicas X jurídicas X fundo partidário
 5. Tratamento de informações: gráfico, tabelas, etc
 6. Parsing: dados brutos -> informações
+
+
+### Instalação
+
+    git clone https://github.com/niltonvasques/eleicoes-transparentes
+    cd eleicoes-transparentes
+  
+Importar os seguintes projetos no eclipse:
+
+  - code/EleicoesTransparentesPersistance
+  - code/ParserTSE
+  - code/RadarEleitoral
+
+Efetuar o download dos dados das eleições de 2012, no TSE ou no snapshot que já foi testado e está armazenado no mega.
+
+    axel https://mega.nz/#!aIdx3BSL!xc50O2nrlapLLfZk21d-_IvbrUZb_gFEDcHMWjqXqBo
+
+Caso deseje baixar direto do TSE, siga para o endereço:
+
+[www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais](www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais)
+
+Todos Os dados devem estar em uma pasta, organizados da seguinte maneira:
+
+  - eleicoes-2012
+    - bem_candidato_2012
+    - consulta_cand_2012
+    - perfil_eleitoral_2012
+    - prestacao_final_2012
+
+Crie um arquivo de configurações em `code/eleicoes.properties`, com o seguinte conteúdo:
+```properties
+database_url = jdbc:mysql://<MYSQL-URL>/<DBNAME>?user=<USER>&password=<SECRET-PASS>
+path_root = <PATH-DADOS>
+start_uf = AC
+```
+
+Executar o main do projeto RadarEleitoral, e usar opção 8 para preparar o banco de dados para receber os dados do parser, em seguida usar a opção 2 para iniciar o parser.
 
 ---
 ### Checklist do projeto
