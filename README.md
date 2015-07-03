@@ -60,9 +60,14 @@ start_uf = AC
 
 ---
 ### Checklist do projeto
-- [x] Parser dos dados
-- [ ] API
-  - [ ] [REST API](https://github.com/niltonvasques/eleicoes-transparentes-api)
+- [ ] Parser dos dados
+  - [ ] 2014
+  - [x] 2012
+  - [ ] 2010
+  - [ ] 2008
+  - [ ] 2006
+- [x] API
+  - [x] [REST API](https://github.com/niltonvasques/eleicoes-transparentes-api)
   - [x] Facade
 - [ ] Apps
   - [ ] Web App
